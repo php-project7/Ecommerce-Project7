@@ -588,12 +588,12 @@ include('admin/config/server.php')
                                         <?php include('./admin/config/errors.php'); ?>
 							    		<div class="form-group">
 							    			<label for="singin-email-2">Username or email address *</label>
-							    			<input type="text" class="form-control" id="singin-email-2" name="email" >
+							    			<input type="text" class="form-control" id="singin-email-2" name="login-email" >
 							    		</div><!-- End .form-group -->
 
 							    		<div class="form-group">
 							    			<label for="singin-password-2">Password *</label>
-							    			<input type="password" class="form-control" id="singin-password-2" name="password" >
+							    			<input type="password" class="form-control" id="singin-password-2" name="login-password" >
 							    		</div><!-- End .form-group -->
 
 							    		<div class="form-footer">

@@ -60,27 +60,27 @@ if (isset($_POST['reg_user'])) {
 
 
     if (isset($_POST['login_user'])) {
-        $email = $_POST['email'];
+        $email_login = $_POST['login-email'];
 
 
 
-        $password = md5($_POST['password']);
+        $password_login = md5($_POST['login-password']);
 
-        if (empty($name)) {
+        if (empty($email_login)) {
             $errors[] = "Email is required";
         }
-        if (empty($password)) {
+        if (empty($password_login)) {
             $errors[] = "Password is required";
         }
 
         if (empty($errors)) {
-            $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+            $query = "SELECT * FROM users WHERE email='$email_login' AND password='$password_login'";
             $stmt = $pdo->query($query);
             $data = $stmt->fetch(PDO::FETCH_ASSOC);
             //handling the result
             if ($data) {
 //                $_SESSION['name'] = $name;
-                $_SESSION['email'] = $email;
+                $_SESSION['email'] = $email_login;
 //                $_SESSION['last_login'] = $data['last_login'];
                 $_SESSION['success'] = "You are now logged in";
 
@@ -93,7 +93,7 @@ if (isset($_POST['reg_user'])) {
 //                    $query = "UPDATE users SET last_login = NOW() WHERE username = '$username'";
 //                    $stmt = $pdo->query($query);
                     $_SESSION['Role'] = false;
-                    header('location: google.php');
+                    header('location: index.php');
                 }
             } else {
                 $errors[] = "Wrong Email/password combination";
