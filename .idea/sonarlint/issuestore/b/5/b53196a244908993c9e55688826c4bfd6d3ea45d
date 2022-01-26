@@ -1,0 +1,49 @@
+
+CWeb:BoldAndItalicTagsCheck="Replace this <i> tag by <em>.(ŸÉĞ«
+BWeb:BoldAndItalicTagsCheckO"Replace this <i> tag by <em>.(ŞÌÎD
+HWeb:BoldAndItalicTagsCheckS"Replace this <i> tag by <em>.(·Û¹Øúÿÿÿÿ
+CWeb:BoldAndItalicTagsCheckW"Replace this <i> tag by <em>.(­ÿàÖ
+CWeb:BoldAndItalicTagsCheck["Replace this <i> tag by <em>.(ºö×ˆ
+CWeb:BoldAndItalicTagsCheck_"Replace this <i> tag by <em>.(–²ßŞ
+HWeb:BoldAndItalicTagsCheckc"Replace this <i> tag by <em>.(¸”€şÿÿÿÿ
+CWeb:BoldAndItalicTagsCheckr"Replace this <i> tag by <em>.(ƒå÷¤
+DWeb:BoldAndItalicTagsCheck©"Replace this <i> tag by <em>.(ŸÉĞ«
+CWeb:BoldAndItalicTagsCheck»"Replace this <i> tag by <em>.(ŞÌÎD
+IWeb:BoldAndItalicTagsCheck¿"Replace this <i> tag by <em>.(·Û¹Øúÿÿÿÿ
+DWeb:BoldAndItalicTagsCheckÃ"Replace this <i> tag by <em>.(­ÿàÖ
+DWeb:BoldAndItalicTagsCheckÇ"Replace this <i> tag by <em>.(ºö×ˆ
+DWeb:BoldAndItalicTagsCheckË"Replace this <i> tag by <em>.(–²ßŞ
+IWeb:BoldAndItalicTagsCheckÏ"Replace this <i> tag by <em>.(¸”€şÿÿÿÿ
+DWeb:BoldAndItalicTagsCheckŞ"Replace this <i> tag by <em>.(ƒå÷¤
+DWeb:BoldAndItalicTagsCheck“"Replace this <i> tag by <em>.(¥ú© 
+IWeb:BoldAndItalicTagsCheck™"Replace this <i> tag by <em>.(Ùì²ºüÿÿÿÿ
+IWeb:BoldAndItalicTagsCheck¹"Replace this <i> tag by <em>.(ö–úÏûÿÿÿÿ
+IWeb:BoldAndItalicTagsCheckà"Replace this <i> tag by <em>.(»²Ïæüÿÿÿÿ
+IWeb:BoldAndItalicTagsCheckè"Replace this <i> tag by <em>.(—ºà„ûÿÿÿÿ
+DWeb:BoldAndItalicTagsCheckñ"Replace this <i> tag by <em>.(Õ©Ê¶
+IWeb:BoldAndItalicTagsCheckú"Replace this <i> tag by <em>.(”Á¨°ûÿÿÿÿ
+IWeb:BoldAndItalicTagsCheck "Replace this <i> tag by <em>.(«Ğşâøÿÿÿÿ
+IWeb:BoldAndItalicTagsCheck¤"Replace this <i> tag by <em>.(ßüæ˜şÿÿÿÿ
+IWeb:BoldAndItalicTagsCheck¨"Replace this <i> tag by <em>.(³×óåùÿÿÿÿ
+IWeb:BoldAndItalicTagsCheck­"Replace this <i> tag by <em>.(­ÎƒĞıÿÿÿÿ
+IWeb:BoldAndItalicTagsCheckÂ"Replace this <i> tag by <em>.(ŞñÒøüÿÿÿÿ
+CWeb:BoldAndItalicTagsCheckÌ"Replace this <i> tag by <em>.(»©Ì'
+IWeb:BoldAndItalicTagsCheckŞ"Replace this <i> tag by <em>.(¹–—äşÿÿÿÿ
+DWeb:BoldAndItalicTagsCheckğ"Replace this <i> tag by <em>.(âÿ•–
+IWeb:BoldAndItalicTagsCheck‚"Replace this <i> tag by <em>.(´Ş¹›úÿÿÿÿ
+HWeb:TableWithoutCaptionCheck”" Add a description to this table.(Äç¯
+h Web:TableHeaderHasIdOrScopeCheck—";Add either an 'id' or a 'scope' attribute to this <th> tag.(Êé“ú
+h Web:TableHeaderHasIdOrScopeCheck˜";Add either an 'id' or a 'scope' attribute to this <th> tag.(¼ú¢½
+m Web:TableHeaderHasIdOrScopeCheck™";Add either an 'id' or a 'scope' attribute to this <th> tag.(¿·§ôıÿÿÿÿ
+h Web:TableHeaderHasIdOrScopeCheckš";Add either an 'id' or a 'scope' attribute to this <th> tag.(É–Ü
+h Web:TableHeaderHasIdOrScopeCheck›";Add either an 'id' or a 'scope' attribute to this <th> tag.(ÌÔâŸ
+h Web:TableHeaderHasIdOrScopeCheckœ";Add either an 'id' or a 'scope' attribute to this <th> tag.(™Ã«³
+NWeb:TableWithoutCaptionChecké" Add a description to this table.(Äâ•®ıÿÿÿÿ
+@	Web:S5256é"%Add "<th>" headers to this "<table>".(Äâ•®ıÿÿÿÿ
+CWeb:BoldAndItalicTagsCheck˜"Replace this <i> tag by <em>.(ÅÁã`
+IWeb:BoldAndItalicTagsCheckš"Replace this <i> tag by <em>.(¼ã­Íüÿÿÿÿ
+IWeb:BoldAndItalicTagsCheckŞ"Replace this <i> tag by <em>.(ÓŒÜıÿÿÿÿ
+IWeb:BoldAndItalicTagsCheckà"Replace this <i> tag by <em>.(¼ã­Íüÿÿÿÿ
+DWeb:BoldAndItalicTagsCheck…"Replace this <i> tag by <em>.(¢¶…‚
+Y	Web:S52558"DAdd an "aria-label" or "aria-labbelledby" attribute to this element.(´‹œ¸
+Z	Web:S5255¥"DAdd an "aria-label" or "aria-labbelledby" attribute to this element.(²¯×

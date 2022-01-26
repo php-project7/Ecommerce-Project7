@@ -1,8 +1,11 @@
+<?php
+include('admin/config/server.php')
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 
-<!-- molla/login.html  22 Nov 2019 10:04:03 GMT -->
+<!-- molla/login.php  22 Nov 2019 10:04:03 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -118,7 +121,7 @@
                                                 </div><!-- End .demo-item -->
 
                                                 <div class="demo-item">
-                                                    <a href="index-4.html">
+                                                    <a href="index.php">
                                                         <span class="demo-bg" style="background-image: url(assets/images/menu/demos/4.jpg);"></span>
                                                         <span class="demo-title">04 - electronic store</span>
                                                     </a>
@@ -385,7 +388,7 @@
                                                 <li><a href="contact-2.html">Contact 02</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="login.html">Login</a></li>
+                                        <li><a href="login.php">Login</a></li>
                                         <li><a href="pages/faq.html">FAQs</a></li>
                                         <li><a href="pages/404.html">Error 404</a></li>
                                         <li><a href="pages/coming-soon.html">Coming Soon</a></li>
@@ -581,19 +584,20 @@
 							</ul>
 							<div class="tab-content">
 							    <div class="tab-pane fade" id="signin-2" role="tabpanel" aria-labelledby="signin-tab-2">
-							    	<form action="#">
+							    	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                                        <?php include('./admin/config/errors.php'); ?>
 							    		<div class="form-group">
 							    			<label for="singin-email-2">Username or email address *</label>
-							    			<input type="text" class="form-control" id="singin-email-2" name="singin-email" required>
+							    			<input type="text" class="form-control" id="singin-email-2" name="email" >
 							    		</div><!-- End .form-group -->
 
 							    		<div class="form-group">
 							    			<label for="singin-password-2">Password *</label>
-							    			<input type="password" class="form-control" id="singin-password-2" name="singin-password" required>
+							    			<input type="password" class="form-control" id="singin-password-2" name="password" >
 							    		</div><!-- End .form-group -->
 
 							    		<div class="form-footer">
-							    			<button type="submit" class="btn btn-outline-primary-2">
+							    			<button type="submit" class="btn btn-outline-primary-2" name="login_user">
 			                					<span>LOG IN</span>
 			            						<i class="icon-long-arrow-right"></i>
 			                				</button>
@@ -625,19 +629,27 @@
 							    	</div><!-- End .form-choice -->
 							    </div><!-- .End .tab-pane -->
 							    <div class="tab-pane fade show active" id="register-2" role="tabpanel" aria-labelledby="register-tab-2">
-							    	<form action="#">
+							    	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                                        <?php include('admin/config/errors.php'); ?>
+                                        <div class="form-group">
+                                            <label for="register-email-2">Your Name *</label>
+                                            <input type="text" class="form-control" id="register-email-2" name="name" value="<?php echo $name; ?>" required>
+                                        </div>
 							    		<div class="form-group">
 							    			<label for="register-email-2">Your email address *</label>
-							    			<input type="email" class="form-control" id="register-email-2" name="register-email" required>
+							    			<input type="email" class="form-control" id="register-email-2" name="email" value="<?php echo $email; ?>" required>
 							    		</div><!-- End .form-group -->
 
 							    		<div class="form-group">
 							    			<label for="register-password-2">Password *</label>
-							    			<input type="password" class="form-control" id="register-password-2" name="register-password" required>
+							    			<input type="password" class="form-control" id="register-password-2" name="password_1" required>
 							    		</div><!-- End .form-group -->
-
+                                        <div class="form-group">
+                                            <label for="register-password-2">Confirm Password *</label>
+                                            <input type="password" class="form-control" id="register-password-2" name="password_2" required>
+                                        </div><!-- End .form-group -->
 							    		<div class="form-footer">
-							    			<button type="submit" class="btn btn-outline-primary-2">
+							    			<button type="submit" class="btn btn-outline-primary-2" name="reg_user">>
 			                					<span>SIGN UP</span>
 			            						<i class="icon-long-arrow-right"></i>
 			                				</button>
@@ -701,7 +713,7 @@
 	            					<li><a href="#">How to shop on Molla</a></li>
 	            					<li><a href="#">FAQ</a></li>
 	            					<li><a href="pages/contact.html">Contact us</a></li>
-	            					<li><a href="login.html">Log in</a></li>
+	            					<li><a href="login.php">Log in</a></li>
 	            				</ul><!-- End .widget-list -->
 	            			</div><!-- End .widget -->
 	            		</div><!-- End .col-sm-6 col-lg-3 -->
@@ -772,7 +784,7 @@
                             <li><a href="index-1.html">01 - furniture store</a></li>
                             <li><a href="index-2.html">02 - furniture store</a></li>
                             <li><a href="index-3.html">03 - electronic store</a></li>
-                            <li><a href="index-4.html">04 - electronic store</a></li>
+                            <li><a href="index.php">04 - electronic store</a></li>
                             <li><a href="index-5.html">05 - fashion store</a></li>
                             <li><a href="index-6.html">06 - fashion store</a></li>
                             <li><a href="index-7.html">07 - fashion store</a></li>
@@ -844,7 +856,7 @@
                                     <li><a href="contact-2.html">Contact 02</a></li>
                                 </ul>
                             </li>
-                            <li><a href="login.html">Login</a></li>
+                            <li><a href="login.php">Login</a></li>
                             <li><a href="pages/faq.html">FAQs</a></li>
                             <li><a href="pages/404.html">Error 404</a></li>
                             <li><a href="pages/coming-soon.html">Coming Soon</a></li>
@@ -1048,5 +1060,5 @@
 </body>
 
 
-<!-- molla/login.html  22 Nov 2019 10:04:03 GMT -->
+<!-- molla/login.php  22 Nov 2019 10:04:03 GMT -->
 </html>

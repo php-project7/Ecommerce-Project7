@@ -2,7 +2,7 @@
 <html lang="en">
 
 
-<!-- molla/index-4.html  22 Nov 2019 09:53:08 GMT -->
+<!-- molla/index.php  22 Nov 2019 09:53:08 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -275,7 +275,7 @@
                                                 </div><!-- End .demo-item -->
 
                                                 <div class="demo-item">
-                                                    <a href="index-4.html">
+                                                    <a href="index.php">
                                                         <span class="demo-bg" style="background-image: url(assets/images/menu/demos/4.jpg);"></span>
                                                         <span class="demo-title">04 - electronic store</span>
                                                     </a>
@@ -542,7 +542,7 @@
                                                 <li><a href="contact-2.html">Contact 02</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="login.html">Login</a></li>
+                                        <li><a href="login.php">Login</a></li>
                                         <li><a href="pages/faq.html">FAQs</a></li>
                                         <li><a href="pages/404.html">Error 404</a></li>
                                         <li><a href="pages/coming-soon.html">Coming Soon</a></li>
@@ -2191,7 +2191,7 @@
                                     <span class="new-price">$29.99</span>
                                 </div><!-- End .product-price -->
 
-                                <a href="login.html" class="btn btn-link"><span>Sign In and Save money</span><i class="icon-long-arrow-right"></i></a>
+                                <a href="login.php" class="btn btn-link"><span>Sign In and Save money</span><i class="icon-long-arrow-right"></i></a>
                             </div><!-- End .deal-content -->
 
                             <div class="deal-bottom">
@@ -3417,7 +3417,7 @@
                                     <li><a href="index-1.html">01 - furniture store</a></li>
                                     <li><a href="index-2.html">02 - furniture store</a></li>
                                     <li><a href="index-3.html">03 - electronic store</a></li>
-                                    <li><a href="index-4.html">04 - electronic store</a></li>
+                                    <li><a href="index.php">04 - electronic store</a></li>
                                     <li><a href="index-5.html">05 - fashion store</a></li>
                                     <li><a href="index-6.html">06 - fashion store</a></li>
                                     <li><a href="index-7.html">07 - fashion store</a></li>
@@ -3489,7 +3489,7 @@
                                             <li><a href="contact-2.html">Contact 02</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="login.html">Login</a></li>
+                                    <li><a href="login.php">Login</a></li>
                                     <li><a href="pages/faq.html">FAQs</a></li>
                                     <li><a href="pages/404.html">Error 404</a></li>
                                     <li><a href="pages/coming-soon.html">Coming Soon</a></li>
@@ -3747,5 +3747,5 @@
 </body>
 
 
-<!-- molla/index-4.html  22 Nov 2019 09:54:18 GMT -->
+<!-- molla/index.php  22 Nov 2019 09:54:18 GMT -->
 </html>
