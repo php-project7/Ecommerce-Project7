@@ -1,3 +1,11 @@
+<?php
+if(isset($_GET['logout'])){
+    unset($_SESSION['email'], $_SESSION['name']);
+    session_destroy();
+    header("Location: ../login.php");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -231,7 +239,7 @@
                                         <img src="../images/icon/avatar-01.jpg" alt="John Doe" />
                                     </div>
                                     <div class="content">
-                                        <a class="js-acc-btn" href="#">john doe</a>
+                                        <a class="js-acc-btn" href="#"><?php echo $_SESSION['name'] ?></a>
                                     </div>
                                     <div class="account-dropdown js-dropdown">
                                         <div class="info clearfix">
@@ -242,9 +250,9 @@
                                             </div>
                                             <div class="content">
                                                 <h5 class="name">
-                                                    <a href="#">john doe</a>
+                                                    <a href="#"><?php echo $_SESSION['name'] ?></a>
                                                 </h5>
-                                                <span class="email">johndoe@example.com</span>
+                                                <span class="email"><?php echo $_SESSION['email'] ?></span>
                                             </div>
                                         </div>
                                         <div class="account-dropdown__body">
@@ -261,9 +269,13 @@
                                                     <i class="zmdi zmdi-money-box"></i>Billing</a>
                                             </div>
                                         </div>
+
                                         <div class="account-dropdown__footer">
-                                            <a href="#">
+
+
+                                            <a href="?logout=1">
                                                 <i class="zmdi zmdi-power"></i>Logout</a>
+
                                         </div>
                                     </div>
                                 </div>
@@ -274,3 +286,4 @@
             </div>
         </header>
         <!-- HEADER DESKTOP-->
+

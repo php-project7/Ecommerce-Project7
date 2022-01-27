@@ -27,11 +27,11 @@ if (isset($_GET['id'])) {
             $stmt = $pdo->prepare('DELETE FROM users WHERE id = ?');
             $stmt->execute([$_GET['id']]);
             $msg = 'You have deleted the contact!';
-            header('Location: ../index.php');
+            header('Location: ./index.php');
 
         } else {
             // User clicked the "No" button, redirect them back to the read page
-            header('Location: ../index.php');
+            header('Location: ./index.php');
             exit;
         }
     }
