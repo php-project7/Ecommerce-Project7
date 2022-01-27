@@ -21,7 +21,5 @@ C
 pages/checkout.html,4\7\47319dfa196206001c271927bab9e42fa0768e26
 G
 admin/config/errors.php,a\c\ac2816e266b0c1822b393643cfde724d5a193b76
-9
-	index.php,b\b\bb6499b8e938f92a3695fff1afe57edea4b9efb7
 A
 admin/index2.html,3\b\3bd6c09b65ba80ee7c3f5724084b07ef971c438c
