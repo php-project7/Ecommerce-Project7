@@ -1,12 +1,12 @@
 <?php
 include('../../admin/config/server.php');
 
-//if (($_SESSION['Role']) != 1) {
-//    $_SESSION['msg'] = "You must log in first";
-//    echo "<script>alert('You must log in first');</script>";
-//
-//    header('location: ../login.php');
-//}
+if (($_SESSION['Role']) != 1) {
+    $_SESSION['msg'] = "You must log in first";
+    echo "<script>alert('You must log in first');</script>";
+
+    header('location: ../../login.php');
+}
 
 //get all users from database
 $sql = $pdo->prepare('SELECT * FROM users ORDER BY id');

@@ -1,8 +1,8 @@
 <?php
 if(isset($_GET['logout'])){
-    unset($_SESSION['email'], $_SESSION['name']);
+    unset($_SESSION['email'], $_SESSION['name'], $_SESSION['Role']);
     session_destroy();
-    header("Location: ../login.php");
+    header("Location: ../../login.php");
 }
 
 ?>

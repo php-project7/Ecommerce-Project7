@@ -2,10 +2,18 @@
 require('./config/connection.php');
 ?>
 <?php
+
+if (($_SESSION['Role']) != 1) {
+    $_SESSION['msg'] = "You must log in first";
+    echo "<script>alert('You must log in first');</script>";
+
+    header('location: ../login.php');
+}
+
 if(isset($_GET['logout'])){
-    unset($_SESSION['email'], $_SESSION['name']);
+    unset($_SESSION['email'], $_SESSION['name'], $_SESSION['Role']);
     session_destroy();
-    header("Location: ../../login.php");
+    header("Location: ../login.php");
 }
 
 ?>

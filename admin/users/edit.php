@@ -1,5 +1,13 @@
 <?php
 require('../config/connection.php');
+
+if (($_SESSION['Role']) != 1) {
+    $_SESSION['msg'] = "You must log in first";
+    echo "<script>alert('You must log in first');</script>";
+
+    header('location: ../../login.php');
+}
+
 $msg = '';
 $errors = array();
 
