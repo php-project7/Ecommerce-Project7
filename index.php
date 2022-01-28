@@ -1,6 +1,11 @@
-<?php 
+<?php
  include('admin/config/server.php');
-   ?>
+
+
+$sql = $pdo->query("SELECT * FROM products WHERE discount >'0'");
+$result = $sql->fetchAll();
+
+?>
 
 
 <!DOCTYPE html>
@@ -1545,30 +1550,25 @@
                                 }
                             }'
               >
-              <?php
-               $sql =$pdo->prepare("SELECT * FROM products WHERE discount >'0'");
-               $sql->execute();
-                    foreach($sql as $element){
-                      echo "<div class='product product-2'>";
-                      echo "<figure class='product-media'>";
-                      echo "<span class='product-label label-circle label-top'>Sale</span>";
-                      echo "<a href='pages/product.html'><img src='$element[img]' alt='Product image' class='product-image'/></a>";
-                      echo "<div class='product-action-vertical'><a href='#' class='btn-product-icon btn-wishlist' title='Add to wishlist'></a></div>";
-                      echo "<div class='product-action'><a href='#' class='btn-product btn-cart' title='Add to cart'><span>add to cart</span></a>
-                      <a href='popup/quickView.html' class='btn-product btn-quickview' title='Quick view'><span>quick view</span></a></div>";
-                      echo "</figure>";
-                      echo " <div class='product-body'>";
-                      echo "<div class='product-cat'><a href='#'>Laptops</a></div>";
-                      echo "<h3 class='product-title'><a href='pages/product.html'>$element[name]</a></h3>";
-                      echo "<div class='product-price'>$element[price]J.D</div>";
-                      echo "</div>";
-                      echo "</div>";
 
-                    }
-                
-                ?> 
-            
-              
+                <?php foreach($result as $row) { ?>
+                    <div class='product product-2'>
+                        <figure class='product-media'>
+                            <span class='product-label label-circle label-top'>Sale</span>
+                            <a href='pages/product.html'><img src="<?= $row['img'] ?>" alt='Product image' class='product-image'/></a>
+                            <div class='product-action-vertical'><a href='#' class='btn-product-icon btn-wishlist' title='Add to wishlist'></a></div>
+                            <div class='product-action'><a href='#' class='btn-product btn-cart' title='Add to cart'><span>add to cart</span></a>
+                                <a href='popup/quickView.html' class='btn-product btn-quickview' title='Quick view'><span>quick view</span></a></div>
+                        </figure>
+                        <div class='product-body'>
+                            <div class='product-cat'><a href='#'>Laptops</a></div>
+                            <h3 class='product-title'><a href='pages/product.html'><?= $row['name']?></a></h3>
+                            <div class='product-price'><?= $row['price']?> . J.D</div>
+                        </div>
+                    </div>
+                <?php } ?>
+
+
                 <!-- End .product -->
               </div>
               <!-- End .owl-carousel -->
@@ -1642,7 +1642,7 @@
                     >
                   </h3> -->
                   <!-- End .product-title -->
-<!-- 
+<!--
                   <div class="product-price">
                     <span class="new-price">$129.00</span>
                     <span class="old-price">Was $150.99</span>
@@ -1928,10 +1928,10 @@
                       echo "</div>";
 
                     }
-                
-                ?> 
-            
-              
+
+                ?>
+
+
                 <!-- End .product -->
               </div>
               <!-- End .owl-carousel -->
@@ -2244,7 +2244,7 @@
                     <!-- End .product-action -->
                   <!-- </figure> -->
                   <!-- End .product-media -->
-<!-- 
+<!--
                   <div class="product-body">
                     <div class="product-cat">
                       <a href="#">Laptops</a>

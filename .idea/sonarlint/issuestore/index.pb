@@ -23,3 +23,15 @@ G
 admin/config/errors.php,a\c\ac2816e266b0c1822b393643cfde724d5a193b76
 A
 admin/index2.html,3\b\3bd6c09b65ba80ee7c3f5724084b07ef971c438c
+9
+	login.php,a\7\a7beef4050e4205c8b59eb204ec9bb15ce01d9c0
+K
+admin/config/connection.php,8\8\8826897479c548bdf8e2ccd8a4d5cbedc5ddaa81
+G
+admin/layout/footer.php,e\d\edbe94abbf49f7b715382de2e1ce580af8ecc9be
+L
+admin/layoutAdmin/footer.php,2\9\29da1388942cba5d6f56cfed3f7dd1b7253fab22
+L
+admin/layoutAdmin/header.php,c\4\c42cc7f48264de4daf6de4c23388cfdd6995b747
+G
+admin/config/server.php,0\f\0fad0d4ee712a225c43ac672443fc53dbbeac7cf
