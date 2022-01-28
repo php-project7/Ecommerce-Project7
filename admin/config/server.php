@@ -79,12 +79,12 @@ if (isset($_POST['reg_user'])) {
             $data = $stmt->fetch(PDO::FETCH_ASSOC);
             //handling the result
             if ($data) {
-//                $_SESSION['name'] = $name;
+                $_SESSION['name'] = $name;
                 $_SESSION['email'] = $email_login;
 //                $_SESSION['last_login'] = $data['last_login'];
                 $_SESSION['success'] = "You are now logged in";
 
-                if ($data['Role'] === 1) {
+                if ($data['role'] == 1) {
                     $_SESSION['Role'] = true;
 //                    $query = "UPDATE users SET last_login = NOW() WHERE username = '$username'";
 //                    $stmt = $pdo->query($query);
