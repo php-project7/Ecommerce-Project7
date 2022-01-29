@@ -3,6 +3,7 @@
 
  
  if($_SERVER["REQUEST_METHOD"]=="GET"){
+     
  $value= $_GET["id"];
     $sql1=$pdo->prepare("SELECT * FROM products WHERE id='$value'");
     $sql1->execute();
