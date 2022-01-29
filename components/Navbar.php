@@ -120,26 +120,26 @@
                         <nav class="main-nav">
                             <ul class="menu sf-arrows">
                                 <li class="megamenu-container active">
-                                    <a href="../index.php" class="sf-with-ul">Home</a>
+                                    <a href="../index.php" class="  ">Home</a>
 
                                     
                                 </li>
                                 <li>
-                                    <a href="../pages/category-list.html" class="sf-with-ul">Shop</a>
+                                    <a href="../pages/category-list.html" class="  ">Shop</a>
 
                                     
                                 </li>
                                 <li>
-                                    <a href="../pages/cart.php" class="sf-with-ul">Cart</a>
+                                    <a href="../pages/cart.php" class="  ">Cart</a>
 
                                     
                                 <li>
-                                    <a href="../pages/checkout.html" class="sf-with-ul">Checkout</a>
+                                    <a href="../pages/checkout.html" class="  ">Checkout</a>
 
                                     
                                 </li>
                                 <li>
-                                    <a href="../pages/dashboard.html" class="sf-with-ul">My Account</a>
+                                    <a href="../pages/dashboard.html" class="  ">My Account</a>
 
                                     
                                 </li>
@@ -222,26 +222,26 @@
                     </ul>
                 </li>
                 <li>
-                <a href="../pages/category-list.html" class="sf-with-ul">Shop</a>
+                <a href="../pages/category-list.html" class="  ">Shop</a>
                     <ul>
                        
                     </ul>
                 </li>
                 <li>
-                <a href="../pages/cart.php" class="sf-with-ul">Cart</a>
+                <a href="../pages/cart.php" class="  ">Cart</a>
                     <ul>
                        
                     </ul>
                 </li>
                 <li>
-                <a href="../pages/checkout.html" class="sf-with-ul">Checkout</a>
+                <a href="../pages/checkout.html" class="  ">Checkout</a>
                     <ul>
                       
                        
                     </ul>
                 </li>
                 <li>
-                <a href="../pages/dashboard.html" class="sf-with-ul">My Account</a>
+                <a href="../pages/dashboard.html" class="  ">My Account</a>
 
                     <ul>
                     </ul>

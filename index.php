@@ -81,7 +81,9 @@ $result1 = $stmt->fetchAll();
 
   <body>
     <?php
-  var_dump($_SESSION['id']);
+  // print_r($_SESSION['id']);
+  // $dt=print_r($_SESSION['id'],TRUE);
+  // print_r($dt);
   ?>
     <div class="page-wrapper">
       <header class="header header-intro-clearance header-4">
@@ -402,7 +404,7 @@ $result1 = $stmt->fetchAll();
               <nav class="main-nav">
                 <ul class="menu sf-arrows">
                   <li class="megamenu-container active">
-                    <a href="index.html" class="sf-with-ul">Home</a>
+                    <a href="index.html">Home</a>
 
                     <!-- <div class="megamenu demo">
                       <div class="menu-col">
@@ -3316,11 +3318,11 @@ $result1 = $stmt->fetchAll();
         </div><!-- End .modal-dialog -->
     </div><!-- End .modal -->
 
-    <div
+    <!-- <div
       class="container newsletter-popup-container mfp-hide"
       id="newsletter-popup-form"
-    >
-      <div class="row justify-content-center">
+    > -->
+      <!-- <div class="row justify-content-center">
         <div class="col-10">
           <div class="row no-gutters bg-white newsletter-popup-content">
             <div class="col-xl-3-5col col-lg-7 banner-content-wrap">
@@ -3351,9 +3353,9 @@ $result1 = $stmt->fetchAll();
                     <div class="input-group-append">
                       <button class="btn" type="submit"><span>go</span></button>
                     </div>
-                    <!-- .End .input-group-append -->
+                    .End .input-group-append
                   </div>
-                  <!-- .End .input-group -->
+                  .End .input-group
                 </form>
                 <div class="custom-control custom-checkbox">
                   <input
@@ -3366,7 +3368,7 @@ $result1 = $stmt->fetchAll();
                     >Do not show this popup again</label
                   >
                 </div>
-                <!-- End .custom-checkbox -->
+                End .custom-checkbox
               </div>
             </div>
             <div class="col-xl-2-5col col-lg-5">
@@ -3378,7 +3380,7 @@ $result1 = $stmt->fetchAll();
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <!-- Plugins JS File -->
     <script src="assets/js/jquery.min.js"></script>
