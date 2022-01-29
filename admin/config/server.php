@@ -47,57 +47,75 @@ if (isset($_POST['reg_user'])) {
 
     // Finally, register user if there are no errors in the form
     if (empty($errors)) {
-        $password = md5($password_1);//encrypt the password before saving in the database
-            $query = "INSERT INTO users (name, email, password)   
+        $password = md5($password_1); //encrypt the password before saving in the database
+        $query = "INSERT INTO users (name, email, password)   
   			  VALUES('$name', '$email', '$password')";
-            $stmt = $pdo->query($query);
-            $_SESSION['name'] = $name;
-            $_SESSION['email'] = $email;
-            $_SESSION['success'] = "You are now logged in";
-            header('location: index.php');
+        $stmt = $pdo->query($query);
+        $_SESSION['name'] = $name;
+        $_SESSION['email'] = $email;
+        $_SESSION['success'] = "You are now logged in";
+
+        try {
+            $command = "SELECT id FROM users WHERE email = '$email';";
+            $statement = $pdo->prepare($command);
+            $statement->execute();
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            $_SESSION['id'] = $result['id'];
+        } catch (PDOException $e) {
+            echo "error" . $e;
         }
+        header('location: index.php');
+    }
 }
 
 
-    if (isset($_POST['login_user'])) {
-        $email_login = $_POST['login-email'];
+if (isset($_POST['login_user'])) {
+    $email_login = $_POST['login-email'];
 
 
 
-        $password_login = md5($_POST['login-password']);
+    $password_login = md5($_POST['login-password']);
 
-        if (empty($email_login)) {
-            $errors[] = "Email is required";
-        }
-        if (empty($password_login)) {
-            $errors[] = "Password is required";
-        }
+    if (empty($email_login)) {
+        $errors[] = "Email is required";
+    }
+    if (empty($password_login)) {
+        $errors[] = "Password is required";
+    }
 
-        if (empty($errors)) {
-            $query = "SELECT * FROM users WHERE email='$email_login' AND password='$password_login'";
-            $stmt = $pdo->query($query);
-            $data = $stmt->fetch(PDO::FETCH_ASSOC);
-            //handling the result
-            if ($data) {
-                $_SESSION['name'] = $name;
-                $_SESSION['email'] = $email_login;
-//                $_SESSION['last_login'] = $data['last_login'];
-                $_SESSION['success'] = "You are now logged in";
-
-                if ($data['role'] == 1) {
-                    $_SESSION['Role'] = true;
-//                    $query = "UPDATE users SET last_login = NOW() WHERE username = '$username'";
-//                    $stmt = $pdo->query($query);
-                    header('location: admin/index.php');
-                } else {
-//                    $query = "UPDATE users SET last_login = NOW() WHERE username = '$username'";
-//                    $stmt = $pdo->query($query);
-                    $_SESSION['Role'] = false;
-                    header('location: index.php');
-                }
-            } else {
-                $errors[] = "Wrong Email/password combination";
+    if (empty($errors)) {
+        $query = "SELECT * FROM users WHERE email='$email_login' AND password='$password_login'";
+        $stmt = $pdo->query($query);
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+        //handling the result
+        if ($data) {
+            $_SESSION['name'] = $name;
+            $_SESSION['email'] = $email_login;
+            //                $_SESSION['last_login'] = $data['last_login'];
+            $_SESSION['success'] = "You are now logged in";
+            try {
+                $command = "SELECT id FROM users WHERE email = '$email';";
+                $statement = $pdo->prepare($command);
+                $statement->execute();
+                $result = $statement->fetch(PDO::FETCH_ASSOC);
+                $_SESSION['id'] = $result['id'];
+            } catch (PDOException $e) {
+                echo "error" . $e;
             }
+            if ($data['role'] == 1) {
+                $_SESSION['Role'] = true;
+                //                    $query = "UPDATE users SET last_login = NOW() WHERE username = '$username'";
+                //                    $stmt = $pdo->query($query);
+                header('location: admin/index.php');
+            } else {
+                //                    $query = "UPDATE users SET last_login = NOW() WHERE username = '$username'";
+                //                    $stmt = $pdo->query($query);
+                $_SESSION['Role'] = false;
+                header('location: index.php');
+            }
+        } else {
+            $errors[] = "Wrong Email/password combination";
         }
     }
+}
 

@@ -43,7 +43,5 @@ F
 admin/users/delete.php,8\3\83f70a2470795305f07a5bf0098d0a2b3c590a3d
 @
 admin/js/main.js,0\8\08a9918acb9d1127ce8a293089f43e3c77755a0e
-G
-admin/config/server.php,0\f\0fad0d4ee712a225c43ac672443fc53dbbeac7cf
 K
 admin/users/create_user.php,c\5\c54ecfee1d1f0675c8affb4ec67be7be2a945061
