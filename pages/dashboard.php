@@ -1,8 +1,85 @@
+<?php
+require("../admin/config/connection.php");
+
+$errors = array();
+
+//check if the user is logged in
+if(!isset($_SESSION['id'])){
+    header("Location: ../index.php");
+}
+
+    $user_id = $_SESSION['id'];
+    $sql = "SELECT * FROM users WHERE id = '$user_id'";
+   //pdo
+    $result = $pdo->query($sql);
+    $row = $result->fetch(PDO::FETCH_ASSOC);
+    $user_name = $row['name'];
+    $user_email = $row['email'];
+    $user_password = $row['password'];
+
+
+
+if(isset($_POST['submit_save'])){
+    //get the data from the form
+    $name = isset($_POST['user_name']) ? $_POST['user_name'] : '';
+    $email = isset($_POST['user_email']) ? $_POST['user_email'] : '';
+    $password = isset($_POST['user_password']) ? $_POST['user_password'] : '';
+    $new_password = isset($_POST['new_password']) ? $_POST['new_password'] : '';
+    $confirm_password = isset($_POST['confirm_password']) ? $_POST['confirm_password'] : '';
+
+    //validate the data
+    if(empty($name)){
+        $errors['name'] = "Name is required";
+    }
+    if(empty($email)){
+        $errors['email'] = "Email is required";
+    }
+    if(empty($password)){
+        $errors['password'] = "Password is required";
+    }
+
+    if(!empty($new_password) && !empty($confirm_password)){
+        if($new_password !== $confirm_password){
+            $errors[] = "Passwords do not match";
+        }
+    }
+
+    $sql = "SELECT * FROM users WHERE email = '$email'";
+    $stmt = $pdo->query($sql);
+    $result = $stmt->fetchAll();
+    if (count($result) > 0){
+        $errors['email'] = 'Email already exist';
+    }
+
+
+
+    // check if his current password is correct then update the data
+    if(empty($errors)){
+        $password = md5($password);
+        $sql = "SELECT * FROM users WHERE id = $user_id";
+        $result = $pdo->query($sql);
+        $row = $result->fetch(PDO::FETCH_ASSOC);
+
+        //check if the password is correct and if the user needs to change the password
+        if($row['password'] === $password){
+            if(!empty($new_password)){
+                $new_password = md5($new_password);
+                $sql = "UPDATE users SET name = '$name', email = '$email', password = '$new_password' WHERE id = $user_id";
+                $stmt = $pdo->query($sql);
+            }else{
+                $sql = "UPDATE users SET name = '$name', email = '$email' WHERE id = $user_id";
+                $stmt = $pdo->query($sql);
+            }
+        }else{
+            $errors[] = "Current password is incorrect";
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
-
-<!-- molla/dashboard.html  22 Nov 2019 10:03:13 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -308,7 +385,7 @@
                                                                 <li><a href="cart.html">Cart</a></li>
                                                                 <li><a href="checkout.html">Checkout</a></li>
                                                                 <li><a href="wishlist.html">Wishlist</a></li>
-                                                                <li><a href="dashboard.html">My Account</a></li>
+                                                                <li><a href="dashboard.php">My Account</a></li>
                                                                 <li><a href="#">Lookbook</a></li>
                                                             </ul>
                                                         </div><!-- End .col-md-6 -->
@@ -602,7 +679,7 @@
 	                		<div class="col-md-8 col-lg-9">
 	                			<div class="tab-content">
 								    <div class="tab-pane fade show active" id="tab-dashboard" role="tabpanel" aria-labelledby="tab-dashboard-link">
-								    	<p>Hello <span class="font-weight-normal text-dark">User</span> (not <span class="font-weight-normal text-dark">User</span>? <a href="#">Log out</a>) 
+								    	<p>Hello <span class="font-weight-normal text-dark"><?= $user_name  ?></span> (not <span class="font-weight-normal text-dark">User</span>? <a href="#">Log out</a>)
 								    	<br>
 								    	From your account dashboard you can view your <a href="#tab-orders" class="tab-trigger-link link-underline">recent orders</a>, manage your <a href="#tab-address" class="tab-trigger-link">shipping and billing addresses</a>, and <a href="#tab-account" class="tab-trigger-link">edit your password and account details</a>.</p>
 								    </div><!-- .End .tab-pane -->
@@ -626,7 +703,7 @@
 								    				<div class="card-body">
 								    					<h3 class="card-title">Billing Address</h3><!-- End .card-title -->
 
-														<p>User Name<br>
+														<p><?= $user_name?> <br>
 														User Company<br>
 														John str<br>
 														New York, NY 10001<br>
@@ -651,36 +728,26 @@
 								    </div><!-- .End .tab-pane -->
 
 								    <div class="tab-pane fade" id="tab-account" role="tabpanel" aria-labelledby="tab-account-link">
-								    	<form action="#">
-			                				<div class="row">
-			                					<div class="col-sm-6">
-			                						<label>First Name *</label>
-			                						<input type="text" class="form-control" required>
-			                					</div><!-- End .col-sm-6 -->
-
-			                					<div class="col-sm-6">
-			                						<label>Last Name *</label>
-			                						<input type="text" class="form-control" required>
-			                					</div><!-- End .col-sm-6 -->
-			                				</div><!-- End .row -->
-
+								    	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                                            <?php foreach ($errors as $error) : ?>
+                                                <p class="alert alert-danger"><?php echo $error ?></p>
+                                            <?php endforeach ?>
 		            						<label>Display Name *</label>
-		            						<input type="text" class="form-control" required>
+		            						<input type="text" class="form-control" value="<?= $user_name ?>" name="user_name" >
 		            						<small class="form-text">This will be how your name will be displayed in the account section and in reviews</small>
-
 		                					<label>Email address *</label>
-		        							<input type="email" class="form-control" required>
+		        							<input type="email" class="form-control" value="<?= $user_email ?>"  name="user_email" placeholderrequired>
 
 		            						<label>Current password (leave blank to leave unchanged)</label>
-		            						<input type="password" class="form-control">
+		            						<input type="password" class="form-control" name="user_password">
 
 		            						<label>New password (leave blank to leave unchanged)</label>
-		            						<input type="password" class="form-control">
+		            						<input type="password" class="form-control" name="new_password">
 
 		            						<label>Confirm new password</label>
-		            						<input type="password" class="form-control mb-2">
+		            						<input type="password" class="form-control mb-2" name="confirm_password">
 
-		                					<button type="submit" class="btn btn-outline-primary-2">
+		                					<button type="submit" class="btn btn-outline-primary-2" name="submit_save">
 			                					<span>SAVE CHANGES</span>
 			            						<i class="icon-long-arrow-right"></i>
 			                				</button>
@@ -1069,5 +1136,5 @@
 </body>
 
 
-<!-- molla/dashboard.html  22 Nov 2019 10:03:13 GMT -->
+<!-- molla/dashboard.php  22 Nov 2019 10:03:13 GMT -->
 </html>

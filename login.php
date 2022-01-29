@@ -311,7 +311,7 @@ include('admin/config/server.php')
                                                                 <li><a href="pages/cart.html">Cart</a></li>
                                                                 <li><a href="pages/checkout.html">Checkout</a></li>
                                                                 <li><a href="pages/wishlist.html">Wishlist</a></li>
-                                                                <li><a href="pages/dashboard.html">My Account</a></li>
+                                                                <li><a href="pages/dashboard.php">My Account</a></li>
                                                                 <li><a href="#">Lookbook</a></li>
                                                             </ul>
                                                         </div><!-- End .col-md-6 -->

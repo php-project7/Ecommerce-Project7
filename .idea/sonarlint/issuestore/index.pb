@@ -3,8 +3,6 @@ C
 pages/wishlist.html,3\f\3f000c6a3e8d216c41ecc25ba5fb403c93418442
 B
 pages/product.html,a\1\a1d0b66a59ce30170540c44eaeef7d9b2db01439
->
-pages/faq.html,f\b\fb447bd133e3d234670593671c8a2c27245ec989
 B
 pages/contact.html,f\7\f75d4262b6574d5a588f845a4dc9ab04a6644c9c
 F
@@ -19,8 +17,6 @@ C
 pages/checkout.html,4\7\47319dfa196206001c271927bab9e42fa0768e26
 A
 admin/index2.html,3\b\3bd6c09b65ba80ee7c3f5724084b07ef971c438c
-9
-	login.php,a\7\a7beef4050e4205c8b59eb204ec9bb15ce01d9c0
 K
 admin/config/connection.php,8\8\8826897479c548bdf8e2ccd8a4d5cbedc5ddaa81
 G
@@ -29,16 +25,12 @@ L
 admin/layoutAdmin/footer.php,2\9\29da1388942cba5d6f56cfed3f7dd1b7253fab22
 L
 admin/layoutAdmin/header.php,c\4\c42cc7f48264de4daf6de4c23388cfdd6995b747
-G
-admin/config/errors.php,a\c\ac2816e266b0c1822b393643cfde724d5a193b76
 9
 	index.php,b\b\bb6499b8e938f92a3695fff1afe57edea4b9efb7
 G
 admin/layout/header.php,f\4\f42b1b85640f5b4776409d6a82de3810750b7272
 E
 admin/users/index.php,e\9\e919609a8eff7fd09d9c28a1c4ca098f23fd5a32
-D
-admin/users/edit.php,d\1\d111d038fcc84f70475abbd90d268484cd7d38a5
 F
 admin/users/delete.php,8\3\83f70a2470795305f07a5bf0098d0a2b3c590a3d
 @

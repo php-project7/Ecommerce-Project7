@@ -56,7 +56,7 @@ if (isset($_POST['reg_user'])) {
         $_SESSION['success'] = "You are now logged in";
 
         try {
-            $command = "SELECT id FROM users WHERE email = '$email';";
+            $command = "SELECT id FROM users WHERE email = '$email'";
             $statement = $pdo->prepare($command);
             $statement->execute();
             $result = $statement->fetch(PDO::FETCH_ASSOC);
