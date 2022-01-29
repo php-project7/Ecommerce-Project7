@@ -78,6 +78,10 @@ if(isset($_GET['logout'])){
                                 <a class="js-arrow" href="../products/index.php">
                                     <i class="fas fa-cart-arrow-down"></i>Products</a>
                             </li>
+                            <li class="has-sub">
+                                <a class="js-arrow" href="../categories/index.php">
+                                    <i class="fas fa-cart-arrow-down"></i>Categories</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -103,6 +107,10 @@ if(isset($_GET['logout'])){
                     <li class="has-sub">
                         <a class="js-arrow" href="../products/index.php">
                             <i class="fas fa-cart-arrow-down"></i>Products</a>
+                    </li>
+                    <li class="has-sub">
+                        <a class="js-arrow" href="../categories/index.php">
+                            <i class="fas fa-cart-arrow-down"></i>Categories</a>
                     </li>
                 </ul>
             </nav>
