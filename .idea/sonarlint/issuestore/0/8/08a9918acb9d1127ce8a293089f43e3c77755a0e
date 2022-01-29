@@ -1,0 +1,98 @@
+
+pjavascript:S3776"TRefactor this function to reduce its Cognitive Complexity from 33 to the 15 allowed.(éÈ„±
+zjavascript:S2392"YConsider moving declaration of 'ctx' as it is referenced outside current binding context.(ùøŸ‘şÿÿÿÿ
+yjavascript:S2392"]Consider moving declaration of 'myChart' as it is referenced outside current binding context.(Àœ­£
+Tjavascript:S1481"8Remove the declaration of the unused 'myChart' variable.(Àœ­£
+Qjavascript:S1854"5Remove this useless assignment to variable "myChart".(Àœ­£
+:javascript:S2814J"'ctx' is already defined.(”Ûóøÿÿÿÿ
+9javascript:S2814M"'myChart' is already defined.(Àœ­£
+Tjavascript:S1481M"8Remove the declaration of the unused 'myChart' variable.(Àœ­£
+Qjavascript:S1854M"5Remove this useless assignment to variable "myChart".(Àœ­£
+6javascript:S2814‘"'ctx' is already defined.(‰–¶ş
+:javascript:S2814”"'myChart' is already defined.(Àœ­£
+Ujavascript:S1481”"8Remove the declaration of the unused 'myChart' variable.(Àœ­£
+Rjavascript:S1854”"5Remove this useless assignment to variable "myChart".(Àœ­£
+;javascript:S2814×"'ctx' is already defined.(…”åĞüÿÿÿÿ
+:javascript:S2814Ú"'myChart' is already defined.(Àœ­£
+Ujavascript:S1481Ú"8Remove the declaration of the unused 'myChart' variable.(Àœ­£
+Rjavascript:S1854Ú"5Remove this useless assignment to variable "myChart".(Àœ­£
+Vjavascript:S1481ÿ"9Remove the declaration of the unused 'elements' variable.(ğäôî
+Sjavascript:S1854ÿ"6Remove this useless assignment to variable "elements".(ğäôî
+;javascript:S2814ƒ"'ctx' is already defined.(ÜÔá´üÿÿÿÿ
+:javascript:S2814†"'myChart' is already defined.(Àœ­£
+Ujavascript:S1481†"8Remove the declaration of the unused 'myChart' variable.(Àœ­£
+Rjavascript:S1854†"5Remove this useless assignment to variable "myChart".(Àœ­£
+;javascript:S2814Ï"'ctx' is already defined.(ÎÆìåùÿÿÿÿ
+:javascript:S2814Ò"'myChart' is already defined.(Àœ­£
+Ujavascript:S1481Ò"8Remove the declaration of the unused 'myChart' variable.(Àœ­£
+Rjavascript:S1854Ò"5Remove this useless assignment to variable "myChart".(Àœ­£
+;javascript:S2814–"'ctx' is already defined.(úúÍµûÿÿÿÿ
+:javascript:S2814™"'myChart' is already defined.(Àœ­£
+Ujavascript:S1481™"8Remove the declaration of the unused 'myChart' variable.(Àœ­£
+Rjavascript:S1854™"5Remove this useless assignment to variable "myChart".(Àœ­£
+5javascript:S2814ô"'ctx' is already defined.(²Èç/
+:javascript:S2814÷"'myChart' is already defined.(Àœ­£
+Ujavascript:S1481÷"8Remove the declaration of the unused 'myChart' variable.(Àœ­£
+Rjavascript:S1854÷"5Remove this useless assignment to variable "myChart".(Àœ­£
+6javascript:S2814Å"'ctx' is already defined.(·­æ’
+:javascript:S2814È"'myChart' is already defined.(Àœ­£
+Ujavascript:S1481È"8Remove the declaration of the unused 'myChart' variable.(Àœ­£
+Rjavascript:S1854È"5Remove this useless assignment to variable "myChart".(Àœ­£
+6javascript:S2814ğ"'ctx' is already defined.(êô÷Œ
+:javascript:S2814ó"'myChart' is already defined.(Àœ­£
+Ujavascript:S1481ó"8Remove the declaration of the unused 'myChart' variable.(Àœ­£
+Rjavascript:S1854ó"5Remove this useless assignment to variable "myChart".(Àœ­£
+6javascript:S2814²"'ctx' is already defined.(ô÷—±
+:javascript:S2814µ"'myChart' is already defined.(Àœ­£
+Ujavascript:S1481µ"8Remove the declaration of the unused 'myChart' variable.(Àœ­£
+Rjavascript:S1854µ"5Remove this useless assignment to variable "myChart".(Àœ­£
+;javascript:S2814•"'ctx' is already defined.(Çï“Ğıÿÿÿÿ
+:javascript:S2814˜"'myChart' is already defined.(Àœ­£
+Ujavascript:S1481˜"8Remove the declaration of the unused 'myChart' variable.(Àœ­£
+Rjavascript:S1854˜"5Remove this useless assignment to variable "myChart".(Àœ­£
+;javascript:S2814î"'ctx' is already defined.(ÉÉ°¾ÿÿÿÿÿ
+:javascript:S2814ñ"'myChart' is already defined.(Àœ­£
+Ujavascript:S1481ñ"8Remove the declaration of the unused 'myChart' variable.(Àœ­£
+Rjavascript:S1854ñ"5Remove this useless assignment to variable "myChart".(Àœ­£
+;javascript:S2814«"'ctx' is already defined.(ÄÄ¨•şÿÿÿÿ
+:javascript:S2814®"'myChart' is already defined.(Àœ­£
+Ujavascript:S1481®"8Remove the declaration of the unused 'myChart' variable.(Àœ­£
+Rjavascript:S1854®"5Remove this useless assignment to variable "myChart".(Àœ­£
+5javascript:S2814İ"'ctx' is already defined.(Ÿ›Ór
+:javascript:S2814à"'myChart' is already defined.(Àœ­£
+Ujavascript:S1481à"8Remove the declaration of the unused 'myChart' variable.(Àœ­£
+Rjavascript:S1854à"5Remove this useless assignment to variable "myChart".(Àœ­£
+;javascript:S2814¤"'ctx' is already defined.(ÔüŒ‰ùÿÿÿÿ
+:javascript:S2814§"'myChart' is already defined.(Àœ­£
+Ujavascript:S1481§"8Remove the declaration of the unused 'myChart' variable.(Àœ­£
+Rjavascript:S1854§"5Remove this useless assignment to variable "myChart".(Àœ­£
+6javascript:S2814×"'ctx' is already defined.(á§Æü
+:javascript:S2814Ú"'myChart' is already defined.(Àœ­£
+Ujavascript:S1481Ú"8Remove the declaration of the unused 'myChart' variable.(Àœ­£
+Rjavascript:S1854Ú"5Remove this useless assignment to variable "myChart".(Àœ­£
+;javascript:S2814ˆ	"'ctx' is already defined.(ÁÆ°§şÿÿÿÿ
+:javascript:S2814‹	"'myChart' is already defined.(Àœ­£
+Ujavascript:S1481‹	"8Remove the declaration of the unused 'myChart' variable.(Àœ­£
+Rjavascript:S1854‹	"5Remove this useless assignment to variable "myChart".(Àœ­£
+6javascript:S2814´	"'ctx' is already defined.(‘ÈÑó
+:javascript:S2814·	"'myChart' is already defined.(Àœ­£
+Ujavascript:S1481·	"8Remove the declaration of the unused 'myChart' variable.(Àœ­£
+Rjavascript:S1854·	"5Remove this useless assignment to variable "myChart".(Àœ­£
+Qjavascript:S1481Ì"4Remove the declaration of the unused 'ps1' variable.(û˜‘
+Njavascript:S1854Ì"1Remove this useless assignment to variable "ps1".(û˜‘
+Qjavascript:S1481Ñ"4Remove the declaration of the unused 'ps2' variable.(Ó“Æû
+Njavascript:S1854Ñ"1Remove this useless assignment to variable "ps2".(Ó“Æû
+qjavascript:S3776î"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(éÈ„±
+|javascript:S2392ô"ZConsider moving declaration of 'menu' as it is referenced outside current binding context.(™«— úÿÿÿÿ
+Šjavascript:S2392õ"hConsider moving declaration of 'sub_menu_is_showed' as it is referenced outside current binding context.(¡Ù†”øÿÿÿÿ
+njavascript:S4138÷"LExpected a `for-of` loop instead of a `for` loop with this simple iteration.(œ›‹Ôÿÿÿÿÿ
+njavascript:S4138€"LExpected a `for-of` loop instead of a `for` loop with this simple iteration.(œ›‹Ôÿÿÿÿÿ
+Mjavascript:S1117€"+'i' is already declared in the upper scope.(œ›‹Ôÿÿÿÿÿ
+njavascript:S4138"LExpected a `for-of` loop instead of a `for` loop with this simple iteration.(œ›‹Ôÿÿÿÿÿ
+Mjavascript:S1117"+'i' is already declared in the upper scope.(œ›‹Ôÿÿÿÿÿ
+Pjavascript:S1481—"3Remove the declaration of the unused 'wW' variable.(øÀ·•
+Mjavascript:S1854—"0Remove this useless assignment to variable "wW".(øÀ·•
+njavascript:S4138"LExpected a `for-of` loop instead of a `for` loop with this simple iteration.(œ›‹Ôÿÿÿÿÿ
+Mjavascript:S1117"+'i' is already declared in the upper scope.(œ›‹Ôÿÿÿÿÿ
+Xjavascript:S1481ú";Remove the declaration of the unused 'inbox_wrap' variable.(¶ôé—
+Ujavascript:S1854ú"8Remove this useless assignment to variable "inbox_wrap".(¶ôé—

@@ -11,16 +11,12 @@ F
 pages/coming-soon.html,c\0\c0172e8e5a22a81a427793d6c76b897ce9b53081
 H
 pages/category-list.html,e\a\eab73089b5a57fa556228ee0225b208e964745fb
-D
-pages/dashboard.html,f\3\f3f49d6fd09ba1195b872643be29a229ef2935a2
 @
 pages/about.html,b\e\be10f8a7dc8ce3ea849572090bd2438cf340063e
 ?
 pages/cart.html,6\3\63079324b3e60f91c6fea37584b55844144b82fe
 C
 pages/checkout.html,4\7\47319dfa196206001c271927bab9e42fa0768e26
-G
-admin/config/errors.php,a\c\ac2816e266b0c1822b393643cfde724d5a193b76
 A
 admin/index2.html,3\b\3bd6c09b65ba80ee7c3f5724084b07ef971c438c
 9
@@ -34,4 +30,20 @@ L
 L
 admin/layoutAdmin/header.php,c\4\c42cc7f48264de4daf6de4c23388cfdd6995b747
 G
+admin/config/errors.php,a\c\ac2816e266b0c1822b393643cfde724d5a193b76
+9
+	index.php,b\b\bb6499b8e938f92a3695fff1afe57edea4b9efb7
+G
+admin/layout/header.php,f\4\f42b1b85640f5b4776409d6a82de3810750b7272
+E
+admin/users/index.php,e\9\e919609a8eff7fd09d9c28a1c4ca098f23fd5a32
+D
+admin/users/edit.php,d\1\d111d038fcc84f70475abbd90d268484cd7d38a5
+F
+admin/users/delete.php,8\3\83f70a2470795305f07a5bf0098d0a2b3c590a3d
+@
+admin/js/main.js,0\8\08a9918acb9d1127ce8a293089f43e3c77755a0e
+G
 admin/config/server.php,0\f\0fad0d4ee712a225c43ac672443fc53dbbeac7cf
+K
+admin/users/create_user.php,c\5\c54ecfee1d1f0675c8affb4ec67be7be2a945061
