@@ -1,7 +1,38 @@
 <?php
  include('../admin/config/server.php');
+ $_SESSION['superTotal'] = 0;
+ try {
+#newcode
+    $_command = "SELECT * FROM tempcart";
+    $statement = $pdo->prepare($_command);
+    $statement->execute();
+    $statement->setFetchMode(PDO::FETCH_ASSOC);
+    $results = $statement->fetchAll();
+    $superTotal = 0;
+    if ($statement->rowCount()) {
+        // echo "<pre>";
+        // var_dump($results);
+        // echo "</pre>";
+    } else {
+        echo "fail";
+    }
+} catch (PDOException $e) {
+    echo "error" . $e->getMessage();
+}
+
+// function mahdiReload()
+// {
+//     echo "<script> window.location.reload();</script>";
+//     // echo `<meta http-equiv="Location" content="./cart.php">`;
+//     // echo header("Refresh:0");
+// }
+// function mahdiStopReload()
+// {
+//     echo "<script> window.stop();</script>";
+// }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -128,66 +159,40 @@
                             </form>
                         </div><!-- End .header-search -->
                         
-
-                        <div class="dropdown cart-dropdown">
-                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                            <div class="dropdown cart-dropdown">
+                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" data-display="static">
                                 <i class="icon-shopping-cart"></i>
-                                <span class="cart-count">2</span>
+                                <!-- <span class="cart-count">2</span> -->
+                                <span class="cart-count"><?php echo $statement->rowCount(); ?></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="dropdown-cart-products">
+                                    <?php for ($i = 0; $i < count($results); $i++) { ?>
                                     <div class="product">
                                         <div class="product-cart-details">
                                             <h4 class="product-title">
-                                                <a href="product.html">Beige knitted elastic runner shoes</a>
+                                                <a><?php echo $results[$i]['name']; ?></a>
                                             </h4>
 
                                             <span class="cart-product-info">
-                                                <span class="cart-product-qty">1</span>
-                                                x $84.00
+                                                <span
+                                                    class="cart-product-qty"><?php echo $results[$i]['quantity']; ?></span>
+                                                x <?php echo $results[$i]['price']; ?><span>JD</span>
                                             </span>
-                                        </div><!-- End .product-cart-details -->
+                                        </div>
 
                                         <figure class="product-image-container">
-                                            <a href="product.html" class="product-image">
-                                                <img src="../assets/images/products/cart/product-1.jpg" alt="product">
+                                            <a class="product-image">
+                                                <img src="<?php echo $results[$i]['img']; ?>" alt="product">
                                             </a>
                                         </figure>
-                                        <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
                                     </div><!-- End .product -->
-
-                                    <div class="product">
-                                        <div class="product-cart-details">
-                                            <h4 class="product-title">
-                                                <a href="product.html">Blue utility pinafore denim dress</a>
-                                            </h4>
-
-                                            <span class="cart-product-info">
-                                                <span class="cart-product-qty">1</span>
-                                                x $76.00
-                                            </span>
-                                        </div><!-- End .product-cart-details -->
-
-                                        <figure class="product-image-container">
-                                            <a href="product.html" class="product-image">
-                                                <img src="../assets/images/products/cart/product-2.jpg" alt="product">
-                                            </a>
-                                        </figure>
-                                        <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                    </div><!-- End .product -->
+                                    <?php
+                                    }
+                                    ?>
                                 </div><!-- End .cart-product -->
-
-                                <div class="dropdown-cart-total">
-                                    <span>Total</span>
-
-                                    <span class="cart-total-price">$160.00</span>
-                                </div><!-- End .dropdown-cart-total -->
-
-                                <div class="dropdown-cart-action">
-                                    <a href="../pages/cart.html" class="btn btn-primary">View Cart</a>
-                                    <a href="../pages/checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
-                                </div><!-- End .dropdown-cart-total -->
                             </div><!-- End .dropdown-menu -->
                         </div><!-- End .cart-dropdown -->
                     </div><!-- End .header-right -->
