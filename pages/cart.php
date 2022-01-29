@@ -379,7 +379,7 @@ function mahdiStopReload()
                                                             <div class="menu-title">Shop with sidebar</div>
                                                             <!-- End .menu-title -->
                                                             <ul>
-                                                                <li><a href="category-list.html">Shop List</a></li>
+                                                                <li><a href="category-list.php">Shop List</a></li>
                                                                 <li><a href="category-2cols.html">Shop Grid 2
                                                                         Columns</a></li>
                                                                 <li><a href="category.html">Shop Grid 3 Columns</a></li>
@@ -987,7 +987,7 @@ function mahdiStopReload()
                     <li>
                         <a href="category.html">Shop</a>
                         <ul>
-                            <li><a href="category-list.html">Shop List</a></li>
+                            <li><a href="category-list.php">Shop List</a></li>
                             <li><a href="category-2cols.html">Shop Grid 2 Columns</a></li>
                             <li><a href="category.html">Shop Grid 3 Columns</a></li>
                             <li><a href="category-4cols.html">Shop Grid 4 Columns</a></li>

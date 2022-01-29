@@ -769,7 +769,7 @@ $result1 = $stmt->fetchAll();
                                 <!-- End .menu-title -->
                                 <ul>
                                   <li>
-                                    <a href="pages/category-list.html"
+                                    <a href="pages/category-list.php"
                                       >Shop List</a
                                     >
                                   </li>
@@ -2942,7 +2942,7 @@ $result1 = $stmt->fetchAll();
                 <li>
                   <a href="category.html">Shop</a>
                   <ul>
-                    <li><a href="pages/category-list.html">Shop List</a></li>
+                    <li><a href="pages/category-list.php">Shop List</a></li>
                     <li>
                       <a href="category-2cols.html">Shop Grid 2 Columns</a>
                     </li>

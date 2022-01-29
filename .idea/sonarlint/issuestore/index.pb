@@ -7,8 +7,6 @@ B
 pages/contact.html,f\7\f75d4262b6574d5a588f845a4dc9ab04a6644c9c
 F
 pages/coming-soon.html,c\0\c0172e8e5a22a81a427793d6c76b897ce9b53081
-H
-pages/category-list.html,e\a\eab73089b5a57fa556228ee0225b208e964745fb
 @
 pages/about.html,b\e\be10f8a7dc8ce3ea849572090bd2438cf340063e
 ?
