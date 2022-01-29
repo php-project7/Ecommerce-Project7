@@ -108,7 +108,7 @@ $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                         <div class="col-6 col-lg-3">
                                             <figure class="product-media">
                                                 <span class="product-label label-new">New</span>
-                                                <a href="product.html">
+                                                <a href="product.php">
                                                     <img src="<?= $product['img'] ?>" alt="Product image" class="product-image">
                                                 </a>
                                             </figure><!-- End .product-media -->
@@ -147,7 +147,7 @@ $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                                     }
                                                     ?>
                                                 </div><!-- End .product-cat -->
-                                                <h3 class="product-title"><a href="product.html">  <?= $product['name'] ?></a></h3><!-- End .product-title -->
+                                                <h3 class="product-title"><a href="product.php">  <?= $product['name'] ?></a></h3><!-- End .product-title -->
 
                                                 <div class="product-content">
                                                     <p>  <?= $product['description'] ?></p>

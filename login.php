@@ -334,7 +334,7 @@ include('admin/config/server.php')
                                     </div><!-- End .megamenu megamenu-md -->
                                 </li>
                                 <li>
-                                    <a href="pages/product.html" class="sf-with-ul">Product</a>
+                                    <a href="pages/product.php" class="sf-with-ul">Product</a>
 
                                     <div class="megamenu megamenu-sm">
                                         <div class="row no-gutters">
@@ -342,7 +342,7 @@ include('admin/config/server.php')
                                                 <div class="menu-col">
                                                     <div class="menu-title">Product Details</div><!-- End .menu-title -->
                                                     <ul>
-                                                        <li><a href="pages/product.html">Default</a></li>
+                                                        <li><a href="pages/product.php">Default</a></li>
                                                         <li><a href="product-centered.html">Centered</a></li>
                                                         <li><a href="product-extended.html"><span>Extended Info<span class="tip tip-new">New</span></span></a></li>
                                                         <li><a href="product-gallery.html">Gallery</a></li>
@@ -478,11 +478,11 @@ include('admin/config/server.php')
                                 <ul class="compare-products">
                                     <li class="compare-product">
                                         <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                        <h4 class="compare-product-title"><a href="pages/product.html">Blue Night Dress</a></h4>
+                                        <h4 class="compare-product-title"><a href="pages/product.php">Blue Night Dress</a></h4>
                                     </li>
                                     <li class="compare-product">
                                         <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                        <h4 class="compare-product-title"><a href="pages/product.html">White Long Skirt</a></h4>
+                                        <h4 class="compare-product-title"><a href="pages/product.php">White Long Skirt</a></h4>
                                     </li>
                                 </ul>
 
@@ -504,7 +504,7 @@ include('admin/config/server.php')
                                     <div class="product">
                                         <div class="product-cart-details">
                                             <h4 class="product-title">
-                                                <a href="pages/product.html">Beige knitted elastic runner shoes</a>
+                                                <a href="pages/product.php">Beige knitted elastic runner shoes</a>
                                             </h4>
 
                                             <span class="cart-product-info">
@@ -514,7 +514,7 @@ include('admin/config/server.php')
                                         </div><!-- End .product-cart-details -->
 
                                         <figure class="product-image-container">
-                                            <a href="pages/product.html" class="product-image">
+                                            <a href="pages/product.php" class="product-image">
                                                 <img src="assets/images/products/cart/product-1.jpg" alt="product">
                                             </a>
                                         </figure>
@@ -524,7 +524,7 @@ include('admin/config/server.php')
                                     <div class="product">
                                         <div class="product-cart-details">
                                             <h4 class="product-title">
-                                                <a href="pages/product.html">Blue utility pinafore denim dress</a>
+                                                <a href="pages/product.php">Blue utility pinafore denim dress</a>
                                             </h4>
 
                                             <span class="cart-product-info">
@@ -534,7 +534,7 @@ include('admin/config/server.php')
                                         </div><!-- End .product-cart-details -->
 
                                         <figure class="product-image-container">
-                                            <a href="pages/product.html" class="product-image">
+                                            <a href="pages/product.php" class="product-image">
                                                 <img src="assets/images/products/cart/product-2.jpg" alt="product">
                                             </a>
                                         </figure>
@@ -825,9 +825,9 @@ include('admin/config/server.php')
                         </ul>
                     </li>
                     <li>
-                        <a href="pages/product.html" class="sf-with-ul">Product</a>
+                        <a href="pages/product.php" class="sf-with-ul">Product</a>
                         <ul>
-                            <li><a href="pages/product.html">Default</a></li>
+                            <li><a href="pages/product.php">Default</a></li>
                             <li><a href="product-centered.html">Centered</a></li>
                             <li><a href="product-extended.html"><span>Extended Info<span class="tip tip-new">New</span></span></a></li>
                             <li><a href="product-gallery.html">Gallery</a></li>

@@ -2,8 +2,6 @@
 C
 pages/wishlist.html,3\f\3f000c6a3e8d216c41ecc25ba5fb403c93418442
 B
-pages/product.html,a\1\a1d0b66a59ce30170540c44eaeef7d9b2db01439
-B
 pages/contact.html,f\7\f75d4262b6574d5a588f845a4dc9ab04a6644c9c
 F
 pages/coming-soon.html,c\0\c0172e8e5a22a81a427793d6c76b897ce9b53081
