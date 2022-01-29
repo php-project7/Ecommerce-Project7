@@ -74,6 +74,10 @@ if(isset($_GET['logout'])){
                             <li>
                                 <a href="../index.php">Users</a>
                             </li>
+                            <li class="has-sub">
+                                <a class="js-arrow" href="../products/index.php">
+                                    <i class="fas fa-cart-arrow-down"></i>Products</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -96,11 +100,10 @@ if(isset($_GET['logout'])){
                         <a class="js-arrow" href="../index.php">
                             <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                     </li>
-                    <li>
-                    <a href="./index.php">
-                        <i class="fas fa-tachometer-alt"></i>Users</a>
+                    <li class="has-sub">
+                        <a class="js-arrow" href="../products/index.php">
+                            <i class="fas fa-cart-arrow-down"></i>Products</a>
                     </li>
-
                 </ul>
             </nav>
         </div>
