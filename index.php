@@ -854,7 +854,7 @@ $result1 = $stmt->fetchAll();
                                     <a href="pages/wishlist.html">Wishlist</a>
                                   </li>
                                   <li>
-                                    <a href="pages/dashboard.html"
+                                    <a href="pages/dashboard.php"
                                       >My Account</a
                                     >
                                   </li>

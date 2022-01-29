@@ -61,8 +61,6 @@ if (!empty($_POST)) {
     else {
         $msg = "User not created";
     }
-
-
 }
 ?>
 
