@@ -21,8 +21,6 @@ G
 admin/layout/footer.php,e\d\edbe94abbf49f7b715382de2e1ce580af8ecc9be
 L
 admin/layoutAdmin/footer.php,2\9\29da1388942cba5d6f56cfed3f7dd1b7253fab22
-9
-	index.php,b\b\bb6499b8e938f92a3695fff1afe57edea4b9efb7
 F
 admin/users/delete.php,8\3\83f70a2470795305f07a5bf0098d0a2b3c590a3d
 @
