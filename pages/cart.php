@@ -1,7 +1,8 @@
 <?php
 session_start();
 $_SESSION['superTotal'] = 0;
-require('../config/config.php');
+// require('../config/config.php');
+require("../admin/config/connection.php");
 try {
     #old code
     // $_command = "SELECT * FROM products";
@@ -65,7 +66,6 @@ function mahdiStopReload()
 
 <!DOCTYPE html>
 <html lang="en">
-
 
 <!-- molla/cart.html  22 Nov 2019 09:55:06 GMT -->
 
@@ -692,7 +692,7 @@ function mahdiStopReload()
                                             <th></th>
                                         </tr>
                                     </thead>
-                                    <!-- mahdi -->
+                                    <!-- mahdi table -->
                                     <tbody>
                                         <?php
                                         for ($i = 0; $i < count($results); $i++) {
@@ -749,6 +749,7 @@ function mahdiStopReload()
                                                                         $_SESSION['superTotal'] = $superTotal;
 
                                                                         try {
+                                                                            #push final price into table
                                                                             $mahdi_id = $results[$i]['id'];
                                                                             $_command = "UPDATE tempcart SET final_price ='$finalPrice' WHERE id = $mahdi_id ";
                                                                             $statement = $conn->prepare($_command);
