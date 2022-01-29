@@ -1,12 +1,12 @@
 <?php
-session_start();
+// session_start();
 $_SESSION['superTotal'] = 0;
 // require('../config/config.php');
 require("../admin/config/connection.php");
 try {
     #old code
     // $_command = "SELECT * FROM products";
-    // $statement = $conn->prepare($_command);
+    // $statement = $pdo->prepare($_command);
     // $statement->execute();
     // // set the resulting array to associative
     // $statement->setFetchMode(PDO::FETCH_ASSOC);
@@ -35,7 +35,7 @@ try {
 
     #new code
     $_command = "SELECT * FROM tempcart";
-    $statement = $conn->prepare($_command);
+    $statement = $pdo->prepare($_command);
     $statement->execute();
     $statement->setFetchMode(PDO::FETCH_ASSOC);
     $results = $statement->fetchAll();
@@ -752,7 +752,7 @@ function mahdiStopReload()
                                                                             #push final price into table
                                                                             $mahdi_id = $results[$i]['id'];
                                                                             $_command = "UPDATE tempcart SET final_price ='$finalPrice' WHERE id = $mahdi_id ";
-                                                                            $statement = $conn->prepare($_command);
+                                                                            $statement = $pdo->prepare($_command);
                                                                             $result = $statement->execute();
                                                                         } catch (PDOException $e) {
                                                                             echo "error" . $e;
@@ -1268,7 +1268,7 @@ if (isset($_POST['deleteItem'])) {
     // $id = $_POST['hidden-id'];
     try {
         $_command = "DELETE FROM tempcart WHERE id = $index";
-        $statement = $conn->prepare($_command);
+        $statement = $pdo->prepare($_command);
         $result = $statement->execute();
     } catch (PDOException $e) {
         echo "error" . $e;
@@ -1287,12 +1287,12 @@ if (isset($_POST['subtractQuantity'])) {
     if ($mahdiQuantity == 1) {
         //delete from tempcart table
         $_command = "DELETE FROM tempcart WHERE id = $id";
-        $statement = $conn->prepare($_command);
+        $statement = $pdo->prepare($_command);
         $statement->execute();
     } else {
         $mahdiQuantity--;
         $_command = "UPDATE tempcart SET quantity='$mahdiQuantity' WHERE id = $id";
-        $statement = $conn->prepare($_command);
+        $statement = $pdo->prepare($_command);
         $statement->execute();
 
         //update database
@@ -1313,7 +1313,7 @@ if (isset($_POST['subtractQuantity'])) {
         //update database
         $mahdiQuantity++;
         $_command = "UPDATE tempcart SET quantity='$mahdiQuantity' WHERE id = $id";
-        $statement = $conn->prepare($_command);
+        $statement = $pdo->prepare($_command);
         $statement->execute();
     } else {
         echo "you can't purchase more than 10";
