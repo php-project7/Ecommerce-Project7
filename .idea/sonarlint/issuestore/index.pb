@@ -35,8 +35,6 @@ G
 pages/faq.html,f\b\fb447bd133e3d234670593671c8a2c27245ec989
 E
 components/Footer.php,7\2\723f3c71bcc9d168339a6639bd51923fde328afc
->
-pages/cart.php,b\d\bd6f15f9c07bb56234b8c9a65d58d7ccdba13033
 G
 admin/layout/header.php,f\4\f42b1b85640f5b4776409d6a82de3810750b7272
 T
