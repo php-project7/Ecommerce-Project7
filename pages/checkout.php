@@ -1291,7 +1291,7 @@ if (isset($_POST['checkout-form'])) {
             echo "error" . $e;
         }
     }
-    header("Location: ./index.php");
+    header("Location: ../index.php");
 }
 
 
