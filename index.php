@@ -1923,7 +1923,7 @@ $result1 = $stmt->fetchAll();
                      <span class='product-label label-circle label-top'></span>
                     <a href='pages/product.html'><img src="<?= $row['img'] ?>" alt='Product image' class='product-image'/></a>
                      <div class='product-action-vertical'><a href='#' class='btn-product-icon btn-wishlist' title='Add to wishlist'></a></div>
-                     <div class='product-action'><a href='#' class='btn-product btn-cart' title='Add to cart'><span>add to cart</span></a>
+                     <div class='product-action'><a href="addToCart.php?id=<?=$row['id'] ?>" class='btn-product btn-cart' title='Add to cart'><span>add to cart</span></a>
                       <a href='popup/quickView.html' class='btn-product btn-quickview' title='Quick view'><span>quick view</span></a></div>
                      </figure>
                        <div class='product-body'>
