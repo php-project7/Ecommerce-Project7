@@ -202,7 +202,7 @@
                         ><i class="icon-close"></i
                       ></a>
                       <h4 class="compare-product-title">
-                        <a href="pages/product.html">Blue Night Dress</a>
+                        <a href="pages/product.php">Blue Night Dress</a>
                       </h4>
                     </li>
                     <li class="compare-product">
@@ -210,7 +210,7 @@
                         ><i class="icon-close"></i
                       ></a>
                       <h4 class="compare-product-title">
-                        <a href="pages/product.html">White Long Skirt</a>
+                        <a href="pages/product.php">White Long Skirt</a>
                       </h4>
                     </li>
                   </ul>
@@ -259,7 +259,7 @@
                     <div class="product">
                       <div class="product-cart-details">
                         <h4 class="product-title">
-                          <a href="pages/product.html"
+                          <a href="pages/product.php"
                             >Beige knitted elastic runner shoes</a
                           >
                         </h4>
@@ -272,7 +272,7 @@
                       <!-- End .product-cart-details -->
 
                       <figure class="product-image-container">
-                        <a href="pages/product.html" class="product-image">
+                        <a href="pages/product.php" class="product-image">
                           <img
                             src="assets/images/products/cart/product-1.jpg"
                             alt="product"
@@ -288,7 +288,7 @@
                     <div class="product">
                       <div class="product-cart-details">
                         <h4 class="product-title">
-                          <a href="pages/product.html"
+                          <a href="pages/product.php"
                             >Blue utility pinafore denim dress</a
                           >
                         </h4>
@@ -301,7 +301,7 @@
                       <!-- End .product-cart-details -->
 
                       <figure class="product-image-container">
-                        <a href="pages/product.html" class="product-image">
+                        <a href="pages/product.php" class="product-image">
                           <img
                             src="assets/images/products/cart/product-2.jpg"
                             alt="product"
@@ -760,7 +760,7 @@
                                 <!-- End .menu-title -->
                                 <ul>
                                   <li>
-                                    <a href="pages/category-list.html"
+                                    <a href="pages/category-list.php"
                                       >Shop List</a
                                     >
                                   </li>
@@ -843,7 +843,7 @@
                                     <a href="pages/wishlist.html">Wishlist</a>
                                   </li>
                                   <li>
-                                    <a href="pages/dashboard.html"
+                                    <a href="pages/dashboard.php"
                                       >My Account</a
                                     >
                                   </li>
@@ -886,7 +886,7 @@
                     <!-- End .megamenu megamenu-md -->
                   </li>
                   <li>
-                    <a href="pages/product.html" class="sf-with-ul">Product</a>
+                    <a href="pages/product.php" class="sf-with-ul">Product</a>
 
                     <div class="megamenu megamenu-sm">
                       <div class="row no-gutters">
@@ -895,7 +895,7 @@
                             <div class="menu-title">Product Details</div>
                             <!-- End .menu-title -->
                             <ul>
-                              <li><a href="pages/product.html">Default</a></li>
+                              <li><a href="pages/product.php">Default</a></li>
                               <li>
                                 <a href="product-centered.html">Centered</a>
                               </li>
@@ -1550,7 +1550,7 @@
                     <span class="product-label label-circle label-top"
                       >Top</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-1.jpg"
                         alt="Product image"
@@ -1591,7 +1591,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >MacBook Pro 13" Display, i5</a
                       >
                     </h3>
@@ -1614,7 +1614,7 @@
 
                 <div class="product product-2">
                   <figure class="product-media">
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-2.jpg"
                         alt="Product image"
@@ -1655,7 +1655,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >Bose - SoundLink Bluetooth Speaker</a
                       >
                     </h3>
@@ -1681,7 +1681,7 @@
                     <span class="product-label label-circle label-new"
                       >New</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-3.jpg"
                         alt="Product image"
@@ -1722,7 +1722,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >Apple - 11 Inch iPad Pro with Wi-Fi 256GB
                       </a>
                     </h3>
@@ -1764,7 +1764,7 @@
                     <span class="product-label label-circle label-sale"
                       >Sale</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-4.jpg"
                         alt="Product image"
@@ -1805,7 +1805,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html">Google - Pixel 3 XL 128GB</a>
+                      <a href="pages/product.php">Google - Pixel 3 XL 128GB</a>
                     </h3>
                     <!-- End .product-title -->
                     <div class="product-price">
@@ -1845,7 +1845,7 @@
                     <span class="product-label label-circle label-top"
                       >Top</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-5.jpg"
                         alt="Product image"
@@ -1886,7 +1886,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >Samsung - 55" Class LED 2160p Smart</a
                       >
                     </h3>
@@ -1912,7 +1912,7 @@
                     <span class="product-label label-circle label-top"
                       >Top</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-1.jpg"
                         alt="Product image"
@@ -1953,7 +1953,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >MacBook Pro 13" Display, i5</a
                       >
                     </h3>
@@ -2015,7 +2015,7 @@
                     <span class="product-label label-circle label-new"
                       >New</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-3.jpg"
                         alt="Product image"
@@ -2056,7 +2056,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >Apple - 11 Inch iPad Pro with Wi-Fi 256GB
                       </a>
                     </h3>
@@ -2092,7 +2092,7 @@
 
                 <div class="product product-2">
                   <figure class="product-media">
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-2.jpg"
                         alt="Product image"
@@ -2133,7 +2133,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >Bose - SoundLink Bluetooth Speaker</a
                       >
                     </h3>
@@ -2162,7 +2162,7 @@
                     <span class="product-label label-circle label-sale"
                       >Sale</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-4.jpg"
                         alt="Product image"
@@ -2203,7 +2203,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html">Google - Pixel 3 XL 128GB</a>
+                      <a href="pages/product.php">Google - Pixel 3 XL 128GB</a>
                     </h3>
                     <!-- End .product-title -->
                     <div class="product-price">
@@ -2243,7 +2243,7 @@
                     <span class="product-label label-circle label-top"
                       >Top</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-5.jpg"
                         alt="Product image"
@@ -2284,7 +2284,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >Samsung - 55" Class LED 2160p Smart</a
                       >
                     </h3>
@@ -2310,7 +2310,7 @@
                     <span class="product-label label-circle label-top"
                       >Top</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-1.jpg"
                         alt="Product image"
@@ -2351,7 +2351,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >MacBook Pro 13" Display, i5</a
                       >
                     </h3>
@@ -2413,7 +2413,7 @@
                     <span class="product-label label-circle label-top"
                       >Top</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-5.jpg"
                         alt="Product image"
@@ -2454,7 +2454,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >Samsung - 55" Class LED 2160p Smart</a
                       >
                     </h3>
@@ -2480,7 +2480,7 @@
                     <span class="product-label label-circle label-top"
                       >Top</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-1.jpg"
                         alt="Product image"
@@ -2521,7 +2521,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >MacBook Pro 13" Display, i5</a
                       >
                     </h3>
@@ -2547,7 +2547,7 @@
                     <span class="product-label label-circle label-new"
                       >New</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-3.jpg"
                         alt="Product image"
@@ -2588,7 +2588,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >Apple - 11 Inch iPad Pro with Wi-Fi 256GB
                       </a>
                     </h3>
@@ -2624,7 +2624,7 @@
 
                 <div class="product product-2">
                   <figure class="product-media">
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-2.jpg"
                         alt="Product image"
@@ -2665,7 +2665,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >Bose - SoundLink Bluetooth Speaker</a
                       >
                     </h3>
@@ -2694,7 +2694,7 @@
                     <span class="product-label label-circle label-sale"
                       >Sale</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-4.jpg"
                         alt="Product image"
@@ -2735,7 +2735,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html">Google - Pixel 3 XL 128GB</a>
+                      <a href="pages/product.php">Google - Pixel 3 XL 128GB</a>
                     </h3>
                     <!-- End .product-title -->
                     <div class="product-price">
@@ -2811,7 +2811,7 @@
                     <span class="product-label label-circle label-top"
                       >Top</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-1.jpg"
                         alt="Product image"
@@ -2852,7 +2852,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >MacBook Pro 13" Display, i5</a
                       >
                     </h3>
@@ -2875,7 +2875,7 @@
 
                 <div class="product product-2">
                   <figure class="product-media">
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-2.jpg"
                         alt="Product image"
@@ -2916,7 +2916,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >Bose - SoundLink Bluetooth Speaker</a
                       >
                     </h3>
@@ -2942,7 +2942,7 @@
                     <span class="product-label label-circle label-new"
                       >New</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-3.jpg"
                         alt="Product image"
@@ -2983,7 +2983,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >Apple - 11 Inch iPad Pro with Wi-Fi 256GB
                       </a>
                     </h3>
@@ -3022,7 +3022,7 @@
                     <span class="product-label label-circle label-top"
                       >Top</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-5.jpg"
                         alt="Product image"
@@ -3063,7 +3063,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >Samsung - 55" Class LED 2160p Smart</a
                       >
                     </h3>
@@ -3089,7 +3089,7 @@
                     <span class="product-label label-circle label-top"
                       >Top</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-1.jpg"
                         alt="Product image"
@@ -3130,7 +3130,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >MacBook Pro 13" Display, i5</a
                       >
                     </h3>
@@ -3159,7 +3159,7 @@
                     <span class="product-label label-circle label-sale"
                       >Sale</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-4.jpg"
                         alt="Product image"
@@ -3200,7 +3200,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html">Google - Pixel 3 XL 128GB</a>
+                      <a href="pages/product.php">Google - Pixel 3 XL 128GB</a>
                     </h3>
                     <!-- End .product-title -->
                     <div class="product-price">
@@ -3279,7 +3279,7 @@
                     <span class="product-label label-circle label-sale"
                       >Sale</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-4.jpg"
                         alt="Product image"
@@ -3320,7 +3320,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html">Google - Pixel 3 XL 128GB</a>
+                      <a href="pages/product.php">Google - Pixel 3 XL 128GB</a>
                     </h3>
                     <!-- End .product-title -->
                     <div class="product-price">
@@ -3360,7 +3360,7 @@
                     <span class="product-label label-circle label-top"
                       >Top</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-1.jpg"
                         alt="Product image"
@@ -3401,7 +3401,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >MacBook Pro 13" Display, i5</a
                       >
                     </h3>
@@ -3424,7 +3424,7 @@
 
                 <div class="product product-2">
                   <figure class="product-media">
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-2.jpg"
                         alt="Product image"
@@ -3465,7 +3465,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >Bose - SoundLink Bluetooth Speaker</a
                       >
                     </h3>
@@ -3491,7 +3491,7 @@
                     <span class="product-label label-circle label-new"
                       >New</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-3.jpg"
                         alt="Product image"
@@ -3532,7 +3532,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >Apple - 11 Inch iPad Pro with Wi-Fi 256GB
                       </a>
                     </h3>
@@ -3607,7 +3607,7 @@
                     <span class="product-label label-circle label-top"
                       >Top</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-1.jpg"
                         alt="Product image"
@@ -3648,7 +3648,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >MacBook Pro 13" Display, i5</a
                       >
                     </h3>
@@ -3674,7 +3674,7 @@
                     <span class="product-label label-circle label-top"
                       >Top</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-5.jpg"
                         alt="Product image"
@@ -3715,7 +3715,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >Samsung - 55" Class LED 2160p Smart</a
                       >
                     </h3>
@@ -3741,7 +3741,7 @@
                     <span class="product-label label-circle label-top"
                       >Top</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-1.jpg"
                         alt="Product image"
@@ -3782,7 +3782,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >MacBook Pro 13" Display, i5</a
                       >
                     </h3>
@@ -3805,7 +3805,7 @@
 
                 <div class="product product-2">
                   <figure class="product-media">
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-2.jpg"
                         alt="Product image"
@@ -3846,7 +3846,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >Bose - SoundLink Bluetooth Speaker</a
                       >
                     </h3>
@@ -3872,7 +3872,7 @@
                     <span class="product-label label-circle label-new"
                       >New</span
                     >
-                    <a href="pages/product.html">
+                    <a href="pages/product.php">
                       <img
                         src="assets/images/demos/demo-4/products/product-3.jpg"
                         alt="Product image"
@@ -3913,7 +3913,7 @@
                     </div>
                     <!-- End .product-cat -->
                     <h3 class="product-title">
-                      <a href="pages/product.html"
+                      <a href="pages/product.php"
                         >Apple - 11 Inch iPad Pro with Wi-Fi 256GB
                       </a>
                     </h3>
@@ -4274,7 +4274,7 @@
                           <span class="product-label label-circle label-top"
                             >Top</span
                           >
-                          <a href="pages/product.html">
+                          <a href="pages/product.php">
                             <img
                               src="assets/images/demos/demo-4/products/product-6.jpg"
                               alt="Product image"
@@ -4315,7 +4315,7 @@
                           </div>
                           <!-- End .product-cat -->
                           <h3 class="product-title">
-                            <a href="pages/product.html"
+                            <a href="pages/product.php"
                               >Bose - SoundSport wireless headphones</a
                             >
                           </h3>
@@ -4357,7 +4357,7 @@
 
                       <div class="product product-2">
                         <figure class="product-media">
-                          <a href="pages/product.html">
+                          <a href="pages/product.php">
                             <img
                               src="assets/images/demos/demo-4/products/product-7.jpg"
                               alt="Product image"
@@ -4398,7 +4398,7 @@
                           </div>
                           <!-- End .product-cat -->
                           <h3 class="product-title">
-                            <a href="pages/product.html"
+                            <a href="pages/product.php"
                               >Microsoft - Refurbish Xbox One S 500GB</a
                             >
                           </h3>
@@ -4424,7 +4424,7 @@
                           <span class="product-label label-circle label-new"
                             >New</span
                           >
-                          <a href="pages/product.html">
+                          <a href="pages/product.php">
                             <img
                               src="assets/images/demos/demo-4/products/product-8.jpg"
                               alt="Product image"
@@ -4465,7 +4465,7 @@
                           </div>
                           <!-- End .product-cat -->
                           <h3 class="product-title">
-                            <a href="pages/product.html"
+                            <a href="pages/product.php"
                               >Apple Watch Series 4 Gold Aluminum Case</a
                             >
                           </h3>
@@ -4510,7 +4510,7 @@
                           <span class="product-label label-circle label-sale"
                             >Sale</span
                           >
-                          <a href="pages/product.html">
+                          <a href="pages/product.php">
                             <img
                               src="assets/images/demos/demo-4/products/product-9.jpg"
                               alt="Product image"
@@ -4551,7 +4551,7 @@
                           </div>
                           <!-- End .product-cat -->
                           <h3 class="product-title">
-                            <a href="pages/product.html"
+                            <a href="pages/product.php"
                               >Sony - Class LED 2160p Smart 4K Ultra HD</a
                             >
                           </h3>
@@ -4580,7 +4580,7 @@
                           <span class="product-label label-circle label-new"
                             >New</span
                           >
-                          <a href="pages/product.html">
+                          <a href="pages/product.php">
                             <img
                               src="assets/images/demos/demo-4/products/product-3.jpg"
                               alt="Product image"
@@ -4621,7 +4621,7 @@
                           </div>
                           <!-- End .product-cat -->
                           <h3 class="product-title">
-                            <a href="pages/product.html"
+                            <a href="pages/product.php"
                               >Apple - 11 Inch iPad Pro with Wi-Fi 256GB
                             </a>
                           </h3>
@@ -4696,7 +4696,7 @@
                           <span class="product-label label-circle label-new"
                             >New</span
                           >
-                          <a href="pages/product.html">
+                          <a href="pages/product.php">
                             <img
                               src="assets/images/demos/demo-4/products/product-3.jpg"
                               alt="Product image"
@@ -4737,7 +4737,7 @@
                           </div>
                           <!-- End .product-cat -->
                           <h3 class="product-title">
-                            <a href="pages/product.html"
+                            <a href="pages/product.php"
                               >Apple - 11 Inch iPad Pro with Wi-Fi 256GB
                             </a>
                           </h3>
@@ -4776,7 +4776,7 @@
 
                       <div class="product product-2">
                         <figure class="product-media">
-                          <a href="pages/product.html">
+                          <a href="pages/product.php">
                             <img
                               src="assets/images/demos/demo-4/products/product-2.jpg"
                               alt="Product image"
@@ -4817,7 +4817,7 @@
                           </div>
                           <!-- End .product-cat -->
                           <h3 class="product-title">
-                            <a href="pages/product.html"
+                            <a href="pages/product.php"
                               >Bose - SoundLink Bluetooth Speaker</a
                             >
                           </h3>
@@ -4846,7 +4846,7 @@
                           <span class="product-label label-circle label-sale"
                             >Sale</span
                           >
-                          <a href="pages/product.html">
+                          <a href="pages/product.php">
                             <img
                               src="assets/images/demos/demo-4/products/product-4.jpg"
                               alt="Product image"
@@ -4887,7 +4887,7 @@
                           </div>
                           <!-- End .product-cat -->
                           <h3 class="product-title">
-                            <a href="pages/product.html"
+                            <a href="pages/product.php"
                               >Google - Pixel 3 XL 128GB</a
                             >
                           </h3>
@@ -4935,7 +4935,7 @@
                           <span class="product-label label-circle label-top"
                             >Top</span
                           >
-                          <a href="pages/product.html">
+                          <a href="pages/product.php">
                             <img
                               src="assets/images/demos/demo-4/products/product-5.jpg"
                               alt="Product image"
@@ -4976,7 +4976,7 @@
                           </div>
                           <!-- End .product-cat -->
                           <h3 class="product-title">
-                            <a href="pages/product.html"
+                            <a href="pages/product.php"
                               >Samsung - 55" Class LED 2160p Smart</a
                             >
                           </h3>
@@ -5002,7 +5002,7 @@
                           <span class="product-label label-circle label-top"
                             >Top</span
                           >
-                          <a href="pages/product.html">
+                          <a href="pages/product.php">
                             <img
                               src="assets/images/demos/demo-4/products/product-1.jpg"
                               alt="Product image"
@@ -5043,7 +5043,7 @@
                           </div>
                           <!-- End .product-cat -->
                           <h3 class="product-title">
-                            <a href="pages/product.html"
+                            <a href="pages/product.php"
                               >MacBook Pro 13" Display, i5</a
                             >
                           </h3>
@@ -5105,7 +5105,7 @@
                           <span class="product-label label-circle label-new"
                             >New</span
                           >
-                          <a href="pages/product.html">
+                          <a href="pages/product.php">
                             <img
                               src="assets/images/demos/demo-4/products/product-8.jpg"
                               alt="Product image"
@@ -5146,7 +5146,7 @@
                           </div>
                           <!-- End .product-cat -->
                           <h3 class="product-title">
-                            <a href="pages/product.html"
+                            <a href="pages/product.php"
                               >Apple Watch Series 4 Gold Aluminum Case</a
                             >
                           </h3>
@@ -5188,7 +5188,7 @@
                           <span class="product-label label-circle label-top"
                             >Top</span
                           >
-                          <a href="pages/product.html">
+                          <a href="pages/product.php">
                             <img
                               src="assets/images/demos/demo-4/products/product-6.jpg"
                               alt="Product image"
@@ -5229,7 +5229,7 @@
                           </div>
                           <!-- End .product-cat -->
                           <h3 class="product-title">
-                            <a href="pages/product.html"
+                            <a href="pages/product.php"
                               >Bose - SoundSport wireless headphones</a
                             >
                           </h3>
@@ -5271,7 +5271,7 @@
 
                       <div class="product product-2">
                         <figure class="product-media">
-                          <a href="pages/product.html">
+                          <a href="pages/product.php">
                             <img
                               src="assets/images/demos/demo-4/products/product-7.jpg"
                               alt="Product image"
@@ -5312,7 +5312,7 @@
                           </div>
                           <!-- End .product-cat -->
                           <h3 class="product-title">
-                            <a href="pages/product.html"
+                            <a href="pages/product.php"
                               >Microsoft - Refurbish Xbox One S 500GB</a
                             >
                           </h3>
@@ -5338,7 +5338,7 @@
                           <span class="product-label label-circle label-new"
                             >New</span
                           >
-                          <a href="pages/product.html">
+                          <a href="pages/product.php">
                             <img
                               src="assets/images/demos/demo-4/products/product-3.jpg"
                               alt="Product image"
@@ -5379,7 +5379,7 @@
                           </div>
                           <!-- End .product-cat -->
                           <h3 class="product-title">
-                            <a href="pages/product.html"
+                            <a href="pages/product.php"
                               >Apple - 11 Inch iPad Pro with Wi-Fi 256GB
                             </a>
                           </h3>
@@ -6434,7 +6434,7 @@
                 <li>
                   <a href="category.html">Shop</a>
                   <ul>
-                    <li><a href="pages/category-list.html">Shop List</a></li>
+                    <li><a href="pages/category-list.php">Shop List</a></li>
                     <li>
                       <a href="category-2cols.html">Shop Grid 2 Columns</a>
                     </li>
@@ -6477,9 +6477,9 @@
                   </ul>
                 </li>
                 <li>
-                  <a href="pages/product.html" class="sf-with-ul">Product</a>
+                  <a href="pages/product.php" class="sf-with-ul">Product</a>
                   <ul>
-                    <li><a href="pages/product.html">Default</a></li>
+                    <li><a href="pages/product.php">Default</a></li>
                     <li><a href="product-centered.html">Centered</a></li>
                     <li>
                       <a href="product-extended.html"

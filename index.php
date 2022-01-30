@@ -1,7 +1,6 @@
 <?php
  include('admin/config/server.php');
 
-
 $sql = $pdo->query("SELECT * FROM products WHERE discount >'0'");
 $result = $sql->fetchAll();
 
@@ -81,6 +80,11 @@ $result1 = $stmt->fetchAll();
   </head>
 
   <body>
+    <?php
+  // print_r($_SESSION['id']);
+  // $dt=print_r($_SESSION['id'],TRUE);
+  // print_r($dt);
+  ?>
     <div class="page-wrapper">
       <header class="header header-intro-clearance header-4">
         <div class="header-top">
@@ -211,7 +215,7 @@ $result1 = $stmt->fetchAll();
                         ><i class="icon-close"></i
                       ></a>
                       <h4 class="compare-product-title">
-                        <a href="pages/product.html">Blue Night Dress</a>
+                        <a href="pages/product.php">Blue Night Dress</a>
                       </h4>
                     </li>
                     <li class="compare-product">
@@ -219,7 +223,7 @@ $result1 = $stmt->fetchAll();
                         ><i class="icon-close"></i
                       ></a>
                       <h4 class="compare-product-title">
-                        <a href="pages/product.html">White Long Skirt</a>
+                        <a href="pages/product.php">White Long Skirt</a>
                       </h4>
                     </li>
                   </ul>
@@ -268,7 +272,7 @@ $result1 = $stmt->fetchAll();
                     <div class="product">
                       <div class="product-cart-details">
                         <h4 class="product-title">
-                          <a href="pages/product.html"
+                          <a href="pages/product.php"
                             >Beige knitted elastic runner shoes</a
                           >
                         </h4>
@@ -281,7 +285,7 @@ $result1 = $stmt->fetchAll();
                       <!-- End .product-cart-details -->
 
                       <figure class="product-image-container">
-                        <a href="pages/product.html" class="product-image">
+                        <a href="pages/product.php" class="product-image">
                           <img
                             src="assets/images/products/cart/product-1.jpg"
                             alt="product"
@@ -297,7 +301,7 @@ $result1 = $stmt->fetchAll();
                     <div class="product">
                       <div class="product-cart-details">
                         <h4 class="product-title">
-                          <a href="pages/product.html"
+                          <a href="pages/product.php"
                             >Blue utility pinafore denim dress</a
                           >
                         </h4>
@@ -310,7 +314,7 @@ $result1 = $stmt->fetchAll();
                       <!-- End .product-cart-details -->
 
                       <figure class="product-image-container">
-                        <a href="pages/product.html" class="product-image">
+                        <a href="pages/product.php" class="product-image">
                           <img
                             src="assets/images/products/cart/product-2.jpg"
                             alt="product"
@@ -400,7 +404,7 @@ $result1 = $stmt->fetchAll();
               <nav class="main-nav">
                 <ul class="menu sf-arrows">
                   <li class="megamenu-container active">
-                    <a href="index.html" class="sf-with-ul">Home</a>
+                    <a href="index.html">Home</a>
 
                     <!-- <div class="megamenu demo">
                       <div class="menu-col">
@@ -769,7 +773,7 @@ $result1 = $stmt->fetchAll();
                                 <!-- End .menu-title -->
                                 <ul>
                                   <li>
-                                    <a href="pages/category-list.html"
+                                    <a href="pages/category-list.php"
                                       >Shop List</a
                                     >
                                   </li>
@@ -852,7 +856,7 @@ $result1 = $stmt->fetchAll();
                                     <a href="pages/wishlist.html">Wishlist</a>
                                   </li>
                                   <li>
-                                    <a href="pages/dashboard.html"
+                                    <a href="pages/dashboard.php"
                                       >My Account</a
                                     >
                                   </li>
@@ -895,7 +899,7 @@ $result1 = $stmt->fetchAll();
                     <!-- End .megamenu megamenu-md -->
                   </li>
                   <li>
-                    <a href="pages/product.html" class="sf-with-ul">Product</a>
+                    <a href="pages/product.php" class="sf-with-ul">Product</a>
 
                     <div class="megamenu megamenu-sm">
                       <div class="row no-gutters">
@@ -904,7 +908,7 @@ $result1 = $stmt->fetchAll();
                             <div class="menu-title">Product Details</div>
                             <!-- End .menu-title -->
                             <ul>
-                              <li><a href="pages/product.html">Default</a></li>
+                              <li><a href="pages/product.php">Default</a></li>
                               <li>
                                 <a href="product-centered.html">Centered</a>
                               </li>
@@ -1559,14 +1563,14 @@ $result1 = $stmt->fetchAll();
                     <div class='product product-2'>
                         <figure class='product-media'>
                             <span class='product-label label-circle label-top'>Sale</span>
-                            <a href='pages/product.html'><img src="<?= $row['img'] ?>" alt='Product image' class='product-image'/></a>
+                            <a href='pages/product.php'><img src="<?= $row['img'] ?>" alt='Product image' class='product-image'/></a>
                             <div class='product-action-vertical'><a href='#' class='btn-product-icon btn-wishlist' title='Add to wishlist'></a></div>
-                            <div class='product-action'><a href='#' class='btn-product btn-cart' title='Add to cart'><span>add to cart</span></a>
+                            <div class='product-action'><a href="addToCart.php?id=<?=$row['id'] ?>" class='btn-product btn-cart' title='Add to cart'><span>add to cart</span></a>
                                 <a href='popup/quickView.html' class='btn-product btn-quickview' title='Quick view'><span>quick view</span></a></div>
                         </figure>
                         <div class='product-body'>
                             <div class='product-cat'><a href='#'>Laptops</a></div>
-                            <h3 class='product-title'><a href='pages/product.html'><?= $row['name']?></a></h3>
+                            <h3 class='product-title'><a href='pages/product.php'><?= $row['name']?></a></h3>
                             <div class='product-price'><?= $row['price']?> . J.D</div>
                         </div>
                     </div>
@@ -1917,14 +1921,14 @@ $result1 = $stmt->fetchAll();
                       <div class='product product-2'>
                      <figure class='product-media'>
                      <span class='product-label label-circle label-top'></span>
-                    <a href='pages/product.html'><img src="<?= $row['img'] ?>" alt='Product image' class='product-image'/></a>
+                    <a href='pages/product.php'><img src="<?= $row['img'] ?>" alt='Product image' class='product-image'/></a>
                      <div class='product-action-vertical'><a href='#' class='btn-product-icon btn-wishlist' title='Add to wishlist'></a></div>
-                     <div class='product-action'><a href='#' class='btn-product btn-cart' title='Add to cart'><span>add to cart</span></a>
+                     <div class='product-action'><a href="addToCart.php?id=<?=$row['id'] ?>" class='btn-product btn-cart' title='Add to cart'><span>add to cart</span></a>
                       <a href='popup/quickView.html' class='btn-product btn-quickview' title='Quick view'><span>quick view</span></a></div>
                      </figure>
                        <div class='product-body'>
                       <div class='product-cat'><a href='#'>Laptops</a></div>
-                      <h3 class='product-title'><a href='pages/product.html'><?= $row['name'] ?></a></h3>
+                      <h3 class='product-title'><a href='pages/product.php'><?= $row['name'] ?></a></h3>
                       <div class='product-price'><?= $row['price'] ?> . J.D</div>
                       </div>
                       </div>
@@ -2942,7 +2946,7 @@ $result1 = $stmt->fetchAll();
                 <li>
                   <a href="category.html">Shop</a>
                   <ul>
-                    <li><a href="pages/category-list.html">Shop List</a></li>
+                    <li><a href="pages/category-list.php">Shop List</a></li>
                     <li>
                       <a href="category-2cols.html">Shop Grid 2 Columns</a>
                     </li>
@@ -2985,9 +2989,9 @@ $result1 = $stmt->fetchAll();
                   </ul>
                 </li>
                 <li>
-                  <a href="pages/product.html" class="sf-with-ul">Product</a>
+                  <a href="pages/product.php" class="sf-with-ul">Product</a>
                   <ul>
-                    <li><a href="pages/product.html">Default</a></li>
+                    <li><a href="pages/product.php">Default</a></li>
                     <li><a href="product-centered.html">Centered</a></li>
                     <li>
                       <a href="product-extended.html"
@@ -3314,11 +3318,11 @@ $result1 = $stmt->fetchAll();
         </div><!-- End .modal-dialog -->
     </div><!-- End .modal -->
 
-    <div
+    <!-- <div
       class="container newsletter-popup-container mfp-hide"
       id="newsletter-popup-form"
-    >
-      <div class="row justify-content-center">
+    > -->
+      <!-- <div class="row justify-content-center">
         <div class="col-10">
           <div class="row no-gutters bg-white newsletter-popup-content">
             <div class="col-xl-3-5col col-lg-7 banner-content-wrap">
@@ -3349,9 +3353,9 @@ $result1 = $stmt->fetchAll();
                     <div class="input-group-append">
                       <button class="btn" type="submit"><span>go</span></button>
                     </div>
-                    <!-- .End .input-group-append -->
+                    .End .input-group-append
                   </div>
-                  <!-- .End .input-group -->
+                  .End .input-group
                 </form>
                 <div class="custom-control custom-checkbox">
                   <input
@@ -3364,7 +3368,7 @@ $result1 = $stmt->fetchAll();
                     >Do not show this popup again</label
                   >
                 </div>
-                <!-- End .custom-checkbox -->
+                End .custom-checkbox
               </div>
             </div>
             <div class="col-xl-2-5col col-lg-5">
@@ -3376,7 +3380,7 @@ $result1 = $stmt->fetchAll();
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <!-- Plugins JS File -->
     <script src="assets/js/jquery.min.js"></script>
