@@ -1,47 +1,14 @@
 <?php
-// session_start();
-$_SESSION['supertotal'] = 0;
-// require('../config/config.php');
 require("../admin/config/connection.php");
 try {
-    #old code
-    // $_command = "SELECT * FROM products";
-    // $statement = $pdo->prepare($_command);
-    // $statement->execute();
-    // // set the resulting array to associative
-    // $statement->setFetchMode(PDO::FETCH_ASSOC);
-    // $results = $statement->fetchAll();
-    // // if (empty($_SESSION['cart'])) {
-    // unset($_SESSION['cart']);
-    // $_SESSION['cart'] = array();
-
-    // foreach ($results as $key => $value) {
-    //     // echo "<br>$key => $value";
-    //     array_push($_SESSION['cart'], $value);
-    // }
-    // // }
-    // // unset($_SESSION['cart'][1]);
-
-    // if ($statement->rowCount()) {
-    //     // echo "success<br>";
-    //     echo "<pre>";
-    //     // var_dump($results);
-    //     var_dump($_SESSION['cart']);
-    //     echo "</pre>";
-    // } else {
-    //     echo "fail";
-    // }
-
-
     #new code
     $_command = "SELECT * FROM tempcart";
-    $statement = $pdo->prepare($_command);
-    $statement->execute();
-    $statement->setFetchMode(PDO::FETCH_ASSOC);
-    $results = $statement->fetchAll();
+    $tempcart = $pdo->prepare($_command);
+    $tempcart->execute();
+    $tempcart->setFetchMode(PDO::FETCH_ASSOC);
+    $results = $tempcart->fetchAll();
     $superTotal = 0;
-    if ($statement->rowCount()) {
-        echo $statement->rowCount();
+    if ($tempcart->rowCount()) {
         echo "<pre>";
         var_dump($results);
         echo "</pre>";
@@ -68,7 +35,8 @@ function mahdiStopReload()
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- molla/cart.html  22 Nov 2019 09:55:06 GMT -->
+
+<!-- molla/checkout.html  22 Nov 2019 09:55:06 GMT -->
 
 <head>
     <meta charset="UTF-8">
@@ -190,7 +158,7 @@ function mahdiStopReload()
                                                 </div><!-- End .demo-item -->
 
                                                 <div class="demo-item">
-                                                    <a href="../index-4.html">
+                                                    <a href="../index.php">
                                                         <span class="demo-bg"
                                                             style="background-image: url(../assets/images/menu/demos/4.jpg);"></span>
                                                         <span class="demo-title">04 - electronic store</span>
@@ -505,7 +473,7 @@ function mahdiStopReload()
                                                 <li><a href="contact-2.html">Contact 02</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="../login.html">Login</a></li>
+                                        <li><a href="../login.php">Login</a></li>
                                         <li><a href="faq.html">FAQs</a></li>
                                         <li><a href="404.html">Error 404</a></li>
                                         <li><a href="coming-soon.html">Coming Soon</a></li>
@@ -624,36 +592,65 @@ function mahdiStopReload()
                             <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false" data-display="static">
                                 <i class="icon-shopping-cart"></i>
-                                <!-- <span class="cart-count">2</span> -->
-                                <span class="cart-count"><?php echo $statement->rowCount(); ?></span>
+                                <span class="cart-count">2</span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="dropdown-cart-products">
-                                    <?php for ($i = 0; $i < count($results); $i++) { ?>
                                     <div class="product">
                                         <div class="product-cart-details">
                                             <h4 class="product-title">
-                                                <a><?php echo $results[$i]['name']; ?></a>
+                                                <a href="product.html">Beige knitted elastic runner shoes</a>
                                             </h4>
 
                                             <span class="cart-product-info">
-                                                <span
-                                                    class="cart-product-qty"><?php echo $results[$i]['quantity']; ?></span>
-                                                x <?php echo $results[$i]['price']; ?>
+                                                <span class="cart-product-qty">1</span>
+                                                x $84.00
                                             </span>
-                                        </div>
+                                        </div><!-- End .product-cart-details -->
 
                                         <figure class="product-image-container">
-                                            <a class="product-image">
-                                                <img src="<?php echo $results[$i]['img']; ?>" alt="product">
+                                            <a href="product.html" class="product-image">
+                                                <img src="../assets/images/products/cart/product-1.jpg" alt="product">
                                             </a>
                                         </figure>
+                                        <a href="#" class="btn-remove" title="Remove Product"><i
+                                                class="icon-close"></i></a>
                                     </div><!-- End .product -->
-                                    <?php
-                                    }
-                                    ?>
+
+                                    <div class="product">
+                                        <div class="product-cart-details">
+                                            <h4 class="product-title">
+                                                <a href="product.html">Blue utility pinafore denim dress</a>
+                                            </h4>
+
+                                            <span class="cart-product-info">
+                                                <span class="cart-product-qty">1</span>
+                                                x $76.00
+                                            </span>
+                                        </div><!-- End .product-cart-details -->
+
+                                        <figure class="product-image-container">
+                                            <a href="product.html" class="product-image">
+                                                <img src="../assets/images/products/cart/product-2.jpg" alt="product">
+                                            </a>
+                                        </figure>
+                                        <a href="#" class="btn-remove" title="Remove Product"><i
+                                                class="icon-close"></i></a>
+                                    </div><!-- End .product -->
                                 </div><!-- End .cart-product -->
+
+                                <div class="dropdown-cart-total">
+                                    <span>Total</span>
+
+                                    <span class="cart-total-price">$160.00</span>
+                                </div><!-- End .dropdown-cart-total -->
+
+                                <div class="dropdown-cart-action">
+                                    <a href="cart.html" class="btn btn-primary">View Cart</a>
+                                    <a href="checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i
+                                            class="icon-long-arrow-right"></i></a>
+                                </div><!-- End .dropdown-cart-total -->
                             </div><!-- End .dropdown-menu -->
                         </div><!-- End .cart-dropdown -->
                     </div><!-- End .header-right -->
@@ -664,7 +661,7 @@ function mahdiStopReload()
         <main class="main">
             <div class="page-header text-center" style="background-image: url('../assets/images/page-header-bg.jpg')">
                 <div class="container">
-                    <h1 class="page-title">Shopping Cart<span>Shop</span></h1>
+                    <h1 class="page-title">Checkout<span>Shop</span></h1>
                 </div><!-- End .container -->
             </div><!-- End .page-header -->
             <nav aria-label="breadcrumb" class="breadcrumb-nav">
@@ -672,185 +669,156 @@ function mahdiStopReload()
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                         <li class="breadcrumb-item"><a href="#">Shop</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+                        <li class="breadcrumb-item active" aria-current="page">Checkout</li>
                     </ol>
                 </div><!-- End .container -->
             </nav><!-- End .breadcrumb-nav -->
 
             <div class="page-content">
-                <div class="cart">
+                <div class="checkout">
                     <div class="container">
-                        <div class="row">
-                            <div class="col-lg-9">
-                                <table class="table table-cart table-mobile">
-                                    <thead>
-                                        <tr>
-                                            <th>Product</th>
-                                            <th>Price</th>
-                                            <th>Quantity</th>
-                                            <th>discount</th>
-                                            <th>Total</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <!-- mahdi table -->
-                                    <tbody>
-                                        <?php
-                                        for ($i = 0; $i < count($results); $i++) {
-                                            // foreach ($results as $key => $result) {
-                                        ?>
-                                        <tr>
-                                            <td class="product-col">
-                                                <div class="product">
-                                                    <figure class="product-media">
-                                                        <!-- <a href="#"> -->
-                                                        <img src="<?php echo $results[$i]['img']; ?>"
-                                                            alt="Product image">
-                                                        <!-- </a> -->
-                                                    </figure>
+                        <div class="checkout-discount">
+                            <form action="#">
+                                <input type="text" class="form-control" required id="checkout-discount-input">
+                                <label for="checkout-discount-input" class="text-truncate">Have a coupon? <span>Click
+                                        here to enter your code</span></label>
+                            </form>
+                        </div><!-- End .checkout-discount -->
+                        <!-- mahdi -->
+                        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+                            <?php if (isset($_SESSION['success'])) { ?>
+                            <div class="row">
+                                <div class="col-lg-9">
+                                    <h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label>First Name *</label>
+                                            <input type="text" name="firstname" class="form-control" required>
+                                        </div><!-- End .col-sm-6 -->
 
-                                                    <h3 class="product-title">
-                                                        <p></p>
-                                                        <a><?php echo $results[$i]['name']; ?></a>
-                                                    </h3><!-- End .product-title -->
-                                                </div><!-- End .product -->
-                                            </td>
-                                            <td class="price-col">$<?php echo $results[$i]['price']; ?></td>
-                                            <td class="quantity-col">
-                                                <div class="cart-product-quantity">
-                                                    <!-- <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required> -->
-                                                    <form action="./cart.php" class="form" method="POST">
+                                        <div class="col-sm-6">
+                                            <label>Last Name *</label>
+                                            <input type="text" name="lastname" class="form-control" required>
+                                        </div><!-- End .col-sm-6 -->
+                                    </div><!-- End .row -->
+                                    <label>Email address *</label>
+                                    <input type="email" name="email" class="form-control" required>
 
-                                                        <button type="submit" name="subtractQuantity"
-                                                            class="form-control">-</button>
-                                                        <input type="text" name="mahdiQuantity" class="form-control"
-                                                            value="<?php echo $results[$i]['quantity']; ?>" readonly
-                                                            style="text-align: center;">
-                                                        <button type="submit" name="addQuantity"
-                                                            class="form-control">+</button>
+                                    <label>Country *</label>
+                                    <input type="text" name="country" class="form-control" required>
 
-                                                        <input type="hidden" name="hidden-id"
-                                                            value="<?php echo $results[$i]['id']; ?>">
-                                                    </form>
-                                                </div><!-- End .cart-product-quantity -->
-                                            </td>
-                                            <td><?php echo $results[$i]['discount']; ?>%</td>
-                                            <!-- <td class="total-col">$84.00</td> -->
-                                            <td class="total-col">$<?php
-                                                                        $price = $results[$i]['price'];
-                                                                        $quantity = $results[$i]['quantity'];
-                                                                        $discount = $results[$i]['discount'];
-                                                                        if ($discount == 0)
-                                                                            $discountAmount = 0;
-                                                                        else
-                                                                            $discountAmount = ($price * $quantity) /  $discount;
-                                                                        $finalPrice = ($price * $quantity) - $discountAmount;
-                                                                        echo $finalPrice;
-                                                                        $superTotal += ($price * $quantity) - $discountAmount;
-                                                                        $_SESSION['supertotal'] = $superTotal;
-
-                                                                        try {
-                                                                            #push final price into table
-                                                                            $mahdi_id = $results[$i]['id'];
-                                                                            $_command = "UPDATE tempcart SET final_price ='$finalPrice' WHERE id = $mahdi_id ";
-                                                                            $statement = $pdo->prepare($_command);
-                                                                            $result = $statement->execute();
-                                                                        } catch (PDOException $e) {
-                                                                            echo "error" . $e;
-                                                                        }
-                                                                        ?>
-                                            </td>
-                                            <td class="remove-col">
-                                                <form action="./cart.php" method="POST">
-                                                    <button type="submit" name="deleteItem" class="btn-remove"
-                                                        onclick="return confirm('Are you sure?')">
-                                                        <i class="icon-close"></i>
-                                                    </button>
-                                                    <input type="hidden" name="mahdiIndex"
-                                                        value="<?php echo $results[$i]['id']; ?>">
-                                                </form>
-                                                <!-- </td> -->
-                                        </tr>
-                                        <?php
-                                            // }
-                                        } #end of for loop
-                                        ?>
-                                    </tbody>
-                                </table><!-- End .table table-wishlist -->
-
-                                <div class="cart-bottom">
-                                    <div class="cart-discount">
-                                        <form action="#">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" required
-                                                    placeholder="coupon code">
-                                                <div class="input-group-append">
-                                                    <button class="btn btn-outline-primary-2" type="submit"><i
-                                                            class="icon-long-arrow-right"></i></button>
-                                                </div><!-- .End .input-group-append -->
-                                            </div><!-- End .input-group -->
-                                        </form>
-                                    </div><!-- End .cart-discount -->
-
-                                    <a href="#" class="btn btn-outline-dark-2"><span>UPDATE CART</span><i
-                                            class="icon-refresh"></i></a>
-                                </div><!-- End .cart-bottom -->
-                            </div><!-- End .col-lg-9 -->
-                            <aside class="col-lg-3">
-                                <div class="summary summary-cart">
-                                    <h3 class="summary-title">Cart Total</h3><!-- End .summary-title -->
-
-                                    <table class="table table-summary">
-                                        <tbody>
-                                            <!-- <tr class="summary-subtotal">
-                                                <td>Subtotal:</td>
-                                                <td>$160.00</td>
-                                            </tr> -->
-                                            <tr class="summary-shipping">
-                                                <td>Shipping:</td>
-                                                <td>&nbsp;</td>
-                                            </tr>
-
-                                            <tr class="summary-shipping-row">
-                                                <td>
-                                                    <div class="custom-control custom-radio">
-                                                        <input type="radio" id="free-shipping" name="shipping"
-                                                            class="custom-control-input">
-                                                        <label class="custom-control-label" for="free-shipping">Free
-                                                            Shipping</label>
-                                                    </div><!-- End .custom-control -->
-                                                </td>
-                                                <td>$0.00</td>
-                                            </tr><!-- End .summary-shipping-row -->
-
-                                            <!-- <tr class="summary-shipping-estimate">
-                                                <td>Estimate for Your Country<br> <a href="dashboard.html">Change
-                                                        address</a></td>
-                                                <td>&nbsp;</td>
-                                            </tr>
-                                            End .summary-shipping-estimate
-                                         -->
+                                    <label>Street address *</label>
+                                    <input type="text" name="streetaddress" class="form-control"
+                                        placeholder="House number and Street name" required>
 
 
-                                            <tr class="summary-total">
-                                                <td>Total:</td>
-                                                <!-- <td>$160.00</td> -->
-                                                <td>$<?php echo $superTotal ?></td>
-                                            </tr><!-- End .summary-total -->
-                                        </tbody>
-                                    </table><!-- End .table table-summary -->
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label>Postcode / ZIP *</label>
+                                            <input type="text" name="postcode" class="form-control" required>
+                                        </div><!-- End .col-sm-6 -->
 
-                                    <a href="checkout.php" class="btn btn-outline-primary-2 btn-order btn-block">PROCEED
-                                        TO CHECKOUT</a>
-                                </div><!-- End .summary -->
+                                        <div class="col-sm-6">
+                                            <label>Phone *</label>
+                                            <input type="tel" name="phone" class="form-control" required>
+                                        </div><!-- End .col-sm-6 -->
+                                    </div><!-- End .row -->
 
+                                </div><!-- End .col-lg-9 -->
+                                <aside class="col-lg-3">
+                                    <div class="summary">
+                                        <h3 class="summary-title">Your Order</h3><!-- End .summary-title -->
 
-                                <!-- <a href="category.html" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE
-                                        SHOPPING</span><i class="icon-refresh"></i></a> -->
-                            </aside><!-- End .col-lg-3 -->
-                        </div><!-- End .row -->
+                                        <table class="table table-summary">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <?php
+                                                    for ($i = 0; $i < $tempcart->rowCount(); $i++) {
+                                                    ?>
+                                                <tr>
+                                                    <td><a><?php echo $results[$i]['name']; ?></a></td>
+                                                    <td>$<?php echo $results[$i]['final_price']; ?></td>
+                                                </tr>
+                                                <?php } ?>
+                                                <!-- <tr>
+                                                    <td><a href="#">Blue utility pinafore denimdress</a></td>
+                                                    <td>$76,00</td>
+                                                </tr> -->
+                                                <tr class="summary-subtotal">
+                                                    <td>Subtotal:</td>
+                                                    <td>$<?php echo $_SESSION['supertotal']; ?></td>
+                                                </tr><!-- End .summary-subtotal -->
+                                                <tr>
+                                                    <td>Shipping:</td>
+                                                    <td>Free shipping</td>
+                                                </tr>
+                                                <tr class="summary-total">
+                                                    <td>Total:</td>
+                                                    <td>$<?php echo $_SESSION['supertotal']; ?></td>
+                                                </tr><!-- End .summary-total -->
+                                            </tbody>
+                                        </table><!-- End .table table-summary -->
+
+                                        <div class="accordion-summary" id="accordion-payment">
+                                            <div class="card">
+                                                <!-- <div class="card-header" id="heading-2">
+                                                    <h2 class="card-title">
+                                                        <a class="collapsed" role="button" data-toggle="collapse"
+                                                            href="#collapse-2" aria-expanded="false"
+                                                            aria-controls="collapse-2">
+                                                            Check payments
+                                                        </a>
+                                                    </h2>
+                                                </div> -->
+                                                <div id="collapse-2" class="collapse" aria-labelledby="heading-2"
+                                                    data-parent="#accordion-payment">
+                                                    <div class="card-body">
+                                                        Ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
+                                                        Quisque volutpat mattis eros. Nullam malesuada erat ut turpis.
+                                                    </div><!-- End .card-body -->
+                                                </div><!-- End .collapse -->
+                                            </div><!-- End .card -->
+
+                                            <div class="card">
+                                                <div class="card-header" id="heading-3">
+                                                    <h2 class="card-title">
+                                                        <a class="collapsed" role="button" data-toggle="collapse"
+                                                            href="#collapse-3" aria-expanded="false"
+                                                            aria-controls="collapse-3">
+                                                            Cash on delivery
+                                                        </a>
+                                                    </h2>
+                                                </div><!-- End .card-header -->
+                                                <div id="collapse-3" class="collapse" aria-labelledby="heading-3"
+                                                    data-parent="#accordion-payment">
+                                                    <div class="card-body">Quisque volutpat mattis eros. Lorem ipsum
+                                                        dolor sit amet, consectetuer adipiscing elit. Donec odio.
+                                                        Quisque volutpat mattis eros.
+                                                    </div><!-- End .card-body -->
+                                                </div><!-- End .collapse -->
+                                            </div><!-- End .card -->
+                                        </div>
+
+                                        <button type="submit" name="checkout-form"
+                                            class="btn btn-outline-primary-2 btn-order btn-block">
+                                            <span class="btn-text">Place Order</span>
+                                            <span class="btn-hover-text">Proceed to Checkout</span>
+                                        </button>
+                                    </div><!-- End .summary -->
+                                </aside><!-- End .col-lg-3 -->
+                            </div><!-- End .row -->
+                            <?php } else {  ?>
+                            <div> you are not not logged in </div>
+                            <?php } ?>
+                        </form>
                     </div><!-- End .container -->
-                </div><!-- End .cart -->
+                </div><!-- End .checkout -->
             </div><!-- End .page-content -->
         </main><!-- End .main -->
 
@@ -889,7 +857,7 @@ function mahdiStopReload()
                                     <li><a href="#">How to shop on Molla</a></li>
                                     <li><a href="#">FAQ</a></li>
                                     <li><a href="contact.html">Contact us</a></li>
-                                    <li><a href="../login.html">Log in</a></li>
+                                    <li><a href="../login.php">Log in</a></li>
                                 </ul><!-- End .widget-list -->
                             </div><!-- End .widget -->
                         </div><!-- End .col-sm-6 col-lg-3 -->
@@ -962,7 +930,7 @@ function mahdiStopReload()
                             <li><a href="index-1.html">01 - furniture store</a></li>
                             <li><a href="index-2.html">02 - furniture store</a></li>
                             <li><a href="index-3.html">03 - electronic store</a></li>
-                            <li><a href="../index-4.html">04 - electronic store</a></li>
+                            <li><a href="../index.php">04 - electronic store</a></li>
                             <li><a href="index-5.html">05 - fashion store</a></li>
                             <li><a href="index-6.html">06 - fashion store</a></li>
                             <li><a href="index-7.html">07 - fashion store</a></li>
@@ -1037,7 +1005,7 @@ function mahdiStopReload()
                                     <li><a href="contact-2.html">Contact 02</a></li>
                                 </ul>
                             </li>
-                            <li><a href="../login.html">Login</a></li>
+                            <li><a href="../login.php">Login</a></li>
                             <li><a href="faq.html">FAQs</a></li>
                             <li><a href="404.html">Error 404</a></li>
                             <li><a href="coming-soon.html">Coming Soon</a></li>
@@ -1187,7 +1155,8 @@ function mahdiStopReload()
                                     </div><!-- End .form-choice -->
                                 </div><!-- .End .tab-pane -->
                                 <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
-                                    <form action="#">
+
+                                    <form>
                                         <div class="form-group">
                                             <label for="register-email">Your email address *</label>
                                             <input type="email" class="form-control" id="register-email"
@@ -1214,6 +1183,8 @@ function mahdiStopReload()
                                             </div><!-- End .custom-checkbox -->
                                         </div><!-- End .form-footer -->
                                     </form>
+
+
                                     <div class="form-choice">
                                         <p class="text-center">or sign in with</p>
                                         <div class="row">
@@ -1247,83 +1218,86 @@ function mahdiStopReload()
     <script src="../assets/js/jquery.waypoints.min.js"></script>
     <script src="../assets/js/superfish.min.js"></script>
     <script src="../assets/js/owl.carousel.min.js"></script>
-    <script src="../assets/js/bootstrap-input-spinner.js"></script>
     <!-- Main JS File -->
     <script src="../assets/js/main.js"></script>
 </body>
 
 
-<!-- molla/cart.html  22 Nov 2019 09:55:06 GMT -->
+<!-- molla/checkout.html  22 Nov 2019 09:55:06 GMT -->
 
 </html>
 
 
-
-
-<!-- mahdi php -->
 <?php
+mahdialert("outside if");
+if (isset($_POST['checkout-form'])) {
+    mahdialert("inside if");
 
-if (isset($_POST['deleteItem'])) {
-    $index = $_POST['mahdiIndex'];
-    // unset($_SESSION['cart'][$index]);
-    // $id = $_POST['hidden-id'];
+    $userid = $_SESSION['id']; #user id
+    $userid = 2; #user id
+    $totalprice = $_SESSION['supertotal']; #total price
+    $order_id;
     try {
-        $_command = "DELETE FROM tempcart WHERE id = $index";
-        $statement = $pdo->prepare($_command);
-        $result = $statement->execute();
+        $sqlCommand = "INSERT INTO orders (user_id , total) VALUES ('$userid', '$totalprice')";
+        echo $pdo->exec($sqlCommand);
+        echo mahdialert("New order created successfully");
+
+        // echo "New record created successfully";
+        // header("Location: ./index.php");
     } catch (PDOException $e) {
+        #email duplicate
+        // $emailError = "php error: email already exist";
         echo "error" . $e;
     }
+    try {
+        echo mahdialert("inside try");
 
-    #for refresh
-    ob_start();
-    ob_end_flush();
-    header("Refresh:0");
+        $_command = "SELECT * FROM orders";
+        $statement = $pdo->prepare($_command);
+        $statement->execute();
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        $order = $statement->fetchAll();
+        $order_id = $order[$statement->rowCount() - 1]['id']; #get latest order id 
+        mahdialert($order_id);
+    } catch (PDOException $e) {
+        echo "error" . $e->getMessage();
+    }
+
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $country = $_POST['country'];
+    $streetaddress = $_POST['streetaddress'];
+    $postcode = $_POST['postcode'];
+    $phone = $_POST['phone'];
+
+    for ($i = 0; $i < $tempcart->rowCount(); $i++) {
+        echo mahdialert("inside for");
+
+        $product_id = $results[$i]['product_id'];
+        $quantity = $results[$i]['quantity'];
+        $final_price = $results[$i]['final_price'];
+        $user_id = $results[$i]['user_id'];
+        echo mahdialert("before sql");
+        echo mahdialert($product_id);
+        echo mahdialert($quantity);
+        echo mahdialert($final_price);
+        echo mahdialert($user_id);
+
+        try {
+            $sqlCommand = "INSERT INTO items_checkout (products_id, quantity, final_price, orders_id, user_id, firstname, lastname, email, country, street_address, postcode, phone) VALUES ('$product_id', '$quantity', '$final_price', '$order_id', '$user_id', '$firstname', '$lastname', '$email', '$country', '$streetaddress', '$postcode', '$phone')";
+            echo $pdo->exec($sqlCommand);
+            echo mahdialert("after command");
+        } catch (PDOException $e) {
+            echo "error" . $e;
+        }
+    }
+    header("Location: ./index.php");
 }
 
-if (isset($_POST['subtractQuantity'])) {
-    $mahdiQuantity = $_POST['mahdiQuantity'];
-    $id = $_POST['hidden-id'];
 
-    if ($mahdiQuantity == 1) {
-        //delete from tempcart table
-        $_command = "DELETE FROM tempcart WHERE id = $id";
-        $statement = $pdo->prepare($_command);
-        $statement->execute();
-    } else {
-        $mahdiQuantity--;
-        $_command = "UPDATE tempcart SET quantity='$mahdiQuantity' WHERE id = $id";
-        $statement = $pdo->prepare($_command);
-        $statement->execute();
-
-        //update database
-    }
-
-    #for refresh
-    ob_start();
-    ob_end_flush();
-    header("Refresh:0");
-    // mahdiStopReload();
-    // mahdiReload();
-    // mahdiStopReload();
-} elseif (isset($_POST['addQuantity'])) {
-    $mahdiQuantity = $_POST['mahdiQuantity'];
-    $id = $_POST['hidden-id'];
-
-    if ($mahdiQuantity < 10) {
-        //update database
-        $mahdiQuantity++;
-        $_command = "UPDATE tempcart SET quantity='$mahdiQuantity' WHERE id = $id";
-        $statement = $pdo->prepare($_command);
-        $statement->execute();
-    } else {
-        echo "you can't purchase more than 10";
-    }
-    #for refresh
-    ob_start();
-    ob_end_flush();
-    header("Refresh:0");
-    // mahdiReload();
-    // mahdiStopReload();
+function mahdialert($message)
+{
+    echo "<script>alert('$message');</script>";
 }
 ?>
