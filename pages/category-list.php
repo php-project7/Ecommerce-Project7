@@ -32,18 +32,18 @@ if (isset($_POST["submitAddToCart"])) {
       $count = $product['quantity'];
       $count++;
 
-      $insert_product1 = $pdo->prepare("UPDATE tempcart SET quantity='$count' WHERE id='$product[id]' AND product_id='$data[id]' AND user_id='$logged_user'");
-      $insert_product1->execute();
+      $insert_product1 = $pdo->query("UPDATE tempcart SET quantity='$count' WHERE id='$product[id]' AND product_id='$data[id]' AND user_id='$logged_user'");
     } else {
-      $insert_product = $pdo->prepare("INSERT INTO tempcart (product_id,user_id,img,name,price,quantity,discount)
-  VALUES('$data[id]','$logged_user', '$data[img]','$data[name]','$data[price]','1','$data[discount]')");
-      $insert_product->execute();
+      $insert_product = $pdo->query("INSERT INTO tempcart (product_id,user_id,img,name,price,quantity,discount)
+  VALUES($data[id],'$logged_user', '$data[img]','$data[name]','$data[price]','1','$data[discount]')");
     }
   } else {
     header('location:login.php');
     exit();
   }
 }
+
+
 
 
 
@@ -165,9 +165,16 @@ if (isset($_POST["submitAddToCart"])) {
 
                       <form method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
                         <div class="product-details-action">
-                          <button type="submit" name="submitAddToCart" value="<?= $product['id'] ?>" class="btn-product btn-cart">
-                            <span>add to cart</span>
-                          </button>
+                            <?php //handle to check if number of product stock is 0
+                            if ($product['stock'] === 0 || $product['stock'] < 0 ) { ?>
+                                <button type="submit" class="btn btn-sm btn-outline-danger" disabled>
+                                    <span>Out of stock</span>
+                                </button>
+                            <?php } else { ?>
+                                <button type="submit" class="btn btn-sm btn-outline-danger" name="submitAddToCart" value="<?= $product['id'] ?>">
+                                    <span>Add to cart</span>
+                                </button>
+                            <?php } ?>
                         </div><!-- End .product-details-action -->
                       </form>
 
