@@ -171,7 +171,7 @@ if (isset($_POST["submitAddToCart"])) {
                                     <span>Out of stock</span>
                                 </button>
                             <?php } else { ?>
-                                <button type="submit" class="btn btn-sm btn-outline-danger" name="add_to_cart" value="<?= $product['id'] ?>">
+                                <button type="submit" class="btn btn-sm btn-outline-danger" name="submitAddToCart" value="<?= $product['id'] ?>">
                                     <span>Add to cart</span>
                                 </button>
                             <?php } ?>
