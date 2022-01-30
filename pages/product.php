@@ -45,6 +45,7 @@ $statement = $pdo->query($query);
 $product = $statement->fetch();
 $catId = $product["category_id"];
 $productId = $product["id"];
+$productStock = $product["stock"];
 
 // -----------------
 $sql = "SELECT * FROM categories WHERE id=$catId";
@@ -118,7 +119,7 @@ $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="details-filter-row details-row-size">
          <label for="qty">Qty:</label>
          <div class="product-details-quantity">
-          <input type="number" id="qty" class="form-control" name="submittedQuantity" value="1" min="1" max="10" step="1" data-decimals="0" required>
+          <input type="number" id="qty" class="form-control" name="submittedQuantity" value="1" min="1" max="<?php echo $productStock; ?>" step="1" data-decimals="0" required>
          </div><!-- End .product-details-quantity -->
         </div><!-- End .details-filter-row -->
 
@@ -239,7 +240,7 @@ $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
      $<?= $product["price"] ?>
     </div><!-- End .product-price -->
     <div class="product-details-quantity">
-     <input type="number" id="sticky-cart-qty" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
+     <input type="number" id="sticky-cart-qty" class="form-control" value="1" min="1" max="<?php echo $productStock; ?>" step="1" data-decimals="0" required>
     </div><!-- End .product-details-quantity -->
 
     <div class="product-details-action">

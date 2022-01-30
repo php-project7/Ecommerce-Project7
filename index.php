@@ -277,6 +277,16 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                                     }
                                     ?>
                                 </div><!-- End .cart-product -->
+                                <div class="dropdown-cart-action">
+                    <a href="pages/cart.php" class="btn btn-primary"
+                      >View Cart</a
+                    >
+                    <a
+                      href="pages/checkout.php"
+                      class="btn btn-outline-primary-2"
+                      ><span>Checkout</span><i class="icon-long-arrow-right"></i
+                    ></a>
+                  </div>
                             </div><!-- End .dropdown-menu -->
               </div>
               <!-- End .cart-dropdown -->
@@ -542,7 +552,9 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                             <span class='product-label label-circle label-top'>Sale</span>
                             <a href='pages/product.php?id=<?= $row['id'] ?>'><img src="<?= $row['img'] ?>" alt='Product image' class='product-image'/></a>
                             <div class='product-action-vertical'><a href='#' class='btn-product-icon btn-wishlist' title='Add to wishlist'></a></div>
-                            <div class='product-action'><a href="addToCart.php?id=<?=$row['id'] ?>" class='btn-product btn-cart' title='Add to cart'><span>add to cart</span></a>
+                            <div class='product-action'><?php if($row['stock']) { ?><a href="addToCart.php?id=<?=$row['id'] ?>" class='btn-product btn-cart' title='Add to cart'><span>add to cart</span></a><?php } else {
+                              echo "<p>Out of Stock</p>";
+                            } ?>
                                 <a href='popup/quickView.html' class='btn-product btn-quickview' title='Quick view'><span>quick view</span></a></div>
                         </figure>
                         <div class='product-body'>
@@ -696,10 +708,12 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                   <?php foreach($result1 as $row) { ?>
                       <div class='product product-2'>
                      <figure class='product-media'>
-                     <span class='product-label label-circle label-top'></span>
+                     <?php if($row['discount']){ ?><span class='product-label label-circle label-top'>Sale</span> <?php }?>
                      <a href='pages/product.php?id=<?= $row['id'] ?>'><img src="<?= $row['img'] ?>" alt='Product image' class='product-image'/></a>
                      <div class='product-action-vertical'><a href='#' class='btn-product-icon btn-wishlist' title='Add to wishlist'></a></div>
-                     <div class='product-action'><a href="addToCart.php?id=<?=$row['id'] ?>" class='btn-product btn-cart' title='Add to cart'><span>add to cart</span></a>
+                     <div class='product-action'><?php if($row['stock']) { ?><a href="addToCart.php?id=<?=$row['id'] ?>" class='btn-product btn-cart' title='Add to cart'><span>add to cart</span></a><?php } else {
+                       echo "<p>Out of Stock</p>";
+                     } ?>
                       <a href='popup/quickView.html' class='btn-product btn-quickview' title='Quick view'><span>quick view</span></a></div>
                      </figure>
                        <div class='product-body'>
