@@ -815,7 +815,7 @@ $result1 = $stmt->fetchAll();
                   <div class="icon-box-content">
                     <h3 class="icon-box-title">Free Shipping</h3>
                     <!-- End .icon-box-title -->
-                    <p>Orders $50 or more</p>
+                    <p>Orders 50 JD or more</p>
                   </div>
                   <!-- End .icon-box-content -->
                 </div>
@@ -895,7 +895,7 @@ $result1 = $stmt->fetchAll();
                   <!-- End .cta-title -->
                   <p class="cta-desc text-white">
                     and receive
-                    <span class="font-weight-normal">$20 coupon</span> for first
+                    <span class="font-weight-normal">20 JD coupon</span> for first
                     shopping
                   </p>
                   <!-- End .cta-desc -->
@@ -949,7 +949,7 @@ $result1 = $stmt->fetchAll();
                   <div class="widget-call">
                     <i class="icon-phone"></i>
                     Got Question? Call us 24/7
-                    <a href="tel:#">+0123 456 789</a>
+                    <a href="tel:#">+962770245060</a>
                   </div>
                   <!-- End .widget-call -->
                 </div>
@@ -963,11 +963,10 @@ $result1 = $stmt->fetchAll();
                   <!-- End .widget-title -->
 
                   <ul class="widget-list">
-                    <li><a href="pages/about.html">About Molla</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">How to shop on Molla</a></li>
+                    <li><a href="pages/about.html">About Us</a></li>
                     <li><a href="pages/faq.html">FAQ</a></li>
-                    <li><a href="pages/contact.html">Contact us</a></li>
+                    <li><a href="pages/contact.html">Contact Us</a></li>
+                    <li><a href="#signin-modal" data-toggle="modal">Sign Up</a></li>
                   </ul>
                   <!-- End .widget-list -->
                 </div>
@@ -975,24 +974,7 @@ $result1 = $stmt->fetchAll();
               </div>
               <!-- End .col-sm-6 col-lg-3 -->
 
-              <div class="col-sm-6 col-lg-3">
-                <div class="widget">
-                  <h4 class="widget-title">Customer Service</h4>
-                  <!-- End .widget-title -->
-
-                  <ul class="widget-list">
-                    <li><a href="#">Payment Methods</a></li>
-                    <li><a href="#">Money-back guarantee!</a></li>
-                    <li><a href="#">Returns</a></li>
-                    <li><a href="#">Shipping</a></li>
-                    <li><a href="#">Terms and conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                  </ul>
-                  <!-- End .widget-list -->
-                </div>
-                <!-- End .widget -->
-              </div>
-              <!-- End .col-sm-6 col-lg-3 -->
+             
 
               <div class="col-sm-6 col-lg-3">
                 <div class="widget">
@@ -1000,11 +982,9 @@ $result1 = $stmt->fetchAll();
                   <!-- End .widget-title -->
 
                   <ul class="widget-list">
-                    <li><a href="#">Sign In</a></li>
-                    <li><a href="pages/cart.html">View Cart</a></li>
-                    <li><a href="#">My Wishlist</a></li>
-                    <li><a href="#">Track My Order</a></li>
-                    <li><a href="#">Help</a></li>
+                    <li><a href="#signin-modal" data-toggle="modal">Sign In</a></li>
+                    <li><a href="pages/cart.php">Cart</a></li>
+                    <li><a href="pages/wishlist.html">My Wishlist</a></li>
                   </ul>
                   <!-- End .widget-list -->
                 </div>
@@ -1021,7 +1001,7 @@ $result1 = $stmt->fetchAll();
         <div class="footer-bottom">
           <div class="container">
             <p class="footer-copyright">
-              Copyright © 2019 Molla Store. All Rights Reserved.
+            Copyright © 2022 Molla Store. All Rights Reserved.
             </p>
             <!-- End .footer-copyright -->
             <figure class="footer-payments">
