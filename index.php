@@ -25,6 +25,9 @@ $result = $sql->fetchAll();
 $stmt = $pdo->query("SELECT * FROM products ");
 $result1 = $stmt->fetchAll();
 
+$sql1 = "SELECT * FROM categories";
+$stmt1 = $pdo->query($sql1);
+$categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -433,107 +436,23 @@ $result1 = $stmt->fetchAll();
 
           <div class="cat-blocks-container">
             <div class="row">
+            <?php foreach ($categories as $category) { ?>
               <div class="col-6 col-sm-4 col-lg-2">
                 <a href="pages/category-list.php" class="cat-block">
                   <figure>
                     <span>
                       <img
-                        src="assets/images/demos/demo-4/cats/1.png"
+                        src="<?= $category['img'] ?>"
                         alt="Category image"
                       />
                     </span>
                   </figure>
 
-                  <h3 class="cat-block-title">Computer & Laptop</h3>
-                  <!-- End .cat-block-title -->
+                  <h3 class="cat-block-title"><?= $category['name'] ?></h3>
                 </a>
               </div>
-              <!-- End .col-sm-4 col-lg-2 -->
-
-              <div class="col-6 col-sm-4 col-lg-2">
-              <a href="pages/category-list.php" class="cat-block">
-                  <figure>
-                    <span>
-                      <img
-                        src="assets/images/demos/demo-4/cats/2.png"
-                        alt="Category image"
-                      />
-                    </span>
-                  </figure>
-
-                  <h3 class="cat-block-title">Digital Cameras</h3>
-                  <!-- End .cat-block-title -->
-                </a>
-              </div>
-              <!-- End .col-sm-4 col-lg-2 -->
-
-              <div class="col-6 col-sm-4 col-lg-2">
-              <a href="pages/category-list.php" class="cat-block">
-                  <figure>
-                    <span>
-                      <img
-                        src="assets/images/demos/demo-4/cats/3.png"
-                        alt="Category image"
-                      />
-                    </span>
-                  </figure>
-
-                  <h3 class="cat-block-title">Smart Phones</h3>
-                  <!-- End .cat-block-title -->
-                </a>
-              </div>
-              <!-- End .col-sm-4 col-lg-2 -->
-
-              <div class="col-6 col-sm-4 col-lg-2">
-              <a href="pages/category-list.php" class="cat-block">
-                  <figure>
-                    <span>
-                      <img
-                        src="assets/images/demos/demo-4/cats/4.png"
-                        alt="Category image"
-                      />
-                    </span>
-                  </figure>
-
-                  <h3 class="cat-block-title">Televisions</h3>
-                  <!-- End .cat-block-title -->
-                </a>
-              </div>
-              <!-- End .col-sm-4 col-lg-2 -->
-
-              <div class="col-6 col-sm-4 col-lg-2">
-              <a href="pages/category-list.php" class="cat-block">
-                  <figure>
-                    <span>
-                      <img
-                        src="assets/images/demos/demo-4/cats/5.png"
-                        alt="Category image"
-                      />
-                    </span>
-                  </figure>
-
-                  <h3 class="cat-block-title">Audio</h3>
-                  <!-- End .cat-block-title -->
-                </a>
-              </div>
-              <!-- End .col-sm-4 col-lg-2 -->
-
-              <div class="col-6 col-sm-4 col-lg-2">
-              <a href="pages/category-list.php" class="cat-block">
-                  <figure>
-                    <span>
-                      <img
-                        src="assets/images/demos/demo-4/cats/6.png"
-                        alt="Category image"
-                      />
-                    </span>
-                  </figure>
-
-                  <h3 class="cat-block-title">Smart Watches</h3>
-                  <!-- End .cat-block-title -->
-                </a>
-              </div>
-              <!-- End .col-sm-4 col-lg-2 -->
+              <?php } ?>
+             
             </div>
             <!-- End .row -->
           </div>
@@ -627,7 +546,13 @@ $result1 = $stmt->fetchAll();
                                 <a href='popup/quickView.html' class='btn-product btn-quickview' title='Quick view'><span>quick view</span></a></div>
                         </figure>
                         <div class='product-body'>
-                            <div class='product-cat'><a href='#'>Laptops</a></div>
+                            <div class='product-cat'><a href='#'><?php
+                        foreach ($categories as $category) {
+                          if ($category['id'] === $row['category_id']) {
+                            echo '<a href="#">' . $category['name'] . '</a>';
+                          }
+                        }
+                        ?></a></div>
                             <h3 class='product-title'><a href='pages/product.php?id=<?= $row['id'] ?>'><?= $row['name']?></a></h3>
                             <div class='product-price'><?= $row['price']?> . J.D</div>
                         </div>
@@ -778,7 +703,13 @@ $result1 = $stmt->fetchAll();
                       <a href='popup/quickView.html' class='btn-product btn-quickview' title='Quick view'><span>quick view</span></a></div>
                      </figure>
                        <div class='product-body'>
-                      <div class='product-cat'><a href='#'>Laptops</a></div>
+                      <div class='product-cat'><a href='#'><?php
+                        foreach ($categories as $category) {
+                          if ($category['id'] === $row['category_id']) {
+                            echo '<a href="#">' . $category['name'] . '</a>';
+                          }
+                        }
+                        ?></a></div>
                       <h3 class='product-title'><a href='pages/product.php?id=<?= $row['id'] ?>'><?= $row['name'] ?></a></h3>
                       <div class='product-price'><?= $row['price'] ?> . J.D</div>
                       </div>
