@@ -1,0 +1,9 @@
+
+CWeb:BoldAndItalicTagsCheck"Replace this <i> tag by <em>.(«šĞ 
+GWeb:TableWithoutCaptionCheck " Add a description to this table.(Äç¯
+l Web:TableHeaderHasIdOrScopeCheck#";Add either an 'id' or a 'scope' attribute to this <th> tag.(©Ã¿ºÿÿÿÿÿ
+g Web:TableHeaderHasIdOrScopeCheck$";Add either an 'id' or a 'scope' attribute to this <th> tag.(ö¾–ï
+g Web:TableHeaderHasIdOrScopeCheck%";Add either an 'id' or a 'scope' attribute to this <th> tag.(§ª‰Ç
+n Web:TableHeaderHasIdOrScopeCheck&";Add either an 'id' or a 'scope' attribute to this <th> tag.(ë§ƒ¿8Ü¤ÑÀê/
+HWeb:BoldAndItalicTagsCheck2"Replace this <i> tag by <em>.(Øµ¤ûÿÿÿÿ
+CWeb:BoldAndItalicTagsCheck3"Replace this <i> tag by <em>.(ÿÀÀ
