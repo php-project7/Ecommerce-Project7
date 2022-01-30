@@ -1233,12 +1233,12 @@ mahdialert("outside if");
 if (isset($_POST['checkout-form'])) {
     mahdialert("inside if");
 
-    $userid = $_SESSION['id']; #user id
-    $userid = 2; #user id
+    $user_id = $_SESSION['id']; #user id
+    // $user_id = 2; #user id
     $totalprice = $_SESSION['supertotal']; #total price
     $order_id;
     try {
-        $sqlCommand = "INSERT INTO orders (user_id , total) VALUES ('$userid', '$totalprice')";
+        $sqlCommand = "INSERT INTO orders (user_id , total) VALUES ('$user_id', '$totalprice')";
         echo $pdo->exec($sqlCommand);
         echo mahdialert("New order created successfully");
 
@@ -1277,7 +1277,6 @@ if (isset($_POST['checkout-form'])) {
         $product_id = $results[$i]['product_id'];
         $quantity = $results[$i]['quantity'];
         $final_price = $results[$i]['final_price'];
-        $user_id = $results[$i]['user_id'];
         echo mahdialert("before sql");
         echo mahdialert($product_id);
         echo mahdialert($quantity);
