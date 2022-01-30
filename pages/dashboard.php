@@ -65,11 +65,10 @@ if(isset($_POST['submit_save'])){
             if(!empty($new_password)){
                 $new_password = md5($new_password);
                 $sql = "UPDATE users SET name = '$name', email = '$email', password = '$new_password' WHERE id = $user_id";
-                $stmt = $pdo->query($sql);
             }else{
                 $sql = "UPDATE users SET name = '$name', email = '$email' WHERE id = $user_id";
-                $stmt = $pdo->query($sql);
             }
+            $stmt = $pdo->query($sql);
         }else{
             $errors[] = "Current password is incorrect";
         }
@@ -88,8 +87,8 @@ if(isset($_POST['submit_save'])){
             <nav aria-label="breadcrumb" class="breadcrumb-nav mb-3">
                 <div class="container">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                        <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
+                        <li class="breadcrumb-item"><a href="./category-list.php">Shop</a></li>
                         <li class="breadcrumb-item active" aria-current="page">My Account</li>
                     </ol>
                 </div><!-- End .container -->

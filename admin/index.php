@@ -13,8 +13,14 @@
                                                 <i class="zmdi zmdi-account-o"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>10368</h2>
-                                                <span>members online</span>
+                                                <h2><?php
+                                                    $stmt = $pdo->prepare('SELECT * FROM users ORDER BY id DESC');
+                                                    $num_users = $pdo->query('SELECT COUNT(*) FROM users')->fetchColumn();
+                                                    $stmt->execute();
+                                                    $num_contacts = $stmt->rowCount();
+                                                    echo $num_users;
+                                                    ?></h2>
+                                                <span>Users</span>
                                             </div>
                                         </div>
                                         <div class="overview-chart">
@@ -31,8 +37,16 @@
                                                 <i class="zmdi zmdi-shopping-cart"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>388,688</h2>
-                                                <span>items solid</span>
+                                                <h2>
+                                                    <?php
+                                                    $stmt = $pdo->prepare('SELECT * FROM products ORDER BY id DESC');
+                                                    $num_products = $pdo->query('SELECT COUNT(*) FROM products')->fetchColumn();
+                                                    $stmt->execute();
+                                                    $num_products = $stmt->rowCount();
+                                                    echo $num_products;
+                                                    ?>
+                                                </h2>
+                                                <span>Products</span>
                                             </div>
                                         </div>
                                         <div class="overview-chart">
@@ -49,8 +63,14 @@
                                                 <i class="zmdi zmdi-calendar-note"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>1,086</h2>
-                                                <span>this week</span>
+                                                <h2><?php
+                                                    $stmt = $pdo->prepare('SELECT * FROM categories ORDER BY id DESC');
+                                                    $num_categories = $pdo->query('SELECT COUNT(*) FROM categories')->fetchColumn();
+                                                    $stmt->execute();
+                                                    $num_categories = $stmt->rowCount();
+                                                    echo $num_categories;
+                                                    ?></h2>
+                                                <span>Categories</span>
                                             </div>
                                         </div>
                                         <div class="overview-chart">

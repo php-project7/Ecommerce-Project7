@@ -379,7 +379,7 @@ function mahdiStopReload()
                                                             <div class="menu-title">Shop with sidebar</div>
                                                             <!-- End .menu-title -->
                                                             <ul>
-                                                                <li><a href="category-list.html">Shop List</a></li>
+                                                                <li><a href="category-list.php">Shop List</a></li>
                                                                 <li><a href="category-2cols.html">Shop Grid 2
                                                                         Columns</a></li>
                                                                 <li><a href="category.html">Shop Grid 3 Columns</a></li>
@@ -446,7 +446,7 @@ function mahdiStopReload()
                                     </div><!-- End .megamenu megamenu-md -->
                                 </li>
                                 <li>
-                                    <a href="product.html" class="sf-with-ul">Product</a>
+                                    <a href="product.php" class="sf-with-ul">Product</a>
 
                                     <div class="megamenu megamenu-sm">
                                         <div class="row no-gutters">
@@ -455,7 +455,7 @@ function mahdiStopReload()
                                                     <div class="menu-title">Product Details</div>
                                                     <!-- End .menu-title -->
                                                     <ul>
-                                                        <li><a href="product.html">Default</a></li>
+                                                        <li><a href="product.php">Default</a></li>
                                                         <li><a href="product-centered.html">Centered</a></li>
                                                         <li><a href="product-extended.html"><span>Extended Info<span
                                                                         class="tip tip-new">New</span></span></a></li>
@@ -600,13 +600,13 @@ function mahdiStopReload()
                                     <li class="compare-product">
                                         <a href="#" class="btn-remove" title="Remove Product"><i
                                                 class="icon-close"></i></a>
-                                        <h4 class="compare-product-title"><a href="product.html">Blue Night Dress</a>
+                                        <h4 class="compare-product-title"><a href="product.php">Blue Night Dress</a>
                                         </h4>
                                     </li>
                                     <li class="compare-product">
                                         <a href="#" class="btn-remove" title="Remove Product"><i
                                                 class="icon-close"></i></a>
-                                        <h4 class="compare-product-title"><a href="product.html">White Long Skirt</a>
+                                        <h4 class="compare-product-title"><a href="product.php">White Long Skirt</a>
                                         </h4>
                                     </li>
                                 </ul>
@@ -987,7 +987,7 @@ function mahdiStopReload()
                     <li>
                         <a href="category.html">Shop</a>
                         <ul>
-                            <li><a href="category-list.html">Shop List</a></li>
+                            <li><a href="category-list.php">Shop List</a></li>
                             <li><a href="category-2cols.html">Shop Grid 2 Columns</a></li>
                             <li><a href="category.html">Shop Grid 3 Columns</a></li>
                             <li><a href="category-4cols.html">Shop Grid 4 Columns</a></li>
@@ -1004,9 +1004,9 @@ function mahdiStopReload()
                         </ul>
                     </li>
                     <li>
-                        <a href="product.html" class="sf-with-ul">Product</a>
+                        <a href="product.php" class="sf-with-ul">Product</a>
                         <ul>
-                            <li><a href="product.html">Default</a></li>
+                            <li><a href="product.php">Default</a></li>
                             <li><a href="product-centered.html">Centered</a></li>
                             <li><a href="product-extended.html"><span>Extended Info<span
                                             class="tip tip-new">New</span></span></a></li>

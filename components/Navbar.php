@@ -125,7 +125,7 @@
                                     
                                 </li>
                                 <li>
-                                    <a href="../pages/category-list.html" class="  ">Shop</a>
+                                    <a href="../pages/category-list.php" class="sf-with-ul">Shop</a>
 
                                     
                                 </li>
@@ -222,7 +222,7 @@
                     </ul>
                 </li>
                 <li>
-                <a href="../pages/category-list.html" class="  ">Shop</a>
+                <a href="../pages/category-list.php" class="sf-with-ul">Shop</a>
                     <ul>
                        
                     </ul>

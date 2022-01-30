@@ -2,13 +2,9 @@
 C
 pages/wishlist.html,3\f\3f000c6a3e8d216c41ecc25ba5fb403c93418442
 B
-pages/product.html,a\1\a1d0b66a59ce30170540c44eaeef7d9b2db01439
-B
 pages/contact.html,f\7\f75d4262b6574d5a588f845a4dc9ab04a6644c9c
 F
 pages/coming-soon.html,c\0\c0172e8e5a22a81a427793d6c76b897ce9b53081
-H
-pages/category-list.html,e\a\eab73089b5a57fa556228ee0225b208e964745fb
 @
 pages/about.html,b\e\be10f8a7dc8ce3ea849572090bd2438cf340063e
 ?
@@ -23,17 +19,51 @@ G
 admin/layout/footer.php,e\d\edbe94abbf49f7b715382de2e1ce580af8ecc9be
 L
 admin/layoutAdmin/footer.php,2\9\29da1388942cba5d6f56cfed3f7dd1b7253fab22
-L
-admin/layoutAdmin/header.php,c\4\c42cc7f48264de4daf6de4c23388cfdd6995b747
-9
-	index.php,b\b\bb6499b8e938f92a3695fff1afe57edea4b9efb7
-G
-admin/layout/header.php,f\4\f42b1b85640f5b4776409d6a82de3810750b7272
-E
-admin/users/index.php,e\9\e919609a8eff7fd09d9c28a1c4ca098f23fd5a32
 F
 admin/users/delete.php,8\3\83f70a2470795305f07a5bf0098d0a2b3c590a3d
 @
 admin/js/main.js,0\8\08a9918acb9d1127ce8a293089f43e3c77755a0e
+9
+	login.php,a\7\a7beef4050e4205c8b59eb204ec9bb15ce01d9c0
+G
+admin/config/errors.php,a\c\ac2816e266b0c1822b393643cfde724d5a193b76
 K
 admin/users/create_user.php,c\5\c54ecfee1d1f0675c8affb4ec67be7be2a945061
+D
+admin/users/edit.php,d\1\d111d038fcc84f70475abbd90d268484cd7d38a5
+G
+admin/config/server.php,0\f\0fad0d4ee712a225c43ac672443fc53dbbeac7cf
+>
+pages/faq.html,f\b\fb447bd133e3d234670593671c8a2c27245ec989
+E
+components/Footer.php,7\2\723f3c71bcc9d168339a6639bd51923fde328afc
+>
+pages/cart.php,b\d\bd6f15f9c07bb56234b8c9a65d58d7ccdba13033
+G
+admin/layout/header.php,f\4\f42b1b85640f5b4776409d6a82de3810750b7272
+T
+$admin/categories/delete_category.php,a\0\a07ae0224ae980829362b3becb934376e5a6bc36
+Q
+!admin/products/delete_product.php,1\2\122a6c5d275a6296df9c85c492d6900e3a3db3f1
+R
+"admin/categories/edit_category.php,5\a\5a568a5a6116b1575eb92ee360235adc5f60c842
+T
+$admin/categories/create_category.php,1\e\1ec05dcfb59eab8a79da01b3a89724d15877a82a
+Q
+!admin/products/create_product.php,d\0\d05a0216a79d4d9a5618a28ecdbb0e2f8259c424
+H
+admin/products/index.php,5\9\59ada9870f0c16e16f89f92c6cb4429602934550
+J
+admin/categories/index.php,8\0\802fcb5b5299d8894faee80eb66a5237b0c55447
+O
+admin/products/edit_product.php,6\7\67170300f2b6020010f6b1039cc0882ffb7e8994
+E
+components/Navbar.php,2\3\23f083e41ac46d614821faf6af995895fe98e85f
+?
+admin/index.php,f\2\f2b5f437742223d88f00a5ab44f5e97a37359212
+L
+admin/layoutAdmin/header.php,c\4\c42cc7f48264de4daf6de4c23388cfdd6995b747
+E
+admin/users/index.php,e\9\e919609a8eff7fd09d9c28a1c4ca098f23fd5a32
+9
+	index.php,b\b\bb6499b8e938f92a3695fff1afe57edea4b9efb7
