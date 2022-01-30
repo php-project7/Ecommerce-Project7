@@ -277,6 +277,16 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                                     }
                                     ?>
                                 </div><!-- End .cart-product -->
+                                <div class="dropdown-cart-action">
+                    <a href="pages/cart.php" class="btn btn-primary"
+                      >View Cart</a
+                    >
+                    <a
+                      href="pages/checkout.php"
+                      class="btn btn-outline-primary-2"
+                      ><span>Checkout</span><i class="icon-long-arrow-right"></i
+                    ></a>
+                  </div>
                             </div><!-- End .dropdown-menu -->
               </div>
               <!-- End .cart-dropdown -->
