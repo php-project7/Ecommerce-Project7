@@ -14,7 +14,7 @@
     
 
     // check if the product already exist in the the tempCart 
-    $product_check_query = "SELECT * FROM tempcart WHERE product_id='$value' LIMIT 1";
+    $product_check_query = "SELECT * FROM tempcart WHERE product_id='$value' AND user_id='$logged_user' LIMIT 1";
     $stmt1 = $pdo->prepare($product_check_query);
     $stmt1->execute();
     $product = $stmt1->fetch(PDO::FETCH_ASSOC);
