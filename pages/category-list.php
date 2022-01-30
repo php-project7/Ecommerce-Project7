@@ -46,6 +46,8 @@ if (isset($_POST["submitAddToCart"])) {
 
 
 
+
+
 ?>
 
 
@@ -163,9 +165,16 @@ if (isset($_POST["submitAddToCart"])) {
 
                       <form method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
                         <div class="product-details-action">
-                          <button type="submit" name="submitAddToCart" value="<?= $product['id'] ?>" class="btn-product btn-cart">
-                            <span>add to cart</span>
-                          </button>
+                            <?php //handle to check if number of product stock is 0
+                            if ($product['stock'] === 0 || $product['stock'] < 0 ) { ?>
+                                <button type="submit" class="btn btn-sm btn-outline-danger" disabled>
+                                    <span>Out of stock</span>
+                                </button>
+                            <?php } else { ?>
+                                <button type="submit" class="btn btn-sm btn-outline-danger" name="add_to_cart" value="<?= $product['id'] ?>">
+                                    <span>Add to cart</span>
+                                </button>
+                            <?php } ?>
                         </div><!-- End .product-details-action -->
                       </form>
 
