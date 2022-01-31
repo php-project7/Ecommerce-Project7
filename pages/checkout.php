@@ -8,13 +8,6 @@ try {
     $tempcart->setFetchMode(PDO::FETCH_ASSOC);
     $results = $tempcart->fetchAll();
     $superTotal = 0;
-    if ($tempcart->rowCount()) {
-        echo "<pre>";
-        // var_dump($results);
-        echo "</pre>";
-    } else {
-        echo "fail";
-    }
 } catch (PDOException $e) {
     echo "error" . $e->getMessage();
 }

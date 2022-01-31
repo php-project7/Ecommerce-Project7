@@ -47,46 +47,11 @@ if (isset($_POST['subtractQuantity'])) {
     } else {
         echo "you can't purchase more than 10";
     }
-    #for refresh
-    // ob_start();
-    // ob_end_flush();
-    // header("Refresh:0");
-    // mahdiReload();
-    // mahdiStopReload();
 }
 
 
 
 try {
-    #old code
-    // $_command = "SELECT * FROM products";
-    // $statement = $pdo->prepare($_command);
-    // $statement->execute();
-    // // set the resulting array to associative
-    // $statement->setFetchMode(PDO::FETCH_ASSOC);
-    // $results = $statement->fetchAll();
-    // // if (empty($_SESSION['cart'])) {
-    // unset($_SESSION['cart']);
-    // $_SESSION['cart'] = array();
-
-    // foreach ($results as $key => $value) {
-    //     // echo "<br>$key => $value";
-    //     array_push($_SESSION['cart'], $value);
-    // }
-    // // }
-    // // unset($_SESSION['cart'][1]);
-
-    // if ($statement->rowCount()) {
-    //     // echo "success<br>";
-    //     echo "<pre>";
-    //     // var_dump($results);
-    //     var_dump($_SESSION['cart']);
-    //     echo "</pre>";
-    // } else {
-    //     echo "fail";
-    // }
-
-
     #new code
     $_command = "SELECT * FROM tempcart WHERE user_id='$user_id'";
     $statement = $pdo->prepare($_command);
@@ -94,14 +59,6 @@ try {
     $statement->setFetchMode(PDO::FETCH_ASSOC);
     $results = $statement->fetchAll();
     $superTotal = 0;
-    if ($statement->rowCount()) {
-        echo $statement->rowCount();
-        echo "<pre>";
-        // var_dump($results);
-        echo "</pre>";
-    } else {
-        echo "fail";
-    }
 } catch (PDOException $e) {
     echo "error" . $e->getMessage();
 }
