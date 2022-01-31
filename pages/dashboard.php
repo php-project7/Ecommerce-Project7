@@ -74,6 +74,11 @@ if(isset($_POST['submit_save'])){
         }
     }
 }
+
+//get checkout data from table items_checkout and join it with orders table depending on logged in user
+
+
+
 ?>
 
 <?php include("../components/Navbar.php"); ?>
@@ -130,9 +135,56 @@ if(isset($_POST['submit_save'])){
 								    </div><!-- .End .tab-pane -->
 
 								    <div class="tab-pane fade" id="tab-orders" role="tabpanel" aria-labelledby="tab-orders-link">
-								    	<p>No order has been made yet.</p>
-								    	<a href="category.html" class="btn btn-outline-primary-2"><span>GO SHOP</span><i class="icon-long-arrow-right"></i></a>
-								    </div><!-- .End .tab-pane -->
+                                        <?php
+                                        $sql = "SELECT * FROM items_checkout JOIN orders ON items_checkout.orders_id = orders.id WHERE orders.user_id = $user_id";
+                                        $stmt = $pdo->query($sql);
+                                        $result = $stmt->fetchAll();
+                                        ?>
+                                    	<div class="table-responsive">
+                                        <?php if(empty($result)){ ?>
+                                            <div class="alert alert-info" role="alert">
+                                                <strong>No orders found!</strong>
+                                            </div>
+                                        <?php }else{ ?>
+                                            <div class="table-responsive">
+                                                <table
+                                                    class=
+                                                    "table table-hover table-sm table-striped table-bordered table-orders">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Order</th>
+                                                            <th>Date</th>
+                                                            <th>Total</th>
+                                                            <th>User ID</th>
+                                                        </tr>
+                                                        </thead>
+                                             <tbody>
+                                             <?php foreach($result as $order){ ?>
+                                                <tr>
+                                                    <td>
+                                                        <a href="order-details.php?id=<?= $order['id'] ?>">
+                                                            <?= $order['id'] ?>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <?= $order['date'] ?>
+                                                    </td>
+                                                    <td>
+                                                        <?= $order['total'] ?>
+                                                    </td>
+                                                    <td>
+                                                        <?= $order['id'] ?>
+                                                    </td>
+
+                                                </tr>
+                                            <?php } ?>
+                                            </tbody>
+                                            </table>
+                                            </div>
+                                        <?php } ?>
+                                        </div>
+                                    </div><!-- .End .tab-pane -->
+
 
 								    <div class="tab-pane fade" id="tab-downloads" role="tabpanel" aria-labelledby="tab-downloads-link">
 								    	<p>No downloads available yet.</p>

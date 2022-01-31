@@ -1,12 +1,13 @@
 <?php
 // session_start();
-require "../admin/config/connection.php";
-$_SESSION["supertotal"] = 0;
+require("../admin/config/connection.php");
+$_SESSION['supertotal'] = 0;
 $user_id = $_SESSION["id"];
 // require('../config/config.php');
 
-if (isset($_POST["deleteItem"])) {
-    $index = $_POST["mahdiIndex"];
+
+if (isset($_POST['deleteItem'])) {
+    $index = $_POST['mahdiIndex'];
     // unset($_SESSION['cart'][$index]);
     // $id = $_POST['hidden-id'];
     try {
@@ -23,9 +24,9 @@ if (isset($_POST["deleteItem"])) {
     // header("Refresh:0");
 }
 
-if (isset($_POST["subtractQuantity"])) {
-    $mahdiQuantity = $_POST["mahdiQuantity"];
-    $id = $_POST["hidden-id"];
+if (isset($_POST['subtractQuantity'])) {
+    $mahdiQuantity = $_POST['mahdiQuantity'];
+    $id = $_POST['hidden-id'];
 
     if ($mahdiQuantity == 1) {
         //delete from tempcart table
@@ -48,20 +49,20 @@ if (isset($_POST["subtractQuantity"])) {
     // mahdiStopReload();
     // mahdiReload();
     // mahdiStopReload();
-} elseif (isset($_POST["addQuantity"])) {
+} elseif (isset($_POST['addQuantity'])) {
     $_command = "SELECT * FROM products";
     $statement = $pdo->prepare($_command);
     $statement->execute();
     $statement->setFetchMode(PDO::FETCH_ASSOC);
     $stock = $statement->fetchAll();
 
-    $mahdiQuantity = $_POST["mahdiQuantity"];
-    $id = $_POST["hidden-id"];
+    $mahdiQuantity = $_POST['mahdiQuantity'];
+    $id = $_POST['hidden-id'];
 
     //first check if the product is out of stock
     foreach ($stock as $key => $value) {
-        if ($value["id"] == $id) {
-            if ($value["stock"] == 0) {
+        if ($value['id'] == $id) {
+            if ($value['stock'] == 0) {
                 echo "out of stock";
                 return;
             }
@@ -82,6 +83,8 @@ if (isset($_POST["subtractQuantity"])) {
         //update database
     }
 }
+
+
 
 try {
     #old code
@@ -111,6 +114,7 @@ try {
     // } else {
     //     echo "fail";
     // }
+
 
     #new code
     $_command = "SELECT * FROM tempcart WHERE user_id='$user_id'";
@@ -143,6 +147,9 @@ function mahdiStopReload()
 }
 
 //get stock from products table
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -674,36 +681,28 @@ function mahdiStopReload()
 
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="dropdown-cart-products">
-                                <?php for (
-                                    $i = 0;
-                                    $i < count($results);
-                                    $i++
-                                ) { ?>
+                                <?php for ($i = 0; $i < count($results); $i++) { ?>
                                     <div class="product">
                                         <div class="product-cart-details">
                                             <h4 class="product-title">
-                                                <a><?php echo $results[$i][
-                                                    "name"
-                                                ]; ?></a>
+                                                <a><?php echo $results[$i]['name']; ?></a>
                                             </h4>
 
                                             <span class="cart-product-info">
-                          <span class="cart-product-qty"><?php echo $results[
-                              $i
-                          ]["quantity"]; ?></span>
-                          x <?php echo $results[$i]["price"]; ?>
+                          <span class="cart-product-qty"><?php echo $results[$i]['quantity']; ?></span>
+                          x <?php echo $results[$i]['price']; ?>
                         </span>
                                         </div>
 
                                         <figure class="product-image-container">
                                             <a class="product-image">
-                                                <img src="<?php echo $results[
-                                                    $i
-                                                ]["img"]; ?>" alt="product">
+                                                <img src="<?php echo $results[$i]['img']; ?>" alt="product">
                                             </a>
                                         </figure>
                                     </div><!-- End .product -->
-                                    <?php } ?>
+                                    <?php
+                                }
+                                ?>
                             </div><!-- End .cart-product -->
                         </div><!-- End .dropdown-menu -->
                     </div><!-- End .cart-dropdown -->
@@ -746,11 +745,8 @@ function mahdiStopReload()
                                 </thead>
                                 <!-- mahdi table -->
                                 <tbody>
-                                <?php for (
-                                    $i = 0;
-                                    $i < count($results);
-                                    $i++
-                                ) {<?php
+                                <?php
+                                for ($i = 0; $i < count($results); $i++) {
                                     // foreach ($results as $key => $result) {
                                     ?>
                                     <tr>
@@ -758,98 +754,69 @@ function mahdiStopReload()
                                             <div class="product">
                                                 <figure class="product-media">
                                                     <!-- <a href="#"> -->
-                                                    <img src="<?php echo $results[
-                                                        $i
-                                                    ][
-                                                        "img"
-                                                    ]; ?>" alt="Product image">
+                                                    <img src="<?php echo $results[$i]['img']; ?>" alt="Product image">
                                                     <!-- </a> -->
                                                 </figure>
 
                                                 <h3 class="product-title">
                                                     <p></p>
-                                                    <a><?php echo $results[$i][
-                                                        "name"
-                                                    ]; ?></a>
+                                                    <a><?php echo $results[$i]['name']; ?></a>
                                                 </h3><!-- End .product-title -->
                                             </div><!-- End .product -->
                                         </td>
-                                        <td class="price-col">$<?php echo $results[
-                                            $i
-                                        ]["price"]; ?></td>
+                                        <td class="price-col">$<?php echo $results[$i]['price']; ?></td>
                                         <td class="quantity-col">
                                             <div class="cart-product-quantity">
                                                 <!-- <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required> -->
                                                 <form action="./cart.php" class="form" method="POST">
 
                                                     <button type="submit" name="subtractQuantity" class="form-control">-</button>
-                                                    <input type="text" name="mahdiQuantity" class="form-control" value="<?php echo $results[
-                                                        $i
-                                                    ][
-                                                        "quantity"
-                                                    ]; ?>" readonly style="text-align: center;">
+                                                    <input type="text" name="mahdiQuantity" class="form-control" value="<?php echo $results[$i]['quantity']; ?>" readonly style="text-align: center;">
                                                     <button type="submit" name="addQuantity" class="form-control">+</button>
 
-                                                    <input type="hidden" name="hidden-id" value="<?php echo $results[
-                                                        $i
-                                                    ]["id"]; ?>">
+                                                    <input type="hidden" name="hidden-id" value="<?php echo $results[$i]['id']; ?>">
                                                 </form>
                                             </div><!-- End .cart-product-quantity -->
                                         </td>
-                                        <td><?php echo $results[$i][
-                                            "discount"
-                                        ]; ?>%</td>
+                                        <td><?php echo $results[$i]['discount']; ?>%</td>
                                         <!-- <td class="total-col">$84.00</td> -->
                                         <td class="total-col">$<?php
-                                        $price = $results[$i]["price"];
-                                        $quantity = $results[$i]["quantity"];
-                                        $discount = $results[$i]["discount"];
-                                        if ($discount == 0) {
-                                            $discountAmount = 0;
-                                        } else {
-                                            $discountAmount =
-                                                ($price * $quantity) /
-                                                $discount;
-                                        }
-                                        $finalPrice =
-                                            $price * $quantity -
-                                            $discountAmount;
-                                        echo $finalPrice;
-                                        $superTotal +=
-                                            $price * $quantity -
-                                            $discountAmount;
-                                        $_SESSION["supertotal"] = $superTotal;
+                                            $price = $results[$i]['price'];
+                                            $quantity = $results[$i]['quantity'];
+                                            $discount = $results[$i]['discount'];
+                                            if ($discount == 0)
+                                                $discountAmount = 0;
+                                            else
+                                                $discountAmount = ($price * $quantity) /  $discount;
+                                            $finalPrice = ($price * $quantity) - $discountAmount;
+                                            echo $finalPrice;
+                                            $superTotal += ($price * $quantity) - $discountAmount;
+                                            $_SESSION['supertotal'] = $superTotal;
 
-                                        try {
-                                            #push final price into table
-                                            $mahdi_id = $results[$i]["id"];
-                                            $_command = "UPDATE tempcart SET final_price ='$finalPrice' WHERE id = $mahdi_id ";
-                                            $statement = $pdo->prepare(
-                                                $_command
-                                            );
-                                            $result = $statement->execute();
-                                        } catch (PDOException $e) {
-                                            echo "error" . $e;
-                                        }
-                                        ?>
+                                            try {
+                                                #push final price into table
+                                                $mahdi_id = $results[$i]['id'];
+                                                $_command = "UPDATE tempcart SET final_price ='$finalPrice' WHERE id = $mahdi_id ";
+                                                $statement = $pdo->prepare($_command);
+                                                $result = $statement->execute();
+                                            } catch (PDOException $e) {
+                                                echo "error" . $e;
+                                            }
+                                            ?>
                                         </td>
                                         <td class="remove-col">
                                             <form action="./cart.php" method="POST">
                                                 <button type="submit" name="deleteItem" class="btn-remove" onclick="return confirm('Are you sure?')">
                                                     <i class="icon-close"></i>
                                                 </button>
-                                                <input type="hidden" name="mahdiIndex" value="<?php echo $results[
-                                                    $i
-                                                ]["id"]; ?>">
+                                                <input type="hidden" name="mahdiIndex" value="<?php echo $results[$i]['id']; ?>">
                                             </form>
                                             <!-- </td> -->
                                     </tr>
                                     <?php
                                     // }
-
-                                    }
-#end of for loop
-?>
+                                } #end of for loop
+                                ?>
                                 </tbody>
                             </table><!-- End .table table-wishlist -->
 
@@ -906,7 +873,7 @@ function mahdiStopReload()
                                     <tr class="summary-total">
                                         <td>Total:</td>
                                         <!-- <td>$160.00</td> -->
-                                        <td>$<?php echo $superTotal; ?></td>
+                                        <td>$<?php echo $superTotal ?></td>
                                     </tr><!-- End .summary-total -->
                                     </tbody>
                                 </table><!-- End .table table-summary -->
