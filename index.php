@@ -1,5 +1,23 @@
 <?php
  include('admin/config/server.php');
+ try {
+  #newcode
+      $_command = "SELECT * FROM tempcart";
+      $statement = $pdo->prepare($_command);
+      $statement->execute();
+      $statement->setFetchMode(PDO::FETCH_ASSOC);
+      $results = $statement->fetchAll();
+      $superTotal = 0;
+      if ($statement->rowCount()) {
+          // echo "<pre>";
+          // var_dump($results);
+          // echo "</pre>";
+      } else {
+          echo "fail";
+      }
+  } catch (PDOException $e) {
+      echo "error" . $e->getMessage();
+  }
 
 $sql = $pdo->query("SELECT * FROM products WHERE discount >'0'");
 $result = $sql->fetchAll();
@@ -7,6 +25,9 @@ $result = $sql->fetchAll();
 $stmt = $pdo->query("SELECT * FROM products ");
 $result1 = $stmt->fetchAll();
 
+$sql1 = "SELECT * FROM categories";
+$stmt1 = $pdo->query($sql1);
+$categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -104,25 +125,14 @@ $result1 = $stmt->fetchAll();
                     <li>
                       <div class="header-dropdown">
                         <a href="#">JD</a>
-                        <div class="header-menu">
-                          <ul>
-                            <li><a href="#">Eur</a></li>
-                            <li><a href="#">Usd</a></li>
-                          </ul>
-                        </div>
+                        
                         <!-- End .header-menu -->
                       </div>
                     </li>
                     <li>
                       <div class="header-dropdown">
                         <a href="#">English</a>
-                        <div class="header-menu">
-                          <ul>
-                            <li><a href="#">English</a></li>
-                            <li><a href="#">French</a></li>
-                            <li><a href="#">Spanish</a></li>
-                          </ul>
-                        </div>
+                        
                         <!-- End .header-menu -->
                       </div>
                     </li>
@@ -208,38 +218,12 @@ $result1 = $stmt->fetchAll();
                   <!-- <p>Compare</p> -->
                 </a>
 
-                <div class="dropdown-menu dropdown-menu-right">
-                  <ul class="compare-products">
-                    <li class="compare-product">
-                      <a href="#" class="btn-remove" title="Remove Product"
-                        ><i class="icon-close"></i
-                      ></a>
-                      <h4 class="compare-product-title">
-                        <a href="pages/product.php">Blue Night Dress</a>
-                      </h4>
-                    </li>
-                    <li class="compare-product">
-                      <a href="#" class="btn-remove" title="Remove Product"
-                        ><i class="icon-close"></i
-                      ></a>
-                      <h4 class="compare-product-title">
-                        <a href="pages/product.php">White Long Skirt</a>
-                      </h4>
-                    </li>
-                  </ul>
-
-                  <div class="compare-actions">
-                    <a href="#" class="action-link">Clear All</a>
-                    <a href="#" class="btn btn-outline-primary-2"
-                      ><span>Compare</span><i class="icon-long-arrow-right"></i
-                    ></a>
-                  </div>
-                </div>
+                
                 <!-- End .dropdown-menu -->
               </div>
               <!-- End .compare-dropdown -->
 
-              <div class="wishlist">
+              <!-- <div class="wishlist">
                 <a href="pages/wishlist.html" title="Wishlist">
                   <div class="icon">
                     <i class="icon-heart-o"></i>
@@ -247,7 +231,7 @@ $result1 = $stmt->fetchAll();
                   </div>
                   <p>Wishlist</p>
                 </a>
-              </div>
+              </div> -->
               <!-- End .compare-dropdown -->
 
               <div class="dropdown cart-dropdown">
@@ -262,93 +246,48 @@ $result1 = $stmt->fetchAll();
                 >
                   <div class="icon">
                     <i class="icon-shopping-cart"></i>
-                    <span class="cart-count">2</span>
+                    <span class="cart-count"><?php echo $statement->rowCount(); ?></span>
                   </div>
                   <p>Cart</p>
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right">
-                  <div class="dropdown-cart-products">
-                    <div class="product">
-                      <div class="product-cart-details">
-                        <h4 class="product-title">
-                          <a href="pages/product.php"
-                            >Beige knitted elastic runner shoes</a
-                          >
-                        </h4>
+                                <div class="dropdown-cart-products">
+                                    <?php for ($i = 0; $i < count($results); $i++) { ?>
+                                    <div class="product">
+                                        <div class="product-cart-details">
+                                            <h4 class="product-title">
+                                                <a><?php echo $results[$i]['name']; ?></a>
+                                            </h4>
 
-                        <span class="cart-product-info">
-                          <span class="cart-product-qty">1</span>
-                          x $84.00
-                        </span>
-                      </div>
-                      <!-- End .product-cart-details -->
+                                            <span class="cart-product-info">
+                                                <span
+                                                    class="cart-product-qty"><?php echo $results[$i]['quantity']; ?></span>
+                                                x <?php echo $results[$i]['price']; ?><span>JD</span>
+                                            </span>
+                                        </div>
 
-                      <figure class="product-image-container">
-                        <a href="pages/product.php" class="product-image">
-                          <img
-                            src="assets/images/products/cart/product-1.jpg"
-                            alt="product"
-                          />
-                        </a>
-                      </figure>
-                      <a href="#" class="btn-remove" title="Remove Product"
-                        ><i class="icon-close"></i
-                      ></a>
-                    </div>
-                    <!-- End .product -->
-
-                    <div class="product">
-                      <div class="product-cart-details">
-                        <h4 class="product-title">
-                          <a href="pages/product.php"
-                            >Blue utility pinafore denim dress</a
-                          >
-                        </h4>
-
-                        <span class="cart-product-info">
-                          <span class="cart-product-qty">1</span>
-                          x $76.00
-                        </span>
-                      </div>
-                      <!-- End .product-cart-details -->
-
-                      <figure class="product-image-container">
-                        <a href="pages/product.php" class="product-image">
-                          <img
-                            src="assets/images/products/cart/product-2.jpg"
-                            alt="product"
-                          />
-                        </a>
-                      </figure>
-                      <a href="#" class="btn-remove" title="Remove Product"
-                        ><i class="icon-close"></i
-                      ></a>
-                    </div>
-                    <!-- End .product -->
-                  </div>
-                  <!-- End .cart-product -->
-
-                  <div class="dropdown-cart-total">
-                    <span>Total</span>
-
-                    <span class="cart-total-price">$160.00</span>
-                  </div>
-                  <!-- End .dropdown-cart-total -->
-
-                  <div class="dropdown-cart-action">
-                    <a href="pages/cart.html" class="btn btn-primary"
+                                        <figure class="product-image-container">
+                                            <a class="product-image">
+                                                <img src="<?php echo $results[$i]['img']; ?>" alt="product">
+                                            </a>
+                                        </figure>
+                                    </div><!-- End .product -->
+                                    <?php
+                                    }
+                                    ?>
+                                </div><!-- End .cart-product -->
+                                <div class="dropdown-cart-action">
+                    <a href="pages/cart.php" class="btn btn-primary"
                       >View Cart</a
                     >
                     <a
-                      href="pages/checkout.html"
+                      href="pages/checkout.php"
                       class="btn btn-outline-primary-2"
                       ><span>Checkout</span><i class="icon-long-arrow-right"></i
                     ></a>
                   </div>
-                  <!-- End .dropdown-cart-total -->
-                </div>
-                <!-- End .dropdown-menu -->
+                            </div><!-- End .dropdown-menu -->
               </div>
               <!-- End .cart-dropdown -->
             </div>
@@ -360,756 +299,35 @@ $result1 = $stmt->fetchAll();
 
         <div class="header-bottom sticky-header">
           <div class="container">
-            <!-- <div class="header-left">
-              <div class="dropdown category-dropdown"> -->
-            <!-- <a
-                  href="#"
-                  class="dropdown-toggle"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  data-display="static"
-                  title="Browse Categories"
-                >
-                  Browse Categories <i class="icon-angle-down"></i>
-                </a> -->
-
-            <!-- <div class="dropdown-menu"> -->
-            <!-- <nav class="side-nav">
-                    <ul class="menu-vertical sf-arrows">
-                      <li class="item-lead"><a href="#">Daily offers</a></li>
-                      <li class="item-lead"><a href="#">Gift Ideas</a></li>
-                      <li><a href="#">Beds</a></li>
-                      <li><a href="#">Lighting</a></li>
-                      <li><a href="#">Sofas & Sleeper sofas</a></li>
-                      <li><a href="#">Storage</a></li>
-                      <li><a href="#">Armchairs & Chaises</a></li>
-                      <li><a href="#">Decoration </a></li>
-                      <li><a href="#">Kitchen Cabinets</a></li>
-                      <li><a href="#">Coffee & Tables</a></li>
-                      <li><a href="#">Outdoor Furniture </a></li>
-                    </ul> -->
-            <!-- End .menu-vertical -->
-            <!-- </nav> -->
-            <!-- End .side-nav -->
-            <!-- </div> -->
-            <!-- End .dropdown-menu -->
-            <!-- </div> -->
-            <!-- End .category-dropdown -->
-            <!-- </div> -->
-            <!-- End .header-left -->
+           
 
             <div class="header-center">
               <nav class="main-nav">
                 <ul class="menu sf-arrows">
                   <li class="megamenu-container active">
-                    <a href="index.html">Home</a>
-
-                    <!-- <div class="megamenu demo">
-                      <div class="menu-col">
-                        <div class="menu-title">Choose your demo</div> -->
-                    <!-- End .menu-title -->
-
-                    <!-- <div class="demo-list">
-                          <div class="demo-item">
-                            <a href="index-1.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/1.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title"
-                                >01 - furniture store</span
-                              >
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item">
-                            <a href="index-2.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/2.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title"
-                                >02 - furniture store</span
-                              >
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item">
-                            <a href="index-3.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/3.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title"
-                                >03 - electronic store</span
-                              >
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item">
-                            <a href="index-4.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/4.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title"
-                                >04 - electronic store</span
-                              >
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item">
-                            <a href="index-5.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/5.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title">05 - fashion store</span>
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item">
-                            <a href="index-6.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/6.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title">06 - fashion store</span>
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item">
-                            <a href="index-7.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/7.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title">07 - fashion store</span>
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item">
-                            <a href="index-8.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/8.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title">08 - fashion store</span>
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item">
-                            <a href="index-9.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/9.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title">09 - fashion store</span>
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item">
-                            <a href="index-10.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/10.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title">10 - shoes store</span>
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item hidden">
-                            <a href="index-11.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/11.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title"
-                                >11 - furniture simple store</span
-                              >
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item hidden">
-                            <a href="index-12.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/12.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title"
-                                >12 - fashion simple store</span
-                              >
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item hidden">
-                            <a href="index-13.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/13.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title">13 - market</span>
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item hidden">
-                            <a href="index-14.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/14.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title"
-                                >14 - market fullwidth</span
-                              >
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item hidden">
-                            <a href="index-15.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/15.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title">15 - lookbook 1</span>
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item hidden">
-                            <a href="index-16.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/16.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title">16 - lookbook 2</span>
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item hidden">
-                            <a href="index-17.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/17.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title">17 - fashion store</span>
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item hidden">
-                            <a href="index-18.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/18.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title"
-                                >18 - fashion store (with sidebar)</span
-                              >
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item hidden">
-                            <a href="index-19.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/19.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title">19 - games store</span>
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item hidden">
-                            <a href="index-20.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/20.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title">20 - book store</span>
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item hidden">
-                            <a href="index-21.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/21.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title">21 - sport store</span>
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item hidden">
-                            <a href="index-22.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/22.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title">22 - tools store</span>
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item hidden">
-                            <a href="index-23.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/23.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title"
-                                >23 - fashion left navigation store</span
-                              >
-                            </a>
-                          </div> -->
-                    <!-- End .demo-item -->
-
-                    <!-- <div class="demo-item hidden">
-                            <a href="index-24.html">
-                              <span
-                                class="demo-bg"
-                                style="
-                                  background-image: url(assets/images/menu/demos/24.jpg);
-                                "
-                              ></span>
-                              <span class="demo-title"
-                                >24 - extreme sport store</span
-                              >
-                            </a> -->
-                    <!-- </div> -->
-                    <!-- End .demo-item -->
-                    <!-- </div> -->
-                    <!-- End .demo-list -->
-
-                    <!-- <div class="megamenu-action text-center">
-                          <a
-                            href="#"
-                            class="btn btn-outline-primary-2 view-all-demos"
-                            ><span>View All Demos</span
-                            ><i class="icon-long-arrow-right"></i
-                          ></a>
-                        </div> -->
-                    <!-- End .text-center -->
-                    <!-- </div> -->
-                    <!-- End .menu-col -->
-                    <!-- </div> -->
-                    <!-- End .megamenu -->
+                    <a href="index.php">HOME</a>
                   </li>
                   <li>
-                    <a href="category.html" class="sf-with-ul">Shop</a>
+                    <a href="pages/category-list.php" class="sf-with-ul">SHOP</a>
 
-                    <div class="megamenu megamenu-md">
-                      <div class="row no-gutters">
-                        <div class="col-md-8">
-                          <div class="menu-col">
-                            <div class="row">
-                              <div class="col-md-6">
-                                <div class="menu-title">Shop with sidebar</div>
-                                <!-- End .menu-title -->
-                                <ul>
-                                  <li>
-                                    <a href="pages/category-list.php"
-                                      >Shop List</a
-                                    >
-                                  </li>
-                                  <li>
-                                    <a href="category-2cols.html"
-                                      >Shop Grid 2 Columns</a
-                                    >
-                                  </li>
-                                  <li>
-                                    <a href="category.html"
-                                      >Shop Grid 3 Columns</a
-                                    >
-                                  </li>
-                                  <li>
-                                    <a href="category-4cols.html"
-                                      >Shop Grid 4 Columns</a
-                                    >
-                                  </li>
-                                  <li>
-                                    <a href="category-market.html"
-                                      ><span
-                                        >Shop Market<span class="tip tip-new"
-                                          >New</span
-                                        ></span
-                                      ></a
-                                    >
-                                  </li>
-                                </ul>
-
-                                <div class="menu-title">Shop no sidebar</div>
-                                <!-- End .menu-title -->
-                                <ul>
-                                  <li>
-                                    <a href="category-boxed.html"
-                                      ><span
-                                        >Shop Boxed No Sidebar<span
-                                          class="tip tip-hot"
-                                          >Hot</span
-                                        ></span
-                                      ></a
-                                    >
-                                  </li>
-                                  <li>
-                                    <a href="category-fullwidth.html"
-                                      >Shop Fullwidth No Sidebar</a
-                                    >
-                                  </li>
-                                </ul>
-                              </div>
-                              <!-- End .col-md-6 -->
-
-                              <div class="col-md-6">
-                                <div class="menu-title">Product Category</div>
-                                <!-- End .menu-title -->
-                                <ul>
-                                  <li>
-                                    <a href="product-category-boxed.html"
-                                      >Product Category Boxed</a
-                                    >
-                                  </li>
-                                  <li>
-                                    <a href="product-category-fullwidth.html"
-                                      ><span
-                                        >Product Category Fullwidth<span
-                                          class="tip tip-new"
-                                          >New</span
-                                        ></span
-                                      ></a
-                                    >
-                                  </li>
-                                </ul>
-                                <div class="menu-title">Shop Pages</div>
-                                <!-- End .menu-title -->
-                                <ul>
-                                  <li><a href="pages/cart.html">Cart</a></li>
-                                  <li>
-                                    <a href="pages/checkout.html">Checkout</a>
-                                  </li>
-                                  <li>
-                                    <a href="pages/wishlist.html">Wishlist</a>
-                                  </li>
-                                  <li>
-                                    <a href="pages/dashboard.php"
-                                      >My Account</a
-                                    >
-                                  </li>
-                                  <li><a href="#">Lookbook</a></li>
-                                </ul>
-                              </div>
-                              <!-- End .col-md-6 -->
-                            </div>
-                            <!-- End .row -->
-                          </div>
-                          <!-- End .menu-col -->
-                        </div>
-                        <!-- End .col-md-8 -->
-
-                        <div class="col-md-4">
-                          <div class="banner banner-overlay">
-                            <a href="category.html" class="banner banner-menu">
-                              <img
-                                src="assets/images/menu/banner-1.jpg"
-                                alt="Banner"
-                              />
-
-                              <div class="banner-content banner-content-top">
-                                <div class="banner-title text-white">
-                                  Last <br />Chance<br /><span
-                                    ><strong>Sale</strong></span
-                                  >
-                                </div>
-                                <!-- End .banner-title -->
-                              </div>
-                              <!-- End .banner-content -->
-                            </a>
-                          </div>
-                          <!-- End .banner banner-overlay -->
-                        </div>
-                        <!-- End .col-md-4 -->
-                      </div>
-                      <!-- End .row -->
-                    </div>
+                   
                     <!-- End .megamenu megamenu-md -->
                   </li>
                   <li>
-                    <a href="pages/product.php" class="sf-with-ul">Product</a>
+                    <a href="pages/cart.php" class="sf-with-ul">CART</a>
 
-                    <div class="megamenu megamenu-sm">
-                      <div class="row no-gutters">
-                        <div class="col-md-6">
-                          <div class="menu-col">
-                            <div class="menu-title">Product Details</div>
-                            <!-- End .menu-title -->
-                            <ul>
-                              <li><a href="pages/product.php">Default</a></li>
-                              <li>
-                                <a href="product-centered.html">Centered</a>
-                              </li>
-                              <li>
-                                <a href="product-extended.html"
-                                  ><span
-                                    >Extended Info<span class="tip tip-new"
-                                      >New</span
-                                    ></span
-                                  ></a
-                                >
-                              </li>
-                              <li>
-                                <a href="product-gallery.html">Gallery</a>
-                              </li>
-                              <li>
-                                <a href="product-sticky.html">Sticky Info</a>
-                              </li>
-                              <li>
-                                <a href="product-sidebar.html"
-                                  >Boxed With Sidebar</a
-                                >
-                              </li>
-                              <li>
-                                <a href="product-fullwidth.html">Full Width</a>
-                              </li>
-                              <li>
-                                <a href="product-masonry.html"
-                                  >Masonry Sticky Info</a
-                                >
-                              </li>
-                            </ul>
-                          </div>
-                          <!-- End .menu-col -->
-                        </div>
-                        <!-- End .col-md-6 -->
-
-                        <div class="col-md-6">
-                          <div class="banner banner-overlay">
-                            <a href="category.html">
-                              <img
-                                src="assets/images/menu/banner-2.jpg"
-                                alt="Banner"
-                              />
-
-                              <div class="banner-content banner-content-bottom">
-                                <div class="banner-title text-white">
-                                  New Trends<br /><span
-                                    ><strong>spring 2019</strong></span
-                                  >
-                                </div>
-                                <!-- End .banner-title -->
-                              </div>
-                              <!-- End .banner-content -->
-                            </a>
-                          </div>
-                          <!-- End .banner -->
-                        </div>
-                        <!-- End .col-md-6 -->
-                      </div>
-                      <!-- End .row -->
-                    </div>
+                    
                     <!-- End .megamenu megamenu-sm -->
                   </li>
                   <li>
-                    <a href="#" class="sf-with-ul">Pages</a>
+                  <a href="pages/checkout.html" class="  ">CHECKOUT</a>
 
-                    <ul>
-                      <li>
-                        <a href="pages/about.html" class="sf-with-ul">About</a>
-
-                        <ul>
-                          <li><a href="pages/about.html">About 01</a></li>
-                          <li><a href="about-2.html">About 02</a></li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="pages/contact.html" class="sf-with-ul"
-                          >Contact</a
-                        >
-
-                        <ul>
-                          <li><a href="pages/contact.html">Contact 01</a></li>
-                          <li><a href="contact-2.html">Contact 02</a></li>
-                        </ul>
-                      </li>
-                      <li><a href="login.html">Login</a></li>
-                      <li><a href="pages/faq.html">FAQs</a></li>
-                      <li><a href="pages/404.html">Error 404</a></li>
-                      <li><a href="pages/coming-soon.html">Coming Soon</a></li>
-                    </ul>
                   </li>
                   <li>
-                    <a href="blog.html" class="sf-with-ul">Blog</a>
-
-                    <ul>
-                      <li><a href="blog.html">Classic</a></li>
-                      <li><a href="blog-listing.html">Listing</a></li>
-                      <li>
-                        <a href="#">Grid</a>
-                        <ul>
-                          <li>
-                            <a href="blog-grid-2cols.html">Grid 2 columns</a>
-                          </li>
-                          <li>
-                            <a href="blog-grid-3cols.html">Grid 3 columns</a>
-                          </li>
-                          <li>
-                            <a href="blog-grid-4cols.html">Grid 4 columns</a>
-                          </li>
-                          <li>
-                            <a href="blog-grid-sidebar.html">Grid sidebar</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="#">Masonry</a>
-                        <ul>
-                          <li>
-                            <a href="blog-masonry-2cols.html"
-                              >Masonry 2 columns</a
-                            >
-                          </li>
-                          <li>
-                            <a href="blog-masonry-3cols.html"
-                              >Masonry 3 columns</a
-                            >
-                          </li>
-                          <li>
-                            <a href="blog-masonry-4cols.html"
-                              >Masonry 4 columns</a
-                            >
-                          </li>
-                          <li>
-                            <a href="blog-masonry-sidebar.html"
-                              >Masonry sidebar</a
-                            >
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="#">Mask</a>
-                        <ul>
-                          <li>
-                            <a href="blog-mask-grid.html">Blog mask grid</a>
-                          </li>
-                          <li>
-                            <a href="blog-mask-masonry.html"
-                              >Blog mask masonry</a
-                            >
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="#">Single Post</a>
-                        <ul>
-                          <li>
-                            <a href="single.html">Default with sidebar</a>
-                          </li>
-                          <li>
-                            <a href="single-fullwidth.html"
-                              >Fullwidth no sidebar</a
-                            >
-                          </li>
-                          <li>
-                            <a href="single-fullwidth-sidebar.html"
-                              >Fullwidth with sidebar</a
-                            >
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
+                  <a href="pages/dashboard.php" class="  ">MY ACCOUNT</a>
+                    
                   </li>
-                  <li>
-                    <a href="elements-list.html" class="sf-with-ul">Elements</a>
-
-                    <ul>
-                      <li><a href="elements-products.html">Products</a></li>
-                      <li><a href="elements-typography.html">Typography</a></li>
-                      <li><a href="elements-titles.html">Titles</a></li>
-                      <li><a href="elements-banners.html">Banners</a></li>
-                      <li>
-                        <a href="elements-product-category.html"
-                          >Product Category</a
-                        >
-                      </li>
-                      <li>
-                        <a href="elements-video-banners.html">Video Banners</a>
-                      </li>
-                      <li><a href="elements-buttons.html">Buttons</a></li>
-                      <li><a href="elements-accordions.html">Accordions</a></li>
-                      <li><a href="elements-tabs.html">Tabs</a></li>
-                      <li>
-                        <a href="elements-testimonials.html">Testimonials</a>
-                      </li>
-                      <li><a href="elements-blog-posts.html">Blog Posts</a></li>
-                      <li><a href="elements-portfolio.html">Portfolio</a></li>
-                      <li><a href="elements-cta.html">Call to Action</a></li>
-                      <li><a href="elements-icon-boxes.html">Icon Boxes</a></li>
-                    </ul>
-                  </li>
+                  
                 </ul>
                 <!-- End .menu -->
               </nav>
@@ -1228,107 +446,23 @@ $result1 = $stmt->fetchAll();
 
           <div class="cat-blocks-container">
             <div class="row">
+            <?php foreach ($categories as $category) { ?>
               <div class="col-6 col-sm-4 col-lg-2">
-                <a href="category.html" class="cat-block">
+                <a href="pages/category-list.php" class="cat-block">
                   <figure>
                     <span>
                       <img
-                        src="assets/images/demos/demo-4/cats/1.png"
+                        src="<?= $category['img'] ?>"
                         alt="Category image"
                       />
                     </span>
                   </figure>
 
-                  <h3 class="cat-block-title">Computer & Laptop</h3>
-                  <!-- End .cat-block-title -->
+                  <h3 class="cat-block-title"><?= $category['name'] ?></h3>
                 </a>
               </div>
-              <!-- End .col-sm-4 col-lg-2 -->
-
-              <div class="col-6 col-sm-4 col-lg-2">
-                <a href="category.html" class="cat-block">
-                  <figure>
-                    <span>
-                      <img
-                        src="assets/images/demos/demo-4/cats/2.png"
-                        alt="Category image"
-                      />
-                    </span>
-                  </figure>
-
-                  <h3 class="cat-block-title">Digital Cameras</h3>
-                  <!-- End .cat-block-title -->
-                </a>
-              </div>
-              <!-- End .col-sm-4 col-lg-2 -->
-
-              <div class="col-6 col-sm-4 col-lg-2">
-                <a href="category.html" class="cat-block">
-                  <figure>
-                    <span>
-                      <img
-                        src="assets/images/demos/demo-4/cats/3.png"
-                        alt="Category image"
-                      />
-                    </span>
-                  </figure>
-
-                  <h3 class="cat-block-title">Smart Phones</h3>
-                  <!-- End .cat-block-title -->
-                </a>
-              </div>
-              <!-- End .col-sm-4 col-lg-2 -->
-
-              <div class="col-6 col-sm-4 col-lg-2">
-                <a href="category.html" class="cat-block">
-                  <figure>
-                    <span>
-                      <img
-                        src="assets/images/demos/demo-4/cats/4.png"
-                        alt="Category image"
-                      />
-                    </span>
-                  </figure>
-
-                  <h3 class="cat-block-title">Televisions</h3>
-                  <!-- End .cat-block-title -->
-                </a>
-              </div>
-              <!-- End .col-sm-4 col-lg-2 -->
-
-              <div class="col-6 col-sm-4 col-lg-2">
-                <a href="category.html" class="cat-block">
-                  <figure>
-                    <span>
-                      <img
-                        src="assets/images/demos/demo-4/cats/5.png"
-                        alt="Category image"
-                      />
-                    </span>
-                  </figure>
-
-                  <h3 class="cat-block-title">Audio</h3>
-                  <!-- End .cat-block-title -->
-                </a>
-              </div>
-              <!-- End .col-sm-4 col-lg-2 -->
-
-              <div class="col-6 col-sm-4 col-lg-2">
-                <a href="category.html" class="cat-block">
-                  <figure>
-                    <span>
-                      <img
-                        src="assets/images/demos/demo-4/cats/6.png"
-                        alt="Category image"
-                      />
-                    </span>
-                  </figure>
-
-                  <h3 class="cat-block-title">Smart Watches</h3>
-                  <!-- End .cat-block-title -->
-                </a>
-              </div>
-              <!-- End .col-sm-4 col-lg-2 -->
+              <?php } ?>
+             
             </div>
             <!-- End .row -->
           </div>
@@ -1339,96 +473,7 @@ $result1 = $stmt->fetchAll();
         <div class="mb-4"></div>
         <!-- End .mb-4 -->
 
-        <!-- <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-4">
-              <div class="banner banner-overlay banner-overlay-light">
-                <a href="#">
-                  <img
-                    src="assets/images/demos/demo-4/banners/banner-1.png"
-                    alt="Banner"
-                  />
-                </a>
-
-                <div class="banner-content">
-                  <h4 class="banner-subtitle"><a href="#">Smart Offer</a></h4> -->
-                  <!-- End .banner-subtitle -->
-                  <!-- <h3 class="banner-title">
-                    <a href="#"
-                      >Save $150
-                      <strong>on Samsung <br />Galaxy Note9</strong></a
-                    >
-                  </h3> -->
-                  <!-- End .banner-title -->
-                  <!-- <a href="#" class="banner-link"
-                    >Shop Now<i class="icon-long-arrow-right"></i
-                  ></a> -->
-                <!-- </div> -->
-                <!-- End .banner-content -->
-              <!-- </div> -->
-              <!-- End .banner -->
-            <!-- </div> -->
-            <!-- End .col-md-4 -->
-
-            <!-- <div class="col-md-6 col-lg-4">
-              <div class="banner banner-overlay banner-overlay-light">
-                <a href="#">
-                  <img
-                    src="assets/images/demos/demo-4/banners/banner-2.jpg"
-                    alt="Banner"
-                  />
-                </a>
-
-                <div class="banner-content">
-                  <h4 class="banner-subtitle"><a href="#">Time Deals</a></h4> -->
-                  <!-- End .banner-subtitle -->
-                  <!-- <h3 class="banner-title">
-                    <a href="#"
-                      ><strong>Bose SoundSport</strong> <br />Time Deal -30%</a
-                    >
-                  </h3> -->
-                  <!-- End .banner-title -->
-                  <!-- <a href="#" class="banner-link"
-                    >Shop Now<i class="icon-long-arrow-right"></i
-                  ></a>
-                </div> -->
-                <!-- End .banner-content -->
-              <!-- </div> -->
-              <!-- End .banner -->
-            <!-- </div> -->
-            <!-- End .col-md-4 -->
-
-            <!-- <div class="col-md-6 col-lg-4">
-              <div class="banner banner-overlay banner-overlay-light">
-                <a href="#">
-                  <img
-                    src="assets/images/demos/demo-4/banners/banner-3.png"
-                    alt="Banner"
-                  />
-                </a> -->
-
-                <!-- <div class="banner-content">
-                  <h4 class="banner-subtitle"><a href="#">Clearance</a></h4> -->
-                  <!-- End .banner-subtitle -->
-                  <!-- <h3 class="banner-title">
-                    <a href="#"
-                      ><strong>GoPro - Fusion 360</strong> <br />Save $70</a
-                    >
-                  </h3> -->
-                  <!-- End .banner-title -->
-                  <!-- <a href="#" class="banner-link"
-                    >Shop Now<i class="icon-long-arrow-right"></i
-                  ></a>
-                </div> -->
-                <!-- End .banner-content -->
-              <!-- </div> -->
-              <!-- End .banner -->
-            <!-- </div> -->
-            <!-- End .col-lg-4 -->
-          <!-- </div> -->
-          <!-- End .row -->
-        <!-- </div> -->
-        <!-- End .container -->
+        
 
         <!-- <div class="mb-3"></div> -->
         <!-- End .mb-5 -->
@@ -1458,66 +503,8 @@ $result1 = $stmt->fetchAll();
                     >All</a
                   >
                 </li>
-                <!-- <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    id="new-tv-link"
-                    data-toggle="tab"
-                    href="#new-tv-tab"
-                    role="tab"
-                    aria-controls="new-tv-tab"
-                    aria-selected="false"
-                    >TV</a
-                  >
-                </li> -->
-                <!-- <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    id="new-computers-link"
-                    data-toggle="tab"
-                    href="#new-computers-tab"
-                    role="tab"
-                    aria-controls="new-computers-tab"
-                    aria-selected="false"
-                    >Computers</a
-                  >
-                </li> -->
-                <!-- <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    id="new-phones-link"
-                    data-toggle="tab"
-                    href="#new-phones-tab"
-                    role="tab"
-                    aria-controls="new-phones-tab"
-                    aria-selected="false"
-                    >Tablets & Cell Phones</a
-                  >
-                </li> -->
-                <!-- <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    id="new-watches-link"
-                    data-toggle="tab"
-                    href="#new-watches-tab"
-                    role="tab"
-                    aria-controls="new-watches-tab"
-                    aria-selected="false"
-                    >Smartwatches</a
-                  >
-                </li> -->
-                <!-- <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    id="new-acc-link"
-                    data-toggle="tab"
-                    href="#new-acc-tab"
-                    role="tab"
-                    aria-controls="new-acc-tab"
-                    aria-selected="false"
-                    >Accessories</a
-                  >
-                </li> -->
+              
+               
               </ul>
             </div>
             <!-- End .heading-right -->
@@ -1563,14 +550,22 @@ $result1 = $stmt->fetchAll();
                     <div class='product product-2'>
                         <figure class='product-media'>
                             <span class='product-label label-circle label-top'>Sale</span>
-                            <a href='pages/product.php'><img src="<?= $row['img'] ?>" alt='Product image' class='product-image'/></a>
+                            <a href='pages/product.php?id=<?= $row['id'] ?>'><img src="<?= $row['img'] ?>" alt='Product image' class='product-image'/></a>
                             <div class='product-action-vertical'><a href='#' class='btn-product-icon btn-wishlist' title='Add to wishlist'></a></div>
-                            <div class='product-action'><a href="addToCart.php?id=<?=$row['id'] ?>" class='btn-product btn-cart' title='Add to cart'><span>add to cart</span></a>
+                            <div class='product-action'><?php if($row['stock']) { ?><a href="addToCart.php?id=<?=$row['id'] ?>" class='btn-product btn-cart' title='Add to cart'><span>add to cart</span></a><?php } else {
+                              echo "<p>Out of Stock</p>";
+                            } ?>
                                 <a href='popup/quickView.html' class='btn-product btn-quickview' title='Quick view'><span>quick view</span></a></div>
                         </figure>
                         <div class='product-body'>
-                            <div class='product-cat'><a href='#'>Laptops</a></div>
-                            <h3 class='product-title'><a href='pages/product.php'><?= $row['name']?></a></h3>
+                            <div class='product-cat'><a href='#'><?php
+                        foreach ($categories as $category) {
+                          if ($category['id'] === $row['category_id']) {
+                            echo '<a href="#">' . $category['name'] . '</a>';
+                          }
+                        }
+                        ?></a></div>
+                            <h3 class='product-title'><a href='pages/product.php?id=<?= $row['id'] ?>'><?= $row['name']?></a></h3>
                             <div class='product-price'><?= $row['price']?> . J.D</div>
                         </div>
                     </div>
@@ -1584,156 +579,7 @@ $result1 = $stmt->fetchAll();
             <!-- .End .tab-pane -->
         <!-- End .mb-6 -->
 
-        <!-- <div class="container">
-          <div
-            class="cta cta-border mb-5"
-            style="background-image: url(assets/images/demos/demo-4/bg-1.jpg)"
-          >
-            <img
-              src="assets/images/demos/demo-4/camera.png"
-              alt="camera"
-              class="cta-img"
-            />
-            <div class="row justify-content-center">
-              <div class="col-md-12">
-                <div class="cta-content">
-                  <div class="cta-text text-right text-white">
-                    <p>
-                      Shop Today’s Deals <br /><strong
-                        >Awesome Made Easy. HERO7 Black</strong
-                      >
-                    </p>
-                  </div> -->
-                  <!-- End .cta-text -->
-                  <!-- <a href="#" class="btn btn-primary btn-round"
-                    ><span>Shop Now - $429.99</span
-                    ><i class="icon-long-arrow-right"></i
-                  ></a>
-                </div> -->
-                <!-- End .cta-content -->
-              <!-- </div> -->
-              <!-- End .col-md-12 -->
-            <!-- </div> -->
-            <!-- End .row -->
-          <!-- </div> -->
-          <!-- End .cta -->
-        <!-- </div> -->
-        <!-- End .container -->
-
-        <!-- <div class="container">
-          <div class="heading text-center mb-3">
-            <h2 class="title">Deals & Outlet</h2> -->
-            <!-- End .title -->
-            <!-- <p class="title-desc">Today’s deal and more</p> -->
-            <!-- End .title-desc -->
-          <!-- </div> -->
-          <!-- End .heading -->
-
-          <!-- <div class="row">
-            <div class="col-lg-6 deal-col">
-              <div
-                class="deal"
-                style="
-                  background-image: url('assets/images/demos/demo-4/deal/bg-1.jpg');
-                "
-              >
-                <div class="deal-top">
-                  <h2>Deal of the Day.</h2>
-                  <h4>Limited quantities.</h4>
-                </div> -->
-                <!-- End .deal-top -->
-
-                <!-- <div class="deal-content">
-                  <h3 class="product-title">
-                    <a href="pages/product.html"
-                      >Home Smart Speaker with Google Assistant</a
-                    >
-                  </h3> -->
-                  <!-- End .product-title -->
-<!--
-                  <div class="product-price">
-                    <span class="new-price">$129.00</span>
-                    <span class="old-price">Was $150.99</span>
-                  </div> -->
-                  <!-- End .product-price -->
-
-                  <!-- <a href="pages/product.html" class="btn btn-link"
-                    ><span>Shop Now</span><i class="icon-long-arrow-right"></i
-                  ></a>
-                </div> -->
-                <!-- End .deal-content -->
-
-                <!-- <div class="deal-bottom">
-                  <div
-                    class="deal-countdown daily-deal-countdown"
-                    data-until="+10h"
-                  ></div> -->
-                  <!-- End .deal-countdown -->
-                <!-- </div> -->
-                <!-- End .deal-bottom -->
-              <!-- </div> -->
-              <!-- End .deal -->
-            <!-- </div> -->
-            <!-- End .col-lg-6 -->
-
-            <!-- <div class="col-lg-6 deal-col">
-              <div
-                class="deal"
-                style="
-                  background-image: url('assets/images/demos/demo-4/deal/bg-2.jpg');
-                "
-              >
-                <div class="deal-top">
-                  <h2>Your Exclusive Offers.</h2>
-                  <h4>Sign in to see amazing deals.</h4>
-                </div> -->
-                <!-- End .deal-top -->
-
-                <!-- <div class="deal-content">
-                  <h3 class="product-title">
-                    <a href="pages/product.html"
-                      >Certified Wireless Charging Pad for iPhone / Android</a
-                    >
-                  </h3> -->
-                  <!-- End .product-title -->
-
-                  <!-- <div class="product-price">
-                    <span class="new-price">$29.99</span>
-                  </div> -->
-                  <!-- End .product-price -->
-
-                  <!-- <a href="login.html" class="btn btn-link"
-                    ><span>Sign In and Save money</span
-                    ><i class="icon-long-arrow-right"></i
-                  ></a>
-                </div> -->
-                <!-- End .deal-content -->
-
-                <!-- <div class="deal-bottom">
-                  <div
-                    class="deal-countdown offer-countdown"
-                    data-until="+11d"
-                  ></div> -->
-                  <!-- End .deal-countdown -->
-                <!-- </div> -->
-                <!-- End .deal-bottom -->
-              <!-- </div> -->
-              <!-- End .deal -->
-            <!-- </div> -->
-            <!-- End .col-lg-6 -->
-          <!-- </div> -->
-          <!-- End .row -->
-
-          <!-- <div class="more-container text-center mt-1 mb-5">
-            <a href="#" class="btn btn-outline-dark-2 btn-round btn-more"
-              ><span>Shop more Outlet deals</span
-              ><i class="icon-long-arrow-right"></i
-            ></a>
-          </div> -->
-          <!-- End .more-container -->
-        <!-- </div> -->
-        <!-- End .container -->
-
+        
         <div class="container">
           <hr class="mb-0" />
           <div
@@ -1816,66 +662,8 @@ $result1 = $stmt->fetchAll();
                     >All</a
                   >
                 </li>
-                <!-- <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    id="new-tv-link"
-                    data-toggle="tab"
-                    href="#new-tv-tab"
-                    role="tab"
-                    aria-controls="new-tv-tab"
-                    aria-selected="false"
-                    >TV</a
-                  >
-                </li> -->
-                <!-- <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    id="new-computers-link"
-                    data-toggle="tab"
-                    href="#new-computers-tab"
-                    role="tab"
-                    aria-controls="new-computers-tab"
-                    aria-selected="false"
-                    >Computers</a
-                  >
-                </li> -->
-                <!-- <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    id="new-phones-link"
-                    data-toggle="tab"
-                    href="#new-phones-tab"
-                    role="tab"
-                    aria-controls="new-phones-tab"
-                    aria-selected="false"
-                    >Tablets & Cell Phones</a
-                  >
-                </li> -->
-                <!-- <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    id="new-watches-link"
-                    data-toggle="tab"
-                    href="#new-watches-tab"
-                    role="tab"
-                    aria-controls="new-watches-tab"
-                    aria-selected="false"
-                    >Smartwatches</a
-                  >
-                </li> -->
-                <!-- <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    id="new-acc-link"
-                    data-toggle="tab"
-                    href="#new-acc-tab"
-                    role="tab"
-                    aria-controls="new-acc-tab"
-                    aria-selected="false"
-                    >Accessories</a
-                  >
-                </li> -->
+               
+               
               </ul>
             </div>
             <!-- End .heading-right -->
@@ -1920,15 +708,23 @@ $result1 = $stmt->fetchAll();
                   <?php foreach($result1 as $row) { ?>
                       <div class='product product-2'>
                      <figure class='product-media'>
-                     <span class='product-label label-circle label-top'></span>
-                    <a href='pages/product.php'><img src="<?= $row['img'] ?>" alt='Product image' class='product-image'/></a>
+                     <?php if($row['discount']){ ?><span class='product-label label-circle label-top'>Sale</span> <?php }?>
+                     <a href='pages/product.php?id=<?= $row['id'] ?>'><img src="<?= $row['img'] ?>" alt='Product image' class='product-image'/></a>
                      <div class='product-action-vertical'><a href='#' class='btn-product-icon btn-wishlist' title='Add to wishlist'></a></div>
-                     <div class='product-action'><a href="addToCart.php?id=<?=$row['id'] ?>" class='btn-product btn-cart' title='Add to cart'><span>add to cart</span></a>
+                     <div class='product-action'><?php if($row['stock']) { ?><a href="addToCart.php?id=<?=$row['id'] ?>" class='btn-product btn-cart' title='Add to cart'><span>add to cart</span></a><?php } else {
+                       echo "<p>Out of Stock</p>";
+                     } ?>
                       <a href='popup/quickView.html' class='btn-product btn-quickview' title='Quick view'><span>quick view</span></a></div>
                      </figure>
                        <div class='product-body'>
-                      <div class='product-cat'><a href='#'>Laptops</a></div>
-                      <h3 class='product-title'><a href='pages/product.php'><?= $row['name'] ?></a></h3>
+                      <div class='product-cat'><a href='#'><?php
+                        foreach ($categories as $category) {
+                          if ($category['id'] === $row['category_id']) {
+                            echo '<a href="#">' . $category['name'] . '</a>';
+                          }
+                        }
+                        ?></a></div>
+                      <h3 class='product-title'><a href='pages/product.php?id=<?= $row['id'] ?>'><?= $row['name'] ?></a></h3>
                       <div class='product-price'><?= $row['price'] ?> . J.D</div>
                       </div>
                       </div>
@@ -1944,652 +740,6 @@ $result1 = $stmt->fetchAll();
 
         <div class="mb-5"></div>
         <!-- End .mb-5 -->
-
-        <!-- <div class="container for-you">
-          <div class="heading heading-flex mb-3">
-            <div class="heading-left">
-              <h2 class="title">Recommendation For You</h2> -->
-              <!-- End .title -->
-            <!-- </div> -->
-            <!-- End .heading-left -->
-
-            <!-- <div class="heading-right">
-              <a href="#" class="title-link"
-                >View All Recommendadion <i class="icon-long-arrow-right"></i
-              ></a>
-            </div> -->
-            <!-- End .heading-right -->
-          <!-- </div> -->
-          <!-- End .heading -->
-
-          <!-- <div class="products">
-            <div class="row justify-content-center">
-              <div class="col-6 col-md-4 col-lg-3">
-                <div class="product product-2">
-                  <figure class="product-media">
-                    <span class="product-label label-circle label-sale"
-                      >Sale</span
-                    >
-                    <a href="pages/product.html">
-                      <img
-                        src="assets/images/demos/demo-4/products/product-10.jpg"
-                        alt="Product image"
-                        class="product-image"
-                      />
-                    </a>
-
-                    <div class="product-action-vertical">
-                      <a
-                        href="#"
-                        class="btn-product-icon btn-wishlist"
-                        title="Add to wishlist"
-                      ></a>
-                    </div> -->
-                    <!-- End .product-action -->
-
-                    <!-- <div class="product-action">
-                      <a
-                        href="#"
-                        class="btn-product btn-cart"
-                        title="Add to cart"
-                        ><span>add to cart</span></a
-                      >
-                      <a
-                        href="popup/quickView.html"
-                        class="btn-product btn-quickview"
-                        title="Quick view"
-                        ><span>quick view</span></a
-                      >
-                    </div> -->
-                    <!-- End .product-action -->
-                  <!-- </figure> -->
-                  <!-- End .product-media -->
-
-                  <!-- <div class="product-body">
-                    <div class="product-cat">
-                      <a href="#">Headphones</a>
-                    </div> -->
-                    <!-- End .product-cat -->
-                    <!-- <h3 class="product-title">
-                      <a href="pages/product.html"
-                        >Beats by Dr. Dre Wireless Headphones</a
-                      >
-                    </h3> -->
-                    <!-- End .product-title -->
-                    <!-- <div class="product-price">
-                      <span class="new-price">$279.99</span>
-                      <span class="old-price">Was $349.99</span>
-                    </div> -->
-                    <!-- End .product-price -->
-                    <!-- <div class="ratings-container">
-                      <div class="ratings">
-                        <div class="ratings-val" style="width: 40%"></div> -->
-                        <!-- End .ratings-val -->
-                      <!-- </div> -->
-                      <!-- End .ratings -->
-                      <!-- <span class="ratings-text">( 4 Reviews )</span>
-                    </div> -->
-                    <!-- End .rating-container -->
-
-                    <!-- <div class="product-nav product-nav-dots">
-                      <a href="#" class="active" style="background: #666666"
-                        ><span class="sr-only">Color name</span></a
-                      >
-                      <a href="#" style="background: #ff887f"
-                        ><span class="sr-only">Color name</span></a
-                      >
-                      <a href="#" style="background: #6699cc"
-                        ><span class="sr-only">Color name</span></a
-                      >
-                      <a href="#" style="background: #f3dbc1"
-                        ><span class="sr-only">Color name</span></a
-                      >
-                      <a href="#" style="background: #eaeaec"
-                        ><span class="sr-only">Color name</span></a
-                      >
-                    </div> -->
-                    <!-- End .product-nav -->
-                  <!-- </div> -->
-                  <!-- End .product-body -->
-                <!-- </div> -->
-                <!-- End .product -->
-              <!-- </div> -->
-              <!-- End .col-sm-6 col-md-4 col-lg-3 -->
-
-              <!-- <div class="col-6 col-md-4 col-lg-3">
-                <div class="product product-2">
-                  <figure class="product-media">
-                    <a href="pages/product.html">
-                      <img
-                        src="assets/images/demos/demo-4/products/product-11.jpg"
-                        alt="Product image"
-                        class="product-image"
-                      />
-                    </a>
-
-                    <div class="product-action-vertical">
-                      <a
-                        href="#"
-                        class="btn-product-icon btn-wishlist"
-                        title="Add to wishlist"
-                      ></a>
-                    </div> -->
-                    <!-- End .product-action -->
-
-                    <!-- <div class="product-action">
-                      <a
-                        href="#"
-                        class="btn-product btn-cart"
-                        title="Add to cart"
-                        ><span>add to cart</span></a
-                      >
-                      <a
-                        href="popup/quickView.html"
-                        class="btn-product btn-quickview"
-                        title="Quick view"
-                        ><span>quick view</span></a
-                      >
-                    </div> -->
-                    <!-- End .product-action -->
-                  <!-- </figure> -->
-                  <!-- End .product-media -->
-
-                  <!-- <div class="product-body">
-                    <div class="product-cat">
-                      <a href="#">Cameras & Camcorders</a>
-                    </div> -->
-                    <!-- End .product-cat -->
-                    <!-- <h3 class="product-title">
-                      <a href="pages/product.html"
-                        >GoPro - HERO7 Black HD Waterproof Action</a
-                      >
-                    </h3> -->
-                    <!-- End .product-title -->
-                    <!-- <div class="product-price">$349.99</div> -->
-                    <!-- End .product-price -->
-                    <!-- <div class="ratings-container">
-                      <div class="ratings">
-                        <div class="ratings-val" style="width: 60%"></div> -->
-                        <!-- End .ratings-val -->
-                      <!-- </div> -->
-                      <!-- End .ratings -->
-                      <!-- <span class="ratings-text">( 2 Reviews )</span>
-                    </div> -->
-                    <!-- End .rating-container -->
-                  <!-- </div> -->
-                  <!-- End .product-body -->
-                <!-- </div> -->
-                <!-- End .product -->
-              <!-- </div> -->
-              <!-- End .col-sm-6 col-md-4 col-lg-3 -->
-
-              <!-- <div class="col-6 col-md-4 col-lg-3">
-                <div class="product product-2">
-                  <figure class="product-media">
-                    <span class="product-label label-circle label-new"
-                      >New</span
-                    >
-                    <a href="pages/product.html">
-                      <img
-                        src="assets/images/demos/demo-4/products/product-12.jpg"
-                        alt="Product image"
-                        class="product-image"
-                      />
-                      <img
-                        src="assets/images/demos/demo-4/products/product-12-2.jpg"
-                        alt="Product image"
-                        class="product-image-hover"
-                      />
-                    </a>
-
-                    <div class="product-action-vertical">
-                      <a
-                        href="#"
-                        class="btn-product-icon btn-wishlist"
-                        title="Add to wishlist"
-                      ></a>
-                    </div> -->
-                    <!-- End .product-action -->
-
-                    <!-- <div class="product-action">
-                      <a
-                        href="#"
-                        class="btn-product btn-cart"
-                        title="Add to cart"
-                        ><span>add to cart</span></a
-                      >
-                      <a
-                        href="popup/quickView.html"
-                        class="btn-product btn-quickview"
-                        title="Quick view"
-                        ><span>quick view</span></a
-                      >
-                    </div> -->
-                    <!-- End .product-action -->
-                  <!-- </figure> -->
-                  <!-- End .product-media -->
-
-                  <!-- <div class="product-body">
-                    <div class="product-cat">
-                      <a href="#">Smartwatches</a>
-                    </div> -->
-                    <!-- End .product-cat -->
-                    <!-- <h3 class="product-title">
-                      <a href="pages/product.html"
-                        >Apple - Apple Watch Series 3 with White Sport Band</a
-                      >
-                    </h3> -->
-                    <!-- End .product-title -->
-                    <!-- <div class="product-price">$214.49</div> -->
-                    <!-- End .product-price -->
-                    <!-- <div class="ratings-container">
-                      <div class="ratings">
-                        <div class="ratings-val" style="width: 0%"></div> -->
-                        <!-- End .ratings-val -->
-                      <!-- </div> -->
-                      <!-- End .ratings -->
-                      <!-- <span class="ratings-text">( 0 Reviews )</span>
-                    </div> -->
-                    <!-- End .rating-container -->
-
-                    <!-- <div class="product-nav product-nav-dots">
-                      <a href="#" class="active" style="background: #e2e2e2"
-                        ><span class="sr-only">Color name</span></a
-                      >
-                      <a href="#" style="background: #333333"
-                        ><span class="sr-only">Color name</span></a
-                      >
-                      <a href="#" style="background: #f2bc9e"
-                        ><span class="sr-only">Color name</span></a
-                      >
-                    </div> -->
-                    <!-- End .product-nav -->
-                  <!-- </div> -->
-                  <!-- End .product-body -->
-                <!-- </div> -->
-                <!-- End .product -->
-              <!-- </div> -->
-              <!-- End .col-sm-6 col-md-4 col-lg-3 -->
-
-              <!-- <div class="col-6 col-md-4 col-lg-3">
-                <div class="product product-2">
-                  <figure class="product-media">
-                    <a href="pages/product.html">
-                      <img
-                        src="assets/images/demos/demo-4/products/product-13.jpg"
-                        alt="Product image"
-                        class="product-image"
-                      />
-                    </a>
-
-                    <div class="product-action-vertical">
-                      <a
-                        href="#"
-                        class="btn-product-icon btn-wishlist"
-                        title="Add to wishlist"
-                      ></a>
-                    </div> -->
-                    <!-- End .product-action -->
-
-                    <!-- <div class="product-action">
-                      <a
-                        href="#"
-                        class="btn-product btn-cart"
-                        title="Add to cart"
-                        ><span>add to cart</span></a
-                      >
-                      <a
-                        href="popup/quickView.html"
-                        class="btn-product btn-quickview"
-                        title="Quick view"
-                        ><span>quick view</span></a
-                      >
-                    </div> -->
-                    <!-- End .product-action -->
-                  <!-- </figure> -->
-                  <!-- End .product-media -->
-<!--
-                  <div class="product-body">
-                    <div class="product-cat">
-                      <a href="#">Laptops</a>
-                    </div> -->
-                    <!-- End .product-cat -->
-                    <!-- <h3 class="product-title">
-                      <a href="pages/product.html">Lenovo - 330-15IKBR 15.6"</a>
-                    </h3> -->
-                    <!-- End .product-title -->
-                    <!-- <div class="product-price">
-                      <span class="out-price">$339.99</span>
-                      <span class="out-text">Out Of Stock</span>
-                    </div> -->
-                    <!-- End .product-price -->
-                    <!-- <div class="ratings-container">
-                      <div class="ratings">
-                        <div class="ratings-val" style="width: 60%"></div> -->
-                        <!-- End .ratings-val -->
-                      <!-- </div> -->
-                      <!-- End .ratings -->
-                      <!-- <span class="ratings-text">( 11 Reviews )</span>
-                    </div> -->
-                    <!-- End .rating-container -->
-                  <!-- </div> -->
-                  <!-- End .product-body -->
-                <!-- </div> -->
-                <!-- End .product -->
-              <!-- </div> -->
-              <!-- End .col-sm-6 col-md-4 col-lg-3 -->
-
-              <!-- <div class="col-6 col-md-4 col-lg-3">
-                <div class="product product-2">
-                  <figure class="product-media">
-                    <a href="pages/product.html">
-                      <img
-                        src="assets/images/demos/demo-4/products/product-14.jpg"
-                        alt="Product image"
-                        class="product-image"
-                      />
-                    </a>
-
-                    <div class="product-action-vertical">
-                      <a
-                        href="#"
-                        class="btn-product-icon btn-wishlist"
-                        title="Add to wishlist"
-                      ></a>
-                    </div> -->
-                    <!-- End .product-action -->
-
-                    <!-- <div class="product-action">
-                      <a
-                        href="#"
-                        class="btn-product btn-cart"
-                        title="Add to cart"
-                        ><span>add to cart</span></a
-                      >
-                      <a
-                        href="popup/quickView.html"
-                        class="btn-product btn-quickview"
-                        title="Quick view"
-                        ><span>quick view</span></a
-                      >
-                    </div> -->
-                    <!-- End .product-action -->
-                  <!-- </figure> -->
-                  <!-- End .product-media -->
-
-                  <!-- <div class="product-body">
-                    <div class="product-cat">
-                      <a href="#">Digital Cameras</a>
-                    </div> -->
-                    <!-- End .product-cat -->
-                    <!-- <h3 class="product-title">
-                      <a href="pages/product.html"
-                        >Sony - Alpha a5100 Mirrorless Camera</a
-                      >
-                    </h3> -->
-                    <!-- End .product-title -->
-                    <!-- <div class="product-price">$499.99</div> -->
-                    <!-- End .product-price -->
-                    <!-- <div class="ratings-container">
-                      <div class="ratings">
-                        <div class="ratings-val" style="width: 50%"></div> -->
-                        <!-- End .ratings-val -->
-                      <!-- </div> -->
-                      <!-- End .ratings -->
-                      <!-- <span class="ratings-text">( 11 Reviews )</span>
-                    </div> -->
-                    <!-- End .rating-container -->
-                  <!-- </div> -->
-                  <!-- End .product-body -->
-                <!-- </div> -->
-                <!-- End .product -->
-              <!-- </div> -->
-              <!-- End .col-sm-6 col-md-4 col-lg-3 -->
-
-              <!-- <div class="col-6 col-md-4 col-lg-3">
-                <div class="product product-2">
-                  <figure class="product-media">
-                    <a href="pages/product.html">
-                      <img
-                        src="assets/images/demos/demo-4/products/product-15.jpg"
-                        alt="Product image"
-                        class="product-image"
-                      />
-                    </a>
-
-                    <div class="product-action-vertical">
-                      <a
-                        href="#"
-                        class="btn-product-icon btn-wishlist"
-                        title="Add to wishlist"
-                      ></a>
-                    </div> -->
-                    <!-- End .product-action -->
-
-                    <!-- <div class="product-action">
-                      <a
-                        href="#"
-                        class="btn-product btn-cart"
-                        title="Add to cart"
-                        ><span>add to cart</span></a
-                      >
-                      <a
-                        href="popup/quickView.html"
-                        class="btn-product btn-quickview"
-                        title="Quick view"
-                        ><span>quick view</span></a
-                      >
-                    </div> -->
-                    <!-- End .product-action -->
-                  <!-- </figure> -->
-                  <!-- End .product-media -->
-
-                  <!-- <div class="product-body">
-                    <div class="product-cat">
-                      <a href="#">Laptops</a>
-                    </div> -->
-                    <!-- End .product-cat -->
-                    <!-- <h3 class="product-title">
-                      <a href="pages/product.html"
-                        >Home Mini - Smart Speaker with Google Assistant</a
-                      >
-                    </h3> -->
-                    <!-- End .product-title -->
-                    <!-- <div class="product-price">$49.00</div> -->
-                    <!-- End .product-price -->
-                    <!-- <div class="ratings-container">
-                      <div class="ratings">
-                        <div class="ratings-val" style="width: 60%"></div> -->
-                        <!-- End .ratings-val -->
-                      <!-- </div> -->
-                      <!-- End .ratings -->
-                      <!-- <span class="ratings-text">( 24 Reviews )</span>
-                    </div> -->
-                    <!-- End .rating-container -->
-
-                    <!-- <div class="product-nav product-nav-dots">
-                      <a href="#" class="active" style="background: #ef837b"
-                        ><span class="sr-only">Color name</span></a
-                      >
-                      <a href="#" style="background: #333333"
-                        ><span class="sr-only">Color name</span></a
-                      >
-                      <a href="#" style="background: #e2e2e2"
-                        ><span class="sr-only">Color name</span></a
-                      >
-                    </div> -->
-                    <!-- End .product-nav -->
-                  <!-- </div> -->
-                  <!-- End .product-body -->
-                <!-- </div> -->
-                <!-- End .product -->
-              <!-- </div> -->
-              <!-- End .col-sm-6 col-md-4 col-lg-3 -->
-
-              <!-- <div class="col-6 col-md-4 col-lg-3">
-                <div class="product product-2">
-                  <figure class="product-media">
-                    <span class="product-label label-circle label-sale"
-                      >Sale</span
-                    >
-                    <a href="pages/product.html">
-                      <img
-                        src="assets/images/demos/demo-4/products/product-16.jpg"
-                        alt="Product image"
-                        class="product-image"
-                      />
-                    </a>
-
-                    <div class="product-action-vertical">
-                      <a
-                        href="#"
-                        class="btn-product-icon btn-wishlist"
-                        title="Add to wishlist"
-                      ></a>
-                    </div> -->
-                    <!-- End .product-action -->
-
-                    <!-- <div class="product-action">
-                      <a
-                        href="#"
-                        class="btn-product btn-cart"
-                        title="Add to cart"
-                        ><span>add to cart</span></a
-                      >
-                      <a
-                        href="popup/quickView.html"
-                        class="btn-product btn-quickview"
-                        title="Quick view"
-                        ><span>quick view</span></a
-                      >
-                    </div> -->
-                    <!-- End .product-action -->
-                  <!-- </figure> -->
-                  <!-- End .product-media -->
-
-                  <!-- <div class="product-body">
-                    <div class="product-cat">
-                      <a href="#">Audio</a>
-                    </div> -->
-                    <!-- End .product-cat -->
-                    <!-- <h3 class="product-title">
-                      <a href="pages/product.html"
-                        >WONDERBOOM Portable Bluetooth Speaker</a
-                      >
-                    </h3> -->
-                    <!-- End .product-title -->
-                    <!-- <div class="product-price">
-                      <span class="new-price">$99.99</span>
-                      <span class="old-price">Was $129.99</span>
-                    </div> -->
-                    <!-- End .product-price -->
-                    <!-- <div class="ratings-container">
-                      <div class="ratings">
-                        <div class="ratings-val" style="width: 40%"></div> -->
-                        <!-- End .ratings-val -->
-                      <!-- </div> -->
-                      <!-- End .ratings -->
-                      <!-- <span class="ratings-text">( 4 Reviews )</span>
-                    </div> -->
-                    <!-- End .rating-container -->
-
-                    <!-- <div class="product-nav product-nav-dots">
-                      <a href="#" class="active" style="background: #666666"
-                        ><span class="sr-only">Color name</span></a
-                      >
-                      <a href="#" style="background: #ff887f"
-                        ><span class="sr-only">Color name</span></a
-                      >
-                      <a href="#" style="background: #6699cc"
-                        ><span class="sr-only">Color name</span></a
-                      >
-                      <a href="#" style="background: #f3dbc1"
-                        ><span class="sr-only">Color name</span></a
-                      >
-                      <a href="#" style="background: #eaeaec"
-                        ><span class="sr-only">Color name</span></a
-                      >
-                    </div> -->
-                    <!-- End .product-nav -->
-                  <!-- </div> -->
-                  <!-- End .product-body -->
-                <!-- </div> -->
-                <!-- End .product -->
-              <!-- </div> -->
-              <!-- End .col-sm-6 col-md-4 col-lg-3 -->
-
-              <!-- <div class="col-6 col-md-4 col-lg-3">
-                <div class="product product-2">
-                  <figure class="product-media">
-                    <a href="pages/product.html">
-                      <img
-                        src="assets/images/demos/demo-4/products/product-17.jpg"
-                        alt="Product image"
-                        class="product-image"
-                      />
-                    </a>
-
-                    <div class="product-action-vertical">
-                      <a
-                        href="#"
-                        class="btn-product-icon btn-wishlist"
-                        title="Add to wishlist"
-                      ></a>
-                    </div> -->
-                    <!-- End .product-action -->
-
-                    <!-- <div class="product-action">
-                      <a
-                        href="#"
-                        class="btn-product btn-cart"
-                        title="Add to cart"
-                        ><span>add to cart</span></a
-                      >
-                      <a
-                        href="popup/quickView.html"
-                        class="btn-product btn-quickview"
-                        title="Quick view"
-                        ><span>quick view</span></a
-                      >
-                    </div> -->
-                    <!-- End .product-action -->
-                  <!-- </figure> -->
-                  <!-- End .product-media -->
-
-                  <!-- <div class="product-body">
-                    <div class="product-cat">
-                      <a href="#">Smart Home</a>
-                    </div> -->
-                    <!-- End .product-cat -->
-                    <!-- <h3 class="product-title">
-                      <a href="pages/product.html"
-                        >Google - Home Hub with Google Assistant</a
-                      >
-                    </h3> -->
-                    <!-- End .product-title -->
-                    <!-- <div class="product-price">$149.00</div> -->
-                    <!-- End .product-price -->
-                    <!-- <div class="ratings-container">
-                      <div class="ratings">
-                        <div class="ratings-val" style="width: 60%"></div> -->
-                        <!-- End .ratings-val -->
-                      <!-- </div> -->
-                      <!-- End .ratings -->
-                      <!-- <span class="ratings-text">( 2 Reviews )</span>
-                    </div> -->
-                    <!-- End .rating-container -->
-                  <!-- </div> -->
-                  <!-- End .product-body -->
-                <!-- </div> -->
-                <!-- End .product -->
-              <!-- </div> -->
-              <!-- End .col-sm-6 col-md-4 col-lg-3 -->
-            <!-- </div> -->
-            <!-- End .row -->
-          <!-- </div> -->
-          <!-- End .products -->
-        <!-- </div> -->
-        <!-- End .container -->
 
         <div class="mb-4"></div>
         <!-- End .mb-4 -->
@@ -2610,7 +760,7 @@ $result1 = $stmt->fetchAll();
                   <div class="icon-box-content">
                     <h3 class="icon-box-title">Free Shipping</h3>
                     <!-- End .icon-box-title -->
-                    <p>Orders $50 or more</p>
+                    <p>Orders 50 JD or more</p>
                   </div>
                   <!-- End .icon-box-content -->
                 </div>
@@ -2690,7 +840,7 @@ $result1 = $stmt->fetchAll();
                   <!-- End .cta-title -->
                   <p class="cta-desc text-white">
                     and receive
-                    <span class="font-weight-normal">$20 coupon</span> for first
+                    <span class="font-weight-normal">20 JD coupon</span> for first
                     shopping
                   </p>
                   <!-- End .cta-desc -->
@@ -2744,7 +894,7 @@ $result1 = $stmt->fetchAll();
                   <div class="widget-call">
                     <i class="icon-phone"></i>
                     Got Question? Call us 24/7
-                    <a href="tel:#">+0123 456 789</a>
+                    <a href="tel:#">+962770245060</a>
                   </div>
                   <!-- End .widget-call -->
                 </div>
@@ -2758,11 +908,10 @@ $result1 = $stmt->fetchAll();
                   <!-- End .widget-title -->
 
                   <ul class="widget-list">
-                    <li><a href="pages/about.html">About Molla</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">How to shop on Molla</a></li>
+                    <li><a href="pages/about.html">About Us</a></li>
                     <li><a href="pages/faq.html">FAQ</a></li>
-                    <li><a href="pages/contact.html">Contact us</a></li>
+                    <li><a href="pages/contact.html">Contact Us</a></li>
+                    <li><a href="#signin-modal" data-toggle="modal">Sign Up</a></li>
                   </ul>
                   <!-- End .widget-list -->
                 </div>
@@ -2770,24 +919,7 @@ $result1 = $stmt->fetchAll();
               </div>
               <!-- End .col-sm-6 col-lg-3 -->
 
-              <div class="col-sm-6 col-lg-3">
-                <div class="widget">
-                  <h4 class="widget-title">Customer Service</h4>
-                  <!-- End .widget-title -->
-
-                  <ul class="widget-list">
-                    <li><a href="#">Payment Methods</a></li>
-                    <li><a href="#">Money-back guarantee!</a></li>
-                    <li><a href="#">Returns</a></li>
-                    <li><a href="#">Shipping</a></li>
-                    <li><a href="#">Terms and conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                  </ul>
-                  <!-- End .widget-list -->
-                </div>
-                <!-- End .widget -->
-              </div>
-              <!-- End .col-sm-6 col-lg-3 -->
+             
 
               <div class="col-sm-6 col-lg-3">
                 <div class="widget">
@@ -2795,11 +927,9 @@ $result1 = $stmt->fetchAll();
                   <!-- End .widget-title -->
 
                   <ul class="widget-list">
-                    <li><a href="#">Sign In</a></li>
-                    <li><a href="pages/cart.html">View Cart</a></li>
-                    <li><a href="#">My Wishlist</a></li>
-                    <li><a href="#">Track My Order</a></li>
-                    <li><a href="#">Help</a></li>
+                    <li><a href="#signin-modal" data-toggle="modal">Sign In</a></li>
+                    <li><a href="pages/cart.php">Cart</a></li>
+                    <li><a href="pages/wishlist.html">My Wishlist</a></li>
                   </ul>
                   <!-- End .widget-list -->
                 </div>
@@ -2816,7 +946,7 @@ $result1 = $stmt->fetchAll();
         <div class="footer-bottom">
           <div class="container">
             <p class="footer-copyright">
-              Copyright © 2019 Molla Store. All Rights Reserved.
+            Copyright © 2022 Molla Store. All Rights Reserved.
             </p>
             <!-- End .footer-copyright -->
             <figure class="footer-payments">
@@ -2876,18 +1006,7 @@ $result1 = $stmt->fetchAll();
               >Menu</a
             >
           </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              id="mobile-cats-link"
-              data-toggle="tab"
-              href="#mobile-cats-tab"
-              role="tab"
-              aria-controls="mobile-cats-tab"
-              aria-selected="false"
-              >Categories</a
-            >
-          </li>
+         
         </ul>
 
         <div class="tab-content">
@@ -2900,248 +1019,28 @@ $result1 = $stmt->fetchAll();
             <nav class="mobile-nav">
               <ul class="mobile-menu">
                 <li class="active">
-                  <a href="index.html">Home</a>
+                  <a href="index.php">Home</a>
 
-                  <ul>
-                    <li><a href="index-1.html">01 - furniture store</a></li>
-                    <li><a href="index-2.html">02 - furniture store</a></li>
-                    <li><a href="index-3.html">03 - electronic store</a></li>
-                    <li><a href="index-4.html">04 - electronic store</a></li>
-                    <li><a href="index-5.html">05 - fashion store</a></li>
-                    <li><a href="index-6.html">06 - fashion store</a></li>
-                    <li><a href="index-7.html">07 - fashion store</a></li>
-                    <li><a href="index-8.html">08 - fashion store</a></li>
-                    <li><a href="index-9.html">09 - fashion store</a></li>
-                    <li><a href="index-10.html">10 - shoes store</a></li>
-                    <li>
-                      <a href="index-11.html">11 - furniture simple store</a>
-                    </li>
-                    <li>
-                      <a href="index-12.html">12 - fashion simple store</a>
-                    </li>
-                    <li><a href="index-13.html">13 - market</a></li>
-                    <li><a href="index-14.html">14 - market fullwidth</a></li>
-                    <li><a href="index-15.html">15 - lookbook 1</a></li>
-                    <li><a href="index-16.html">16 - lookbook 2</a></li>
-                    <li><a href="index-17.html">17 - fashion store</a></li>
-                    <li>
-                      <a href="index-18.html"
-                        >18 - fashion store (with sidebar)</a
-                      >
-                    </li>
-                    <li><a href="index-19.html">19 - games store</a></li>
-                    <li><a href="index-20.html">20 - book store</a></li>
-                    <li><a href="index-21.html">21 - sport store</a></li>
-                    <li><a href="index-22.html">22 - tools store</a></li>
-                    <li>
-                      <a href="index-23.html"
-                        >23 - fashion left navigation store</a
-                      >
-                    </li>
-                    <li>
-                      <a href="index-24.html">24 - extreme sport store</a>
-                    </li>
-                  </ul>
+                  
                 </li>
                 <li>
-                  <a href="category.html">Shop</a>
-                  <ul>
-                    <li><a href="pages/category-list.php">Shop List</a></li>
-                    <li>
-                      <a href="category-2cols.html">Shop Grid 2 Columns</a>
-                    </li>
-                    <li><a href="category.html">Shop Grid 3 Columns</a></li>
-                    <li>
-                      <a href="category-4cols.html">Shop Grid 4 Columns</a>
-                    </li>
-                    <li>
-                      <a href="category-boxed.html"
-                        ><span
-                          >Shop Boxed No Sidebar<span class="tip tip-hot"
-                            >Hot</span
-                          ></span
-                        ></a
-                      >
-                    </li>
-                    <li>
-                      <a href="category-fullwidth.html"
-                        >Shop Fullwidth No Sidebar</a
-                      >
-                    </li>
-                    <li>
-                      <a href="product-category-boxed.html"
-                        >Product Category Boxed</a
-                      >
-                    </li>
-                    <li>
-                      <a href="product-category-fullwidth.html"
-                        ><span
-                          >Product Category Fullwidth<span class="tip tip-new"
-                            >New</span
-                          ></span
-                        ></a
-                      >
-                    </li>
-                    <li><a href="pages/cart.html">Cart</a></li>
-                    <li><a href="pages/checkout.html">Checkout</a></li>
-                    <li><a href="pages/wishlist.html">Wishlist</a></li>
-                    <li><a href="#">Lookbook</a></li>
-                  </ul>
+                  <a href="pages/category-list.php">Shop</a>
+                  
                 </li>
                 <li>
-                  <a href="pages/product.php" class="sf-with-ul">Product</a>
-                  <ul>
-                    <li><a href="pages/product.php">Default</a></li>
-                    <li><a href="product-centered.html">Centered</a></li>
-                    <li>
-                      <a href="product-extended.html"
-                        ><span
-                          >Extended Info<span class="tip tip-new"
-                            >New</span
-                          ></span
-                        ></a
-                      >
-                    </li>
-                    <li><a href="product-gallery.html">Gallery</a></li>
-                    <li><a href="product-sticky.html">Sticky Info</a></li>
-                    <li>
-                      <a href="product-sidebar.html">Boxed With Sidebar</a>
-                    </li>
-                    <li><a href="product-fullwidth.html">Full Width</a></li>
-                    <li>
-                      <a href="product-masonry.html">Masonry Sticky Info</a>
-                    </li>
-                  </ul>
+                  <a href="pages/cart.php">Cart</a>
+                  
                 </li>
                 <li>
-                  <a href="#">Pages</a>
-                  <ul>
-                    <li>
-                      <a href="pages/about.html">About</a>
+                  <a href="pages/checkout.php">Checkout</a>
+                  
+                </li>
+                <li>
+                  <a href="pages/dashboard.php">My Account</a>
 
-                      <ul>
-                        <li><a href="pages/about.html">About 01</a></li>
-                        <li><a href="about-2.html">About 02</a></li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="pages/contact.html">Contact</a>
-
-                      <ul>
-                        <li><a href="pages/contact.html">Contact 01</a></li>
-                        <li><a href="contact-2.html">Contact 02</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="pages/faq.html">FAQs</a></li>
-                    <li><a href="pages/404.html">Error 404</a></li>
-                    <li><a href="pages/coming-soon.html">Coming Soon</a></li>
-                  </ul>
+                  
                 </li>
-                <li>
-                  <a href="blog.html">Blog</a>
-
-                  <ul>
-                    <li><a href="blog.html">Classic</a></li>
-                    <li><a href="blog-listing.html">Listing</a></li>
-                    <li>
-                      <a href="#">Grid</a>
-                      <ul>
-                        <li>
-                          <a href="blog-grid-2cols.html">Grid 2 columns</a>
-                        </li>
-                        <li>
-                          <a href="blog-grid-3cols.html">Grid 3 columns</a>
-                        </li>
-                        <li>
-                          <a href="blog-grid-4cols.html">Grid 4 columns</a>
-                        </li>
-                        <li>
-                          <a href="blog-grid-sidebar.html">Grid sidebar</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="#">Masonry</a>
-                      <ul>
-                        <li>
-                          <a href="blog-masonry-2cols.html"
-                            >Masonry 2 columns</a
-                          >
-                        </li>
-                        <li>
-                          <a href="blog-masonry-3cols.html"
-                            >Masonry 3 columns</a
-                          >
-                        </li>
-                        <li>
-                          <a href="blog-masonry-4cols.html"
-                            >Masonry 4 columns</a
-                          >
-                        </li>
-                        <li>
-                          <a href="blog-masonry-sidebar.html"
-                            >Masonry sidebar</a
-                          >
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="#">Mask</a>
-                      <ul>
-                        <li>
-                          <a href="blog-mask-grid.html">Blog mask grid</a>
-                        </li>
-                        <li>
-                          <a href="blog-mask-masonry.html">Blog mask masonry</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="#">Single Post</a>
-                      <ul>
-                        <li><a href="single.html">Default with sidebar</a></li>
-                        <li>
-                          <a href="single-fullwidth.html"
-                            >Fullwidth no sidebar</a
-                          >
-                        </li>
-                        <li>
-                          <a href="single-fullwidth-sidebar.html"
-                            >Fullwidth with sidebar</a
-                          >
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="elements-list.html">Elements</a>
-                  <ul>
-                    <li><a href="elements-products.html">Products</a></li>
-                    <li><a href="elements-typography.html">Typography</a></li>
-                    <li><a href="elements-titles.html">Titles</a></li>
-                    <li><a href="elements-banners.html">Banners</a></li>
-                    <li>
-                      <a href="elements-product-category.html"
-                        >Product Category</a
-                      >
-                    </li>
-                    <li>
-                      <a href="elements-video-banners.html">Video Banners</a>
-                    </li>
-                    <li><a href="elements-buttons.html">Buttons</a></li>
-                    <li><a href="elements-accordions.html">Accordions</a></li>
-                    <li><a href="elements-tabs.html">Tabs</a></li>
-                    <li>
-                      <a href="elements-testimonials.html">Testimonials</a>
-                    </li>
-                    <li><a href="elements-blog-posts.html">Blog Posts</a></li>
-                    <li><a href="elements-portfolio.html">Portfolio</a></li>
-                    <li><a href="elements-cta.html">Call to Action</a></li>
-                    <li><a href="elements-icon-boxes.html">Icon Boxes</a></li>
-                  </ul>
-                </li>
+                
               </ul>
             </nav>
             <!-- End .mobile-nav -->
@@ -3153,22 +1052,7 @@ $result1 = $stmt->fetchAll();
             role="tabpanel"
             aria-labelledby="mobile-cats-link"
           >
-            <nav class="mobile-cats-nav">
-              <ul class="mobile-cats-menu">
-                <li><a class="mobile-cats-lead" href="#">Daily offers</a></li>
-                <li><a class="mobile-cats-lead" href="#">Gift Ideas</a></li>
-                <li><a href="#">Beds</a></li>
-                <li><a href="#">Lighting</a></li>
-                <li><a href="#">Sofas & Sleeper sofas</a></li>
-                <li><a href="#">Storage</a></li>
-                <li><a href="#">Armchairs & Chaises</a></li>
-                <li><a href="#">Decoration </a></li>
-                <li><a href="#">Kitchen Cabinets</a></li>
-                <li><a href="#">Coffee & Tables</a></li>
-                <li><a href="#">Outdoor Furniture </a></li>
-              </ul>
-              <!-- End .mobile-cats-menu -->
-            </nav>
+            
             <!-- End .mobile-cats-nav -->
           </div>
           <!-- .End .tab-pane -->
@@ -3176,16 +1060,16 @@ $result1 = $stmt->fetchAll();
         <!-- End .tab-content -->
 
         <div class="social-icons">
-          <a href="#" class="social-icon" target="_blank" title="Facebook"
+        <a href="https://web.facebook.com/" class="social-icon" target="_blank" title="Facebook"
             ><i class="icon-facebook-f"></i
           ></a>
-          <a href="#" class="social-icon" target="_blank" title="Twitter"
+          <a href="https://twitter.com/" class="social-icon" target="_blank" title="Twitter"
             ><i class="icon-twitter"></i
           ></a>
-          <a href="#" class="social-icon" target="_blank" title="Instagram"
+          <a href="https://www.instagram.com/" class="social-icon" target="_blank" title="Instagram"
             ><i class="icon-instagram"></i
           ></a>
-          <a href="#" class="social-icon" target="_blank" title="Youtube"
+          <a href="https://www.youtube.com/" class="social-icon" target="_blank" title="Youtube"
             ><i class="icon-youtube"></i
           ></a>
         </div>
@@ -3318,69 +1202,7 @@ $result1 = $stmt->fetchAll();
         </div><!-- End .modal-dialog -->
     </div><!-- End .modal -->
 
-    <!-- <div
-      class="container newsletter-popup-container mfp-hide"
-      id="newsletter-popup-form"
-    > -->
-      <!-- <div class="row justify-content-center">
-        <div class="col-10">
-          <div class="row no-gutters bg-white newsletter-popup-content">
-            <div class="col-xl-3-5col col-lg-7 banner-content-wrap">
-              <div class="banner-content text-center">
-                <img
-                  src="assets/images/popup/newsletter/logo.png"
-                  class="logo"
-                  alt="logo"
-                  width="60"
-                  height="15"
-                />
-                <h2 class="banner-title">
-                  get <span>25<light>%</light></span> off
-                </h2>
-                <p>
-                  Subscribe to the Molla eCommerce newsletter to receive timely
-                  updates from your favorite products.
-                </p>
-                <form action="#">
-                  <div class="input-group input-group-round">
-                    <input
-                      type="email"
-                      class="form-control form-control-white"
-                      placeholder="Your Email Address"
-                      aria-label="Email Adress"
-                      required
-                    />
-                    <div class="input-group-append">
-                      <button class="btn" type="submit"><span>go</span></button>
-                    </div>
-                    .End .input-group-append
-                  </div>
-                  .End .input-group
-                </form>
-                <div class="custom-control custom-checkbox">
-                  <input
-                    type="checkbox"
-                    class="custom-control-input"
-                    id="register-policy-2"
-                    required
-                  />
-                  <label class="custom-control-label" for="register-policy-2"
-                    >Do not show this popup again</label
-                  >
-                </div>
-                End .custom-checkbox
-              </div>
-            </div>
-            <div class="col-xl-2-5col col-lg-5">
-              <img
-                src="assets/images/popup/newsletter/img-1.jpg"
-                class="newsletter-img"
-                alt="newsletter"
-              />
-            </div>
-          </div>
-        </div>
-      </div> -->
+    
     </div>
     <!-- Plugins JS File -->
     <script src="assets/js/jquery.min.js"></script>
