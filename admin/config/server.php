@@ -4,6 +4,8 @@ require_once('connection.php');
 // initializing variables
 $name = "";
 $email = "";
+// $_SESSION['id'];
+
 $errors = array();
 
 // REGISTER USER
@@ -71,9 +73,6 @@ if (isset($_POST['reg_user'])) {
 
 if (isset($_POST['login_user'])) {
     $email_login = $_POST['login-email'];
-
-
-
     $password_login = md5($_POST['login-password']);
 
     if (empty($email_login)) {
@@ -89,19 +88,13 @@ if (isset($_POST['login_user'])) {
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
         //handling the result
         if ($data) {
-            $_SESSION['name'] = $name;
+            $name_login = $data['name'];
+            $email_login = $data['email'];
+            $_SESSION['name'] = $name_login;
             $_SESSION['email'] = $email_login;
+            $_SESSION['id'] = $data['id'];
             //                $_SESSION['last_login'] = $data['last_login'];
             $_SESSION['success'] = "You are now logged in";
-            try {
-                $command = "SELECT id FROM users WHERE email = '$email';";
-                $statement = $pdo->prepare($command);
-                $statement->execute();
-                $result = $statement->fetch(PDO::FETCH_ASSOC);
-                $_SESSION['id'] = $result['id'];
-            } catch (PDOException $e) {
-                echo "error" . $e;
-            }
             if ($data['role'] == 1) {
                 $_SESSION['Role'] = true;
                 //                    $query = "UPDATE users SET last_login = NOW() WHERE username = '$username'";

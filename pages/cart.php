@@ -1,9 +1,7 @@
 <?php
 require("../admin/config/connection.php");
 $_SESSION['supertotal'] = 0;
-$user_id = $_SESSION["id"];
-
-
+$user_id;
 if (isset($_POST['deleteItem'])) {
     $index = $_POST['mahdiIndex'];
     // unset($_SESSION['cart'][$index]);
@@ -15,6 +13,11 @@ if (isset($_POST['deleteItem'])) {
     } catch (PDOException $e) {
         echo "error" . $e;
     }
+}
+try {
+    $stocksql = "SELECT * FROM products;";
+} catch (\Throwable $th) {
+    //throw $th;
 }
 
 if (isset($_POST['subtractQuantity'])) {
@@ -53,14 +56,18 @@ if (isset($_POST['subtractQuantity'])) {
 
 try {
     #new code
-    $_command = "SELECT * FROM tempcart WHERE user_id='$user_id'";
-    $statement = $pdo->prepare($_command);
-    $statement->execute();
-    $statement->setFetchMode(PDO::FETCH_ASSOC);
-    $results = $statement->fetchAll();
-    $superTotal = 0;
+    if (isset($_SESSION["id"])) {
+        $user_id = $_SESSION["id"];
+        $_command = "SELECT * FROM tempcart WHERE user_id='$user_id'";
+        $statement = $pdo->prepare($_command);
+        $statement->execute();
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        $results = $statement->fetchAll();
+        $superTotal = 0;
+    }
 } catch (PDOException $e) {
-    echo "error" . $e->getMessage();
+    // echo "error" . $e->getMessage();
+    echo "You are not logged in";
 }
 
 function mahdiReload()
@@ -75,8 +82,13 @@ function mahdiStopReload()
 }
 
 ?>
+<?php if (!isset($_SESSION["id"])) { ?>
+    <h1 style="text-align: center; transform:translateY(50vh);">You are not logged in</h1>
+<?php } ?>
 
 <?php include("../components/Navbar.php") ?>
+
+
 <div class="page-wrapper">
     <main class="main">
         <div class="page-header text-center" style="background-image: url('../assets/images/page-header-bg.jpg')">
@@ -99,62 +111,58 @@ function mahdiStopReload()
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-9">
+
                             <?php if (!empty($results)) { ?>
 
-                            <table class="table table-cart table-mobile">
-                                <thead>
-                                    <tr>
-                                        <th>Product</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
-                                        <th>discount</th>
-                                        <th>Total</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <!-- mahdi table -->
-                                <tbody>
-                                    <?php
+                                <table class="table table-cart table-mobile">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>discount</th>
+                                            <th>Total</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <!-- mahdi table -->
+                                    <tbody>
+                                        <?php
                                         for ($i = 0; $i < count($results); $i++) {
                                             // foreach ($results as $key => $result) {
                                         ?>
-                                    <tr>
-                                        <td class="product-col">
-                                            <div class="product">
-                                                <figure class="product-media">
-                                                    <!-- <a href="#"> -->
-                                                    <img src="<?php echo $results[$i]['img']; ?>" alt="Product image">
-                                                    <!-- </a> -->
-                                                </figure>
+                                            <tr>
+                                                <td class="product-col">
+                                                    <div class="product">
+                                                        <figure class="product-media">
+                                                            <!-- <a href="#"> -->
+                                                            <img src="<?php echo $results[$i]['img']; ?>" alt="Product image">
+                                                            <!-- </a> -->
+                                                        </figure>
 
-                                                <h3 class="product-title">
-                                                    <p></p>
-                                                    <a><?php echo $results[$i]['name']; ?></a>
-                                                </h3><!-- End .product-title -->
-                                            </div><!-- End .product -->
-                                        </td>
-                                        <td class="price-col">$<?php echo $results[$i]['price']; ?></td>
-                                        <td class="quantity-col">
-                                            <div class="cart-product-quantity">
-                                                <!-- <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required> -->
-                                                <form action="./cart.php" class="form" method="POST">
+                                                        <h3 class="product-title">
+                                                            <p></p>
+                                                            <a><?php echo $results[$i]['name']; ?></a>
+                                                        </h3><!-- End .product-title -->
+                                                    </div><!-- End .product -->
+                                                </td>
+                                                <td class="price-col">$<?php echo $results[$i]['price']; ?></td>
+                                                <td class="quantity-col">
+                                                    <div class="cart-product-quantity">
+                                                        <!-- <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required> -->
+                                                        <form action="./cart.php" class="form" method="POST">
 
-                                                    <button type="submit" name="subtractQuantity"
-                                                        class="form-control">-</button>
-                                                    <input type="text" name="mahdiQuantity" class="form-control"
-                                                        value="<?php echo $results[$i]['quantity']; ?>" readonly
-                                                        style="text-align: center;">
-                                                    <button type="submit" name="addQuantity"
-                                                        class="form-control">+</button>
+                                                            <button type="submit" name="subtractQuantity" class="form-control">-</button>
+                                                            <input type="text" name="mahdiQuantity" class="form-control" value="<?php echo $results[$i]['quantity']; ?>" readonly style="text-align: center;">
+                                                            <button type="submit" name="addQuantity" class="form-control">+</button>
 
-                                                    <input type="hidden" name="hidden-id"
-                                                        value="<?php echo $results[$i]['id']; ?>">
-                                                </form>
-                                            </div><!-- End .cart-product-quantity -->
-                                        </td>
-                                        <td><?php echo $results[$i]['discount']; ?>%</td>
-                                        <!-- <td class="total-col">$84.00</td> -->
-                                        <td class="total-col">$<?php
+                                                            <input type="hidden" name="hidden-id" value="<?php echo $results[$i]['id']; ?>">
+                                                        </form>
+                                                    </div><!-- End .cart-product-quantity -->
+                                                </td>
+                                                <td><?php echo $results[$i]['discount']; ?>%</td>
+                                                <!-- <td class="total-col">$84.00</td> -->
+                                                <td class="total-col">$<?php
                                                                         $price = $results[$i]['price'];
                                                                         $quantity = $results[$i]['quantity'];
                                                                         $discount = $results[$i]['discount'];
@@ -177,32 +185,26 @@ function mahdiStopReload()
                                                                             echo "error" . $e;
                                                                         }
                                                                         ?>
-                                        </td>
-                                        <td class="remove-col">
-                                            <form action="./cart.php" method="POST">
-                                                <button type="submit" name="deleteItem" class="btn-remove"
-                                                    onclick="return confirm('Are you sure?')">
-                                                    <i class="icon-close"></i>
-                                                </button>
-                                                <input type="hidden" name="mahdiIndex"
-                                                    value="<?php echo $results[$i]['id']; ?>">
-                                            </form>
-                                            <!-- </td> -->
-                                    </tr>
-                                    <?php
+                                                </td>
+                                                <td class="remove-col">
+                                                    <form action="./cart.php" method="POST">
+                                                        <button type="submit" name="deleteItem" class="btn-remove" onclick="return confirm('Are you sure?')">
+                                                            <i class="icon-close"></i>
+                                                        </button>
+                                                        <input type="hidden" name="mahdiIndex" value="<?php echo $results[$i]['id']; ?>">
+                                                    </form>
+                                                    <!-- </td> -->
+                                            </tr>
+                                        <?php
                                             // }
                                         } #end of for loop
                                         ?>
-                                </tbody>
-                                <?php } else { ?>
-                                <h2>Your cart is empty</h2>
-                                <?php } ?>
-                            </table><!-- End .table table-wishlist -->
-
-                            <div class="cart-bottom">
+                                    </tbody>
+                                </table><!-- End .table table-wishlist -->
+                                <div class="cart-bottom">
 
 
-                            </div><!-- End .cart-bottom -->
+                                </div><!-- End .cart-bottom -->
                         </div><!-- End .col-lg-9 -->
                         <aside class="col-lg-3">
                             <div class="summary summary-cart">
@@ -222,8 +224,7 @@ function mahdiStopReload()
                                         <tr class="summary-shipping-row">
                                             <td>
                                                 <div class="custom-control custom-radio">
-                                                    <input type="radio" id="free-shipping" name="shipping"
-                                                        class="custom-control-input">
+                                                    <input type="radio" id="free-shipping" name="shipping" class="custom-control-input">
                                                     <label class="custom-control-label" for="free-shipping">Free
                                                         Shipping</label>
                                                 </div><!-- End .custom-control -->
@@ -251,9 +252,15 @@ function mahdiStopReload()
                                 <a href="checkout.php" class="btn btn-outline-primary-2 btn-order btn-block">PROCEED
                                     TO CHECKOUT</a>
                             </div><!-- End .summary -->
+                        <?php } else { ?>
+                            <h2>Your cart is empty</h2>
+                            <a href="./category-list.php" class="btn btn-outline-primary-2"><span>GO SHOP</span><i class="icon-long-arrow-right"></i></a>
+
+                        <?php } ?>
 
 
-                            <!-- <a href="category.html" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE
+
+                        <!-- <a href="category.html" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE
                                         SHOPPING</span><i class="icon-refresh"></i></a> -->
                         </aside><!-- End .col-lg-3 -->
                     </div><!-- End .row -->
@@ -261,6 +268,7 @@ function mahdiStopReload()
             </div><!-- End .cart -->
         </div><!-- End .page-content -->
     </main><!-- End .main -->
+
 
     <?php include("../components/Footer.php") ?>
 </div><!-- End .page-wrapper -->
@@ -275,8 +283,7 @@ function mahdiStopReload()
 
         <form action="#" method="get" class="mobile-search">
             <label for="mobile-search" class="sr-only">Search</label>
-            <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..."
-                required>
+            <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..." required>
             <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
         </form>
 
@@ -319,14 +326,12 @@ function mahdiStopReload()
                         <li><a href="category-2cols.html">Shop Grid 2 Columns</a></li>
                         <li><a href="category.html">Shop Grid 3 Columns</a></li>
                         <li><a href="category-4cols.html">Shop Grid 4 Columns</a></li>
-                        <li><a href="category-boxed.html"><span>Shop Boxed No Sidebar<span
-                                        class="tip tip-hot">Hot</span></span></a></li>
+                        <li><a href="category-boxed.html"><span>Shop Boxed No Sidebar<span class="tip tip-hot">Hot</span></span></a></li>
                         <li><a href="category-fullwidth.html">Shop Fullwidth No Sidebar</a></li>
                         <li><a href="product-category-boxed.html">Product Category Boxed</a></li>
-                        <li><a href="product-category-fullwidth.html"><span>Product Category Fullwidth<span
-                                        class="tip tip-new">New</span></span></a></li>
-                        <li><a href="cart.html">Cart</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
+                        <li><a href="product-category-fullwidth.html"><span>Product Category Fullwidth<span class="tip tip-new">New</span></span></a></li>
+                        <li><a href="cart.php">Cart</a></li>
+                        <li><a href="checkout.php">Checkout</a></li>
                         <li><a href="wishlist.html">Wishlist</a></li>
                         <li><a href="#">Lookbook</a></li>
                     </ul>
@@ -336,8 +341,7 @@ function mahdiStopReload()
                     <ul>
                         <li><a href="product.php">Default</a></li>
                         <li><a href="product-centered.html">Centered</a></li>
-                        <li><a href="product-extended.html"><span>Extended Info<span
-                                        class="tip tip-new">New</span></span></a></li>
+                        <li><a href="product-extended.html"><span>Extended Info<span class="tip tip-new">New</span></span></a></li>
                         <li><a href="product-gallery.html">Gallery</a></li>
                         <li><a href="product-sticky.html">Sticky Info</a></li>
                         <li><a href="product-sidebar.html">Boxed With Sidebar</a></li>
@@ -350,18 +354,17 @@ function mahdiStopReload()
                     <ul>
                         <li>
                             <a href="about.html">About</a>
-                            <<<<<<< HEAD=======>>>>>>> b9e24503f2f4e5df9788f24cbcd787a2fea64624
-
-                                <ul>
-                                    <li><a href="about.html">About 01</a></li>
-                                    <li><a href="about-2.html">About 02</a></li>
-                                </ul>
-                        </li>
-                        <li>
-                            <a href="contact.html">Contact</a>
 
                             <ul>
-                                <li><a href="contact.html">Contact 01</a></li>
+                                <li><a href="about.html">About 01</a></li>
+                                <li><a href="about-2.html">About 02</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="contact.php">Contact</a>
+
+                            <ul>
+                                <li><a href="contact.php">Contact 01</a></li>
                                 <li><a href="contact-2.html">Contact 02</a></li>
                             </ul>
                         </li>
@@ -456,28 +459,23 @@ function mahdiStopReload()
                     <div class="form-tab">
                         <ul class="nav nav-pills nav-fill" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="signin-tab" data-toggle="tab" href="#signin" role="tab"
-                                    aria-controls="signin" aria-selected="true">Sign In</a>
+                                <a class="nav-link active" id="signin-tab" data-toggle="tab" href="#signin" role="tab" aria-controls="signin" aria-selected="true">Sign In</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab"
-                                    aria-controls="register" aria-selected="false">Register</a>
+                                <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="false">Register</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="tab-content-5">
-                            <div class="tab-pane fade show active" id="signin" role="tabpanel"
-                                aria-labelledby="signin-tab">
+                            <div class="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="signin-tab">
                                 <form action="#">
                                     <div class="form-group">
                                         <label for="singin-email">Username or email address *</label>
-                                        <input type="text" class="form-control" id="singin-email" name="singin-email"
-                                            required>
+                                        <input type="text" class="form-control" id="singin-email" name="singin-email" required>
                                     </div><!-- End .form-group -->
 
                                     <div class="form-group">
                                         <label for="singin-password">Password *</label>
-                                        <input type="password" class="form-control" id="singin-password"
-                                            name="singin-password" required>
+                                        <input type="password" class="form-control" id="singin-password" name="singin-password" required>
                                     </div><!-- End .form-group -->
 
                                     <div class="form-footer">
@@ -517,14 +515,12 @@ function mahdiStopReload()
                                 <form action="#">
                                     <div class="form-group">
                                         <label for="register-email">Your email address *</label>
-                                        <input type="email" class="form-control" id="register-email"
-                                            name="register-email" required>
+                                        <input type="email" class="form-control" id="register-email" name="register-email" required>
                                     </div><!-- End .form-group -->
 
                                     <div class="form-group">
                                         <label for="register-password">Password *</label>
-                                        <input type="password" class="form-control" id="register-password"
-                                            name="register-password" required>
+                                        <input type="password" class="form-control" id="register-password" name="register-password" required>
                                     </div><!-- End .form-group -->
 
                                     <div class="form-footer">
@@ -534,8 +530,7 @@ function mahdiStopReload()
                                         </button>
 
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="register-policy"
-                                                required>
+                                            <input type="checkbox" class="custom-control-input" id="register-policy" required>
                                             <label class="custom-control-label" for="register-policy">I agree to the
                                                 <a href="#">privacy policy</a> *</label>
                                         </div><!-- End .custom-checkbox -->
@@ -580,6 +575,6 @@ function mahdiStopReload()
 </body>
 
 
-<!-- molla/cart.html  22 Nov 2019 09:55:06 GMT -->
+<!-- molla/cart.php  22 Nov 2019 09:55:06 GMT -->
 
 </html>

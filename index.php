@@ -1,15 +1,16 @@
 <?php
 include('admin/config/server.php');
 try {
-  #newcode
-  $_command = "SELECT * FROM tempcart";
-  $statement = $pdo->prepare($_command);
-  $statement->execute();
-  $statement->setFetchMode(PDO::FETCH_ASSOC);
-  $results = $statement->fetchAll();
-  $superTotal = 0;
+    #newcode
+    $user_id = $_SESSION["id"];
+    $_command = "SELECT * FROM tempcart WHERE user_id = $user_id;";
+    $statement = $pdo->prepare($_command);
+    $statement->execute();
+    $statement->setFetchMode(PDO::FETCH_ASSOC);
+    $results = $statement->fetchAll();
+    $superTotal = 0;
 } catch (PDOException $e) {
-  echo "error" . $e->getMessage();
+    echo "error" . $e->getMessage();
 }
 
 $sql = $pdo->query("SELECT * FROM products WHERE discount >'0'");
@@ -63,10 +64,10 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
     <?php
-  // print_r($_SESSION['id']);
-  // $dt=print_r($_SESSION['id'],TRUE);
-  // print_r($dt);
-  ?>
+    // print_r($_SESSION['id']);
+    // $dt=print_r($_SESSION['id'],TRUE);
+    // print_r($dt);
+    ?>
     <div class="page-wrapper">
         <header class="header header-intro-clearance header-4">
             <div class="header-top">
@@ -167,6 +168,7 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                 </a>
               </div> -->
                         <!-- End .compare-dropdown -->
+                        <?php if (isset($_SESSION["id"])) { ?>
 
                         <div class="dropdown cart-dropdown">
                             <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
@@ -177,6 +179,7 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                                 </div>
                                 <p>Cart</p>
                             </a>
+                            <?php } ?>
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="dropdown-cart-products">
@@ -201,8 +204,8 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                                         </figure>
                                     </div><!-- End .product -->
                                     <?php
-                  }
-                  ?>
+                                    }
+                                    ?>
                                 </div><!-- End .cart-product -->
                                 <div class="dropdown-cart-action">
                                     <a href="pages/cart.php" class="btn btn-primary">View Cart</a>
@@ -243,7 +246,7 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                                     <!-- End .megamenu megamenu-sm -->
                                 </li>
                                 <li>
-                                    <a href="pages/checkout.html" class="  ">CHECKOUT</a>
+                                    <a href="pages/checkout.php" class="  ">CHECKOUT</a>
 
                                 </li>
                                 <li>
@@ -450,20 +453,20 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                                             href="addToCart.php?id=<?= $row['id'] ?>" class='btn-product btn-cart'
                                             title='Add to cart'><span>add to
                                                 cart</span></a><?php } else {
-                                                                                                                                                                                                      echo "<p>Out of Stock</p>";
-                                                                                                                                                                                                    } ?>
+                                                                        echo "<p>Out of Stock</p>";
+                                                                    } ?>
                                         <a href='popup/quickView.html' class='btn-product btn-quickview'
                                             title='Quick view'><span>quick view</span></a>
                                     </div>
                                 </figure>
                                 <div class='product-body'>
                                     <div class='product-cat'><a href='#'><?php
-                                                          foreach ($categories as $category) {
-                                                            if ($category['id'] === $row['category_id']) {
-                                                              echo '<a href="#">' . $category['name'] . '</a>';
-                                                            }
-                                                          }
-                                                          ?></a></div>
+                                                                                foreach ($categories as $category) {
+                                                                                    if ($category['id'] === $row['category_id']) {
+                                                                                        echo '<a href="#">' . $category['name'] . '</a>';
+                                                                                    }
+                                                                                }
+                                                                                ?></a></div>
                                     <h3 class='product-title'><a
                                             href='pages/product.php?id=<?= $row['id'] ?>'><?= $row['name'] ?></a></h3>
                                     <div class='product-price'><?= $row['price'] ?> . J.D</div>
@@ -599,20 +602,20 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                                                     href="addToCart.php?id=<?= $row['id'] ?>"
                                                     class='btn-product btn-cart' title='Add to cart'><span>add to
                                                         cart</span></a><?php } else {
-                                                                                                                                                                                                          echo "<p>Out of Stock</p>";
-                                                                                                                                                                                                        } ?>
+                                                                                echo "<p>Out of Stock</p>";
+                                                                            } ?>
                                                 <a href='popup/quickView.html' class='btn-product btn-quickview'
                                                     title='Quick view'><span>quick view</span></a>
                                             </div>
                                         </figure>
                                         <div class='product-body'>
                                             <div class='product-cat'><a href='#'><?php
-                                                              foreach ($categories as $category) {
-                                                                if ($category['id'] === $row['category_id']) {
-                                                                  echo '<a href="#">' . $category['name'] . '</a>';
-                                                                }
-                                                              }
-                                                              ?></a></div>
+                                                                                        foreach ($categories as $category) {
+                                                                                            if ($category['id'] === $row['category_id']) {
+                                                                                                echo '<a href="#">' . $category['name'] . '</a>';
+                                                                                            }
+                                                                                        }
+                                                                                        ?></a></div>
                                             <h3 class='product-title'><a
                                                     href='pages/product.php?id=<?= $row['id'] ?>'><?= $row['name'] ?></a>
                                             </h3>

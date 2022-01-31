@@ -128,6 +128,8 @@ function mahdialert($message)
                     <!-- mahdi -->
                     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
                         <?php if (isset($_SESSION['success'])) { ?>
+                        <?php if (!empty($results)) { ?>
+
                         <div class="row">
                             <div class="col-lg-9">
                                 <h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
@@ -180,8 +182,8 @@ function mahdialert($message)
 
                                         <tbody>
                                             <?php
-                                                for ($i = 0; $i < $tempcart->rowCount(); $i++) {
-                                                ?>
+                                                    for ($i = 0; $i < $tempcart->rowCount(); $i++) {
+                                                    ?>
                                             <tr>
                                                 <td><a><?php echo $results[$i]['name']; ?></a></td>
                                                 <td>$<?php echo $results[$i]['final_price']; ?></td>
@@ -252,6 +254,10 @@ function mahdialert($message)
                                         <span class="btn-hover-text">Proceed to Checkout</span>
                                     </button>
                                 </div><!-- End .summary -->
+                                <?php } else { ?>
+                                <h2>Your cart is empty</h2>
+                                <a href="./category-list.php" class="btn btn-outline-primary-2"><span>GO SHOP</span><i
+                                        class="icon-long-arrow-right"></i></a> <?php } ?>
                             </aside><!-- End .col-lg-3 -->
                         </div><!-- End .row -->
                         <?php } else {  ?>

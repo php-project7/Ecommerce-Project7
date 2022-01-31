@@ -324,11 +324,11 @@
                   <!-- End .dropdown-cart-total -->
 
                   <div class="dropdown-cart-action">
-                    <a href="pages/cart.html" class="btn btn-primary"
+                    <a href="pages/cart.php" class="btn btn-primary"
                       >View Cart</a
                     >
                     <a
-                      href="pages/checkout.html"
+                      href="pages/checkout.php"
                       class="btn btn-outline-primary-2"
                       ><span>Checkout</span><i class="icon-long-arrow-right"></i
                     ></a>
@@ -835,9 +835,9 @@
                                 <div class="menu-title">Shop Pages</div>
                                 <!-- End .menu-title -->
                                 <ul>
-                                  <li><a href="pages/cart.html">Cart</a></li>
+                                  <li><a href="pages/cart.php">Cart</a></li>
                                   <li>
-                                    <a href="pages/checkout.html">Checkout</a>
+                                    <a href="pages/checkout.php">Checkout</a>
                                   </li>
                                   <li>
                                     <a href="pages/wishlist.html">Wishlist</a>
@@ -965,20 +965,20 @@
 
                     <ul>
                       <li>
-                        <a href="pages/about.html" class="sf-with-ul">About</a>
+                        <a href="pages/about.php" class="sf-with-ul">About</a>
 
                         <ul>
-                          <li><a href="pages/about.html">About 01</a></li>
+                          <li><a href="pages/about.php">About 01</a></li>
                           <li><a href="about-2.html">About 02</a></li>
                         </ul>
                       </li>
                       <li>
-                        <a href="pages/contact.html" class="sf-with-ul"
+                        <a href="pages/contact.php" class="sf-with-ul"
                           >Contact</a
                         >
 
                         <ul>
-                          <li><a href="pages/contact.html">Contact 01</a></li>
+                          <li><a href="pages/contact.php">Contact 01</a></li>
                           <li><a href="contact-2.html">Contact 02</a></li>
                         </ul>
                       </li>
@@ -6246,11 +6246,11 @@
                   <!-- End .widget-title -->
 
                   <ul class="widget-list">
-                    <li><a href="pages/about.html">About Molla</a></li>
+                    <li><a href="pages/about.php">About Molla</a></li>
                     <li><a href="#">Our Services</a></li>
                     <li><a href="#">How to shop on Molla</a></li>
                     <li><a href="pages/faq.html">FAQ</a></li>
-                    <li><a href="pages/contact.html">Contact us</a></li>
+                    <li><a href="pages/contact.php">Contact us</a></li>
                   </ul>
                   <!-- End .widget-list -->
                 </div>
@@ -6284,7 +6284,7 @@
 
                   <ul class="widget-list">
                     <li><a href="#">Sign In</a></li>
-                    <li><a href="pages/cart.html">View Cart</a></li>
+                    <li><a href="pages/cart.php">View Cart</a></li>
                     <li><a href="#">My Wishlist</a></li>
                     <li><a href="#">Track My Order</a></li>
                     <li><a href="#">Help</a></li>
@@ -6470,8 +6470,8 @@
                         ></a
                       >
                     </li>
-                    <li><a href="pages/cart.html">Cart</a></li>
-                    <li><a href="pages/checkout.html">Checkout</a></li>
+                    <li><a href="pages/cart.php">Cart</a></li>
+                    <li><a href="pages/checkout.php">Checkout</a></li>
                     <li><a href="pages/wishlist.html">Wishlist</a></li>
                     <li><a href="#">Lookbook</a></li>
                   </ul>
@@ -6505,18 +6505,18 @@
                   <a href="#">Pages</a>
                   <ul>
                     <li>
-                      <a href="pages/about.html">About</a>
+                      <a href="pages/about.php">About</a>
 
                       <ul>
-                        <li><a href="pages/about.html">About 01</a></li>
+                        <li><a href="pages/about.php">About 01</a></li>
                         <li><a href="about-2.html">About 02</a></li>
                       </ul>
                     </li>
                     <li>
-                      <a href="pages/contact.html">Contact</a>
+                      <a href="pages/contact.php">Contact</a>
 
                       <ul>
-                        <li><a href="pages/contact.html">Contact 01</a></li>
+                        <li><a href="pages/contact.php">Contact 01</a></li>
                         <li><a href="contact-2.html">Contact 02</a></li>
                       </ul>
                     </li>

@@ -1,17 +1,22 @@
 <?php
 include('../admin/config/server.php');
 $_SESSION['superTotal'] = 0;
-$user_id = $_SESSION['id'];
+$user_id;
 try {
     #newcode
-    $_command = "SELECT * FROM tempcart WHERE user_id = $user_id;";
-    $statement = $pdo->prepare($_command);
-    $statement->execute();
-    $statement->setFetchMode(PDO::FETCH_ASSOC);
-    $results = $statement->fetchAll();
-    $superTotal = 0;
+    if (isset($_SESSION["id"])) {
+        $user_id = $_SESSION["id"];
+
+        $_command = "SELECT * FROM tempcart WHERE user_id = $user_id;";
+        $statement = $pdo->prepare($_command);
+        $statement->execute();
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        $results = $statement->fetchAll();
+        $superTotal = 0;
+    }
 } catch (PDOException $e) {
-    echo "error" . $e->getMessage();
+    // echo "error" . $e->getMessage();
+    echo "You are not logged in";
 }
 ?>
 
@@ -51,11 +56,6 @@ try {
 </head>
 
 <body>
-
-
-
-
-
     <header class="header">
         <div class="header-top">
             <div class="container">
@@ -77,8 +77,6 @@ try {
                             <a href="#">Links</a>
                             <ul>
                                 <li><a href="tel:#"><i class="icon-phone"></i>Call Us: +962770245060</a></li>
-                                <li><a href="../pages/wishlist.html"><i class="icon-heart-o"></i>Wishlist
-                                        <span>(3)</span></a></li>
                                 <li><a href="../pages/about.html">About Us</a></li>
                                 <li><a href="../pages/contact.html">Contact Us</a></li>
                                 <li><a href="#signin-modal" data-toggle="modal"><i class="icon-user"></i>Sign In / Sign
@@ -144,14 +142,17 @@ try {
                             </div><!-- End .header-search-wrapper -->
                         </form>
                     </div><!-- End .header-search -->
-
+                    <?php if (isset($_SESSION["id"])) { ?>
                     <div class="dropdown cart-dropdown">
                         <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false" data-display="static">
                             <i class="icon-shopping-cart"></i>
                             <!-- <span class="cart-count">2</span> -->
-                            <span class="cart-count"><?php echo $statement->rowCount(); ?></span>
+                            <span class="cart-count">
+                                <?php echo $statement->rowCount(); ?>
+                            </span>
                         </a>
+                        <?php } ?>
 
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="dropdown-cart-products">

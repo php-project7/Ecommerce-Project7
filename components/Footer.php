@@ -61,9 +61,9 @@
 	            				<h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
 
 	            				<ul class="widget-list">
-	            					<li><a href="../pages/about.html">About Us</a></li>
+	            					<li><a href="../pages/about.php">About Us</a></li>
 	            					<li><a href="../pages/faq.html">FAQ</a></li>
-	            					<li><a href="../pages/contact.html">Contact us</a></li>
+	            					<li><a href="../pages/contact.php">Contact us</a></li>
 	            					<li><a href="#signin-modal" data-toggle="modal">Sign Up</a></li>
 	            				</ul><!-- End .widget-list -->
 	            			</div><!-- End .widget -->
