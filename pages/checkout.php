@@ -31,8 +31,17 @@ if (isset($_POST['checkout-form'])) {
     $user_id = $_SESSION['id']; #user id
     $totalprice = $_SESSION['supertotal']; #total price
     $order_id;
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $country = $_POST['country'];
+    $streetaddress = $_POST['streetaddress'];
+    $postcode = $_POST['postcode'];
+    $phone = $_POST['phone'];
+
     try {
-        $sqlCommand = "INSERT INTO orders (user_id , total) VALUES ('$user_id', '$totalprice')";
+        $sqlCommand = "INSERT INTO orders (user_id , total, first_name, last_name, email, country, street_address, post_code, phone)
+         VALUES ('$user_id', '$totalprice', '$firstname', '$lastname', '$email', '$country', '$streetaddress', '$postcode', '$phone')";
         $pdo->exec($sqlCommand);
         echo mahdialert("New order created successfully");
     } catch (PDOException $e) {
@@ -49,13 +58,6 @@ if (isset($_POST['checkout-form'])) {
         echo "error" . $e->getMessage();
     }
 
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $email = $_POST['email'];
-    $country = $_POST['country'];
-    $streetaddress = $_POST['streetaddress'];
-    $postcode = $_POST['postcode'];
-    $phone = $_POST['phone'];
 
     for ($i = 0; $i < $tempcart->rowCount(); $i++) {
 
@@ -71,7 +73,7 @@ if (isset($_POST['checkout-form'])) {
         $newStock = $prevStock - $quantity;
 
         try {
-            $sqlCommand = "INSERT INTO items_checkout (products_id, quantity, final_price, orders_id, user_id, firstname, lastname, email, country, street_address, postcode, phone) VALUES ('$product_id', '$quantity', '$final_price', '$order_id', '$user_id', '$firstname', '$lastname', '$email', '$country', '$streetaddress', '$postcode', '$phone')";
+            $sqlCommand = "INSERT INTO items_checkout (products_id, quantity, final_price, orders_id, user_id) VALUES ('$product_id', '$quantity', '$final_price', '$order_id', '$user_id')";
             $pdo->exec($sqlCommand);
 
             $sql = "UPDATE products SET stock = :newStock WHERE id = :product_id";
