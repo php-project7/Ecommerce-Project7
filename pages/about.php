@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 
-<!-- molla/about.html  22 Nov 2019 10:03:51 GMT -->
+<!-- molla/about.php  22 Nov 2019 10:03:51 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,8 +65,8 @@
                                 <ul>
                                     <li><a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a></li>
                                     <li><a href="wishlist.html"><i class="icon-heart-o"></i>Wishlist <span>(3)</span></a></li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="about.php">About Us</a></li>
+                                    <li><a href="contact.php">Contact Us</a></li>
                                     <li><a href="#signin-modal" data-toggle="modal"><i class="icon-user"></i>Login</a></li>
                                 </ul>
                             </li>
@@ -305,8 +305,8 @@
                                                             </ul>
                                                             <div class="menu-title">Shop Pages</div><!-- End .menu-title -->
                                                             <ul>
-                                                                <li><a href="cart.html">Cart</a></li>
-                                                                <li><a href="checkout.html">Checkout</a></li>
+                                                                <li><a href="cart.php">Cart</a></li>
+                                                                <li><a href="checkout.php">Checkout</a></li>
                                                                 <li><a href="wishlist.html">Wishlist</a></li>
                                                                 <li><a href="dashboard.php">My Account</a></li>
                                                                 <li><a href="#">Lookbook</a></li>
@@ -370,18 +370,18 @@
 
                                     <ul>
                                         <li>
-                                            <a href="about.html" class="sf-with-ul">About</a>
+                                            <a href="about.php" class="sf-with-ul">About</a>
 
                                             <ul>
-                                                <li><a href="about.html">About 01</a></li>
+                                                <li><a href="about.php">About 01</a></li>
                                                 <li><a href="about-2.html">About 02</a></li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="contact.html" class="sf-with-ul">Contact</a>
+                                            <a href="contact.php" class="sf-with-ul">Contact</a>
 
                                             <ul>
-                                                <li><a href="contact.html">Contact 01</a></li>
+                                                <li><a href="contact.php">Contact 01</a></li>
                                                 <li><a href="contact-2.html">Contact 02</a></li>
                                             </ul>
                                         </li>
@@ -546,8 +546,8 @@
                                 </div><!-- End .dropdown-cart-total -->
 
                                 <div class="dropdown-cart-action">
-                                    <a href="cart.html" class="btn btn-primary">View Cart</a>
-                                    <a href="checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
+                                    <a href="cart.php" class="btn btn-primary">View Cart</a>
+                                    <a href="checkout.php" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
                                 </div><!-- End .dropdown-cart-total -->
                             </div><!-- End .dropdown-menu -->
                         </div><!-- End .cart-dropdown -->
@@ -824,10 +824,10 @@
 	            				<h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
 
 	            				<ul class="widget-list">
-	            					<li><a href="about.html">About Molla</a></li>
+	            					<li><a href="about.php">About Molla</a></li>
 	            					<li><a href="#">How to shop on Molla</a></li>
 	            					<li><a href="#">FAQ</a></li>
-	            					<li><a href="contact.html">Contact us</a></li>
+	            					<li><a href="contact.php">Contact us</a></li>
 	            					<li><a href="../login.php">Log in</a></li>
 	            				</ul><!-- End .widget-list -->
 	            			</div><!-- End .widget -->
@@ -854,7 +854,7 @@
 
 	            				<ul class="widget-list">
 	            					<li><a href="#">Sign In</a></li>
-	            					<li><a href="cart.html">View Cart</a></li>
+	            					<li><a href="cart.php">View Cart</a></li>
 	            					<li><a href="#">My Wishlist</a></li>
 	            					<li><a href="#">Track My Order</a></li>
 	            					<li><a href="#">Help</a></li>
@@ -933,8 +933,8 @@
                             <li><a href="category-fullwidth.html">Shop Fullwidth No Sidebar</a></li>
                             <li><a href="product-category-boxed.html">Product Category Boxed</a></li>
                             <li><a href="product-category-fullwidth.html"><span>Product Category Fullwidth<span class="tip tip-new">New</span></span></a></li>
-                            <li><a href="cart.html">Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
+                            <li><a href="cart.php">Cart</a></li>
+                            <li><a href="checkout.php">Checkout</a></li>
                             <li><a href="wishlist.html">Wishlist</a></li>
                             <li><a href="#">Lookbook</a></li>
                         </ul>
@@ -956,18 +956,18 @@
                         <a href="#">Pages</a>
                         <ul>
                             <li>
-                                <a href="about.html">About</a>
+                                <a href="about.php">About</a>
 
                                 <ul>
-                                    <li><a href="about.html">About 01</a></li>
+                                    <li><a href="about.php">About 01</a></li>
                                     <li><a href="about-2.html">About 02</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="contact.html">Contact</a>
+                                <a href="contact.php">Contact</a>
 
                                 <ul>
-                                    <li><a href="contact.html">Contact 01</a></li>
+                                    <li><a href="contact.php">Contact 01</a></li>
                                     <li><a href="contact-2.html">Contact 02</a></li>
                                 </ul>
                             </li>
@@ -1175,5 +1175,5 @@
 </body>
 
 
-<!-- molla/about.html  22 Nov 2019 10:03:54 GMT -->
+<!-- molla/about.php  22 Nov 2019 10:03:54 GMT -->
 </html>

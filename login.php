@@ -67,8 +67,8 @@ include('admin/config/server.php')
                                 <ul>
                                     <li><a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a></li>
                                     <li><a href="pages/wishlist.html"><i class="icon-heart-o"></i>Wishlist <span>(3)</span></a></li>
-                                    <li><a href="pages/about.html">About Us</a></li>
-                                    <li><a href="pages/contact.html">Contact Us</a></li>
+                                    <li><a href="pages/about.php">About Us</a></li>
+                                    <li><a href="pages/contact.php">Contact Us</a></li>
                                     <li><a href="#signin-modal" data-toggle="modal"><i class="icon-user"></i>Login</a></li>
                                 </ul>
                             </li>
@@ -308,9 +308,9 @@ include('admin/config/server.php')
                                                             </ul>
                                                             <div class="menu-title">Shop Pages</div><!-- End .menu-title -->
                                                             <ul>
-                                                                <li><a href="pages/cart.html">Cart</a></li>
-                                                                <li><a href="pages/checkout.html">Checkout</a></li>
-                                                                <li><a href="pages/wishlist.html">Wishlist</a></li>
+                                                                <li><a href="pages/cart.php">Cart</a></li>
+                                                                <li><a href="pages/checkout.php">Checkout</a></li>
+                                                                <li><a href="pages/wishlist.php">Wishlist</a></li>
                                                                 <li><a href="pages/dashboard.php">My Account</a></li>
                                                                 <li><a href="#">Lookbook</a></li>
                                                             </ul>
@@ -373,18 +373,18 @@ include('admin/config/server.php')
 
                                     <ul>
                                         <li>
-                                            <a href="pages/about.html" class="sf-with-ul">About</a>
+                                            <a href="pages/about.php" class="sf-with-ul">About</a>
 
                                             <ul>
-                                                <li><a href="pages/about.html">About 01</a></li>
+                                                <li><a href="pages/about.php">About 01</a></li>
                                                 <li><a href="about-2.html">About 02</a></li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="pages/contact.html" class="sf-with-ul">Contact</a>
+                                            <a href="pages/contact.php" class="sf-with-ul">Contact</a>
 
                                             <ul>
-                                                <li><a href="pages/contact.html">Contact 01</a></li>
+                                                <li><a href="pages/contact.php">Contact 01</a></li>
                                                 <li><a href="contact-2.html">Contact 02</a></li>
                                             </ul>
                                         </li>
@@ -549,8 +549,8 @@ include('admin/config/server.php')
                                 </div><!-- End .dropdown-cart-total -->
 
                                 <div class="dropdown-cart-action">
-                                    <a href="pages/cart.html" class="btn btn-primary">View Cart</a>
-                                    <a href="pages/checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
+                                    <a href="pages/cart.php" class="btn btn-primary">View Cart</a>
+                                    <a href="pages/checkout.php" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
                                 </div><!-- End .dropdown-cart-total -->
                             </div><!-- End .dropdown-menu -->
                         </div><!-- End .cart-dropdown -->
@@ -709,10 +709,10 @@ include('admin/config/server.php')
 	            				<h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
 
 	            				<ul class="widget-list">
-	            					<li><a href="pages/about.html">About Molla</a></li>
+	            					<li><a href="pages/about.php">About Molla</a></li>
 	            					<li><a href="#">How to shop on Molla</a></li>
 	            					<li><a href="#">FAQ</a></li>
-	            					<li><a href="pages/contact.html">Contact us</a></li>
+	            					<li><a href="pages/contact.php">Contact us</a></li>
 	            					<li><a href="login.php">Log in</a></li>
 	            				</ul><!-- End .widget-list -->
 	            			</div><!-- End .widget -->
@@ -739,7 +739,7 @@ include('admin/config/server.php')
 
 	            				<ul class="widget-list">
 	            					<li><a href="#">Sign In</a></li>
-	            					<li><a href="pages/cart.html">View Cart</a></li>
+	            					<li><a href="pages/cart.php">View Cart</a></li>
 	            					<li><a href="#">My Wishlist</a></li>
 	            					<li><a href="#">Track My Order</a></li>
 	            					<li><a href="#">Help</a></li>
@@ -818,8 +818,8 @@ include('admin/config/server.php')
                             <li><a href="category-fullwidth.html">Shop Fullwidth No Sidebar</a></li>
                             <li><a href="product-category-boxed.html">Product Category Boxed</a></li>
                             <li><a href="product-category-fullwidth.html"><span>Product Category Fullwidth<span class="tip tip-new">New</span></span></a></li>
-                            <li><a href="pages/cart.html">Cart</a></li>
-                            <li><a href="pages/checkout.html">Checkout</a></li>
+                            <li><a href="pages/cart.php">Cart</a></li>
+                            <li><a href="pages/checkout.php">Checkout</a></li>
                             <li><a href="pages/wishlist.html">Wishlist</a></li>
                             <li><a href="#">Lookbook</a></li>
                         </ul>
@@ -841,18 +841,18 @@ include('admin/config/server.php')
                         <a href="#">Pages</a>
                         <ul>
                             <li>
-                                <a href="pages/about.html">About</a>
+                                <a href="pages/about.php">About</a>
 
                                 <ul>
-                                    <li><a href="pages/about.html">About 01</a></li>
+                                    <li><a href="pages/about.php">About 01</a></li>
                                     <li><a href="about-2.html">About 02</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="pages/contact.html">Contact</a>
+                                <a href="pages/contact.php">Contact</a>
 
                                 <ul>
-                                    <li><a href="pages/contact.html">Contact 01</a></li>
+                                    <li><a href="pages/contact.php">Contact 01</a></li>
                                     <li><a href="contact-2.html">Contact 02</a></li>
                                 </ul>
                             </li>

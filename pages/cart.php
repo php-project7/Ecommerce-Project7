@@ -13,115 +13,115 @@ if (isset($_POST['deleteItem'])) {
     try {
         $_command = "DELETE FROM tempcart WHERE id = $index";
         $statement = $pdo->prepare($_command);
-        $result = $statement->execute();
-    } catch (PDOException $e) {
-        echo "error" . $e;
-    }
+$result = $statement->execute();
+} catch (PDOException $e) {
+echo "error" . $e;
+}
 
-    #for refresh
-    // ob_start();
-    // ob_end_flush();
-    // header("Refresh:0");
+#for refresh
+// ob_start();
+// ob_end_flush();
+// header("Refresh:0");
 }
 
 if (isset($_POST['subtractQuantity'])) {
-    $mahdiQuantity = $_POST['mahdiQuantity'];
-    $id = $_POST['hidden-id'];
+$mahdiQuantity = $_POST['mahdiQuantity'];
+$id = $_POST['hidden-id'];
 
-    if ($mahdiQuantity == 1) {
-        //delete from tempcart table
-        $_command = "DELETE FROM tempcart WHERE id = $id";
-        $statement = $pdo->prepare($_command);
-        $statement->execute();
-    } else {
-        $mahdiQuantity--;
-        $_command = "UPDATE tempcart SET quantity='$mahdiQuantity' WHERE id = $id";
-        $statement = $pdo->prepare($_command);
-        $statement->execute();
+if ($mahdiQuantity == 1) {
+//delete from tempcart table
+$_command = "DELETE FROM tempcart WHERE id = $id";
+$statement = $pdo->prepare($_command);
+$statement->execute();
+} else {
+$mahdiQuantity--;
+$_command = "UPDATE tempcart SET quantity='$mahdiQuantity' WHERE id = $id";
+$statement = $pdo->prepare($_command);
+$statement->execute();
 
-        //update database
-    }
+//update database
+}
 
-    #for refresh
-    // ob_start();
-    // ob_end_flush();
-    // header("Refresh:0");
-    // mahdiStopReload();
-    // mahdiReload();
-    // mahdiStopReload();
+#for refresh
+// ob_start();
+// ob_end_flush();
+// header("Refresh:0");
+// mahdiStopReload();
+// mahdiReload();
+// mahdiStopReload();
 } elseif (isset($_POST['addQuantity'])) {
-    $mahdiQuantity = $_POST['mahdiQuantity'];
-    $id = $_POST['hidden-id'];
+$mahdiQuantity = $_POST['mahdiQuantity'];
+$id = $_POST['hidden-id'];
 
-    if ($mahdiQuantity < 10) {
-        //update database
-        $mahdiQuantity++;
-        $_command = "UPDATE tempcart SET quantity='$mahdiQuantity' WHERE id = $id";
-        $statement = $pdo->prepare($_command);
-        $statement->execute();
-    } else {
-        echo "you can't purchase more than 10";
-    }
-    #for refresh
-    // ob_start();
-    // ob_end_flush();
-    // header("Refresh:0");
-    // mahdiReload();
-    // mahdiStopReload();
+if ($mahdiQuantity < 10) {
+//update database
+$mahdiQuantity++;
+$_command = "UPDATE tempcart SET quantity='$mahdiQuantity' WHERE id = $id";
+$statement = $pdo->prepare($_command);
+$statement->execute();
+} else {
+echo "you can't purchase more than 10";
+}
+#for refresh
+// ob_start();
+// ob_end_flush();
+// header("Refresh:0");
+// mahdiReload();
+// mahdiStopReload();
 }
 
 
 
 try {
-    #old code
-    // $_command = "SELECT * FROM products";
-    // $statement = $pdo->prepare($_command);
-    // $statement->execute();
-    // // set the resulting array to associative
-    // $statement->setFetchMode(PDO::FETCH_ASSOC);
-    // $results = $statement->fetchAll();
-    // // if (empty($_SESSION['cart'])) {
-    // unset($_SESSION['cart']);
-    // $_SESSION['cart'] = array();
+#old code
+// $_command = "SELECT * FROM products";
+// $statement = $pdo->prepare($_command);
+// $statement->execute();
+// // set the resulting array to associative
+// $statement->setFetchMode(PDO::FETCH_ASSOC);
+// $results = $statement->fetchAll();
+// // if (empty($_SESSION['cart'])) {
+// unset($_SESSION['cart']);
+// $_SESSION['cart'] = array();
 
-    // foreach ($results as $key => $value) {
-    //     // echo "<br>$key => $value";
-    //     array_push($_SESSION['cart'], $value);
-    // }
-    // // }
-    // // unset($_SESSION['cart'][1]);
+// foreach ($results as $key => $value) {
+//     // echo "<br>$key => $value";
+//     array_push($_SESSION['cart'], $value);
+// }
+// // }
+// // unset($_SESSION['cart'][1]);
 
-    // if ($statement->rowCount()) {
-    //     // echo "success<br>";
-    //     echo "<pre>";
+// if ($statement->rowCount()) {
+//     // echo "success<br>";
+//     echo "<pre>";
     //     // var_dump($results);
     //     var_dump($_SESSION['cart']);
     //     echo "</pre>";
-    // } else {
-    //     echo "fail";
-    // }
+// } else {
+//     echo "fail";
+// }
 
 
-    #new code
-    $_command = "SELECT * FROM tempcart WHERE user_id='$user_id'";
-    $statement = $pdo->prepare($_command);
-    $statement->execute();
-    $statement->setFetchMode(PDO::FETCH_ASSOC);
-    $results = $statement->fetchAll();
-    $superTotal = 0;
+#new code
+$_command = "SELECT * FROM tempcart WHERE user_id='$user_id'";
+$statement = $pdo->prepare($_command);
+$statement->execute();
+$statement->setFetchMode(PDO::FETCH_ASSOC);
+$results = $statement->fetchAll();
+$superTotal = 0;
 } catch (PDOException $e) {
-    echo "error" . $e->getMessage();
+echo "error" . $e->getMessage();
 }
 
 function mahdiReload()
 {
-    echo "<script> window.location.reload();</script>";
-    // echo `<meta http-equiv="Location" content="./cart.php">`;
-    // echo header("Refresh:0");
+echo "<script> window.location.reload();</script>";
+// echo `<meta http-equiv="Location" content="./cart.php">`;
+// echo header("Refresh:0");
 }
 function mahdiStopReload()
 {
-    echo "<script> window.stop();</script>";
+echo "<script> window.stop();</script>";
 }
 
 ?>
@@ -129,7 +129,7 @@ function mahdiStopReload()
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- molla/cart.html  22 Nov 2019 09:55:06 GMT -->
+<!-- molla/cart.php  22 Nov 2019 09:55:06 GMT -->
 
 <head>
     <meta charset="UTF-8">
@@ -192,9 +192,9 @@ function mahdiStopReload()
                             <ul>
                                 <li><a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a></li>
                                 <li><a href="wishlist.html"><i class="icon-heart-o"></i>Wishlist
-                                        <span>(3)</span></a></li>
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="contact.html">Contact Us</a></li>
+                                    <span>(3)</span></a></li>
+                                <li><a href="about.php">About Us</a></li>
+                                <li><a href="contact.php">Contact Us</a></li>
                                 <li><a href="#signin-modal" data-toggle="modal"><i class="icon-user"></i>Login</a>
                                 </li>
                             </ul>
@@ -419,10 +419,10 @@ function mahdiStopReload()
                                                         <ul>
                                                             <li><a href="category-list.php">Shop List</a></li>
                                                             <li><a href="category-2cols.html">Shop Grid 2
-                                                                    Columns</a></li>
+                                                                Columns</a></li>
                                                             <li><a href="category.html">Shop Grid 3 Columns</a></li>
                                                             <li><a href="category-4cols.html">Shop Grid 4
-                                                                    Columns</a></li>
+                                                                Columns</a></li>
                                                             <li><a href="category-market.html"><span>Shop
                                       Market<span class="tip tip-new">New</span></span></a>
                                                             </li>
@@ -435,7 +435,7 @@ function mahdiStopReload()
                                       Sidebar<span class="tip tip-hot">Hot</span></span></a>
                                                             </li>
                                                             <li><a href="category-fullwidth.html">Shop Fullwidth No
-                                                                    Sidebar</a></li>
+                                                                Sidebar</a></li>
                                                         </ul>
                                                     </div><!-- End .col-md-6 -->
 
@@ -444,7 +444,7 @@ function mahdiStopReload()
                                                         <!-- End .menu-title -->
                                                         <ul>
                                                             <li><a href="product-category-boxed.html">Product
-                                                                    Category Boxed</a></li>
+                                                                Category Boxed</a></li>
                                                             <li><a href="product-category-fullwidth.html"><span>Product
                                       Category Fullwidth<span class="tip tip-new">New</span></span></a>
                                                             </li>
@@ -452,8 +452,8 @@ function mahdiStopReload()
                                                         <div class="menu-title">Shop Pages</div>
                                                         <!-- End .menu-title -->
                                                         <ul>
-                                                            <li><a href="cart.html">Cart</a></li>
-                                                            <li><a href="checkout.html">Checkout</a></li>
+                                                            <li><a href="cart.php">Cart</a></li>
+                                                            <li><a href="checkout.php">Checkout</a></li>
                                                             <li><a href="wishlist.html">Wishlist</a></li>
                                                             <li><a href="dashboard.php">My Account</a></li>
                                                             <li><a href="#">Lookbook</a></li>
@@ -523,18 +523,18 @@ function mahdiStopReload()
 
                                 <ul>
                                     <li>
-                                        <a href="about.html" class="sf-with-ul">About</a>
+                                        <a href="about.php" class="sf-with-ul">About</a>
 
                                         <ul>
-                                            <li><a href="about.html">About 01</a></li>
+                                            <li><a href="about.php">About 01</a></li>
                                             <li><a href="about-2.html">About 02</a></li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="contact.html" class="sf-with-ul">Contact</a>
+                                        <a href="contact.php" class="sf-with-ul">Contact</a>
 
                                         <ul>
-                                            <li><a href="contact.html">Contact 01</a></li>
+                                            <li><a href="contact.php">Contact 01</a></li>
                                             <li><a href="contact-2.html">Contact 02</a></li>
                                         </ul>
                                     </li>
@@ -656,25 +656,25 @@ function mahdiStopReload()
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="dropdown-cart-products">
                                 <?php for ($i = 0; $i < count($results); $i++) { ?>
-                                    <div class="product">
-                                        <div class="product-cart-details">
-                                            <h4 class="product-title">
-                                                <a><?php echo $results[$i]['name']; ?></a>
-                                            </h4>
+                                <div class="product">
+                                    <div class="product-cart-details">
+                                        <h4 class="product-title">
+                                            <a><?php echo $results[$i]['name']; ?></a>
+                                        </h4>
 
-                                            <span class="cart-product-info">
+                                        <span class="cart-product-info">
                           <span class="cart-product-qty"><?php echo $results[$i]['quantity']; ?></span>
                           x <?php echo $results[$i]['price']; ?>
                         </span>
-                                        </div>
+                                    </div>
 
-                                        <figure class="product-image-container">
-                                            <a class="product-image">
-                                                <img src="<?php echo $results[$i]['img']; ?>" alt="product">
-                                            </a>
-                                        </figure>
-                                    </div><!-- End .product -->
-                                    <?php
+                                    <figure class="product-image-container">
+                                        <a class="product-image">
+                                            <img src="<?php echo $results[$i]['img']; ?>" alt="product">
+                                        </a>
+                                    </figure>
+                                </div><!-- End .product -->
+                                <?php
                                 }
                                 ?>
                             </div><!-- End .cart-product -->
@@ -722,39 +722,39 @@ function mahdiStopReload()
                                 <?php
                                 for ($i = 0; $i < count($results); $i++) {
                                     // foreach ($results as $key => $result) {
-                                    ?>
-                                    <tr>
-                                        <td class="product-col">
-                                            <div class="product">
-                                                <figure class="product-media">
-                                                    <!-- <a href="#"> -->
-                                                    <img src="<?php echo $results[$i]['img']; ?>" alt="Product image">
-                                                    <!-- </a> -->
-                                                </figure>
+                                ?>
+                                <tr>
+                                    <td class="product-col">
+                                        <div class="product">
+                                            <figure class="product-media">
+                                                <!-- <a href="#"> -->
+                                                <img src="<?php echo $results[$i]['img']; ?>" alt="Product image">
+                                                <!-- </a> -->
+                                            </figure>
 
-                                                <h3 class="product-title">
-                                                    <p></p>
-                                                    <a><?php echo $results[$i]['name']; ?></a>
-                                                </h3><!-- End .product-title -->
-                                            </div><!-- End .product -->
-                                        </td>
-                                        <td class="price-col">$<?php echo $results[$i]['price']; ?></td>
-                                        <td class="quantity-col">
-                                            <div class="cart-product-quantity">
-                                                <!-- <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required> -->
-                                                <form action="./cart.php" class="form" method="POST">
+                                            <h3 class="product-title">
+                                                <p></p>
+                                                <a><?php echo $results[$i]['name']; ?></a>
+                                            </h3><!-- End .product-title -->
+                                        </div><!-- End .product -->
+                                    </td>
+                                    <td class="price-col">$<?php echo $results[$i]['price']; ?></td>
+                                    <td class="quantity-col">
+                                        <div class="cart-product-quantity">
+                                            <!-- <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required> -->
+                                            <form action="./cart.php" class="form" method="POST">
 
-                                                    <button type="submit" name="subtractQuantity" class="form-control">-</button>
-                                                    <input type="text" name="mahdiQuantity" class="form-control" value="<?php echo $results[$i]['quantity']; ?>" readonly style="text-align: center;">
-                                                    <button type="submit" name="addQuantity" class="form-control">+</button>
+                                                <button type="submit" name="subtractQuantity" class="form-control">-</button>
+                                                <input type="text" name="mahdiQuantity" class="form-control" value="<?php echo $results[$i]['quantity']; ?>" readonly style="text-align: center;">
+                                                <button type="submit" name="addQuantity" class="form-control">+</button>
 
-                                                    <input type="hidden" name="hidden-id" value="<?php echo $results[$i]['id']; ?>">
-                                                </form>
-                                            </div><!-- End .cart-product-quantity -->
-                                        </td>
-                                        <td><?php echo $results[$i]['discount']; ?>%</td>
-                                        <!-- <td class="total-col">$84.00</td> -->
-                                        <td class="total-col">$<?php
+                                                <input type="hidden" name="hidden-id" value="<?php echo $results[$i]['id']; ?>">
+                                            </form>
+                                        </div><!-- End .cart-product-quantity -->
+                                    </td>
+                                    <td><?php echo $results[$i]['discount']; ?>%</td>
+                                    <!-- <td class="total-col">$84.00</td> -->
+                                    <td class="total-col">$<?php
                                             $price = $results[$i]['price'];
                                             $quantity = $results[$i]['quantity'];
                                             $discount = $results[$i]['discount'];
@@ -772,22 +772,22 @@ function mahdiStopReload()
                                                 $mahdi_id = $results[$i]['id'];
                                                 $_command = "UPDATE tempcart SET final_price ='$finalPrice' WHERE id = $mahdi_id ";
                                                 $statement = $pdo->prepare($_command);
-                                                $result = $statement->execute();
-                                            } catch (PDOException $e) {
-                                                echo "error" . $e;
-                                            }
-                                            ?>
-                                        </td>
-                                        <td class="remove-col">
-                                            <form action="./cart.php" method="POST">
-                                                <button type="submit" name="deleteItem" class="btn-remove" onclick="return confirm('Are you sure?')">
-                                                    <i class="icon-close"></i>
-                                                </button>
-                                                <input type="hidden" name="mahdiIndex" value="<?php echo $results[$i]['id']; ?>">
-                                            </form>
-                                            <!-- </td> -->
-                                    </tr>
-                                    <?php
+                                        $result = $statement->execute();
+                                        } catch (PDOException $e) {
+                                        echo "error" . $e;
+                                        }
+                                        ?>
+                                    </td>
+                                    <td class="remove-col">
+                                        <form action="./cart.php" method="POST">
+                                            <button type="submit" name="deleteItem" class="btn-remove" onclick="return confirm('Are you sure?')">
+                                                <i class="icon-close"></i>
+                                            </button>
+                                            <input type="hidden" name="mahdiIndex" value="<?php echo $results[$i]['id']; ?>">
+                                        </form>
+                                        <!-- </td> -->
+                                </tr>
+                                <?php
                                     // }
                                 } #end of for loop
                                 ?>
@@ -891,10 +891,10 @@ function mahdiStopReload()
                             <h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
 
                             <ul class="widget-list">
-                                <li><a href="about.html">About Molla</a></li>
+                                <li><a href="about.php">About Molla</a></li>
                                 <li><a href="#">How to shop on Molla</a></li>
                                 <li><a href="#">FAQ</a></li>
-                                <li><a href="contact.html">Contact us</a></li>
+                                <li><a href="contact.php">Contact us</a></li>
                                 <li><a href="../login.html">Log in</a></li>
                             </ul><!-- End .widget-list -->
                         </div><!-- End .widget -->
@@ -921,7 +921,7 @@ function mahdiStopReload()
 
                             <ul class="widget-list">
                                 <li><a href="#">Sign In</a></li>
-                                <li><a href="cart.html">View Cart</a></li>
+                                <li><a href="cart.php">View Cart</a></li>
                                 <li><a href="#">My Wishlist</a></li>
                                 <li><a href="#">Track My Order</a></li>
                                 <li><a href="#">Help</a></li>
@@ -1001,8 +1001,8 @@ function mahdiStopReload()
                         <li><a href="category-fullwidth.html">Shop Fullwidth No Sidebar</a></li>
                         <li><a href="product-category-boxed.html">Product Category Boxed</a></li>
                         <li><a href="product-category-fullwidth.html"><span>Product Category Fullwidth<span class="tip tip-new">New</span></span></a></li>
-                        <li><a href="cart.html">Cart</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
+                        <li><a href="cart.php">Cart</a></li>
+                        <li><a href="checkout.php">Checkout</a></li>
                         <li><a href="wishlist.html">Wishlist</a></li>
                         <li><a href="#">Lookbook</a></li>
                     </ul>
@@ -1024,18 +1024,18 @@ function mahdiStopReload()
                     <a href="#">Pages</a>
                     <ul>
                         <li>
-                            <a href="about.html">About</a>
+                            <a href="about.php">About</a>
 
                             <ul>
-                                <li><a href="about.html">About 01</a></li>
+                                <li><a href="about.php">About 01</a></li>
                                 <li><a href="about-2.html">About 02</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="contact.html">Contact</a>
+                            <a href="contact.php">Contact</a>
 
                             <ul>
-                                <li><a href="contact.html">Contact 01</a></li>
+                                <li><a href="contact.php">Contact 01</a></li>
                                 <li><a href="contact-2.html">Contact 02</a></li>
                             </ul>
                         </li>
@@ -1246,6 +1246,6 @@ function mahdiStopReload()
 </body>
 
 
-<!-- molla/cart.html  22 Nov 2019 09:55:06 GMT -->
+<!-- molla/cart.php  22 Nov 2019 09:55:06 GMT -->
 
 </html>

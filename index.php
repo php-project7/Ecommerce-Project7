@@ -320,7 +320,7 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                     <!-- End .megamenu megamenu-sm -->
                   </li>
                   <li>
-                  <a href="pages/checkout.html" class="  ">CHECKOUT</a>
+                  <a href="pages/checkout.php" class="  ">CHECKOUT</a>
 
                   </li>
                   <li>
@@ -908,9 +908,9 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                   <!-- End .widget-title -->
 
                   <ul class="widget-list">
-                    <li><a href="pages/about.html">About Us</a></li>
+                    <li><a href="pages/about.php">About Us</a></li>
                     <li><a href="pages/faq.html">FAQ</a></li>
-                    <li><a href="pages/contact.html">Contact Us</a></li>
+                    <li><a href="pages/contact.php">Contact Us</a></li>
                     <li><a href="#signin-modal" data-toggle="modal">Sign Up</a></li>
                   </ul>
                   <!-- End .widget-list -->

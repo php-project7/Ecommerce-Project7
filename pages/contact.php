@@ -2,7 +2,7 @@
 <html lang="en">
 
 
-<!-- molla/checkout.html  22 Nov 2019 09:55:06 GMT -->
+<!-- molla/contact.php  22 Nov 2019 10:04:01 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -64,8 +64,8 @@
                                 <ul>
                                     <li><a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a></li>
                                     <li><a href="wishlist.html"><i class="icon-heart-o"></i>Wishlist <span>(3)</span></a></li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="about.php">About Us</a></li>
+                                    <li><a href="contact.php">Contact Us</a></li>
                                     <li><a href="#signin-modal" data-toggle="modal"><i class="icon-user"></i>Login</a></li>
                                 </ul>
                             </li>
@@ -305,8 +305,8 @@
                                                             </ul>
                                                             <div class="menu-title">Shop Pages</div><!-- End .menu-title -->
                                                             <ul>
-                                                                <li><a href="cart.html">Cart</a></li>
-                                                                <li><a href="checkout.html">Checkout</a></li>
+                                                                <li><a href="cart.php">Cart</a></li>
+                                                                <li><a href="checkout.php">Checkout</a></li>
                                                                 <li><a href="wishlist.html">Wishlist</a></li>
                                                                 <li><a href="dashboard.php">My Account</a></li>
                                                                 <li><a href="#">Lookbook</a></li>
@@ -370,18 +370,18 @@
 
                                     <ul>
                                         <li>
-                                            <a href="about.html" class="sf-with-ul">About</a>
+                                            <a href="about.php" class="sf-with-ul">About</a>
 
                                             <ul>
-                                                <li><a href="about.html">About 01</a></li>
+                                                <li><a href="about.php">About 01</a></li>
                                                 <li><a href="about-2.html">About 02</a></li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="contact.html" class="sf-with-ul">Contact</a>
+                                            <a href="contact.php" class="sf-with-ul">Contact</a>
 
                                             <ul>
-                                                <li><a href="contact.html">Contact 01</a></li>
+                                                <li><a href="contact.php">Contact 01</a></li>
                                                 <li><a href="contact-2.html">Contact 02</a></li>
                                             </ul>
                                         </li>
@@ -546,8 +546,8 @@
                                 </div><!-- End .dropdown-cart-total -->
 
                                 <div class="dropdown-cart-action">
-                                    <a href="cart.html" class="btn btn-primary">View Cart</a>
-                                    <a href="checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
+                                    <a href="cart.php" class="btn btn-primary">View Cart</a>
+                                    <a href="checkout.php" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
                                 </div><!-- End .dropdown-cart-total -->
                             </div><!-- End .dropdown-menu -->
                         </div><!-- End .cart-dropdown -->
@@ -557,224 +557,173 @@
         </header><!-- End .header -->
 
         <main class="main">
-        	<div class="page-header text-center" style="background-image: url('../assets/images/page-header-bg.jpg')">
-        		<div class="container">
-        			<h1 class="page-title">Checkout<span>Shop</span></h1>
-        		</div><!-- End .container -->
-        	</div><!-- End .page-header -->
-            <nav aria-label="breadcrumb" class="breadcrumb-nav">
+            <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
                 <div class="container">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Shop</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Contact us</li>
                     </ol>
                 </div><!-- End .container -->
             </nav><!-- End .breadcrumb-nav -->
+            <div class="container">
+	        	<div class="page-header page-header-big text-center" style="background-image: url('../assets/images/contact-header-bg.jpg')">
+        			<h1 class="page-title text-white">Contact us<span class="text-white">keep in touch with us</span></h1>
+	        	</div><!-- End .page-header -->
+            </div><!-- End .container -->
 
-            <div class="page-content">
-            	<div class="checkout">
-	                <div class="container">
-            			<div class="checkout-discount">
-            				<form action="#">
-        						<input type="text" class="form-control" required id="checkout-discount-input">
-            					<label for="checkout-discount-input" class="text-truncate">Have a coupon? <span>Click here to enter your code</span></label>
-            				</form>
-            			</div><!-- End .checkout-discount -->
-            			<form action="#">
-		                	<div class="row">
-		                		<div class="col-lg-9">
-		                			<h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
-		                				<div class="row">
-		                					<div class="col-sm-6">
-		                						<label>First Name *</label>
-		                						<input type="text" class="form-control" required>
-		                					</div><!-- End .col-sm-6 -->
+            <div class="page-content pb-0">
+                <div class="container">
+                	<div class="row">
+                		<div class="col-lg-6 mb-2 mb-lg-0">
+                			<h2 class="title mb-1">Contact Information</h2><!-- End .title mb-2 -->
+                			<p class="mb-3">Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+                			<div class="row">
+                				<div class="col-sm-7">
+                					<div class="contact-info">
+                						<h3>The Office</h3>
 
-		                					<div class="col-sm-6">
-		                						<label>Last Name *</label>
-		                						<input type="text" class="form-control" required>
-		                					</div><!-- End .col-sm-6 -->
-		                				</div><!-- End .row -->
+                						<ul class="contact-list">
+                							<li>
+                								<i class="icon-map-marker"></i>
+	                							70 Washington Square South New York, NY 10012, United States
+	                						</li>
+                							<li>
+                								<i class="icon-phone"></i>
+                								<a href="tel:#">+92 423 567</a>
+                							</li>
+                							<li>
+                								<i class="icon-envelope"></i>
+                								<a href="mailto:#">info@Molla.com</a>
+                							</li>
+                						</ul><!-- End .contact-list -->
+                					</div><!-- End .contact-info -->
+                				</div><!-- End .col-sm-7 -->
 
-	            						<label>Company Name (Optional)</label>
-	            						<input type="text" class="form-control">
+                				<div class="col-sm-5">
+                					<div class="contact-info">
+                						<h3>The Office</h3>
 
-	            						<label>Country *</label>
-	            						<input type="text" class="form-control" required>
+                						<ul class="contact-list">
+                							<li>
+                								<i class="icon-clock-o"></i>
+	                							<span class="text-dark">Monday-Saturday</span> <br>11am-7pm ET
+	                						</li>
+                							<li>
+                								<i class="icon-calendar"></i>
+                								<span class="text-dark">Sunday</span> <br>11am-6pm ET
+                							</li>
+                						</ul><!-- End .contact-list -->
+                					</div><!-- End .contact-info -->
+                				</div><!-- End .col-sm-5 -->
+                			</div><!-- End .row -->
+                		</div><!-- End .col-lg-6 -->
+                		<div class="col-lg-6">
+                			<h2 class="title mb-1">Got Any Questions?</h2><!-- End .title mb-2 -->
+                			<p class="mb-2">Use the form below to get in touch with the sales team</p>
 
-	            						<label>Street address *</label>
-	            						<input type="text" class="form-control" placeholder="House number and Street name" required>
-	            						<input type="text" class="form-control" placeholder="Appartments, suite, unit etc ..." required>
+                			<form action="#" class="contact-form mb-3">
+                				<div class="row">
+                					<div class="col-sm-6">
+                                        <label for="cname" class="sr-only">Name</label>
+                						<input type="text" class="form-control" id="cname" placeholder="Name *" required>
+                					</div><!-- End .col-sm-6 -->
 
-	            						<div class="row">
-		                					<div class="col-sm-6">
-		                						<label>Town / City *</label>
-		                						<input type="text" class="form-control" required>
-		                					</div><!-- End .col-sm-6 -->
+                					<div class="col-sm-6">
+                                        <label for="cemail" class="sr-only">Email</label>
+                						<input type="email" class="form-control" id="cemail" placeholder="Email *" required>
+                					</div><!-- End .col-sm-6 -->
+                				</div><!-- End .row -->
 
-		                					<div class="col-sm-6">
-		                						<label>State / County *</label>
-		                						<input type="text" class="form-control" required>
-		                					</div><!-- End .col-sm-6 -->
-		                				</div><!-- End .row -->
+                				<div class="row">
+                					<div class="col-sm-6">
+                                        <label for="cphone" class="sr-only">Phone</label>
+                						<input type="tel" class="form-control" id="cphone" placeholder="Phone">
+                					</div><!-- End .col-sm-6 -->
 
-		                				<div class="row">
-		                					<div class="col-sm-6">
-		                						<label>Postcode / ZIP *</label>
-		                						<input type="text" class="form-control" required>
-		                					</div><!-- End .col-sm-6 -->
+                					<div class="col-sm-6">
+                                        <label for="csubject" class="sr-only">Subject</label>
+                						<input type="text" class="form-control" id="csubject" placeholder="Subject">
+                					</div><!-- End .col-sm-6 -->
+                				</div><!-- End .row -->
 
-		                					<div class="col-sm-6">
-		                						<label>Phone *</label>
-		                						<input type="tel" class="form-control" required>
-		                					</div><!-- End .col-sm-6 -->
-		                				</div><!-- End .row -->
+                                <label for="cmessage" class="sr-only">Message</label>
+                				<textarea class="form-control" cols="30" rows="4" id="cmessage" required placeholder="Message *"></textarea>
 
-	                					<label>Email address *</label>
-	        							<input type="email" class="form-control" required>
+                				<button type="submit" class="btn btn-outline-primary-2 btn-minwidth-sm">
+                					<span>SUBMIT</span>
+            						<i class="icon-long-arrow-right"></i>
+                				</button>
+                			</form><!-- End .contact-form -->
+                		</div><!-- End .col-lg-6 -->
+                	</div><!-- End .row -->
 
-	        							<div class="custom-control custom-checkbox">
-											<input type="checkbox" class="custom-control-input" id="checkout-create-acc">
-											<label class="custom-control-label" for="checkout-create-acc">Create an account?</label>
-										</div><!-- End .custom-checkbox -->
+                	<hr class="mt-4 mb-5">
 
-										<div class="custom-control custom-checkbox">
-											<input type="checkbox" class="custom-control-input" id="checkout-diff-address">
-											<label class="custom-control-label" for="checkout-diff-address">Ship to a different address?</label>
-										</div><!-- End .custom-checkbox -->
+                	<div class="stores mb-4 mb-lg-5">
+	                	<h2 class="title text-center mb-3">Our Stores</h2><!-- End .title text-center mb-2 -->
 
-	                					<label>Order notes (optional)</label>
-	        							<textarea class="form-control" cols="30" rows="4" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
-		                		</div><!-- End .col-lg-9 -->
-		                		<aside class="col-lg-3">
-		                			<div class="summary">
-		                				<h3 class="summary-title">Your Order</h3><!-- End .summary-title -->
+	                	<div class="row">
+	                		<div class="col-lg-6">
+	                			<div class="store">
+	                				<div class="row">
+	                					<div class="col-sm-5 col-xl-6">
+	                						<figure class="store-media mb-2 mb-lg-0">
+	                							<img src="../assets/images/stores/img-1.jpg" alt="image">
+	                						</figure><!-- End .store-media -->
+	                					</div><!-- End .col-xl-6 -->
+	                					<div class="col-sm-7 col-xl-6">
+	                						<div class="store-content">
+	                							<h3 class="store-title">Wall Street Plaza</h3><!-- End .store-title -->
+	                							<address>88 Pine St, New York, NY 10005, USA</address>
+	                							<div><a href="tel:#">+1 987-876-6543</a></div>
 
-		                				<table class="table table-summary">
-		                					<thead>
-		                						<tr>
-		                							<th>Product</th>
-		                							<th>Total</th>
-		                						</tr>
-		                					</thead>
+	                							<h4 class="store-subtitle">Store Hours:</h4><!-- End .store-subtitle -->
+                								<div>Monday - Saturday 11am to 7pm</div>
+                								<div>Sunday 11am to 6pm</div>
 
-		                					<tbody>
-		                						<tr>
-		                							<td><a href="#">Beige knitted elastic runner shoes</a></td>
-		                							<td>$84.00</td>
-		                						</tr>
+                								<a href="#" class="btn btn-link" target="_blank"><span>View Map</span><i class="icon-long-arrow-right"></i></a>
+	                						</div><!-- End .store-content -->
+	                					</div><!-- End .col-xl-6 -->
+	                				</div><!-- End .row -->
+	                			</div><!-- End .store -->
+	                		</div><!-- End .col-lg-6 -->
 
-		                						<tr>
-		                							<td><a href="#">Blue utility pinafore denimdress</a></td>
-		                							<td>$76,00</td>
-		                						</tr>
-		                						<tr class="summary-subtotal">
-		                							<td>Subtotal:</td>
-		                							<td>$160.00</td>
-		                						</tr><!-- End .summary-subtotal -->
-		                						<tr>
-		                							<td>Shipping:</td>
-		                							<td>Free shipping</td>
-		                						</tr>
-		                						<tr class="summary-total">
-		                							<td>Total:</td>
-		                							<td>$160.00</td>
-		                						</tr><!-- End .summary-total -->
-		                					</tbody>
-		                				</table><!-- End .table table-summary -->
+	                		<div class="col-lg-6">
+	                			<div class="store">
+	                				<div class="row">
+	                					<div class="col-sm-5 col-xl-6">
+	                						<figure class="store-media mb-2 mb-lg-0">
+	                							<img src="../assets/images/stores/img-2.jpg" alt="image">
+	                						</figure><!-- End .store-media -->
+	                					</div><!-- End .col-xl-6 -->
 
-		                				<div class="accordion-summary" id="accordion-payment">
-										    <div class="card">
-										        <div class="card-header" id="heading-1">
-										            <h2 class="card-title">
-										                <a role="button" data-toggle="collapse" href="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
-										                    Direct bank transfer
-										                </a>
-										            </h2>
-										        </div><!-- End .card-header -->
-										        <div id="collapse-1" class="collapse show" aria-labelledby="heading-1" data-parent="#accordion-payment">
-										            <div class="card-body">
-										                Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
-										            </div><!-- End .card-body -->
-										        </div><!-- End .collapse -->
-										    </div><!-- End .card -->
+	                					<div class="col-sm-7 col-xl-6">
+	                						<div class="store-content">
+	                							<h3 class="store-title">One New York Plaza</h3><!-- End .store-title -->
+	                							<address>88 Pine St, New York, NY 10005, USA</address>
+	                							<div><a href="tel:#">+1 987-876-6543</a></div>
 
-										    <div class="card">
-										        <div class="card-header" id="heading-2">
-										            <h2 class="card-title">
-										                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
-										                    Check payments
-										                </a>
-										            </h2>
-										        </div><!-- End .card-header -->
-										        <div id="collapse-2" class="collapse" aria-labelledby="heading-2" data-parent="#accordion-payment">
-										            <div class="card-body">
-										                Ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. 
-										            </div><!-- End .card-body -->
-										        </div><!-- End .collapse -->
-										    </div><!-- End .card -->
+	                							<h4 class="store-subtitle">Store Hours:</h4><!-- End .store-subtitle -->
+												<div>Monday - Friday 9am to 8pm</div>
+												<div>Saturday - 9am to 2pm</div>
+												<div>Sunday - Closed</div>
 
-										    <div class="card">
-										        <div class="card-header" id="heading-3">
-										            <h2 class="card-title">
-										                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
-										                    Cash on delivery
-										                </a>
-										            </h2>
-										        </div><!-- End .card-header -->
-										        <div id="collapse-3" class="collapse" aria-labelledby="heading-3" data-parent="#accordion-payment">
-										            <div class="card-body">Quisque volutpat mattis eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. 
-										            </div><!-- End .card-body -->
-										        </div><!-- End .collapse -->
-										    </div><!-- End .card -->
-
-										    <div class="card">
-										        <div class="card-header" id="heading-4">
-										            <h2 class="card-title">
-										                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
-										                    PayPal <small class="float-right paypal-link">What is PayPal?</small>
-										                </a>
-										            </h2>
-										        </div><!-- End .card-header -->
-										        <div id="collapse-4" class="collapse" aria-labelledby="heading-4" data-parent="#accordion-payment">
-										            <div class="card-body">
-										                Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum.
-										            </div><!-- End .card-body -->
-										        </div><!-- End .collapse -->
-										    </div><!-- End .card -->
-
-										    <div class="card">
-										        <div class="card-header" id="heading-5">
-										            <h2 class="card-title">
-										                <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
-										                    Credit Card (Stripe)
-										                    <img src="../assets/images/payments-summary.png" alt="payments cards">
-										                </a>
-										            </h2>
-										        </div><!-- End .card-header -->
-										        <div id="collapse-5" class="collapse" aria-labelledby="heading-5" data-parent="#accordion-payment">
-										            <div class="card-body"> Donec nec justo eget felis facilisis fermentum.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Lorem ipsum dolor sit ame.
-										            </div><!-- End .card-body -->
-										        </div><!-- End .collapse -->
-										    </div><!-- End .card -->
-										</div><!-- End .accordion -->
-
-		                				<button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
-		                					<span class="btn-text">Place Order</span>
-		                					<span class="btn-hover-text">Proceed to Checkout</span>
-		                				</button>
-		                			</div><!-- End .summary -->
-		                		</aside><!-- End .col-lg-3 -->
-		                	</div><!-- End .row -->
-            			</form>
-	                </div><!-- End .container -->
-                </div><!-- End .checkout -->
+                								<a href="#" class="btn btn-link" target="_blank"><span>View Map</span><i class="icon-long-arrow-right"></i></a>
+	                						</div><!-- End .store-content -->
+	                					</div><!-- End .col-xl-6 -->
+	                				</div><!-- End .row -->
+	                			</div><!-- End .store -->
+	                		</div><!-- End .col-lg-6 -->
+	                	</div><!-- End .row -->
+                	</div><!-- End .stores -->
+                </div><!-- End .container -->
+            	<div id="map"></div><!-- End #map -->
             </div><!-- End .page-content -->
         </main><!-- End .main -->
 
         <footer class="footer">
-        	<div class="footer-middle">
+        	<div class="footer-middle border-0">
 	            <div class="container">
 	            	<div class="row">
 	            		<div class="col-sm-6 col-lg-3">
@@ -783,12 +732,12 @@
 	            				<p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. </p>
 
 	            				<div class="social-icons">
-	            					<a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
-	            					<a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
-	            					<a href="#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
-	            					<a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
-	            					<a href="#" class="social-icon" target="_blank" title="Pinterest"><i class="icon-pinterest"></i></a>
-	            				</div><!-- End .soial-icons -->
+                                    <a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
+                                    <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
+                                    <a href="#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
+                                    <a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
+                                    <a href="#" class="social-icon" target="_blank" title="Pinterest"><i class="icon-pinterest"></i></a>
+                                </div><!-- End .soial-icons -->
 	            			</div><!-- End .widget about-widget -->
 	            		</div><!-- End .col-sm-6 col-lg-3 -->
 
@@ -797,10 +746,10 @@
 	            				<h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
 
 	            				<ul class="widget-list">
-	            					<li><a href="about.html">About Molla</a></li>
+	            					<li><a href="about.php">About Molla</a></li>
 	            					<li><a href="#">How to shop on Molla</a></li>
 	            					<li><a href="#">FAQ</a></li>
-	            					<li><a href="contact.html">Contact us</a></li>
+	            					<li><a href="contact.php">Contact us</a></li>
 	            					<li><a href="../login.php">Log in</a></li>
 	            				</ul><!-- End .widget-list -->
 	            			</div><!-- End .widget -->
@@ -827,7 +776,7 @@
 
 	            				<ul class="widget-list">
 	            					<li><a href="#">Sign In</a></li>
-	            					<li><a href="cart.html">View Cart</a></li>
+	            					<li><a href="cart.php">View Cart</a></li>
 	            					<li><a href="#">My Wishlist</a></li>
 	            					<li><a href="#">Track My Order</a></li>
 	            					<li><a href="#">Help</a></li>
@@ -906,8 +855,8 @@
                             <li><a href="category-fullwidth.html">Shop Fullwidth No Sidebar</a></li>
                             <li><a href="product-category-boxed.html">Product Category Boxed</a></li>
                             <li><a href="product-category-fullwidth.html"><span>Product Category Fullwidth<span class="tip tip-new">New</span></span></a></li>
-                            <li><a href="cart.html">Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
+                            <li><a href="cart.php">Cart</a></li>
+                            <li><a href="checkout.php">Checkout</a></li>
                             <li><a href="wishlist.html">Wishlist</a></li>
                             <li><a href="#">Lookbook</a></li>
                         </ul>
@@ -929,18 +878,18 @@
                         <a href="#">Pages</a>
                         <ul>
                             <li>
-                                <a href="about.html">About</a>
+                                <a href="about.php">About</a>
 
                                 <ul>
-                                    <li><a href="about.html">About 01</a></li>
+                                    <li><a href="about.php">About 01</a></li>
                                     <li><a href="about-2.html">About 02</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="contact.html">Contact</a>
+                                <a href="contact.php">Contact</a>
 
                                 <ul>
-                                    <li><a href="contact.html">Contact 01</a></li>
+                                    <li><a href="contact.php">Contact 01</a></li>
                                     <li><a href="contact-2.html">Contact 02</a></li>
                                 </ul>
                             </li>
@@ -1136,6 +1085,9 @@
         </div><!-- End .modal-dialog -->
     </div><!-- End .modal -->
 
+    <!-- Google Map -->
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDc3LRykbLB-y8MuomRUIY0qH5S6xgBLX4"></script>
+
     <!-- Plugins JS File -->
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
@@ -1148,5 +1100,5 @@
 </body>
 
 
-<!-- molla/checkout.html  22 Nov 2019 09:55:06 GMT -->
+<!-- molla/contact.php  22 Nov 2019 10:04:03 GMT -->
 </html>

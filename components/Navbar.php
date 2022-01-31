@@ -95,8 +95,8 @@
                                 <ul>
                                     <li><a href="tel:#"><i class="icon-phone"></i>Call Us: +962770245060</a></li>
                                     <li><a href="../pages/wishlist.html"><i class="icon-heart-o"></i>Wishlist <span>(3)</span></a></li>
-                                    <li><a href="../pages/about.html">About Us</a></li>
-                                    <li><a href="../pages/contact.html">Contact Us</a></li>
+                                    <li><a href="../pages/about.php">About Us</a></li>
+                                    <li><a href="../pages/contact.php">Contact Us</a></li>
                                     <li><a href="#signin-modal" data-toggle="modal"><i class="icon-user"></i>Sign In / Sign Up</a></li>
                                 </ul>
                             </li>
