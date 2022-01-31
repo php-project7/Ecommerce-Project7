@@ -63,14 +63,6 @@ if (isset($_GET['filter'])) {
     $products = $stmt->fetchAll();
 }
 
-//handle search query
-if (isset($_POST['search'])) {
-    $search = $_POST['search'];
-    $sql = "SELECT * FROM products WHERE name LIKE '%$search%'";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
-    $products = $stmt->fetchAll();
-}
 $errors = array();
 
 //handle search query
