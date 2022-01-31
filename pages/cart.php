@@ -149,10 +149,6 @@ function mahdiStopReload()
                                         </tr>
                                     </thead>
                                     <!-- mahdi table -->
-<<<<<<< HEAD
-=======
-
->>>>>>> b9e24503f2f4e5df9788f24cbcd787a2fea64624
                                     <tbody>
                                         <?php
                                         for ($i = 0; $i < count($results); $i++) {
@@ -401,15 +397,12 @@ function mahdiStopReload()
                         <ul>
                             <li>
                                 <a href="about.html">About</a>
-<<<<<<< HEAD
-=======
+                                <<<<<<< HEAD=======>>>>>>> b9e24503f2f4e5df9788f24cbcd787a2fea64624
 
->>>>>>> b9e24503f2f4e5df9788f24cbcd787a2fea64624
-
-                                <ul>
-                                    <li><a href="about.html">About 01</a></li>
-                                    <li><a href="about-2.html">About 02</a></li>
-                                </ul>
+                                    <ul>
+                                        <li><a href="about.html">About 01</a></li>
+                                        <li><a href="about-2.html">About 02</a></li>
+                                    </ul>
                             </li>
                             <li>
                                 <a href="contact.html">Contact</a>
