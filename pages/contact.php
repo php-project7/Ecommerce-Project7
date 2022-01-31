@@ -2,7 +2,7 @@
 <html lang="en">
 
 
-<!-- molla/cart.html  22 Nov 2019 09:55:06 GMT -->
+<!-- molla/contact.php  22 Nov 2019 10:04:01 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -64,8 +64,8 @@
                                 <ul>
                                     <li><a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a></li>
                                     <li><a href="wishlist.html"><i class="icon-heart-o"></i>Wishlist <span>(3)</span></a></li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="about.php">About Us</a></li>
+                                    <li><a href="contact.php">Contact Us</a></li>
                                     <li><a href="#signin-modal" data-toggle="modal"><i class="icon-user"></i>Login</a></li>
                                 </ul>
                             </li>
@@ -118,7 +118,7 @@
                                                 </div><!-- End .demo-item -->
 
                                                 <div class="demo-item">
-                                                    <a href="../index-4.html">
+                                                    <a href="../index.php">
                                                         <span class="demo-bg" style="background-image: url(../assets/images/menu/demos/4.jpg);"></span>
                                                         <span class="demo-title">04 - electronic store</span>
                                                     </a>
@@ -283,7 +283,7 @@
                                                         <div class="col-md-6">
                                                             <div class="menu-title">Shop with sidebar</div><!-- End .menu-title -->
                                                             <ul>
-                                                                <li><a href="category-list.html">Shop List</a></li>
+                                                                <li><a href="category-list.php">Shop List</a></li>
                                                                 <li><a href="category-2cols.html">Shop Grid 2 Columns</a></li>
                                                                 <li><a href="category.html">Shop Grid 3 Columns</a></li>
                                                                 <li><a href="category-4cols.html">Shop Grid 4 Columns</a></li>
@@ -305,10 +305,10 @@
                                                             </ul>
                                                             <div class="menu-title">Shop Pages</div><!-- End .menu-title -->
                                                             <ul>
-                                                                <li><a href="cart.html">Cart</a></li>
-                                                                <li><a href="checkout.html">Checkout</a></li>
+                                                                <li><a href="cart.php">Cart</a></li>
+                                                                <li><a href="checkout.php">Checkout</a></li>
                                                                 <li><a href="wishlist.html">Wishlist</a></li>
-                                                                <li><a href="dashboard.html">My Account</a></li>
+                                                                <li><a href="dashboard.php">My Account</a></li>
                                                                 <li><a href="#">Lookbook</a></li>
                                                             </ul>
                                                         </div><!-- End .col-md-6 -->
@@ -331,7 +331,7 @@
                                     </div><!-- End .megamenu megamenu-md -->
                                 </li>
                                 <li>
-                                    <a href="product.html" class="sf-with-ul">Product</a>
+                                    <a href="product.php" class="sf-with-ul">Product</a>
 
                                     <div class="megamenu megamenu-sm">
                                         <div class="row no-gutters">
@@ -339,7 +339,7 @@
                                                 <div class="menu-col">
                                                     <div class="menu-title">Product Details</div><!-- End .menu-title -->
                                                     <ul>
-                                                        <li><a href="product.html">Default</a></li>
+                                                        <li><a href="product.php">Default</a></li>
                                                         <li><a href="product-centered.html">Centered</a></li>
                                                         <li><a href="product-extended.html"><span>Extended Info<span class="tip tip-new">New</span></span></a></li>
                                                         <li><a href="product-gallery.html">Gallery</a></li>
@@ -370,22 +370,22 @@
 
                                     <ul>
                                         <li>
-                                            <a href="about.html" class="sf-with-ul">About</a>
+                                            <a href="about.php" class="sf-with-ul">About</a>
 
                                             <ul>
-                                                <li><a href="about.html">About 01</a></li>
+                                                <li><a href="about.php">About 01</a></li>
                                                 <li><a href="about-2.html">About 02</a></li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="contact.html" class="sf-with-ul">Contact</a>
+                                            <a href="contact.php" class="sf-with-ul">Contact</a>
 
                                             <ul>
-                                                <li><a href="contact.html">Contact 01</a></li>
+                                                <li><a href="contact.php">Contact 01</a></li>
                                                 <li><a href="contact-2.html">Contact 02</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="../login.html">Login</a></li>
+                                        <li><a href="../login.php">Login</a></li>
                                         <li><a href="faq.html">FAQs</a></li>
                                         <li><a href="404.html">Error 404</a></li>
                                         <li><a href="coming-soon.html">Coming Soon</a></li>
@@ -475,11 +475,11 @@
                                 <ul class="compare-products">
                                     <li class="compare-product">
                                         <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                        <h4 class="compare-product-title"><a href="product.html">Blue Night Dress</a></h4>
+                                        <h4 class="compare-product-title"><a href="product.php">Blue Night Dress</a></h4>
                                     </li>
                                     <li class="compare-product">
                                         <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                                        <h4 class="compare-product-title"><a href="product.html">White Long Skirt</a></h4>
+                                        <h4 class="compare-product-title"><a href="product.php">White Long Skirt</a></h4>
                                     </li>
                                 </ul>
 
@@ -501,7 +501,7 @@
                                     <div class="product">
                                         <div class="product-cart-details">
                                             <h4 class="product-title">
-                                                <a href="product.html">Beige knitted elastic runner shoes</a>
+                                                <a href="product.php">Beige knitted elastic runner shoes</a>
                                             </h4>
 
                                             <span class="cart-product-info">
@@ -511,7 +511,7 @@
                                         </div><!-- End .product-cart-details -->
 
                                         <figure class="product-image-container">
-                                            <a href="product.html" class="product-image">
+                                            <a href="product.php" class="product-image">
                                                 <img src="../assets/images/products/cart/product-1.jpg" alt="product">
                                             </a>
                                         </figure>
@@ -521,7 +521,7 @@
                                     <div class="product">
                                         <div class="product-cart-details">
                                             <h4 class="product-title">
-                                                <a href="product.html">Blue utility pinafore denim dress</a>
+                                                <a href="product.php">Blue utility pinafore denim dress</a>
                                             </h4>
 
                                             <span class="cart-product-info">
@@ -531,7 +531,7 @@
                                         </div><!-- End .product-cart-details -->
 
                                         <figure class="product-image-container">
-                                            <a href="product.html" class="product-image">
+                                            <a href="product.php" class="product-image">
                                                 <img src="../assets/images/products/cart/product-2.jpg" alt="product">
                                             </a>
                                         </figure>
@@ -546,8 +546,8 @@
                                 </div><!-- End .dropdown-cart-total -->
 
                                 <div class="dropdown-cart-action">
-                                    <a href="cart.html" class="btn btn-primary">View Cart</a>
-                                    <a href="checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
+                                    <a href="cart.php" class="btn btn-primary">View Cart</a>
+                                    <a href="checkout.php" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
                                 </div><!-- End .dropdown-cart-total -->
                             </div><!-- End .dropdown-menu -->
                         </div><!-- End .cart-dropdown -->
@@ -557,172 +557,173 @@
         </header><!-- End .header -->
 
         <main class="main">
-        	<div class="page-header text-center" style="background-image: url('../assets/images/page-header-bg.jpg')">
-        		<div class="container">
-        			<h1 class="page-title">Shopping Cart<span>Shop</span></h1>
-        		</div><!-- End .container -->
-        	</div><!-- End .page-header -->
-            <nav aria-label="breadcrumb" class="breadcrumb-nav">
+            <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
                 <div class="container">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Shop</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Contact us</li>
                     </ol>
                 </div><!-- End .container -->
             </nav><!-- End .breadcrumb-nav -->
+            <div class="container">
+	        	<div class="page-header page-header-big text-center" style="background-image: url('../assets/images/contact-header-bg.jpg')">
+        			<h1 class="page-title text-white">Contact us<span class="text-white">keep in touch with us</span></h1>
+	        	</div><!-- End .page-header -->
+            </div><!-- End .container -->
 
-            <div class="page-content">
-            	<div class="cart">
-	                <div class="container">
+            <div class="page-content pb-0">
+                <div class="container">
+                	<div class="row">
+                		<div class="col-lg-6 mb-2 mb-lg-0">
+                			<h2 class="title mb-1">Contact Information</h2><!-- End .title mb-2 -->
+                			<p class="mb-3">Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+                			<div class="row">
+                				<div class="col-sm-7">
+                					<div class="contact-info">
+                						<h3>The Office</h3>
+
+                						<ul class="contact-list">
+                							<li>
+                								<i class="icon-map-marker"></i>
+	                							70 Washington Square South New York, NY 10012, United States
+	                						</li>
+                							<li>
+                								<i class="icon-phone"></i>
+                								<a href="tel:#">+92 423 567</a>
+                							</li>
+                							<li>
+                								<i class="icon-envelope"></i>
+                								<a href="mailto:#">info@Molla.com</a>
+                							</li>
+                						</ul><!-- End .contact-list -->
+                					</div><!-- End .contact-info -->
+                				</div><!-- End .col-sm-7 -->
+
+                				<div class="col-sm-5">
+                					<div class="contact-info">
+                						<h3>The Office</h3>
+
+                						<ul class="contact-list">
+                							<li>
+                								<i class="icon-clock-o"></i>
+	                							<span class="text-dark">Monday-Saturday</span> <br>11am-7pm ET
+	                						</li>
+                							<li>
+                								<i class="icon-calendar"></i>
+                								<span class="text-dark">Sunday</span> <br>11am-6pm ET
+                							</li>
+                						</ul><!-- End .contact-list -->
+                					</div><!-- End .contact-info -->
+                				</div><!-- End .col-sm-5 -->
+                			</div><!-- End .row -->
+                		</div><!-- End .col-lg-6 -->
+                		<div class="col-lg-6">
+                			<h2 class="title mb-1">Got Any Questions?</h2><!-- End .title mb-2 -->
+                			<p class="mb-2">Use the form below to get in touch with the sales team</p>
+
+                			<form action="#" class="contact-form mb-3">
+                				<div class="row">
+                					<div class="col-sm-6">
+                                        <label for="cname" class="sr-only">Name</label>
+                						<input type="text" class="form-control" id="cname" placeholder="Name *" required>
+                					</div><!-- End .col-sm-6 -->
+
+                					<div class="col-sm-6">
+                                        <label for="cemail" class="sr-only">Email</label>
+                						<input type="email" class="form-control" id="cemail" placeholder="Email *" required>
+                					</div><!-- End .col-sm-6 -->
+                				</div><!-- End .row -->
+
+                				<div class="row">
+                					<div class="col-sm-6">
+                                        <label for="cphone" class="sr-only">Phone</label>
+                						<input type="tel" class="form-control" id="cphone" placeholder="Phone">
+                					</div><!-- End .col-sm-6 -->
+
+                					<div class="col-sm-6">
+                                        <label for="csubject" class="sr-only">Subject</label>
+                						<input type="text" class="form-control" id="csubject" placeholder="Subject">
+                					</div><!-- End .col-sm-6 -->
+                				</div><!-- End .row -->
+
+                                <label for="cmessage" class="sr-only">Message</label>
+                				<textarea class="form-control" cols="30" rows="4" id="cmessage" required placeholder="Message *"></textarea>
+
+                				<button type="submit" class="btn btn-outline-primary-2 btn-minwidth-sm">
+                					<span>SUBMIT</span>
+            						<i class="icon-long-arrow-right"></i>
+                				</button>
+                			</form><!-- End .contact-form -->
+                		</div><!-- End .col-lg-6 -->
+                	</div><!-- End .row -->
+
+                	<hr class="mt-4 mb-5">
+
+                	<div class="stores mb-4 mb-lg-5">
+	                	<h2 class="title text-center mb-3">Our Stores</h2><!-- End .title text-center mb-2 -->
+
 	                	<div class="row">
-	                		<div class="col-lg-9">
-	                			<table class="table table-cart table-mobile">
-									<thead>
-										<tr>
-											<th>Product</th>
-											<th>Price</th>
-											<th>Quantity</th>
-											<th>Total</th>
-											<th></th>
-										</tr>
-									</thead>
+	                		<div class="col-lg-6">
+	                			<div class="store">
+	                				<div class="row">
+	                					<div class="col-sm-5 col-xl-6">
+	                						<figure class="store-media mb-2 mb-lg-0">
+	                							<img src="../assets/images/stores/img-1.jpg" alt="image">
+	                						</figure><!-- End .store-media -->
+	                					</div><!-- End .col-xl-6 -->
+	                					<div class="col-sm-7 col-xl-6">
+	                						<div class="store-content">
+	                							<h3 class="store-title">Wall Street Plaza</h3><!-- End .store-title -->
+	                							<address>88 Pine St, New York, NY 10005, USA</address>
+	                							<div><a href="tel:#">+1 987-876-6543</a></div>
 
-									<tbody>
-										<tr>
-											<td class="product-col">
-												<div class="product">
-													<figure class="product-media">
-														<a href="#">
-															<img src="../assets/images/products/table/product-1.jpg" alt="Product image">
-														</a>
-													</figure>
+	                							<h4 class="store-subtitle">Store Hours:</h4><!-- End .store-subtitle -->
+                								<div>Monday - Saturday 11am to 7pm</div>
+                								<div>Sunday 11am to 6pm</div>
 
-													<h3 class="product-title">
-														<a href="#">Beige knitted elastic runner shoes</a>
-													</h3><!-- End .product-title -->
-												</div><!-- End .product -->
-											</td>
-											<td class="price-col">$84.00</td>
-											<td class="quantity-col">
-                                                <div class="cart-product-quantity">
-                                                    <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
-                                                </div><!-- End .cart-product-quantity -->
-                                            </td>
-											<td class="total-col">$84.00</td>
-											<td class="remove-col"><button class="btn-remove"><i class="icon-close"></i></button></td>
-										</tr>
-										<tr>
-											<td class="product-col">
-												<div class="product">
-													<figure class="product-media">
-														<a href="#">
-															<img src="../assets/images/products/table/product-2.jpg" alt="Product image">
-														</a>
-													</figure>
+                								<a href="#" class="btn btn-link" target="_blank"><span>View Map</span><i class="icon-long-arrow-right"></i></a>
+	                						</div><!-- End .store-content -->
+	                					</div><!-- End .col-xl-6 -->
+	                				</div><!-- End .row -->
+	                			</div><!-- End .store -->
+	                		</div><!-- End .col-lg-6 -->
 
-													<h3 class="product-title">
-														<a href="#">Blue utility pinafore denim dress</a>
-													</h3><!-- End .product-title -->
-												</div><!-- End .product -->
-											</td>
-											<td class="price-col">$76.00</td>
-											<td class="quantity-col">
-                                                <div class="cart-product-quantity">
-                                                    <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
-                                                </div><!-- End .cart-product-quantity -->                                 
-                                            </td>
-											<td class="total-col">$76.00</td>
-											<td class="remove-col"><button class="btn-remove"><i class="icon-close"></i></button></td>
-										</tr>
-									</tbody>
-								</table><!-- End .table table-wishlist -->
+	                		<div class="col-lg-6">
+	                			<div class="store">
+	                				<div class="row">
+	                					<div class="col-sm-5 col-xl-6">
+	                						<figure class="store-media mb-2 mb-lg-0">
+	                							<img src="../assets/images/stores/img-2.jpg" alt="image">
+	                						</figure><!-- End .store-media -->
+	                					</div><!-- End .col-xl-6 -->
 
-	                			<div class="cart-bottom">
-			            			<div class="cart-discount">
-			            				<form action="#">
-			            					<div class="input-group">
-				        						<input type="text" class="form-control" required placeholder="coupon code">
-				        						<div class="input-group-append">
-													<button class="btn btn-outline-primary-2" type="submit"><i class="icon-long-arrow-right"></i></button>
-												</div><!-- .End .input-group-append -->
-			        						</div><!-- End .input-group -->
-			            				</form>
-			            			</div><!-- End .cart-discount -->
+	                					<div class="col-sm-7 col-xl-6">
+	                						<div class="store-content">
+	                							<h3 class="store-title">One New York Plaza</h3><!-- End .store-title -->
+	                							<address>88 Pine St, New York, NY 10005, USA</address>
+	                							<div><a href="tel:#">+1 987-876-6543</a></div>
 
-			            			<a href="#" class="btn btn-outline-dark-2"><span>UPDATE CART</span><i class="icon-refresh"></i></a>
-		            			</div><!-- End .cart-bottom -->
-	                		</div><!-- End .col-lg-9 -->
-	                		<aside class="col-lg-3">
-	                			<div class="summary summary-cart">
-	                				<h3 class="summary-title">Cart Total</h3><!-- End .summary-title -->
+	                							<h4 class="store-subtitle">Store Hours:</h4><!-- End .store-subtitle -->
+												<div>Monday - Friday 9am to 8pm</div>
+												<div>Saturday - 9am to 2pm</div>
+												<div>Sunday - Closed</div>
 
-	                				<table class="table table-summary">
-	                					<tbody>
-	                						<tr class="summary-subtotal">
-	                							<td>Subtotal:</td>
-	                							<td>$160.00</td>
-	                						</tr><!-- End .summary-subtotal -->
-	                						<tr class="summary-shipping">
-	                							<td>Shipping:</td>
-	                							<td>&nbsp;</td>
-	                						</tr>
-
-	                						<tr class="summary-shipping-row">
-	                							<td>
-													<div class="custom-control custom-radio">
-														<input type="radio" id="free-shipping" name="shipping" class="custom-control-input">
-														<label class="custom-control-label" for="free-shipping">Free Shipping</label>
-													</div><!-- End .custom-control -->
-	                							</td>
-	                							<td>$0.00</td>
-	                						</tr><!-- End .summary-shipping-row -->
-
-	                						<tr class="summary-shipping-row">
-	                							<td>
-	                								<div class="custom-control custom-radio">
-														<input type="radio" id="standart-shipping" name="shipping" class="custom-control-input">
-														<label class="custom-control-label" for="standart-shipping">Standart:</label>
-													</div><!-- End .custom-control -->
-	                							</td>
-	                							<td>$10.00</td>
-	                						</tr><!-- End .summary-shipping-row -->
-
-	                						<tr class="summary-shipping-row">
-	                							<td>
-	                								<div class="custom-control custom-radio">
-														<input type="radio" id="express-shipping" name="shipping" class="custom-control-input">
-														<label class="custom-control-label" for="express-shipping">Express:</label>
-													</div><!-- End .custom-control -->
-	                							</td>
-	                							<td>$20.00</td>
-	                						</tr><!-- End .summary-shipping-row -->
-
-	                						<tr class="summary-shipping-estimate">
-	                							<td>Estimate for Your Country<br> <a href="dashboard.html">Change address</a></td>
-	                							<td>&nbsp;</td>
-	                						</tr><!-- End .summary-shipping-estimate -->
-
-	                						<tr class="summary-total">
-	                							<td>Total:</td>
-	                							<td>$160.00</td>
-	                						</tr><!-- End .summary-total -->
-	                					</tbody>
-	                				</table><!-- End .table table-summary -->
-
-	                				<a href="checkout.html" class="btn btn-outline-primary-2 btn-order btn-block">PROCEED TO CHECKOUT</a>
-	                			</div><!-- End .summary -->
-
-		            			<a href="category.html" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE SHOPPING</span><i class="icon-refresh"></i></a>
-	                		</aside><!-- End .col-lg-3 -->
+                								<a href="#" class="btn btn-link" target="_blank"><span>View Map</span><i class="icon-long-arrow-right"></i></a>
+	                						</div><!-- End .store-content -->
+	                					</div><!-- End .col-xl-6 -->
+	                				</div><!-- End .row -->
+	                			</div><!-- End .store -->
+	                		</div><!-- End .col-lg-6 -->
 	                	</div><!-- End .row -->
-	                </div><!-- End .container -->
-                </div><!-- End .cart -->
+                	</div><!-- End .stores -->
+                </div><!-- End .container -->
+            	<div id="map"></div><!-- End #map -->
             </div><!-- End .page-content -->
         </main><!-- End .main -->
 
         <footer class="footer">
-        	<div class="footer-middle">
+        	<div class="footer-middle border-0">
 	            <div class="container">
 	            	<div class="row">
 	            		<div class="col-sm-6 col-lg-3">
@@ -731,12 +732,12 @@
 	            				<p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. </p>
 
 	            				<div class="social-icons">
-	            					<a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
-	            					<a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
-	            					<a href="#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
-	            					<a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
-	            					<a href="#" class="social-icon" target="_blank" title="Pinterest"><i class="icon-pinterest"></i></a>
-	            				</div><!-- End .soial-icons -->
+                                    <a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
+                                    <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
+                                    <a href="#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
+                                    <a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
+                                    <a href="#" class="social-icon" target="_blank" title="Pinterest"><i class="icon-pinterest"></i></a>
+                                </div><!-- End .soial-icons -->
 	            			</div><!-- End .widget about-widget -->
 	            		</div><!-- End .col-sm-6 col-lg-3 -->
 
@@ -745,11 +746,11 @@
 	            				<h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
 
 	            				<ul class="widget-list">
-	            					<li><a href="about.html">About Molla</a></li>
+	            					<li><a href="about.php">About Molla</a></li>
 	            					<li><a href="#">How to shop on Molla</a></li>
 	            					<li><a href="#">FAQ</a></li>
-	            					<li><a href="contact.html">Contact us</a></li>
-	            					<li><a href="../login.html">Log in</a></li>
+	            					<li><a href="contact.php">Contact us</a></li>
+	            					<li><a href="../login.php">Log in</a></li>
 	            				</ul><!-- End .widget-list -->
 	            			</div><!-- End .widget -->
 	            		</div><!-- End .col-sm-6 col-lg-3 -->
@@ -775,7 +776,7 @@
 
 	            				<ul class="widget-list">
 	            					<li><a href="#">Sign In</a></li>
-	            					<li><a href="cart.html">View Cart</a></li>
+	            					<li><a href="cart.php">View Cart</a></li>
 	            					<li><a href="#">My Wishlist</a></li>
 	            					<li><a href="#">Track My Order</a></li>
 	            					<li><a href="#">Help</a></li>
@@ -820,7 +821,7 @@
                             <li><a href="index-1.html">01 - furniture store</a></li>
                             <li><a href="index-2.html">02 - furniture store</a></li>
                             <li><a href="index-3.html">03 - electronic store</a></li>
-                            <li><a href="../index-4.html">04 - electronic store</a></li>
+                            <li><a href="../index.php">04 - electronic store</a></li>
                             <li><a href="index-5.html">05 - fashion store</a></li>
                             <li><a href="index-6.html">06 - fashion store</a></li>
                             <li><a href="index-7.html">07 - fashion store</a></li>
@@ -846,7 +847,7 @@
                     <li>
                         <a href="category.html">Shop</a>
                         <ul>
-                            <li><a href="category-list.html">Shop List</a></li>
+                            <li><a href="category-list.php">Shop List</a></li>
                             <li><a href="category-2cols.html">Shop Grid 2 Columns</a></li>
                             <li><a href="category.html">Shop Grid 3 Columns</a></li>
                             <li><a href="category-4cols.html">Shop Grid 4 Columns</a></li>
@@ -854,16 +855,16 @@
                             <li><a href="category-fullwidth.html">Shop Fullwidth No Sidebar</a></li>
                             <li><a href="product-category-boxed.html">Product Category Boxed</a></li>
                             <li><a href="product-category-fullwidth.html"><span>Product Category Fullwidth<span class="tip tip-new">New</span></span></a></li>
-                            <li><a href="cart.html">Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
+                            <li><a href="cart.php">Cart</a></li>
+                            <li><a href="checkout.php">Checkout</a></li>
                             <li><a href="wishlist.html">Wishlist</a></li>
                             <li><a href="#">Lookbook</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="product.html" class="sf-with-ul">Product</a>
+                        <a href="product.php" class="sf-with-ul">Product</a>
                         <ul>
-                            <li><a href="product.html">Default</a></li>
+                            <li><a href="product.php">Default</a></li>
                             <li><a href="product-centered.html">Centered</a></li>
                             <li><a href="product-extended.html"><span>Extended Info<span class="tip tip-new">New</span></span></a></li>
                             <li><a href="product-gallery.html">Gallery</a></li>
@@ -877,22 +878,22 @@
                         <a href="#">Pages</a>
                         <ul>
                             <li>
-                                <a href="about.html">About</a>
+                                <a href="about.php">About</a>
 
                                 <ul>
-                                    <li><a href="about.html">About 01</a></li>
+                                    <li><a href="about.php">About 01</a></li>
                                     <li><a href="about-2.html">About 02</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="contact.html">Contact</a>
+                                <a href="contact.php">Contact</a>
 
                                 <ul>
-                                    <li><a href="contact.html">Contact 01</a></li>
+                                    <li><a href="contact.php">Contact 01</a></li>
                                     <li><a href="contact-2.html">Contact 02</a></li>
                                 </ul>
                             </li>
-                            <li><a href="../login.html">Login</a></li>
+                            <li><a href="../login.php">Login</a></li>
                             <li><a href="faq.html">FAQs</a></li>
                             <li><a href="404.html">Error 404</a></li>
                             <li><a href="coming-soon.html">Coming Soon</a></li>
@@ -1084,6 +1085,9 @@
         </div><!-- End .modal-dialog -->
     </div><!-- End .modal -->
 
+    <!-- Google Map -->
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDc3LRykbLB-y8MuomRUIY0qH5S6xgBLX4"></script>
+
     <!-- Plugins JS File -->
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
@@ -1091,11 +1095,10 @@
     <script src="../assets/js/jquery.waypoints.min.js"></script>
     <script src="../assets/js/superfish.min.js"></script>
     <script src="../assets/js/owl.carousel.min.js"></script>
-    <script src="../assets/js/bootstrap-input-spinner.js"></script>
     <!-- Main JS File -->
     <script src="../assets/js/main.js"></script>
 </body>
 
 
-<!-- molla/cart.html  22 Nov 2019 09:55:06 GMT -->
+<!-- molla/contact.php  22 Nov 2019 10:04:03 GMT -->
 </html>
