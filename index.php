@@ -1,5 +1,6 @@
 <?php
 include('admin/config/server.php');
+$row_count = 0;
 try {
     #newcode
     if (isset($_SESSION["id"])) {
@@ -10,9 +11,15 @@ try {
         $statement->setFetchMode(PDO::FETCH_ASSOC);
         $results = $statement->fetchAll();
         $superTotal = 0;
+        if ($results) {
+            $row_count = $statement->rowCount();
+        } else {
+            $row_count = 0;
+        }
     } else {
         $user_id = 0;
         $_SESSION["id"] = 0;
+        header("refresh:0");
     }
 } catch (PDOException $e) {
     echo "error" . $e->getMessage();
@@ -178,19 +185,20 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
               </div> -->
                         <!-- End .compare-dropdown -->
                         <?php
-                        if (isset($_SESSION["id"])) {
+                        // if (isset($_SESSION["id"])) {
                         ?>
                         <div class="dropdown cart-dropdown">
                             <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false" data-display="static">
                                 <div class="icon">
                                     <i class="icon-shopping-cart"></i>
-                                    <span class="cart-count"><?php echo $statement->rowCount(); ?></span>
+                                    <span class="cart-count"><?php echo $row_count; ?></span>
                                 </div>
                                 <p>Cart</p>
                             </a>
                             <?php
-                        } ?>
+                            // } 
+                            ?>
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="dropdown-cart-products">
