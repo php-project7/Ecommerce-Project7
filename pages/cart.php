@@ -47,12 +47,6 @@ if (isset($_POST['subtractQuantity'])) {
     } else {
         echo "you can't purchase more than 10";
     }
-    #for refresh
-    // ob_start();
-    // ob_end_flush();
-    // header("Refresh:0");
-    // mahdiReload();
-    // mahdiStopReload();
 }
 
 

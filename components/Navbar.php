@@ -1,9 +1,10 @@
 <?php
 include('../admin/config/server.php');
 $_SESSION['superTotal'] = 0;
+$user_id = $_SESSION['id'];
 try {
     #newcode
-    $_command = "SELECT * FROM tempcart";
+    $_command = "SELECT * FROM tempcart WHERE user_id = $user_id;";
     $statement = $pdo->prepare($_command);
     $statement->execute();
     $statement->setFetchMode(PDO::FETCH_ASSOC);
@@ -12,18 +13,6 @@ try {
 } catch (PDOException $e) {
     echo "error" . $e->getMessage();
 }
-
-// function mahdiReload()
-// {
-//     echo "<script> window.location.reload();</script>";
-//     // echo `<meta http-equiv="Location" content="./cart.php">`;
-//     // echo header("Refresh:0");
-// }
-// function mahdiStopReload()
-// {
-//     echo "<script> window.stop();</script>";
-// }
-
 ?>
 
 <!DOCTYPE html>
