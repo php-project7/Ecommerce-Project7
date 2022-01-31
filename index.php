@@ -2,7 +2,7 @@
 include('admin/config/server.php');
 try {
     #newcode
-    if (isset($_SESSION["id"]) != 0) {
+    if (isset($_SESSION["id"])) {
         $user_id = $_SESSION["id"];
         $_command = "SELECT * FROM tempcart WHERE user_id = $user_id;";
         $statement = $pdo->prepare($_command);
@@ -127,7 +127,7 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                             <i class="icon-bars"></i>
                         </button>
 
-                        <a href="index.html" class="logo">
+                        <a href="index.php" class="logo">
                             <img src="assets/images/logo.png" alt="Molla Logo" width="105" height="25" />
                         </a>
                     </div>
@@ -177,8 +177,9 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                 </a>
               </div> -->
                         <!-- End .compare-dropdown -->
-                        <?php if (isset($_SESSION["id"])) { ?>
-
+                        <?php
+                        if (isset($_SESSION["id"])) {
+                        ?>
                         <div class="dropdown cart-dropdown">
                             <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false" data-display="static">
@@ -188,7 +189,8 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                                 </div>
                                 <p>Cart</p>
                             </a>
-                            <?php } ?>
+                            <?php
+                        } ?>
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="dropdown-cart-products">
