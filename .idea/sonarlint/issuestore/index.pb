@@ -35,8 +35,6 @@ G
 admin/config/server.php,0\f\0fad0d4ee712a225c43ac672443fc53dbbeac7cf
 >
 pages/faq.html,f\b\fb447bd133e3d234670593671c8a2c27245ec989
-E
-components/Footer.php,7\2\723f3c71bcc9d168339a6639bd51923fde328afc
 >
 pages/cart.php,b\d\bd6f15f9c07bb56234b8c9a65d58d7ccdba13033
 G
@@ -57,8 +55,6 @@ J
 admin/categories/index.php,8\0\802fcb5b5299d8894faee80eb66a5237b0c55447
 O
 admin/products/edit_product.php,6\7\67170300f2b6020010f6b1039cc0882ffb7e8994
-E
-components/Navbar.php,2\3\23f083e41ac46d614821faf6af995895fe98e85f
 ?
 admin/index.php,f\2\f2b5f437742223d88f00a5ab44f5e97a37359212
 L
