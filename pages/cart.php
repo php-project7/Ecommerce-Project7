@@ -47,6 +47,12 @@ if (isset($_POST['subtractQuantity'])) {
     } else {
         echo "you can't purchase more than 10";
     }
+    #for refresh
+    // ob_start();
+    // ob_end_flush();
+    // header("Refresh:0");
+    // mahdiReload();
+    // mahdiStopReload();
 }
 
 
@@ -143,6 +149,7 @@ function mahdiStopReload()
                                         </tr>
                                     </thead>
                                     <!-- mahdi table -->
+
                                     <tbody>
                                         <?php
                                         for ($i = 0; $i < count($results); $i++) {
@@ -391,6 +398,7 @@ function mahdiStopReload()
                         <ul>
                             <li>
                                 <a href="about.html">About</a>
+
 
                                 <ul>
                                     <li><a href="about.html">About 01</a></li>
