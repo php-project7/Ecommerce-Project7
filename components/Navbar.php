@@ -54,12 +54,14 @@ if (isset($_GET['logout'])) {
     <meta name="msapplication-config" content="assets/images/icons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
     <!-- Plugins CSS File -->
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-    <!-- Main CSS File -->
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/plugins/owl-carousel/owl.carousel.css">
     <link rel="stylesheet" href="../assets/css/plugins/magnific-popup/magnific-popup.css">
     <link rel="stylesheet" href="../assets/css/plugins/nouislider/nouislider.css">
+    <link rel="stylesheet" href="../assets/css/skins/skin-demo-4.css" />
+    <link rel="stylesheet" href="../assets/css/demos/demo-4.css" />
+
 </head>
 
 <body>
@@ -146,13 +148,12 @@ if (isset($_GET['logout'])) {
 
                 <div class="header-right">
                     <div class="header-search">
-                        <a href="#" class="search-toggle" role="button" title="Search"><i class="icon-search"></i></a>
-                        <form action="#" method="get">
-                            <div class="header-search-wrapper">
-                                <label for="q" class="sr-only">Search</label>
-                                <input type="search" class="form-control" name="q" id="q" placeholder="Search in..."
-                                    required>
-                            </div><!-- End .header-search-wrapper -->
+                        <!-- <a class="search-toggle" role="button" title="Search"><i class="icon-search"></i></a> -->
+
+                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                            <input type="text" name="search" class="form-control" placeholder="Search"
+                                style="border: 1px solid #dedede;">
+                            <button hidden type="submit" class="search-btn"><i class="icon-search"></i></button>
                         </form>
                     </div><!-- End .header-search -->
                     <?php if (isset($_SESSION["id"])) { ?>

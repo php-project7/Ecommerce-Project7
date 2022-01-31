@@ -73,7 +73,14 @@ if (isset($_POST['search'])) {
 }
 $errors = array();
 
-
+//handle search query
+if (isset($_POST['search'])) {
+    $search = $_POST['search'];
+    $sql = "SELECT * FROM products WHERE name LIKE '%$search%'";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $products = $stmt->fetchAll();
+}
 ?>
 
 
