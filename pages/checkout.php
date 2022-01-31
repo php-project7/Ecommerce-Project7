@@ -91,12 +91,10 @@ if (isset($_POST['checkout-form'])) {
         }
     } #inside for
     try {
-        mahdialert("before delete");
         $_command = "DELETE FROM tempcart WHERE user_id = :user_id";
         $statement = $pdo->prepare($_command);
         $statement->bindParam(':user_id', $user_id);
         $statement->execute();
-        mahdialert("after delete");
     } catch (PDOException $e) {
         echo "error" . $e;
     }
