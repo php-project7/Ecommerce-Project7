@@ -124,9 +124,16 @@ $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div><!-- End .details-filter-row -->
 
         <div class="product-details-action">
-         <button type="submit" name="submitAddToCart" value="<?= $productId ?>" class="btn-product btn-cart">
-          <span>add to cart</span>
-         </button>
+            <?php //handle to check if number of product stock is 0
+            if ($product['stock'] == 0 ) { ?>
+                <button type="submit" class="btn btn-sm btn-outline-danger" disabled>
+                    <span>Out of stock</span>
+                </button>
+            <?php } else { ?>
+                <button type="submit" class="btn btn-sm btn-outline-danger" name="submitAddToCart" value="<?= $product['id'] ?>">
+                    <span>Add to cart</span>
+                </button>
+            <?php } ?>
 
         </div><!-- End .product-details-action -->
        </form>
@@ -182,8 +189,7 @@ $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
            <h4><a href="#"><?= $username ?></a></h4>
           </div><!-- End .col -->
           <div class="col">
-
-           <div class="review-content">
+           <div class="review-content mt-3">
             <p><?= $reviews[$i]["review"] ?></p>
            </div><!-- End .review-content -->
           </div><!-- End .col-auto -->
@@ -244,7 +250,16 @@ $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div><!-- End .product-details-quantity -->
 
     <div class="product-details-action">
-     <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+        <?php //handle to check if number of product stock is 0
+        if ($product['stock'] == 0 ) { ?>
+            <button type="submit" class="btn btn-sm btn-outline-danger" disabled>
+                <span>Out of stock</span>
+            </button>
+        <?php } else { ?>
+            <button type="submit" class="btn btn-sm btn-outline-danger" name="submitAddToCart" value="<?= $product['id'] ?>">
+                <span>Add to cart</span>
+            </button>
+        <?php } ?>
     </div><!-- End .product-details-action -->
    </div><!-- End .col-6 -->
   </div><!-- End .row -->

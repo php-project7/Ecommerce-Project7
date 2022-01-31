@@ -3,10 +3,10 @@
 //  * Repository: https://github.com/shaack/bootstrap-input-spinner
 //  * License: MIT, see file 'LICENSE'
 //  */
-
+//
 // (function ($) {
 //     "use strict"
-
+//
 //     var spacePressed = false
 //     var originalVal = $.fn.val
 //     $.fn.val = function (value) {
@@ -17,9 +17,9 @@
 //         }
 //         return originalVal.apply(this, arguments)
 //     }
-
+//
 //     $.fn.InputSpinner = $.fn.inputSpinner = function (options) {
-
+//
 //         var config = {
 //             decrementButton: "<strong>-</strong>", // button text
 //             incrementButton: "<strong>+</strong>", // ..
@@ -36,7 +36,7 @@
 //         for (var option in options) {
 //             config[option] = options[option]
 //         }
-
+//
 //         var html = '<div class="input-group ' + config.groupClass + '">' +
 //             '<div class="input-group-prepend">' +
 //             '<button style="min-width: ' + config.buttonsWidth + '" class="btn btn-decrement ' + config.buttonsClass + '" type="button">' + config.decrementButton + '</button>' +
@@ -46,43 +46,43 @@
 //             '<button style="min-width: ' + config.buttonsWidth + '" class="btn btn-increment ' + config.buttonsClass + '" type="button">' + config.incrementButton + '</button>' +
 //             '</div>' +
 //             '</div>'
-
+//
 //         var locale = config.locale || navigator.language || "en-US"
-
+//
 //         this.each(function () {
-
+//
 //             var $original = $(this)
 //             $original[0]["bootstrap-input-spinner"] = true
 //             $original.hide()
-
+//
 //             var autoDelayHandler = null
 //             var autoIntervalHandler = null
 //             var autoMultiplier = config.boostMultiplier === "auto"
 //             var boostMultiplier = autoMultiplier ? 1 : config.boostMultiplier
-
+//
 //             var $inputGroup = $(html)
 //             var $buttonDecrement = $inputGroup.find(".btn-decrement")
 //             var $buttonIncrement = $inputGroup.find(".btn-increment")
 //             var $input = $inputGroup.find("input")
-
+//
 //             var min = null
 //             var max = null
 //             var step = null
 //             var stepMax = null
 //             var decimals = null
-
+//
 //             updateAttributes()
-
+//
 //             var numberFormat = new Intl.NumberFormat(locale, {
 //                 minimumFractionDigits: decimals,
 //                 maximumFractionDigits: decimals
 //             })
 //             var value = parseFloat($original[0].value)
 //             var boostStepsCount = 0
-
+//
 //             var prefix = $original.attr("data-prefix") || ""
 //             var suffix = $original.attr("data-suffix") || ""
-
+//
 //             if (prefix) {
 //                 var prefixElement = $('<span class="input-group-text">' + prefix + '</span>')
 //                 $inputGroup.find(".input-group-prepend").append(prefixElement)
@@ -91,21 +91,21 @@
 //                 var suffixElement = $('<span class="input-group-text">' + suffix + '</span>')
 //                 $inputGroup.find(".input-group-append").prepend(suffixElement)
 //             }
-
+//
 //             $original[0].setValue = function (newValue) {
 //                 setValue(newValue)
 //             }
-
+//
 //             var observer = new MutationObserver(function () {
 //                 updateAttributes()
 //                 setValue(value, true)
 //             })
 //             observer.observe($original[0], {attributes: true})
-
+//
 //             $original.after($inputGroup)
-
+//
 //             setValue(value)
-
+//
 //             $input.on("paste input change focusout", function (event) {
 //                 var newValue = $input[0].value
 //                 var focusOut = event.type === "focusout"
@@ -113,7 +113,7 @@
 //                 setValue(newValue, focusOut)
 //                 dispatchEvent($original, event.type)
 //             })
-
+//
 //             onPointerDown($buttonDecrement[0], function () {
 //                 stepHandling(-step)
 //             })
@@ -123,7 +123,7 @@
 //             onPointerUp(document.body, function () {
 //                 resetTimer()
 //             })
-
+//
 //             function setValue(newValue, updateInput) {
 //                 if (updateInput === undefined) {
 //                     updateInput = true
@@ -145,7 +145,7 @@
 //                     value = newValue
 //                 }
 //             }
-
+//
 //             function dispatchEvent($element, type) {
 //                 if (type) {
 //                     setTimeout(function () {
@@ -160,7 +160,7 @@
 //                     })
 //                 }
 //             }
-
+//
 //             function stepHandling(step) {
 //                 if (!$input[0].disabled) {
 //                     calcStep(step)
@@ -187,7 +187,7 @@
 //                     }, config.autoDelay)
 //                 }
 //             }
-
+//
 //             function calcStep(step) {
 //                 if (isNaN(value)) {
 //                     value = 0
@@ -196,14 +196,14 @@
 //                 dispatchEvent($original, "input")
 //                 dispatchEvent($original, "change")
 //             }
-
+//
 //             function resetTimer() {
 //                 boostStepsCount = 0
 //                 boostMultiplier = boostMultiplier = autoMultiplier ? 1 : config.boostMultiplier
 //                 clearTimeout(autoDelayHandler)
 //                 clearTimeout(autoIntervalHandler)
 //             }
-
+//
 //             function updateAttributes() {
 //                 // copy properties from original to the new input
 //                 $input.prop("required", $original.prop("required"))
@@ -226,7 +226,7 @@
 //                 var inputClass = originalClass.replace(/form-control(-(sm|lg))?/g, "")
 //                 $inputGroup.prop("class", "input-group " + groupClass + " " + config.groupClass)
 //                 $input.prop("class", "form-control " + inputClass)
-
+//
 //                 // update the main attributes
 //                 min = parseFloat($original.prop("min")) || 0
 //                 max = isNaN($original.prop("max")) || $original.prop("max") === "" ? Infinity : parseFloat($original.prop("max"))
@@ -241,7 +241,7 @@
 //                     })
 //                 }
 //             }
-
+//
 //             function parseLocaleNumber(stringNumber) {
 //                 var numberFormat = new Intl.NumberFormat(locale)
 //                 var thousandSeparator = numberFormat.format(1111).replace(/1/g, '')
@@ -252,9 +252,9 @@
 //                 )
 //             }
 //         })
-
+//
 //     }
-
+//
 //     function onPointerUp(element, callback) {
 //         element.addEventListener("mouseup", function (e) {
 //             callback(e)
@@ -269,7 +269,7 @@
 //             }
 //         })
 //     }
-
+//
 //     function onPointerDown(element, callback) {
 //         element.addEventListener("mousedown", function (e) {
 //             e.preventDefault()
@@ -288,5 +288,5 @@
 //             }
 //         })
 //     }
-
+//
 // }(jQuery))
