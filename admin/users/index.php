@@ -109,7 +109,16 @@ if (isset($_GET['logout'])) {
                                             <i class="zmdi zmdi-money"></i>
                                         </div>
                                         <div class="text">
-                                            <h2>$1,060,386</h2>
+                                            <h2>$<?php
+                                                //count total price of each order and sum them up to get total sales of all orders in the database
+                                                $stmt = $pdo->prepare('SELECT * FROM orders ORDER BY id DESC');
+                                                $stmt->execute();
+                                                $total_sales = 0;
+                                                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                                    $total_sales += $row['total'];
+                                                }
+                                                echo $total_sales;
+                                                ?></h2>
                                             <span>total earnings</span>
                                         </div>
                                     </div>
