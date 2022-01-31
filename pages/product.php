@@ -93,8 +93,7 @@ $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <div class="product-gallery product-gallery-vertical">
                             <div class="row">
                                 <figure class="product-main-image">
-                                    <img id="product-zoom" src="<?= $product["img"] ?>"
-                                        data-zoom-image="assets/images/products/single/1-big.jpg" alt="product image">
+                                    <img id="product-zoom" src="<?= $product["img"] ?>" data-zoom-image="assets/images/products/single/1-big.jpg" alt="product image">
                                 </figure><!-- End .product-main-image -->
                             </div><!-- End .row -->
                         </div><!-- End .product-gallery -->
@@ -121,26 +120,23 @@ $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <div class="details-filter-row details-row-size">
                                     <label for="qty">Qty:</label>
                                     <div class="product-details-quantity">
-                                        <input type="number" id="qty" class="form-control" name="submittedQuantity"
-                                            value="1" min="1" max="<?php echo $productStock; ?>" step="1"
-                                            data-decimals="0" required>
+                                        <input type="number" id="qty" class="form-control" name="submittedQuantity" value="1" min="1" max="<?php echo $productStock; ?>" step="1" data-decimals="0" required>
                                     </div><!-- End .product-details-quantity -->
                                 </div><!-- End .details-filter-row -->
 
                                 <div class="product-details-action">
                                     <?php //handle to check if number of product stock is 0
                                     if ($product['stock'] == 0) { ?>
-                                    <button type="submit" class="btn btn-sm btn-outline-danger" disabled>
-                                        <span>Out of stock</span>
-                                    </button>
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" disabled>
+                                            <span>Out of stock</span>
+                                        </button>
                                     <?php } elseif ($_SESSION['id'] != 0) { ?>
-                                    <button type="submit" class="btn btn-sm btn-outline-danger" name="submitAddToCart"
-                                        value="<?= $product['id'] ?>">
-                                        <span>Add to cart</span>
-                                    </button>
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" name="submitAddToCart" value="<?= $product['id'] ?>">
+                                            <span>Add to cart</span>
+                                        </button>
                                     <?php } else { ?>
-                                    <a href="../login.php" class="btn btn-outline-primary-2"><span>Login to
-                                            purchase</span><i class="icon-long-arrow-right"></i></a>
+                                        <a href="../login.php" class="btn btn-outline-primary-2"><span>Login to
+                                                purchase</span><i class="icon-long-arrow-right"></i></a>
                                     <?php } ?>
 
                                 </div><!-- End .product-details-action -->
@@ -165,26 +161,22 @@ $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="product-details-tab">
                 <ul class="nav nav-pills justify-content-center" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="product-review-link" data-toggle="tab" href="#product-review-tab"
-                            role="tab" aria-controls="product-review-tab" aria-selected="false">Reviews
+                        <a class="nav-link active" id="product-review-link" data-toggle="tab" href="#product-review-tab" role="tab" aria-controls="product-review-tab" aria-selected="false">Reviews
                             (<?= count($reviews) ?>)</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " id="product-desc-link" data-toggle="tab" href="#product-desc-tab"
-                            role="tab" aria-controls="product-desc-tab" aria-selected="true">Description</a>
+                        <a class="nav-link " id="product-desc-link" data-toggle="tab" href="#product-desc-tab" role="tab" aria-controls="product-desc-tab" aria-selected="true">Description</a>
                     </li>
 
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane fade " id="product-desc-tab" role="tabpanel"
-                        aria-labelledby="product-desc-link">
+                    <div class="tab-pane fade " id="product-desc-tab" role="tabpanel" aria-labelledby="product-desc-link">
                         <div class="product-desc-content">
                             <h3>Product Information</h3>
                             <p><?= $product["description"] ?></p>
                         </div><!-- End .product-desc-content -->
                     </div><!-- .End .tab-pane -->
-                    <div class="tab-pane fade show active" id="product-review-tab" role="tabpanel"
-                        aria-labelledby="product-review-link">
+                    <div class="tab-pane fade show active" id="product-review-tab" role="tabpanel" aria-labelledby="product-review-link">
                         <div class="reviews">
                             <h3>Reviews (<?= count($reviews) ?>)</h3>
 
@@ -196,18 +188,18 @@ $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 $userRecord = $stmt->fetch(PDO::FETCH_ASSOC);
                                 $username = ($userRecord["name"]);
                             ?>
-                            <div class="review">
-                                <div class="row no-gutters">
-                                    <div class="col-auto">
-                                        <h4><a href="#"><?= $username ?></a></h4>
-                                    </div><!-- End .col -->
-                                    <div class="col">
-                                        <div class="review-content mt-3">
-                                            <p><?= $reviews[$i]["review"] ?></p>
-                                        </div><!-- End .review-content -->
-                                    </div><!-- End .col-auto -->
-                                </div><!-- End .row -->
-                            </div><!-- End .review -->
+                                <div class="review">
+                                    <div class="row no-gutters">
+                                        <div class="col-auto">
+                                            <h4><a href="#"><?= $username ?></a></h4>
+                                        </div><!-- End .col -->
+                                        <div class="col">
+                                            <div class="review-content mt-3">
+                                                <p><?= $reviews[$i]["review"] ?></p>
+                                            </div><!-- End .review-content -->
+                                        </div><!-- End .col-auto -->
+                                    </div><!-- End .row -->
+                                </div><!-- End .review -->
                             <?php
                             }
                             ?>
@@ -217,16 +209,18 @@ $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </div><!-- End .reviews -->
                         <?php
                         if (isset($_SESSION['id'])) {
+                            if ($_SESSION['id'] != 0) {
                         ?>
-                        <form action='product.php?id=<?= $product['id'] ?>' method="post">
-                            <br>
-                            <label>Add New Review</label>
-                            <input type="text" class="form-control" name="reviewContent" required>
-                            <button type="submit" class="btn btn-outline-primary-2" name="submitNewReview">
-                                <span>Add</span>
-                            </button>
-                        </form>
+                                <form action='product.php?id=<?= $product['id'] ?>' method="post">
+                                    <br>
+                                    <label>Add New Review</label>
+                                    <input type="text" class="form-control" name="reviewContent" required>
+                                    <button type="submit" class="btn btn-outline-primary-2" name="submitNewReview">
+                                        <span>Add</span>
+                                    </button>
+                                </form>
                         <?php
+                            }
                         }
                         ?>
                     </div><!-- .End .tab-pane -->
@@ -260,21 +254,19 @@ $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     $<?= $product["price"] ?>
                 </div><!-- End .product-price -->
                 <div class="product-details-quantity">
-                    <input type="number" id="sticky-cart-qty" class="form-control" value="1" min="1"
-                        max="<?php echo $productStock; ?>" step="1" data-decimals="0" required>
+                    <input type="number" id="sticky-cart-qty" class="form-control" value="1" min="1" max="<?php echo $productStock; ?>" step="1" data-decimals="0" required>
                 </div><!-- End .product-details-quantity -->
 
                 <div class="product-details-action">
                     <?php //handle to check if number of product stock is 0
                     if ($product['stock'] == 0) { ?>
-                    <button type="submit" class="btn btn-sm btn-outline-danger" disabled>
-                        <span>Out of stock</span>
-                    </button>
+                        <button type="submit" class="btn btn-sm btn-outline-danger" disabled>
+                            <span>Out of stock</span>
+                        </button>
                     <?php } else { ?>
-                    <button type="submit" class="btn btn-sm btn-outline-danger" name="submitAddToCart"
-                        value="<?= $product['id'] ?>">
-                        <span>Add to cart</span>
-                    </button>
+                        <button type="submit" class="btn btn-sm btn-outline-danger" name="submitAddToCart" value="<?= $product['id'] ?>">
+                            <span>Add to cart</span>
+                        </button>
                     <?php } ?>
                 </div><!-- End .product-details-action -->
             </div><!-- End .col-6 -->

@@ -125,7 +125,11 @@ $errors = array();
                             <h3>No products found</h3>
                         </div>
                         <?php } else { ?>
-                        <?php foreach ($products as $product) { ?>
+                        <?php foreach ($products as $product) {
+                                $review_sql = "SELECT * FROM reviews WHERE product_id=$product[id]";
+                                $review_stmt = $pdo->query($review_sql);
+                                $review_review = $review_stmt->fetchAll(PDO::FETCH_ASSOC);
+                            ?>
                         <div class="products mb-3">
                             <div class="product product-list">
                                 <div class="row mb-3">
@@ -149,7 +153,8 @@ $errors = array();
                                                     <div class="ratings-val" style="width: 20%;"></div>
                                                     <!-- End .ratings-val -->
                                                 </div><!-- End .ratings -->
-                                                <span class="ratings-text">( 2 Reviews )</span>
+                                                <span class="ratings-text">( <?= count($review_review) ?> Reviews
+                                                    )</span>
                                             </div><!-- End .rating-container -->
 
 

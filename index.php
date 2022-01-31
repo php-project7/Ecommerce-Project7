@@ -463,8 +463,9 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                                                 cart</span></a><?php } else {
                                                                         echo "<p>Out of Stock</p>";
                                                                     } ?>
-                                        <a href='popup/quickView.html' class='btn-product btn-quickview'
-                                            title='Quick view'><span>quick view</span></a>
+                                        <a href='popup/quickView.php?id=<?= $row['id'] ?>'
+                                            class='btn-product btn-quickview' title='Quick view'><span>quick
+                                                view</span></a>
                                     </div>
                                 </figure>
                                 <div class='product-body'>
@@ -612,8 +613,9 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                                                         cart</span></a><?php } else {
                                                                                 echo "<p>Out of Stock</p>";
                                                                             } ?>
-                                                <a href='popup/quickView.html' class='btn-product btn-quickview'
-                                                    title='Quick view'><span>quick view</span></a>
+                                                <a href='popup/quickView.php?id=<?= $row['id'] ?>'
+                                                    class='btn-product btn-quickview' title='Quick view'><span>quick
+                                                        view</span></a>
                                             </div>
                                         </figure>
                                         <div class='product-body'>
