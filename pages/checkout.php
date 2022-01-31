@@ -44,7 +44,7 @@ if (isset($_POST['checkout-form'])) {
         $statement->execute();
         $statement->setFetchMode(PDO::FETCH_ASSOC);
         $order = $statement->fetchAll();
-        $order_id = $order[$statement->rowCount() - 1]['id']; #get latest order id 
+        $order_id = $order[$statement->rowCount() - 1]['id']; #get latest order id
     } catch (PDOException $e) {
         echo "error" . $e->getMessage();
     }

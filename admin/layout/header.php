@@ -5,7 +5,19 @@ if(isset($_GET['logout'])){
     header("Location: ../../login.php");
 }
 
+//handle search query
+if (isset($_POST['search'])) {
+    $search = $_POST['search'];
+    $sql = "SELECT * FROM products WHERE name LIKE '%$search%'";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $products = $stmt->fetchAll();
+}
+$errors = array();
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -125,12 +137,13 @@ if(isset($_GET['logout'])){
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
                     <div class="header-wrap">
-                        <form class="form-header" action="" method="POST">
-                            <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
-                            <button class="au-btn--submit" type="submit">
-                                <i class="zmdi zmdi-search"></i>
-                            </button>
-                        </form>
+                        <div class="header-search">
+
+                            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                                <input type="text" name="search" class="form-control" placeholder="Search">
+                                <button hidden type="submit" class="search-btn"><i class="icon-search"></i></button>
+                            </form>
+                        </div><!-- End .header-search -->
                         <div class="header-button">
                             <div class="noti-wrap">
                                 <div class="noti__item js-item-menu">
