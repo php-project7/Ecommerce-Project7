@@ -142,8 +142,7 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                                     <button class="btn btn-primary" type="submit">
                                         <i class="icon-search"></i>
                                     </button>
-                                    <input type="search" class="form-control" name="q" id="q"
-                                        placeholder="Search product ..." required />
+                                    <input type="search" class="form-control" name="q" id="q" placeholder="Search product ..." required />
                                 </div>
                                 <!-- End .header-search-wrapper -->
                             </form>
@@ -153,9 +152,7 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
 
                     <div class="header-right">
                         <div class="dropdown compare-dropdown">
-                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false" data-display="static"
-                                title="Compare Products" aria-label="Compare Products">
+                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" title="Compare Products" aria-label="Compare Products">
                                 <!-- <div class="icon">
                     <i class="icon-random"></i>
                   </div> -->
@@ -179,52 +176,48 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                         <!-- End .compare-dropdown -->
                         <?php if (isset($_SESSION["id"])) { ?>
 
-                        <div class="dropdown cart-dropdown">
-                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false" data-display="static">
-                                <div class="icon">
-                                    <i class="icon-shopping-cart"></i>
-                                    <span class="cart-count"><?php echo $statement->rowCount(); ?></span>
-                                </div>
-                                <p>Cart</p>
-                            </a>
+                            <div class="dropdown cart-dropdown">
+                                <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                                    <div class="icon">
+                                        <i class="icon-shopping-cart"></i>
+                                        <span class="cart-count"><?php echo $statement->rowCount(); ?></span>
+                                    </div>
+                                    <p>Cart</p>
+                                </a>
                             <?php } ?>
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="dropdown-cart-products">
                                     <?php for ($i = 0; $i < count($results); $i++) { ?>
-                                    <div class="product">
-                                        <div class="product-cart-details">
-                                            <h4 class="product-title">
-                                                <a><?php echo $results[$i]['name']; ?></a>
-                                            </h4>
+                                        <div class="product">
+                                            <div class="product-cart-details">
+                                                <h4 class="product-title">
+                                                    <a><?php echo $results[$i]['name']; ?></a>
+                                                </h4>
 
-                                            <span class="cart-product-info">
-                                                <span
-                                                    class="cart-product-qty"><?php echo $results[$i]['quantity']; ?></span>
-                                                x <?php echo $results[$i]['price']; ?><span>JD</span>
-                                            </span>
-                                        </div>
+                                                <span class="cart-product-info">
+                                                    <span class="cart-product-qty"><?php echo $results[$i]['quantity']; ?></span>
+                                                    x <?php echo $results[$i]['price']; ?><span>JD</span>
+                                                </span>
+                                            </div>
 
-                                        <figure class="product-image-container">
-                                            <a class="product-image">
-                                                <img src="<?php echo $results[$i]['img']; ?>" alt="product">
-                                            </a>
-                                        </figure>
-                                    </div><!-- End .product -->
+                                            <figure class="product-image-container">
+                                                <a class="product-image">
+                                                    <img src="<?php echo $results[$i]['img']; ?>" alt="product">
+                                                </a>
+                                            </figure>
+                                        </div><!-- End .product -->
                                     <?php
                                     }
                                     ?>
                                 </div><!-- End .cart-product -->
                                 <div class="dropdown-cart-action">
                                     <a href="pages/cart.php" class="btn btn-primary">View Cart</a>
-                                    <a href="pages/checkout.php"
-                                        class="btn btn-outline-primary-2"><span>Checkout</span><i
-                                            class="icon-long-arrow-right"></i></a>
+                                    <a href="pages/checkout.php" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
                                 </div>
                             </div><!-- End .dropdown-menu -->
-                        </div>
-                        <!-- End .cart-dropdown -->
+                            </div>
+                            <!-- End .cart-dropdown -->
                     </div>
                     <!-- End .header-right -->
                 </div>
@@ -259,10 +252,10 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
 
                                 </li>
                                 <?php if ($_SESSION['id'] != 0) { ?>
-                                <li>
-                                    <a href="pages/dashboard.php" class="  ">MY ACCOUNT</a>
+                                    <li>
+                                        <a href="pages/dashboard.php" class="  ">MY ACCOUNT</a>
 
-                                </li>
+                                    </li>
                                 <?php } ?>
 
 
@@ -286,8 +279,7 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
 
         <main class="main">
             <div class="intro-slider-container mb-5">
-                <div class="intro-slider owl-carousel owl-theme owl-nav-inside owl-light" data-toggle="owl"
-                    data-owl-options='{
+                <div class="intro-slider owl-carousel owl-theme owl-nav-inside owl-light" data-toggle="owl" data-owl-options='{
                         "dots": true,
                         "nav": false, 
                         "responsive": {
@@ -375,17 +367,17 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                 <div class="cat-blocks-container">
                     <div class="row">
                         <?php foreach ($categories as $category) { ?>
-                        <div class="col-6 col-sm-4 col-lg-2">
-                            <a href="pages/category.php?id=<?php echo $category['id'] ?>" class="cat-block">
-                                <figure>
-                                    <span>
-                                        <img src="<?= $category['img'] ?>" alt="Category image" />
-                                    </span>
-                                </figure>
+                            <div class="col-6 col-sm-4 col-lg-2">
+                                <a href="pages/category.php?id=<?php echo $category['id'] ?>" class="cat-block">
+                                    <figure>
+                                        <span>
+                                            <img src="<?= $category['img'] ?>" alt="Category image" />
+                                        </span>
+                                    </figure>
 
-                                <h3 class="cat-block-title"><?= $category['name'] ?></h3>
-                            </a>
-                        </div>
+                                    <h3 class="cat-block-title"><?= $category['name'] ?></h3>
+                                </a>
+                            </div>
                         <?php } ?>
 
                     </div>
@@ -414,8 +406,7 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                     <div class="heading-right">
                         <ul class="nav nav-pills nav-border-anim justify-content-center" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="new-all-link" data-toggle="tab" href="#new-all-tab"
-                                    role="tab" aria-controls="new-all-tab" aria-selected="true">All</a>
+                                <a class="nav-link active" id="new-all-link" data-toggle="tab" href="#new-all-tab" role="tab" aria-controls="new-all-tab" aria-selected="true">All</a>
                             </li>
 
 
@@ -426,10 +417,8 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                 <!-- End .heading -->
 
                 <div class="tab-content tab-content-carousel just-action-icons-sm">
-                    <div class="tab-pane p-0 fade show active" id="new-all-tab" role="tabpanel"
-                        aria-labelledby="new-all-link">
-                        <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl"
-                            data-owl-options='{
+                    <div class="tab-pane p-0 fade show active" id="new-all-tab" role="tabpanel" aria-labelledby="new-all-link">
+                        <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl" data-owl-options='{
                                 "nav": true, 
                                 "dots": true,
                                 "margin": 20,
@@ -454,37 +443,31 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                             }'>
 
                             <?php foreach ($result as $row) { ?>
-                            <div class='product product-2'>
-                                <figure class='product-media'>
-                                    <span class='product-label label-circle label-top'>Sale</span>
-                                    <a href='pages/product.php?id=<?= $row['id'] ?>'><img src="<?= $row['img'] ?>"
-                                            alt='Product image' class='product-image' /></a>
-                                    <div class='product-action-vertical'><a href='#'
-                                            class='btn-product-icon btn-wishlist' title='Add to wishlist'></a></div>
-                                    <div class='product-action'><?php if ($row['stock']) { ?><a
-                                            href="addToCart.php?id=<?= $row['id'] ?>" class='btn-product btn-cart'
-                                            title='Add to cart'><span>add to
-                                                cart</span></a><?php } else {
+                                <div class='product product-2'>
+                                    <figure class='product-media'>
+                                        <span class='product-label label-circle label-top'>Sale</span>
+                                        <a href='pages/product.php?id=<?= $row['id'] ?>'><img src="<?= $row['img'] ?>" alt='Product image' class='product-image' /></a>
+                                        <div class='product-action-vertical'><a href='#' class='btn-product-icon btn-wishlist' title='Add to wishlist'></a></div>
+                                        <div class='product-action'><?php if ($row['stock']) { ?><a href="addToCart.php?id=<?= $row['id'] ?>" class='btn-product btn-cart' title='Add to cart'><span>add to
+                                                        cart</span></a><?php } else {
                                                                         echo "<p>Out of Stock</p>";
                                                                     } ?>
-                                        <a href='popup/quickView.php?id=<?= $row['id'] ?>'
-                                            class='btn-product btn-quickview' title='Quick view'><span>quick
-                                                view</span></a>
-                                    </div>
-                                </figure>
-                                <div class='product-body'>
-                                    <div class='product-cat'><a href='#'><?php
+                                            <a href='popup/quickView.php?id=<?= $row['id'] ?>' class='btn-product btn-quickview' title='Quick view'><span>quick
+                                                    view</span></a>
+                                        </div>
+                                    </figure>
+                                    <div class='product-body'>
+                                        <div class='product-cat'><a href='#'><?php
                                                                                 foreach ($categories as $category) {
                                                                                     if ($category['id'] === $row['category_id']) {
                                                                                         echo '<a href="#">' . $category['name'] . '</a>';
                                                                                     }
                                                                                 }
                                                                                 ?></a></div>
-                                    <h3 class='product-title'><a
-                                            href='pages/product.php?id=<?= $row['id'] ?>'><?= $row['name'] ?></a></h3>
-                                    <div class='product-price'><?= $row['price'] ?> . J.D</div>
+                                        <h3 class='product-title'><a href='pages/product.php?id=<?= $row['id'] ?>'><?= $row['name'] ?></a></h3>
+                                        <div class='product-price'><?= $row['price'] ?> . J.D</div>
+                                    </div>
                                 </div>
-                            </div>
                             <?php } ?>
 
 
@@ -582,9 +565,7 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                             <div class="heading-right">
                                 <ul class="nav nav-pills nav-border-anim justify-content-center" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link active" id="new-all-link" data-toggle="tab"
-                                            href="#new-all-tab" role="tab" aria-controls="new-all-tab"
-                                            aria-selected="true">All</a>
+                                        <a class="nav-link active" id="new-all-link" data-toggle="tab" href="#new-all-tab" role="tab" aria-controls="new-all-tab" aria-selected="true">All</a>
                                     </li>
 
 
@@ -595,10 +576,8 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                         <!-- End .heading -->
 
                         <div class="tab-content tab-content-carousel just-action-icons-sm">
-                            <div class="tab-pane p-0 fade show active" id="new-all-tab" role="tabpanel"
-                                aria-labelledby="new-all-link">
-                                <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow"
-                                    data-toggle="owl" data-owl-options='{
+                            <div class="tab-pane p-0 fade show active" id="new-all-tab" role="tabpanel" aria-labelledby="new-all-link">
+                                <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl" data-owl-options='{
                                 "nav": true, 
                                 "dots": true,
                                 "margin": 20,
@@ -623,41 +602,33 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                             }'>
 
                                     <?php foreach ($result1 as $row) { ?>
-                                    <div class='product product-2'>
-                                        <figure class='product-media'>
-                                            <?php if ($row['discount']) { ?><span
-                                                class='product-label label-circle label-top'>Sale</span> <?php } ?>
-                                            <a href='pages/product.php?id=<?= $row['id'] ?>'><img
-                                                    src="<?= $row['img'] ?>" alt='Product image'
-                                                    class='product-image' /></a>
-                                            <div class='product-action-vertical'><a href='#'
-                                                    class='btn-product-icon btn-wishlist' title='Add to wishlist'></a>
-                                            </div>
-                                            <div class='product-action'><?php if ($row['stock']) { ?><a
-                                                    href="addToCart.php?id=<?= $row['id'] ?>"
-                                                    class='btn-product btn-cart' title='Add to cart'><span>add to
-                                                        cart</span></a><?php } else {
+                                        <div class='product product-2'>
+                                            <figure class='product-media'>
+                                                <?php if ($row['discount']) { ?><span class='product-label label-circle label-top'>Sale</span> <?php } ?>
+                                                <a href='pages/product.php?id=<?= $row['id'] ?>'><img src="<?= $row['img'] ?>" alt='Product image' class='product-image' /></a>
+                                                <div class='product-action-vertical'><a href='#' class='btn-product-icon btn-wishlist' title='Add to wishlist'></a>
+                                                </div>
+                                                <div class='product-action'><?php if ($row['stock']) { ?><a href="addToCart.php?id=<?= $row['id'] ?>" class='btn-product btn-cart' title='Add to cart'><span>add to
+                                                                cart</span></a><?php } else {
                                                                                 echo "<p>Out of Stock</p>";
                                                                             } ?>
-                                                <a href='popup/quickView.php?id=<?= $row['id'] ?>'
-                                                    class='btn-product btn-quickview' title='Quick view'><span>quick
-                                                        view</span></a>
-                                            </div>
-                                        </figure>
-                                        <div class='product-body'>
-                                            <div class='product-cat'><a href='#'><?php
+                                                    <a href='popup/quickView.php?id=<?= $row['id'] ?>' class='btn-product btn-quickview' title='Quick view'><span>quick
+                                                            view</span></a>
+                                                </div>
+                                            </figure>
+                                            <div class='product-body'>
+                                                <div class='product-cat'><a href='#'><?php
                                                                                         foreach ($categories as $category) {
                                                                                             if ($category['id'] === $row['category_id']) {
                                                                                                 echo '<a href="#">' . $category['name'] . '</a>';
                                                                                             }
                                                                                         }
                                                                                         ?></a></div>
-                                            <h3 class='product-title'><a
-                                                    href='pages/product.php?id=<?= $row['id'] ?>'><?= $row['name'] ?></a>
-                                            </h3>
-                                            <div class='product-price'><?= $row['price'] ?> . J.D</div>
+                                                <h3 class='product-title'><a href='pages/product.php?id=<?= $row['id'] ?>'><?= $row['name'] ?></a>
+                                                </h3>
+                                                <div class='product-price'><?= $row['price'] ?> . J.D</div>
+                                            </div>
                                         </div>
-                                    </div>
 
                                     <?php } ?>
 
@@ -685,8 +656,7 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
         <!-- End .main -->
 
         <footer class="footer">
-            <div class="cta bg-image bg-dark pt-4 pb-5 mb-0"
-                style="background-image: url(assets/images/demos/demo-4/bg-5.jpg)">
+            <div class="cta bg-image bg-dark pt-4 pb-5 mb-0" style="background-image: url(assets/images/demos/demo-4/bg-5.jpg)">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-sm-10 col-md-8 col-lg-6">
@@ -704,8 +674,7 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
 
                             <form action="#">
                                 <div class="input-group input-group-round">
-                                    <input type="email" class="form-control form-control-white"
-                                        placeholder="Enter your Email Address" aria-label="Email Adress" required />
+                                    <input type="email" class="form-control form-control-white" placeholder="Enter your Email Address" aria-label="Email Adress" required />
                                     <div class="input-group-append">
                                         <button class="btn btn-primary" type="submit">
                                             <span>Subscribe</span><i class="icon-long-arrow-right"></i>
@@ -728,8 +697,7 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                     <div class="row">
                         <div class="col-sm-6 col-lg-3">
                             <div class="widget widget-about">
-                                <img src="assets/images/demos/demo-4/logo-footer.png" class="footer-logo"
-                                    alt="Footer Logo" width="105" height="25" />
+                                <img src="assets/images/demos/demo-4/logo-footer.png" class="footer-logo" alt="Footer Logo" width="105" height="25" />
                                 <p>
                                     Praesent dapibus, neque id cursus ucibus, tortor neque
                                     egestas augue, eu vulputate magna eros eu erat.
@@ -819,8 +787,7 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
 
             <form action="#" method="get" class="mobile-search">
                 <label for="mobile-search" class="sr-only">Search</label>
-                <input type="search" class="form-control" name="mobile-search" id="mobile-search"
-                    placeholder="Search in..." required />
+                <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..." required />
                 <button class="btn btn-primary" type="submit">
                     <i class="icon-search"></i>
                 </button>
@@ -828,15 +795,13 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
 
             <ul class="nav nav-pills-mobile nav-border-anim" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="mobile-menu-link" data-toggle="tab" href="#mobile-menu-tab"
-                        role="tab" aria-controls="mobile-menu-tab" aria-selected="true">Menu</a>
+                    <a class="nav-link active" id="mobile-menu-link" data-toggle="tab" href="#mobile-menu-tab" role="tab" aria-controls="mobile-menu-tab" aria-selected="true">Menu</a>
                 </li>
 
             </ul>
 
             <div class="tab-content">
-                <div class="tab-pane fade show active" id="mobile-menu-tab" role="tabpanel"
-                    aria-labelledby="mobile-menu-link">
+                <div class="tab-pane fade show active" id="mobile-menu-tab" role="tabpanel" aria-labelledby="mobile-menu-link">
                     <nav class="mobile-nav">
                         <ul class="mobile-menu">
                             <li class="active">
@@ -876,14 +841,10 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
             <!-- End .tab-content -->
 
             <div class="social-icons">
-                <a href="https://web.facebook.com/" class="social-icon" target="_blank" title="Facebook"><i
-                        class="icon-facebook-f"></i></a>
-                <a href="https://twitter.com/" class="social-icon" target="_blank" title="Twitter"><i
-                        class="icon-twitter"></i></a>
-                <a href="https://www.instagram.com/" class="social-icon" target="_blank" title="Instagram"><i
-                        class="icon-instagram"></i></a>
-                <a href="https://www.youtube.com/" class="social-icon" target="_blank" title="Youtube"><i
-                        class="icon-youtube"></i></a>
+                <a href="https://web.facebook.com/" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
+                <a href="https://twitter.com/" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
+                <a href="https://www.instagram.com/" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
+                <a href="https://www.youtube.com/" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
             </div>
             <!-- End .social-icons -->
         </div>
@@ -904,12 +865,10 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                         <div class="form-tab">
                             <ul class="nav nav-pills nav-fill" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link" id="signin-tab-2" data-toggle="tab" href="#signin-2" role="tab"
-                                        aria-controls="signin-2" aria-selected="false">Sign In</a>
+                                    <a class="nav-link" id="signin-tab-2" data-toggle="tab" href="#signin-2" role="tab" aria-controls="signin-2" aria-selected="false">Sign In</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="register-tab-2" data-toggle="tab" href="#register-2"
-                                        role="tab" aria-controls="register-2" aria-selected="true">Register</a>
+                                    <a class="nav-link active" id="register-tab-2" data-toggle="tab" href="#register-2" role="tab" aria-controls="register-2" aria-selected="true">Register</a>
                                 </li>
                             </ul>
                             <div class="tab-content">
@@ -918,14 +877,12 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                                         <?php include('./admin/config/errors.php'); ?>
                                         <div class="form-group">
                                             <label for="singin-email-2">Username or email address *</label>
-                                            <input type="text" class="form-control" id="singin-email-2"
-                                                name="login-email">
+                                            <input type="text" class="form-control" id="singin-email-2" name="login-email">
                                         </div><!-- End .form-group -->
 
                                         <div class="form-group">
                                             <label for="singin-password-2">Password *</label>
-                                            <input type="password" class="form-control" id="singin-password-2"
-                                                name="login-password">
+                                            <input type="password" class="form-control" id="singin-password-2" name="login-password">
                                         </div><!-- End .form-group -->
 
                                         <div class="form-footer">
@@ -935,8 +892,7 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                                             </button>
 
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
-                                                    id="signin-remember-2">
+                                                <input type="checkbox" class="custom-control-input" id="signin-remember-2">
                                                 <label class="custom-control-label" for="signin-remember-2">Remember
                                                     Me</label>
                                             </div><!-- End .custom-checkbox -->
@@ -962,30 +918,25 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                                         </div><!-- End .row -->
                                     </div><!-- End .form-choice -->
                                 </div><!-- .End .tab-pane -->
-                                <div class="tab-pane fade show active" id="register-2" role="tabpanel"
-                                    aria-labelledby="register-tab-2">
+                                <div class="tab-pane fade show active" id="register-2" role="tabpanel" aria-labelledby="register-tab-2">
                                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                         <?php include('admin/config/errors.php'); ?>
                                         <div class="form-group">
                                             <label for="register-email-2">Your Name *</label>
-                                            <input type="text" class="form-control" id="register-email-2" name="name"
-                                                value="<?php echo $name; ?>" required>
+                                            <input type="text" class="form-control" id="register-email-2" name="name" value="<?php echo $name; ?>" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="register-email-2">Your email address *</label>
-                                            <input type="email" class="form-control" id="register-email-2" name="email"
-                                                value="<?php echo $email; ?>" required>
+                                            <input type="email" class="form-control" id="register-email-2" name="email" value="<?php echo $email; ?>" required>
                                         </div><!-- End .form-group -->
 
                                         <div class="form-group">
                                             <label for="register-password-2">Password *</label>
-                                            <input type="password" class="form-control" id="register-password-2"
-                                                name="password_1" required>
+                                            <input type="password" class="form-control" id="register-password-2" name="password_1" required>
                                         </div><!-- End .form-group -->
                                         <div class="form-group">
                                             <label for="register-password-2">Confirm Password *</label>
-                                            <input type="password" class="form-control" id="register-password-2"
-                                                name="password_2" required>
+                                            <input type="password" class="form-control" id="register-password-2" name="password_2" required>
                                         </div><!-- End .form-group -->
                                         <div class="form-footer">
                                             <button type="submit" class="btn btn-outline-primary-2" name="reg_user">>
@@ -994,8 +945,7 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                                             </button>
 
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
-                                                    id="register-policy-2" required>
+                                                <input type="checkbox" class="custom-control-input" id="register-policy-2" required>
                                                 <label class="custom-control-label" for="register-policy-2">I agree to
                                                     the <a href="#">privacy policy</a> *</label>
                                             </div><!-- End .custom-checkbox -->

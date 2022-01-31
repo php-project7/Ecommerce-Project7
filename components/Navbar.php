@@ -89,13 +89,18 @@ if (isset($_GET['logout'])) {
                                 <li><a href="../pages/about.html">About Us</a></li>
                                 <li><a href="../pages/contact.html">Contact Us</a></li>
                                 <?php if (isset($_SESSION['id'])) { ?>
+                                <?php if ($_SESSION['id'] != 0) { ?>
+
                                 <li><a href="?logout=1"><i class="icon-user"></i>Logout</a>
                                 </li>
                                 <?php } else { ?>
                                 <li><a href="../login.php" data-toggle="modal"><i class="icon-user"></i>Sign In / Sign
                                         Up</a>
                                 </li>
-                                <?php } ?>
+                                <?php }
+                                } ?>
+
+
                             </ul>
                         </li>
                     </ul><!-- End .top-menu -->
@@ -136,11 +141,14 @@ if (isset($_GET['logout'])) {
 
 
                             </li>
+                            <?php if ($_SESSION['id'] != 0) { ?>
+
                             <li>
                                 <a href="../pages/dashboard.php" class="  ">My Account</a>
 
-
                             </li>
+                            <?php } ?>
+
 
                         </ul><!-- End .menu -->
                     </nav><!-- End .main-nav -->
