@@ -14,6 +14,10 @@ if (isset($_GET['logout'])) {
     header("Location: ../login.php");
 }
 
+if ($_SESSION['id'] == 0) {
+    header("Location: ../index.php");
+}
+
 $user_id = $_SESSION['id'];
 $sql = "SELECT * FROM users WHERE id = '$user_id'";
 //pdo

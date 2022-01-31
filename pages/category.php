@@ -35,7 +35,7 @@ if (isset($_POST["submitAddToCart"])) {
             $insert_product1 = $pdo->prepare("UPDATE tempcart SET quantity='$count' WHERE id='$product[id]' AND product_id='$data[id]' AND user_id='$logged_user'");
             $insert_product1->execute();
         } else {
-            $insert_product = $pdo->prepare("INSERT INTO tempcart (product_id,user_id,img,name,price,quantity,discount,final_price)
+            $insert_product = $pdo->prepare("INSERT INTO tempcart (product_id,user_id,img,name,price,quantity,discount, final_price)
   VALUES('$data[id]','$logged_user', '$data[img]','$data[name]','$data[price]','1','$data[discount]', '1')");
             $insert_product->execute();
         }
@@ -44,25 +44,23 @@ if (isset($_POST["submitAddToCart"])) {
         exit();
     }
 }
-
-if (isset($_GET['filter'])) {
-    $filter = $_GET['sort'];
-    //sort by price from low to high or high to low
-    if ($filter == 'price-asc') {
-        $sql = "SELECT * FROM products ORDER BY price ASC";
-    } elseif ($filter == 'price-desc') {
-        $sql = "SELECT * FROM products ORDER BY price DESC";
-    }
-    //sort by default
-    else {
-        $sql = "SELECT * FROM products";
-    }
-    //pdo
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
-    $products = $stmt->fetchAll();
+#redirect user
+if (isset($_GET['id'])) {
+    $category_id = $_GET['id'];
+} else {
+    header("Location: ./category-list.php");
 }
+$sql = "SELECT * FROM products WHERE category_id = $category_id";
+//pdo
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+$products = $stmt->fetchAll();
 
+$mahdisql = "SELECT * FROM categories WHERE id = $category_id";
+$mahdistmt = $pdo->prepare($mahdisql);
+$mahdistmt->execute();
+$mahdiresult = $mahdistmt->fetch(PDO::FETCH_ASSOC);
+$cat_name = $mahdiresult['name'];
 //handle search query
 if (isset($_POST['search'])) {
     $search = $_POST['search'];
@@ -82,7 +80,7 @@ $errors = array();
     <main class="main">
         <div class="page-header text-center" style="background-image: url('../assets/images/page-header-bg.jpg')">
             <div class="container">
-                <h1 class="page-title">List<span>Shop</span></h1>
+                <h1 class="page-title"><?php echo $cat_name ?><span>Shop</span></h1>
             </div><!-- End .container -->
         </div><!-- End .page-header -->
         <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
@@ -90,7 +88,7 @@ $errors = array();
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
                     <li class="breadcrumb-item"><a href="#">Shop</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">List</li>
+                    <li class="breadcrumb-item active" aria-current="page"><?php echo $cat_name; ?></li>
                 </ol>
             </div><!-- End .container -->
         </nav><!-- End .breadcrumb-nav -->

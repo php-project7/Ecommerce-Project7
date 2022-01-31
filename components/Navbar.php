@@ -18,6 +18,13 @@ try {
     // echo "error" . $e->getMessage();
     echo "You are not logged in";
 }
+
+#handle logout
+if (isset($_GET['logout'])) {
+    unset($_SESSION['email'], $_SESSION['name'], $_SESSION['Role'], $_SESSION['id']);
+    session_destroy();
+    header("Location: ../login.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -79,8 +86,14 @@ try {
                                 <li><a href="tel:#"><i class="icon-phone"></i>Call Us: +962770245060</a></li>
                                 <li><a href="../pages/about.html">About Us</a></li>
                                 <li><a href="../pages/contact.html">Contact Us</a></li>
-                                <li><a href="#signin-modal" data-toggle="modal"><i class="icon-user"></i>Sign In / Sign
-                                        Up</a></li>
+                                <?php if (isset($_SESSION['id'])) { ?>
+                                <li><a href="?logout=1"><i class="icon-user"></i>Logout</a>
+                                </li>
+                                <?php } else { ?>
+                                <li><a href="../login.php" data-toggle="modal"><i class="icon-user"></i>Sign In / Sign
+                                        Up</a>
+                                </li>
+                                <?php } ?>
                             </ul>
                         </li>
                     </ul><!-- End .top-menu -->

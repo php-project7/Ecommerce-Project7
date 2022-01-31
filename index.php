@@ -2,13 +2,18 @@
 include('admin/config/server.php');
 try {
     #newcode
-    $user_id = $_SESSION["id"];
-    $_command = "SELECT * FROM tempcart WHERE user_id = $user_id;";
-    $statement = $pdo->prepare($_command);
-    $statement->execute();
-    $statement->setFetchMode(PDO::FETCH_ASSOC);
-    $results = $statement->fetchAll();
-    $superTotal = 0;
+    if (isset($_SESSION["id"]) != 0) {
+        $user_id = $_SESSION["id"];
+        $_command = "SELECT * FROM tempcart WHERE user_id = $user_id;";
+        $statement = $pdo->prepare($_command);
+        $statement->execute();
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        $results = $statement->fetchAll();
+        $superTotal = 0;
+    } else {
+        $user_id = 0;
+        $_SESSION["id"] = 0;
+    }
 } catch (PDOException $e) {
     echo "error" . $e->getMessage();
 }
@@ -249,10 +254,13 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                                     <a href="pages/checkout.php" class="  ">CHECKOUT</a>
 
                                 </li>
+                                <?php if ($_SESSION['id'] != 0) { ?>
                                 <li>
                                     <a href="pages/dashboard.php" class="  ">MY ACCOUNT</a>
 
                                 </li>
+                                <?php } ?>
+
 
                             </ul>
                             <!-- End .menu -->
@@ -364,7 +372,7 @@ $categories = $stmt1->fetchAll(PDO::FETCH_ASSOC);
                     <div class="row">
                         <?php foreach ($categories as $category) { ?>
                         <div class="col-6 col-sm-4 col-lg-2">
-                            <a href="pages/category-list.php" class="cat-block">
+                            <a href="pages/category.php?id=<?php echo $category['id'] ?>" class="cat-block">
                                 <figure>
                                     <span>
                                         <img src="<?= $category['img'] ?>" alt="Category image" />
