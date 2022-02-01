@@ -11,7 +11,7 @@ if (($_SESSION['Role']) != 1) {
 
 
 $msg = "";
-$errors = array();
+$create_product_errors = array();
 if (!empty($_POST)) {
     $product_name = $_POST['product_name'];
     $product_price = $_POST['product_price'];
@@ -22,26 +22,26 @@ if (!empty($_POST)) {
     $product_in_stock = $_POST['product_in_stock'];
 
     if (empty($product_name)) {
-        $errors['product_name'] = "Product name is required";
+        $create_product_errors['product_name'] = "Product name is required";
     }
     if (empty($product_price)) {
-        $errors['product_price'] = "Product price is required";
+        $create_product_errors['product_price'] = "Product price is required";
     }
     if (empty($product_desc)) {
-        $errors['product_desc'] = "Product description is required";
+        $create_product_errors['product_desc'] = "Product description is required";
     }
     if (empty($product_img)) {
-        $errors['product_img'] = "Product image is required";
+        $create_product_errors['product_img'] = "Product image is required";
     }
     if (empty($category_id)) {
-        $errors['category_id'] = "Category is required";
+        $create_product_errors['category_id'] = "Category is required";
     }
     if (empty($product_in_stock)) {
-        $errors['product_in_stock'] = "Product in stock is required";
+        $create_product_errors['product_in_stock'] = "Product in stock is required";
     }
 
     // if no errors then insert into database using PDO
-    if (empty($errors)) {
+    if (empty($create_product_errors)) {
         $sql = "INSERT INTO products (name, price, stock,discount, description, category_id, img) 
         VALUES (:product_name, :product_price, :product_in_stock, :product_discount, :product_desc, :category_id, :product_img)";
         $stmt = $pdo->prepare($sql);
@@ -71,7 +71,7 @@ if (!empty($_POST)) {
                         <div class="card-body card-block">
                             <form action="create_product.php" method= "post" class="">
                                 <?php
-                                foreach($errors as $error){
+                                foreach($create_product_errors as $error){
                                     echo "<p class='alert w-50 alert-danger'>$error</p>";
                                 }
                                 ?>

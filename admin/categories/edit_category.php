@@ -10,7 +10,7 @@ if (($_SESSION['Role']) != 1) {
 }
 
 $msg = '';
-$errors = array();
+$edit_category_errors = array();
 
 if (isset($_GET['id'])){
     if (!empty($_POST)){
@@ -19,14 +19,14 @@ if (isset($_GET['id'])){
         $category_description = isset($_POST['category_description']) ? $_POST['category_description'] : NULL;
 
         if (empty($category_name)) {
-            $errors['$category_name'] = "Category Name is required";
+            $edit_category_errors['$category_name'] = "Category Name is required";
         }
         if (empty($category_description)) {
-            $errors['$category_description'] = "Category Description is required";
+            $edit_category_errors['$category_description'] = "Category Description is required";
         }
 
         // if no errors
-        if (empty($errors)) {
+        if (empty($edit_category_errors)) {
 
             // update product using pdo prepared statement
             $sql = "UPDATE categories SET name = :category_name, description = :category_description WHERE id = :category_id";
@@ -78,7 +78,7 @@ else {
                 <div class="card-body card-block">
                     <form action="edit_category.php?id=<?=$category['id']?>" method= "post" class="">
                         <?php
-                        foreach($errors as $error){
+                        foreach($edit_category_errors as $error){
                             echo "<p class='alert w-50 alert-danger'>$error</p>";
                         }
                         ?>
@@ -108,7 +108,7 @@ else {
                             <button type="submit" class="btn btn-success btn-sm">Update</button>
                         </div>
                     </form>
-                    <?php if (empty($errors)): ?>
+                    <?php if (empty($edit_category_errors)): ?>
                         <p class="alert alert-success"><?=$msg?></p>
                     <?php endif; ?>
                 </div>

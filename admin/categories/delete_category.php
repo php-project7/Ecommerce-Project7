@@ -9,7 +9,7 @@ if (($_SESSION['Role']) != 1) {
 }
 
 $msg = '';
-$errors = array();
+$delete_category_errors = array();
 
 if (isset($_GET['id'])) {
     // Select the record that is going to be deleted
@@ -19,7 +19,7 @@ if (isset($_GET['id'])) {
     if (!$category) {
         exit('Category doesn\'t exist with that ID!');
     }
-    if (isset($_GET['confirm']) && empty($errors)) {
+    if (isset($_GET['confirm']) && empty($delete_category_errors)) {
         if ($_GET['confirm'] == 'yes') {
             // User clicked the "Yes" button, delete record
             $stmt = $pdo->prepare('DELETE FROM categories WHERE id = ?');
@@ -66,9 +66,9 @@ if (isset($_GET['id'])) {
                 <?php endif; ?>
                 <?php
                 //errors printing
-                if (isset($errors) && !empty($errors)) {
+                if (isset($delete_category_errors) && !empty($delete_category_errors)) {
 
-                    foreach ($errors as $error) {
+                    foreach ($delete_category_errors as $error) {
                         echo '<p class="alert alert-danger  d-flex align-items-center justify-content-center">' . $error . '</p>';
                     }
 

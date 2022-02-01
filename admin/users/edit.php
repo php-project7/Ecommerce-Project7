@@ -9,7 +9,7 @@ if (($_SESSION['Role']) != 1) {
 }
 
 $msg = '';
-$errors = array();
+$users_edit_errors = array();
 
     if (isset($_GET['id'])){
         if (!empty($_POST)){
@@ -20,19 +20,19 @@ $errors = array();
             $confirm_password = isset($_POST['confirm_password']) ? $_POST['confirm_password'] : '';
             $Role = isset($_POST['Role']) ? $_POST['Role'] : 0;
             if (empty($name)){
-                $errors['username'] = 'Name is required';
+                $users_edit_errors['username'] = 'Name is required';
             }
             if (empty($email)){
-                $errors['email'] = 'Email is required';
+                $users_edit_errors['email'] = 'Email is required';
             }
             if (empty($password)){
-                $errors['password'] = 'Password is required';
+                $users_edit_errors['password'] = 'Password is required';
             }
             if (empty($confirm_password)){
-                $errors['confirm_password'] = 'Confirm Password is required';
+                $users_edit_errors['confirm_password'] = 'Confirm Password is required';
             }
             if ($password !== $confirm_password){
-                $errors['confirm_password'] = 'Password and Confirm Password must be same';
+                $users_edit_errors['confirm_password'] = 'Password and Confirm Password must be same';
             }
 //            if email already exist
             $sql = "SELECT * FROM users WHERE email = '$email'";
@@ -40,7 +40,7 @@ $errors = array();
             $stmt = $pdo->query($sql);
             $result = $stmt->fetchAll();
             if (count($result) > 0){
-                $errors['email'] = 'Email already exist';
+                $users_edit_errors['email'] = 'Email already exist';
             }
             //if username already exist
             $sql = "SELECT * FROM users WHERE name = '$name'";
@@ -48,9 +48,9 @@ $errors = array();
             $stmt = $pdo->query($sql);
             $result = $stmt->fetchAll();
             if (count($result) > 0){
-                $errors['username'] = 'Username already exist';
+                $users_edit_errors['username'] = 'Username already exist';
             }
-            if(empty($errors)){
+            if(empty($users_edit_errors)){
                 $password = md5($password);
                     $stmt = $pdo->prepare("UPDATE users SET name = ?, email = ?,  password = ?, Role= ? WHERE id = ?");
                     $stmt->execute([$name, $email, $password, $Role,$id]);
@@ -84,7 +84,7 @@ $errors = array();
                         <div class="card-body card-block">
                             <form action="edit.php?id=<?=$user['id']?>" method= "post" class="">
                                 <?php
-                                foreach($errors as $error){
+                                foreach($users_edit_errors as $error){
                                     echo "<p class='alert w-50 alert-danger'>$error</p>";
                                 }
                                 ?>

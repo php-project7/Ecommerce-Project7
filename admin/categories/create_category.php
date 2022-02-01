@@ -9,16 +9,16 @@ if (($_SESSION['Role']) != 1) {
 }
 
 $msg = "";
-$errors = array();
+$create_category_errors = array();
 if (!empty($_POST)) {
     $category_name = $_POST['category_name'];
     $category_description = $_POST['category_description'];
 
     if (empty($category_name)) {
-        $errors['$category_name'] = "Category Name is required";
+        $create_category_errors['$category_name'] = "Category Name is required";
     }
     if (empty($category_description)) {
-        $errors['$category_description'] = "Category Description is required";
+        $create_category_errors['$category_description'] = "Category Description is required";
     }
 
 //    handle if product id already exists
@@ -26,11 +26,11 @@ if (!empty($_POST)) {
     $stmt = $pdo->query($sql);
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($row) {
-        $errors['$category_name'] = "Category Name already exists";
+        $create_category_errors['$category_name'] = "Category Name already exists";
     }
 
     // if no errors then insert into database using PDO
-    if (empty($errors)) {
+    if (empty($create_category_errors)) {
         $sql = "INSERT INTO categories (name, description) VALUES ('$category_name', '$category_description')";
         $stmt = $pdo->query($sql);
         $msg = "Category added successfully";
@@ -51,7 +51,7 @@ if (!empty($_POST)) {
                         <div class="card-body card-block">
                             <form action="create_category.php" method= "post" class="">
                                 <?php
-                                foreach($errors as $error){
+                                foreach($create_category_errors as $error){
                                     echo "<p class='alert w-50 alert-danger'>$error</p>";
                                 }
                                 ?>

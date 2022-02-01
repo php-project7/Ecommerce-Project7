@@ -9,7 +9,7 @@ if (($_SESSION['Role']) != 1) {
 }
 
 $msg = '';
-$errors = array();
+$delete_users_errors = array();
 
 if (isset($_GET['id'])) {
     // Select the record that is going to be deleted
@@ -20,9 +20,9 @@ if (isset($_GET['id'])) {
         exit('Contact doesn\'t exist with that ID!');
     }
     if ($user['role'] == 1) {
-        $errors[] = 'You can not delete an admin';
+        $delete_users_errors[] = 'You can not delete an admin';
     }
-    if (isset($_GET['confirm']) && empty($errors)) {
+    if (isset($_GET['confirm']) && empty($delete_users_errors)) {
         if ($_GET['confirm'] == 'yes') {
             // User clicked the "Yes" button, delete record
             $stmt = $pdo->prepare('DELETE FROM users WHERE id = ?');
@@ -68,9 +68,9 @@ if (isset($_GET['id'])) {
                         <?php endif; ?>
                             <?php
                             //errors printing
-                            if (isset($errors) && !empty($errors)) {
+                            if (isset($delete_users_errors) && !empty($delete_users_errors)) {
 
-                                foreach ($errors as $error) {
+                                foreach ($delete_users_errors as $error) {
                                     echo '<p class="alert alert-danger  d-flex align-items-center justify-content-center">' . $error . '</p>';
                                 }
 

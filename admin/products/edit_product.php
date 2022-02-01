@@ -10,7 +10,7 @@ if (($_SESSION['Role']) != 1) {
 }
 
 $msg = '';
-$errors = array();
+$edit_products_errors = array();
 
 if (isset($_GET['id'])){
     if (!empty($_POST)){
@@ -26,26 +26,26 @@ if (isset($_GET['id'])){
         $product_in_stock = isset($_POST['product_in_stock']) ? $_POST['product_in_stock'] : 0;
 
         if (empty($product_id)) {
-            $errors['product_id'] = "Product ID is required";
+            $edit_products_errors['product_id'] = "Product ID is required";
         }
         if (empty($product_name)) {
-            $errors['product_name'] = "Product Name is required";
+            $edit_products_errors['product_name'] = "Product Name is required";
         }
         if (empty($product_price)) {
-            $errors['product_price'] = "Product Price is required";
+            $edit_products_errors['product_price'] = "Product Price is required";
         }
         if (empty($product_discount)) {
-            $errors['product_discount'] = "Product Discount is required";
+            $edit_products_errors['product_discount'] = "Product Discount is required";
         }
         if (empty($product_in_stock)) {
-            $errors['product_in_stock'] = "Product In Stock is required";
+            $edit_products_errors['product_in_stock'] = "Product In Stock is required";
         }
         if (empty($category_id)) {
-            $errors['category_id'] = "Category ID is required";
+            $edit_products_errors['category_id'] = "Category ID is required";
         }
 
         // if no errors
-        if (empty($errors)) {
+        if (empty($edit_products_errors)) {
 
             // update product using pdo prepared statement
             $sql = "UPDATE products SET name = :product_name, price = :product_price, description = :product_desc, img = :product_img, category_id = :category_id, discount = :product_discount, stock = :product_in_stock WHERE id = :product_id";
@@ -102,7 +102,7 @@ else {
                         <div class="card-body card-block">
                             <form action="edit_product.php?id=<?=$product['id']?>" method= "post" class="">
                                 <?php
-                                foreach($errors as $error){
+                                foreach($edit_products_errors as $error){
                                     echo "<p class='alert w-50 alert-danger'>$error</p>";
                                 }
                                 ?>
@@ -183,7 +183,7 @@ else {
                                     <button type="submit" class="btn btn-success btn-sm">Update</button>
                                 </div>
                             </form>
-                            <?php if (empty($errors)): ?>
+                            <?php if (empty($edit_products_errors)): ?>
                                 <p class="alert alert-success"><?=$msg?></p>
                             <?php endif; ?>
                         </div>
