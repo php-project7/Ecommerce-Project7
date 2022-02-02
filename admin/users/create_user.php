@@ -10,7 +10,7 @@ if (($_SESSION['Role']) != 1) {
 }
 
 $msg = "";
-$errors = array();
+$create_user_errors = array();
 if (!empty($_POST)) {
 
     $name = $_POST['username'];
@@ -20,19 +20,19 @@ if (!empty($_POST)) {
     $Role=$_POST['isAdmin'];
 
     if (empty($name)) {
-        $errors[] = "Name is required";
+        $create_user_errors[] = "Name is required";
     }
     if (empty($email)) {
-        $errors[] = "Email is required";
+        $create_user_errors[] = "Email is required";
     }
     if (empty($password)) {
-        $errors[] = "Password is required";
+        $create_user_errors[] = "Password is required";
     }
     if (empty($confirm_password)) {
-        $errors[] = "Confirm Password is required";
+        $create_user_errors[] = "Confirm Password is required";
     }
     if ($password != $confirm_password) {
-        $errors[] = "Password and Confirm Password must be same";
+        $create_user_errors[] = "Password and Confirm Password must be same";
     }
 
     //check if email already exist
@@ -40,17 +40,17 @@ if (!empty($_POST)) {
     $query = $pdo->query($sql);
     $user = $query->fetch();
     if ($user) {
-        $errors[] = "Email already exist";
+        $create_user_errors[] = "Email already exist";
     }
     //check if user name already exist
     $sql = "SELECT * FROM users WHERE name = '$name'";
     $query = $pdo->query($sql);
     $user = $query->fetch();
     if ($user) {
-        $errors[] = "User name already exist";
+        $create_user_errors[] = "User name already exist";
     }
 
-    if (empty($errors)) {
+    if (empty($create_user_errors)) {
         $password= md5($password);
 
             $sql = "INSERT INTO users (name, email, password,role) VALUES ('$name', '$email', '$password','$Role')";
@@ -73,7 +73,7 @@ if (!empty($_POST)) {
                     <div class="card-body card-block">
                         <form action="create_user.php" method= "post" class="">
                             <?php
-                           foreach($errors as $error){
+                           foreach($create_user_errors as $error){
                                echo "<p class='alert w-50 alert-danger'>$error</p>";
                            }
                             ?>

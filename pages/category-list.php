@@ -172,7 +172,7 @@ if (isset($_POST['search'])) {
                                                         <span>Add to cart</span>
                                                     </button>
                                                     <?php } else { ?>
-                                                    <a href="../login.php" class="btn btn-outline-primary-2"><span>Login
+                                                    <a href="login.php" class="btn btn-outline-primary-2"><span>Login
                                                             to
                                                             purchase</span><i class="icon-long-arrow-right"></i></a>
                                                     <?php } ?>

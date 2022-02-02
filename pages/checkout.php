@@ -373,7 +373,7 @@ function mahdialert($message)
                                 <li><a href="contact-2.html">Contact 02</a></li>
                             </ul>
                         </li>
-                        <li><a href="../login.php">Login</a></li>
+                        <li><a href="login.php">Login</a></li>
                         <li><a href="faq.html">FAQs</a></li>
                         <li><a href="404.html">Error 404</a></li>
                         <li><a href="coming-soon.html">Coming Soon</a></li>

@@ -1,5 +1,5 @@
 <?php
-include('admin/config/server.php')
+include('../admin/config/server.php')
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,21 +16,21 @@ include('admin/config/server.php')
     <meta name="description" content="Molla - Bootstrap eCommerce Template">
     <meta name="author" content="p-themes">
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/favicon-16x16.png">
-    <link rel="manifest" href="assets/images/icons/site.html">
-    <link rel="mask-icon" href="assets/images/icons/safari-pinned-tab.svg" color="#666666">
-    <link rel="shortcut icon" href="assets/images/icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/favicon-16x16.png">
+    <link rel="manifest" href="../assets/images/icons/site.html">
+    <link rel="mask-icon" href="../assets/images/icons/safari-pinned-tab.svg" color="#666666">
+    <link rel="shortcut icon" href="../assets/images/icons/favicon.ico">
     <meta name="apple-mobile-web-app-title" content="Molla">
     <meta name="application-name" content="Molla">
     <meta name="msapplication-TileColor" content="#cc9966">
     <meta name="msapplication-config" content="assets/images/icons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
     <!-- Plugins CSS File -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <!-- Main CSS File -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body>
@@ -69,8 +69,8 @@ include('admin/config/server.php')
                                     <li><a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a></li>
                                     <li><a href="pages/wishlist.html"><i class="icon-heart-o"></i>Wishlist
                                             <span>(3)</span></a></li>
-                                    <li><a href="pages/about.php">About Us</a></li>
-                                    <li><a href="pages/contact.php">Contact Us</a></li>
+                                    <li><a href="about.php">About Us</a></li>
+                                    <li><a href="contact.php">Contact Us</a></li>
                                     <li><a href="#signin-modal" data-toggle="modal"><i class="icon-user"></i>Login</a>
                                     </li>
                                 </ul>
@@ -88,8 +88,8 @@ include('admin/config/server.php')
                             <i class="icon-bars"></i>
                         </button>
 
-                        <a href="index.php" class="logo">
-                            <img src="assets/images/logo.png" alt="Molla Logo" width="105" height="25">
+                        <a href="../index.php" class="logo">
+                            <img src="../assets/images/logo.png" alt="Molla Logo" width="105" height="25">
                         </a>
 
                         <nav class="main-nav">
@@ -105,7 +105,7 @@ include('admin/config/server.php')
                                                 <div class="demo-item">
                                                     <a href="index-1.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/1.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/1.jpg);"></span>
                                                         <span class="demo-title">01 - furniture store</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -113,7 +113,7 @@ include('admin/config/server.php')
                                                 <div class="demo-item">
                                                     <a href="index-2.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/2.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/2.jpg);"></span>
                                                         <span class="demo-title">02 - furniture store</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -121,15 +121,15 @@ include('admin/config/server.php')
                                                 <div class="demo-item">
                                                     <a href="index-3.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/3.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/3.jpg);"></span>
                                                         <span class="demo-title">03 - electronic store</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
 
                                                 <div class="demo-item">
-                                                    <a href="index.php">
+                                                    <a href="../index.php">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/4.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/4.jpg);"></span>
                                                         <span class="demo-title">04 - electronic store</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -137,7 +137,7 @@ include('admin/config/server.php')
                                                 <div class="demo-item">
                                                     <a href="index-5.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/5.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/5.jpg);"></span>
                                                         <span class="demo-title">05 - fashion store</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -145,7 +145,7 @@ include('admin/config/server.php')
                                                 <div class="demo-item">
                                                     <a href="index-6.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/6.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/6.jpg);"></span>
                                                         <span class="demo-title">06 - fashion store</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -153,7 +153,7 @@ include('admin/config/server.php')
                                                 <div class="demo-item">
                                                     <a href="index-7.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/7.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/7.jpg);"></span>
                                                         <span class="demo-title">07 - fashion store</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -161,7 +161,7 @@ include('admin/config/server.php')
                                                 <div class="demo-item">
                                                     <a href="index-8.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/8.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/8.jpg);"></span>
                                                         <span class="demo-title">08 - fashion store</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -169,7 +169,7 @@ include('admin/config/server.php')
                                                 <div class="demo-item">
                                                     <a href="index-9.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/9.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/9.jpg);"></span>
                                                         <span class="demo-title">09 - fashion store</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -177,7 +177,7 @@ include('admin/config/server.php')
                                                 <div class="demo-item">
                                                     <a href="index-10.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/10.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/10.jpg);"></span>
                                                         <span class="demo-title">10 - shoes store</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -185,7 +185,7 @@ include('admin/config/server.php')
                                                 <div class="demo-item hidden">
                                                     <a href="index-11.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/11.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/11.jpg);"></span>
                                                         <span class="demo-title">11 - furniture simple store</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -193,7 +193,7 @@ include('admin/config/server.php')
                                                 <div class="demo-item hidden">
                                                     <a href="index-12.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/12.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/12.jpg);"></span>
                                                         <span class="demo-title">12 - fashion simple store</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -201,7 +201,7 @@ include('admin/config/server.php')
                                                 <div class="demo-item hidden">
                                                     <a href="index-13.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/13.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/13.jpg);"></span>
                                                         <span class="demo-title">13 - market</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -209,7 +209,7 @@ include('admin/config/server.php')
                                                 <div class="demo-item hidden">
                                                     <a href="index-14.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/14.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/14.jpg);"></span>
                                                         <span class="demo-title">14 - market fullwidth</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -217,7 +217,7 @@ include('admin/config/server.php')
                                                 <div class="demo-item hidden">
                                                     <a href="index-15.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/15.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/15.jpg);"></span>
                                                         <span class="demo-title">15 - lookbook 1</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -225,7 +225,7 @@ include('admin/config/server.php')
                                                 <div class="demo-item hidden">
                                                     <a href="index-16.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/16.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/16.jpg);"></span>
                                                         <span class="demo-title">16 - lookbook 2</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -233,7 +233,7 @@ include('admin/config/server.php')
                                                 <div class="demo-item hidden">
                                                     <a href="index-17.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/17.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/17.jpg);"></span>
                                                         <span class="demo-title">17 - fashion store</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -241,7 +241,7 @@ include('admin/config/server.php')
                                                 <div class="demo-item hidden">
                                                     <a href="index-18.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/18.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/18.jpg);"></span>
                                                         <span class="demo-title">18 - fashion store (with
                                                             sidebar)</span>
                                                     </a>
@@ -250,7 +250,7 @@ include('admin/config/server.php')
                                                 <div class="demo-item hidden">
                                                     <a href="index-19.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/19.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/19.jpg);"></span>
                                                         <span class="demo-title">19 - games store</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -258,7 +258,7 @@ include('admin/config/server.php')
                                                 <div class="demo-item hidden">
                                                     <a href="index-20.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/20.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/20.jpg);"></span>
                                                         <span class="demo-title">20 - book store</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -266,7 +266,7 @@ include('admin/config/server.php')
                                                 <div class="demo-item hidden">
                                                     <a href="index-21.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/21.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/21.jpg);"></span>
                                                         <span class="demo-title">21 - sport store</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -274,7 +274,7 @@ include('admin/config/server.php')
                                                 <div class="demo-item hidden">
                                                     <a href="index-22.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/22.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/22.jpg);"></span>
                                                         <span class="demo-title">22 - tools store</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -282,7 +282,7 @@ include('admin/config/server.php')
                                                 <div class="demo-item hidden">
                                                     <a href="index-23.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/23.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/23.jpg);"></span>
                                                         <span class="demo-title">23 - fashion left navigation
                                                             store</span>
                                                     </a>
@@ -291,7 +291,7 @@ include('admin/config/server.php')
                                                 <div class="demo-item hidden">
                                                     <a href="index-24.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/24.jpg);"></span>
+                                                            style="background-image: url(../assets/images/menu/demos/24.jpg);"></span>
                                                         <span class="demo-title">24 - extreme sport store</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -317,7 +317,7 @@ include('admin/config/server.php')
                                                             <div class="menu-title">Shop with sidebar</div>
                                                             <!-- End .menu-title -->
                                                             <ul>
-                                                                <li><a href="pages/category-list.php">Shop List</a></li>
+                                                                <li><a href="category-list.php">Shop List</a></li>
                                                                 <li><a href="category-2cols.html">Shop Grid 2
                                                                         Columns</a></li>
                                                                 <li><a href="category.html">Shop Grid 3 Columns</a></li>
@@ -355,10 +355,10 @@ include('admin/config/server.php')
                                                             <div class="menu-title">Shop Pages</div>
                                                             <!-- End .menu-title -->
                                                             <ul>
-                                                                <li><a href="pages/cart.php">Cart</a></li>
-                                                                <li><a href="pages/checkout.php">Checkout</a></li>
+                                                                <li><a href="cart.php">Cart</a></li>
+                                                                <li><a href="checkout.php">Checkout</a></li>
                                                                 <li><a href="pages/wishlist.php">Wishlist</a></li>
-                                                                <li><a href="pages/dashboard.php">My Account</a></li>
+                                                                <li><a href="dashboard.php">My Account</a></li>
                                                                 <li><a href="#">Lookbook</a></li>
                                                             </ul>
                                                         </div><!-- End .col-md-6 -->
@@ -369,7 +369,7 @@ include('admin/config/server.php')
                                             <div class="col-md-4">
                                                 <div class="banner banner-overlay">
                                                     <a href="category.html" class="banner banner-menu">
-                                                        <img src="assets/images/menu/banner-1.jpg" alt="Banner">
+                                                        <img src="../assets/images/menu/banner-1.jpg" alt="Banner">
 
                                                         <div class="banner-content banner-content-top">
                                                             <div class="banner-title text-white">Last
@@ -384,7 +384,7 @@ include('admin/config/server.php')
                                     </div><!-- End .megamenu megamenu-md -->
                                 </li>
                                 <li>
-                                    <a href="pages/product.php" class="sf-with-ul">Product</a>
+                                    <a href="product.php" class="sf-with-ul">Product</a>
 
                                     <div class="megamenu megamenu-sm">
                                         <div class="row no-gutters">
@@ -393,7 +393,7 @@ include('admin/config/server.php')
                                                     <div class="menu-title">Product Details</div>
                                                     <!-- End .menu-title -->
                                                     <ul>
-                                                        <li><a href="pages/product.php">Default</a></li>
+                                                        <li><a href="product.php">Default</a></li>
                                                         <li><a href="product-centered.html">Centered</a></li>
                                                         <li><a href="product-extended.html"><span>Extended Info<span
                                                                         class="tip tip-new">New</span></span></a></li>
@@ -409,7 +409,7 @@ include('admin/config/server.php')
                                             <div class="col-md-6">
                                                 <div class="banner banner-overlay">
                                                     <a href="category.html">
-                                                        <img src="assets/images/menu/banner-2.jpg" alt="Banner">
+                                                        <img src="../assets/images/menu/banner-2.jpg" alt="Banner">
 
                                                         <div class="banner-content banner-content-bottom">
                                                             <div class="banner-title text-white">New
@@ -427,18 +427,18 @@ include('admin/config/server.php')
 
                                     <ul>
                                         <li>
-                                            <a href="pages/about.php" class="sf-with-ul">About</a>
+                                            <a href="about.php" class="sf-with-ul">About</a>
 
                                             <ul>
-                                                <li><a href="pages/about.php">About 01</a></li>
+                                                <li><a href="about.php">About 01</a></li>
                                                 <li><a href="about-2.html">About 02</a></li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="pages/contact.php" class="sf-with-ul">Contact</a>
+                                            <a href="contact.php" class="sf-with-ul">Contact</a>
 
                                             <ul>
-                                                <li><a href="pages/contact.php">Contact 01</a></li>
+                                                <li><a href="contact.php">Contact 01</a></li>
                                                 <li><a href="contact-2.html">Contact 02</a></li>
                                             </ul>
                                         </li>
@@ -538,13 +538,13 @@ include('admin/config/server.php')
                                     <li class="compare-product">
                                         <a href="#" class="btn-remove" title="Remove Product"><i
                                                 class="icon-close"></i></a>
-                                        <h4 class="compare-product-title"><a href="pages/product.php">Blue Night
+                                        <h4 class="compare-product-title"><a href="product.php">Blue Night
                                                 Dress</a></h4>
                                     </li>
                                     <li class="compare-product">
                                         <a href="#" class="btn-remove" title="Remove Product"><i
                                                 class="icon-close"></i></a>
-                                        <h4 class="compare-product-title"><a href="pages/product.php">White Long
+                                        <h4 class="compare-product-title"><a href="product.php">White Long
                                                 Skirt</a></h4>
                                     </li>
                                 </ul>
@@ -569,7 +569,7 @@ include('admin/config/server.php')
                                     <div class="product">
                                         <div class="product-cart-details">
                                             <h4 class="product-title">
-                                                <a href="pages/product.php">Beige knitted elastic runner shoes</a>
+                                                <a href="product.php">Beige knitted elastic runner shoes</a>
                                             </h4>
 
                                             <span class="cart-product-info">
@@ -579,8 +579,8 @@ include('admin/config/server.php')
                                         </div><!-- End .product-cart-details -->
 
                                         <figure class="product-image-container">
-                                            <a href="pages/product.php" class="product-image">
-                                                <img src="assets/images/products/cart/product-1.jpg" alt="product">
+                                            <a href="product.php" class="product-image">
+                                                <img src="../assets/images/products/cart/product-1.jpg" alt="product">
                                             </a>
                                         </figure>
                                         <a href="#" class="btn-remove" title="Remove Product"><i
@@ -590,7 +590,7 @@ include('admin/config/server.php')
                                     <div class="product">
                                         <div class="product-cart-details">
                                             <h4 class="product-title">
-                                                <a href="pages/product.php">Blue utility pinafore denim dress</a>
+                                                <a href="product.php">Blue utility pinafore denim dress</a>
                                             </h4>
 
                                             <span class="cart-product-info">
@@ -600,8 +600,8 @@ include('admin/config/server.php')
                                         </div><!-- End .product-cart-details -->
 
                                         <figure class="product-image-container">
-                                            <a href="pages/product.php" class="product-image">
-                                                <img src="assets/images/products/cart/product-2.jpg" alt="product">
+                                            <a href="product.php" class="product-image">
+                                                <img src="../assets/images/products/cart/product-2.jpg" alt="product">
                                             </a>
                                         </figure>
                                         <a href="#" class="btn-remove" title="Remove Product"><i
@@ -616,8 +616,8 @@ include('admin/config/server.php')
                                 </div><!-- End .dropdown-cart-total -->
 
                                 <div class="dropdown-cart-action">
-                                    <a href="pages/cart.php" class="btn btn-primary">View Cart</a>
-                                    <a href="pages/checkout.php"
+                                    <a href="cart.php" class="btn btn-primary">View Cart</a>
+                                    <a href="checkout.php"
                                         class="btn btn-outline-primary-2"><span>Checkout</span><i
                                             class="icon-long-arrow-right"></i></a>
                                 </div><!-- End .dropdown-cart-total -->
@@ -640,7 +640,7 @@ include('admin/config/server.php')
             </nav><!-- End .breadcrumb-nav -->
 
             <div class="login-page bg-image pt-8 pb-8 pt-md-12 pb-md-12 pt-lg-17 pb-lg-17"
-                style="background-image: url('assets/images/backgrounds/login-bg.jpg')">
+                style="background-image: url('../assets/images/backgrounds/login-bg.jpg')">
                 <div class="container">
                     <div class="form-box">
                         <div class="form-tab">
@@ -774,8 +774,8 @@ include('admin/config/server.php')
                     <div class="row">
                         <div class="col-sm-6 col-lg-3">
                             <div class="widget widget-about">
-                                <img src="assets/images/logo.png" class="footer-logo" alt="Footer Logo" width="105"
-                                    height="25">
+                                <img src="../assets/images/logo.png" class="footer-logo" alt="Footer Logo" width="105"
+                                     height="25">
                                 <p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate
                                     magna eros eu erat. </p>
 
@@ -799,10 +799,10 @@ include('admin/config/server.php')
                                 <h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
 
                                 <ul class="widget-list">
-                                    <li><a href="pages/about.php">About Molla</a></li>
+                                    <li><a href="about.php">About Molla</a></li>
                                     <li><a href="#">How to shop on Molla</a></li>
                                     <li><a href="#">FAQ</a></li>
-                                    <li><a href="pages/contact.php">Contact us</a></li>
+                                    <li><a href="contact.php">Contact us</a></li>
                                     <li><a href="login.php">Log in</a></li>
                                 </ul><!-- End .widget-list -->
                             </div><!-- End .widget -->
@@ -829,7 +829,7 @@ include('admin/config/server.php')
 
                                 <ul class="widget-list">
                                     <li><a href="#">Sign In</a></li>
-                                    <li><a href="pages/cart.php">View Cart</a></li>
+                                    <li><a href="cart.php">View Cart</a></li>
                                     <li><a href="#">My Wishlist</a></li>
                                     <li><a href="#">Track My Order</a></li>
                                     <li><a href="#">Help</a></li>
@@ -845,7 +845,7 @@ include('admin/config/server.php')
                     <p class="footer-copyright">Copyright © 2019 Molla Store. All Rights Reserved.</p>
                     <!-- End .footer-copyright -->
                     <figure class="footer-payments">
-                        <img src="assets/images/payments.png" alt="Payment methods" width="272" height="20">
+                        <img src="../assets/images/payments.png" alt="Payment methods" width="272" height="20">
                     </figure><!-- End .footer-payments -->
                 </div><!-- End .container -->
             </div><!-- End .footer-bottom -->
@@ -876,7 +876,7 @@ include('admin/config/server.php')
                             <li><a href="index-1.html">01 - furniture store</a></li>
                             <li><a href="index-2.html">02 - furniture store</a></li>
                             <li><a href="index-3.html">03 - electronic store</a></li>
-                            <li><a href="index.php">04 - electronic store</a></li>
+                            <li><a href="../index.php">04 - electronic store</a></li>
                             <li><a href="index-5.html">05 - fashion store</a></li>
                             <li><a href="index-6.html">06 - fashion store</a></li>
                             <li><a href="index-7.html">07 - fashion store</a></li>
@@ -902,7 +902,7 @@ include('admin/config/server.php')
                     <li>
                         <a href="category.html">Shop</a>
                         <ul>
-                            <li><a href="pages/category-list.php">Shop List</a></li>
+                            <li><a href="category-list.php">Shop List</a></li>
                             <li><a href="category-2cols.html">Shop Grid 2 Columns</a></li>
                             <li><a href="category.html">Shop Grid 3 Columns</a></li>
                             <li><a href="category-4cols.html">Shop Grid 4 Columns</a></li>
@@ -912,16 +912,16 @@ include('admin/config/server.php')
                             <li><a href="product-category-boxed.html">Product Category Boxed</a></li>
                             <li><a href="product-category-fullwidth.html"><span>Product Category Fullwidth<span
                                             class="tip tip-new">New</span></span></a></li>
-                            <li><a href="pages/cart.php">Cart</a></li>
-                            <li><a href="pages/checkout.php">Checkout</a></li>
+                            <li><a href="cart.php">Cart</a></li>
+                            <li><a href="checkout.php">Checkout</a></li>
                             <li><a href="pages/wishlist.html">Wishlist</a></li>
                             <li><a href="#">Lookbook</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="pages/product.php" class="sf-with-ul">Product</a>
+                        <a href="product.php" class="sf-with-ul">Product</a>
                         <ul>
-                            <li><a href="pages/product.php">Default</a></li>
+                            <li><a href="product.php">Default</a></li>
                             <li><a href="product-centered.html">Centered</a></li>
                             <li><a href="product-extended.html"><span>Extended Info<span
                                             class="tip tip-new">New</span></span></a></li>
@@ -936,18 +936,18 @@ include('admin/config/server.php')
                         <a href="#">Pages</a>
                         <ul>
                             <li>
-                                <a href="pages/about.php">About</a>
+                                <a href="about.php">About</a>
 
                                 <ul>
-                                    <li><a href="pages/about.php">About 01</a></li>
+                                    <li><a href="about.php">About 01</a></li>
                                     <li><a href="about-2.html">About 02</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="pages/contact.php">Contact</a>
+                                <a href="contact.php">Contact</a>
 
                                 <ul>
-                                    <li><a href="pages/contact.php">Contact 01</a></li>
+                                    <li><a href="contact.php">Contact 01</a></li>
                                     <li><a href="contact-2.html">Contact 02</a></li>
                                 </ul>
                             </li>
@@ -1166,14 +1166,14 @@ include('admin/config/server.php')
     </div><!-- End .modal -->
 
     <!-- Plugins JS File -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/jquery.hoverIntent.min.js"></script>
-    <script src="assets/js/jquery.waypoints.min.js"></script>
-    <script src="assets/js/superfish.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/jquery.hoverIntent.min.js"></script>
+    <script src="../assets/js/jquery.waypoints.min.js"></script>
+    <script src="../assets/js/superfish.min.js"></script>
+    <script src="../assets/js/owl.carousel.min.js"></script>
     <!-- Main JS File -->
-    <script src="assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
 </body>
 
 
