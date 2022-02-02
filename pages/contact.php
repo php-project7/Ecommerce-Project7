@@ -385,7 +385,7 @@
                                                 <li><a href="contact-2.html">Contact 02</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="login.php">Login</a></li>
+                                        <li><a href="../login.php">Login</a></li>
                                         <li><a href="faq.html">FAQs</a></li>
                                         <li><a href="404.html">Error 404</a></li>
                                         <li><a href="coming-soon.html">Coming Soon</a></li>
@@ -750,7 +750,7 @@
 	            					<li><a href="#">How to shop on Molla</a></li>
 	            					<li><a href="#">FAQ</a></li>
 	            					<li><a href="contact.php">Contact us</a></li>
-	            					<li><a href="login.php">Log in</a></li>
+	            					<li><a href="../login.php">Log in</a></li>
 	            				</ul><!-- End .widget-list -->
 	            			</div><!-- End .widget -->
 	            		</div><!-- End .col-sm-6 col-lg-3 -->
@@ -893,7 +893,7 @@
                                     <li><a href="contact-2.html">Contact 02</a></li>
                                 </ul>
                             </li>
-                            <li><a href="login.php">Login</a></li>
+                            <li><a href="../login.php">Login</a></li>
                             <li><a href="faq.html">FAQs</a></li>
                             <li><a href="404.html">Error 404</a></li>
                             <li><a href="coming-soon.html">Coming Soon</a></li>

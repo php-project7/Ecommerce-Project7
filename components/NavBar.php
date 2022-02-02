@@ -97,7 +97,7 @@ if (isset($_GET['logout'])) {
                                 <li><a href="?logout=1"><i class="icon-user"></i>Logout</a>
                                 </li>
                                 <?php } else { ?>
-                                <li><a href="../pages/login.php" data-toggle="modal"><i class="icon-user"></i>Sign In / Sign
+                                <li><a href="../login.php" data-toggle="modal"><i class="icon-user"></i>Sign In / Sign
                                         Up</a>
                                 </li>
                                 <?php }
