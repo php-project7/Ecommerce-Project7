@@ -13,7 +13,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>Molla - Bootstrap eCommerce Template</title>
+    <title>Molla - eCommerce</title>
     <meta name="keywords" content="HTML5 Template" />
     <meta name="description" content="Molla - Bootstrap eCommerce Template" />
     <meta name="author" content="p-themes" />
