@@ -75,7 +75,7 @@ $errors = array();
 ?>
 
 
-<?php include('../components/Navbar.php'); ?>
+<?php include('../components/NavBar.php'); ?>
 <div class="page-wrapper">
     <main class="main">
         <div class="page-header text-center" style="background-image: url('../assets/images/page-header-bg.jpg')">

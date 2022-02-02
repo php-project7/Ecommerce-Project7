@@ -71,7 +71,7 @@ $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 ?>
-<?php include("../components/Navbar.php"); ?>
+<?php include("../components/NavBar.php"); ?>
 
 <main class="main">
     <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">

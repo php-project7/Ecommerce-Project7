@@ -86,7 +86,7 @@ function mahdiStopReload()
 <h1 style="text-align: center; transform:translateY(50vh);">You are not logged in</h1>
 <?php } ?>
 
-<?php include("../components/Navbar.php") ?>
+<?php include("../components/NavBar.php") ?>
 
 
 <div class="page-wrapper">

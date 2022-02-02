@@ -108,10 +108,7 @@ else {
                                 ?>
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-sort-numeric-asc"></i>
-                                        </div>
-                                        <input class="ml-2" type="text" name="product_id" placeholder="26" value="<?=$product['id']?>" readonly>
+                                        <input hidden class="ml-2" type="text" name="product_id" placeholder="26" value="<?=$product['id']?>" readonly>
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-addon">
