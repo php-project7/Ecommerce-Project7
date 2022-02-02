@@ -1,5 +1,5 @@
 <?php
-include('../admin/config/server.php')
+include('./admin/config/server.php')
 ?>
 
 <?php
