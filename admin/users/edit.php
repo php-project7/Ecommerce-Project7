@@ -79,7 +79,7 @@ $users_edit_errors = array();
                 <div class="col-lg-9">
                     <div class="card">
                         <div class="card-header">
-                            Update User #<?=$user['id']?>
+                            Update User : <?=$user['name']?>
                         </div>
                         <div class="card-body card-block">
                             <form action="edit.php?id=<?=$user['id']?>" method= "post" class="">
@@ -90,14 +90,11 @@ $users_edit_errors = array();
                                 ?>
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-sort-numeric-asc"></i>
-                                        </div>
-                                        <input class="ml-2" type="text" name="id" placeholder="26" value="<?=$user['id']?>" readonly>
+                                        <input class="ml-2" type="text" name="id" placeholder="26" value="<?=$user['id']?>" hidden>
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-addon">
-                                            <i class="fa fa-user"></i>
+                                            <label for="name" class="ml-2">Name</label>
                                         </div>
                                         <input type="text" id="username" name="name" value="<?=$user['name']?>" placeholder="Name" class="form-control">
                                     </div>
@@ -105,7 +102,8 @@ $users_edit_errors = array();
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="input-group-addon">
-                                            <i class="fa fa-envelope"></i>
+
+                                            <label for="email" class="ml-2">Email</label>
                                         </div>
                                         <input type="text" id="email" name="email" value="<?=$user['email']?>" placeholder="Email" class="form-control">
                                     </div>
@@ -113,15 +111,17 @@ $users_edit_errors = array();
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="input-group-addon">
-                                            <i class="fa fa-asterisk"></i>
+
+                                            <label for="password" class="ml-2">Password</label>
                                         </div>
+
                                         <input type="text" id="password" name="password" placeholder="Password" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="input-group-addon">
-                                            <i class="fa fa-asterisk"></i>
+                                            <label for="confirm_password" class="ml-2">Confirm password</label>
                                         </div>
                                         <input type="text" id="confirm_password" name="confirm_password" placeholder="Confirm password" class="form-control">
 
@@ -130,8 +130,10 @@ $users_edit_errors = array();
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="input-group-addon">
-                                            <i class="fa fa-empire"></i>
+
+                                            <label for="Role" class="ml-2">User Role</label>
                                         </div>
+
                                         <input type="number" id="text" min="0" max="2" name="Role" placeholder="User Status" value="<?=$user['role']?>"  class="form-control">
                                     </div>
                                 </div>

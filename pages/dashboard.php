@@ -99,7 +99,7 @@ if (isset($_POST['submit_save'])) {
 
 ?>
 
-<?php include("../components/Navbar.php"); ?>
+<?php include("../components/NavBar.php"); ?>
 
     <main class="main">
         <div class="page-header text-center" style="background-image: url('../assets/images/page-header-bg.jpg')">

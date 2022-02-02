@@ -1,95 +1,5 @@
 <?php
 require("../admin/config/connection.php");
-try {
-    $user_id = $_SESSION["id"];
-    $_command = "SELECT * FROM tempcart WHERE user_id='$user_id'";
-    $tempcart = $pdo->prepare($_command);
-    $tempcart->execute();
-    $tempcart->setFetchMode(PDO::FETCH_ASSOC);
-    $results = $tempcart->fetchAll();
-    $superTotal = 0;
-} catch (PDOException $e) {
-    echo "error".$e->getMessage();
-}
-
-
-?>
-
-
-<?php
-if (isset($_POST['checkout-form'])) {
-    $user_id = $_SESSION['id']; #user id
-    $totalprice = $_SESSION['supertotal']; #total price
-    $order_id;
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $email = $_POST['email'];
-    $country = $_POST['country'];
-    $streetaddress = $_POST['streetaddress'];
-    $postcode = $_POST['postcode'];
-    $phone = $_POST['phone'];
-
-    try {
-        $sqlCommand = "INSERT INTO orders (user_id , total, first_name, last_name, email, country, street_address, post_code, phone)
-         VALUES ('$user_id', '$totalprice', '$firstname', '$lastname', '$email', '$country', '$streetaddress', '$postcode', '$phone')";
-        $pdo->exec($sqlCommand);
-    } catch (PDOException $e) {
-        echo "error".$e;
-    }
-    try {
-        $_command = "SELECT * FROM orders";
-        $statement = $pdo->prepare($_command);
-        $statement->execute();
-        $statement->setFetchMode(PDO::FETCH_ASSOC);
-        $order = $statement->fetchAll();
-        $order_id = $order[$statement->rowCount()
-        - 1]['id']; #get latest order id
-    } catch (PDOException $e) {
-        echo "error".$e->getMessage();
-    }
-
-
-    for ($i = 0; $i < $tempcart->rowCount(); $i++) {
-
-        $product_id = $results[$i]['product_id'];
-        $quantity = $results[$i]['quantity'];
-        $final_price = $results[$i]['final_price'];
-
-
-        $sql1
-            = $pdo->prepare("SELECT stock FROM products WHERE id='$product_id'");
-        $sql1->execute();
-        $data = $sql1->fetch(PDO::FETCH_ASSOC);
-        $prevStock = $data["stock"];
-        $newStock = $prevStock - $quantity;
-
-        try {
-            $sqlCommand
-                = "INSERT INTO items_checkout (products_id, quantity, final_price, orders_id, user_id) VALUES ('$product_id', '$quantity', '$final_price', '$order_id', '$user_id')";
-            $pdo->exec($sqlCommand);
-
-            $sql
-                = "UPDATE products SET stock = :newStock WHERE id = :product_id";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':newStock', $newStock);
-            $stmt->bindParam(':product_id', $product_id);
-            $stmt->execute();
-        } catch (PDOException $e) {
-            echo "error".$e;
-        }
-    } #inside for
-    try {
-        $_command = "DELETE FROM tempcart WHERE user_id = :user_id";
-        $statement = $pdo->prepare($_command);
-        $statement->bindParam(':user_id', $user_id);
-        $statement->execute();
-    } catch (PDOException $e) {
-        echo "error".$e;
-    }
-
-    header("Location: ./checkoutConfirm.php?order_id=$order_id");
-}
-
 
 ?>
 
@@ -106,7 +16,7 @@ if (isset($_POST['checkout-form'])) {
         <nav aria-label="breadcrumb" class="breadcrumb-nav">
             <div class="container">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a>
+                    <li class="breadcrumb-item"><a href="index.php">Home</a>
                     </li>
                     <li class="breadcrumb-item"><a href="#">Shop</a></li>
                     <li class="breadcrumb-item active" aria-current="page">
@@ -119,188 +29,17 @@ if (isset($_POST['checkout-form'])) {
         <div class="page-content">
             <div class="checkout">
                 <div class="container">
+                    <?php
+                    if (isset($_GET['order_id'])) {?>
+                        <div class="" role="alert">
+                            <h1 class="alert-heading">Success!</h1>
+                            <h3>Your order has been placed successfully. We will contact you soon.</h3>
+                            <hr>
+                            <h3 class="mb-0">Order ID: <?php echo $_GET['order_id']; ?></h3>
+                            <a href="category-list.php" class="btn btn-primary mt-3">Continue Shopping</a>
+                        </div>
+                    <?php } ?>
 
-                    <!-- mahdi -->
-                    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>"
-                          id="checkout-form" method="POST">
-                        <?php if (isset($_SESSION['success'])) { ?>
-                            <?php if (!empty($results)) { ?>
-
-                                <div class="row">
-                                <div class="col-lg-9">
-                                    <h2 class="checkout-title">Billing
-                                        Details</h2><!-- End .checkout-title -->
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <label>First Name *</label>
-                                            <input type="text" name="firstname"
-                                                   class="form-control"
-                                                   required>
-                                        </div><!-- End .col-sm-6 -->
-
-                                        <div class="col-sm-6">
-                                            <label>Last Name *</label>
-                                            <input type="text" name="lastname"
-                                                   class="form-control"
-                                                   required>
-                                        </div><!-- End .col-sm-6 -->
-                                    </div><!-- End .row -->
-                                    <label>Email address *</label>
-                                    <input type="email" name="email"
-                                           class="form-control" required>
-
-                                    <label>Country *</label>
-                                    <input type="text" name="country"
-                                           class="form-control" required>
-
-                                    <label>Street address *</label>
-                                    <input type="text" name="streetaddress"
-                                           class="form-control"
-                                           placeholder="House number and Street name"
-                                           required>
-
-
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <label>Postcode / ZIP *</label>
-                                            <input type="text" name="postcode"
-                                                   class="form-control"
-                                                   required>
-                                        </div><!-- End .col-sm-6 -->
-
-                                        <div class="col-sm-6">
-                                            <label>Phone *</label>
-                                            <input type="tel" name="phone"
-                                                   class="form-control"
-                                                   required>
-                                        </div><!-- End .col-sm-6 -->
-                                    </div><!-- End .row -->
-
-                                </div><!-- End .col-lg-9 -->
-                                <aside class="col-lg-3">
-                                <div class="summary">
-                                    <h3 class="summary-title">Your Order</h3>
-                                    <!-- End .summary-title -->
-
-                                    <table class="table table-summary">
-                                        <thead>
-                                        <tr>
-                                            <th>Product</th>
-                                            <th>Total</th>
-                                        </tr>
-                                        </thead>
-
-                                        <tbody>
-                                        <?php
-                                        for (
-                                            $i = 0; $i < $tempcart->rowCount();
-                                            $i++
-                                        ) {
-                                            ?>
-                                            <tr>
-                                                <td>
-                                                    <a><?php echo $results[$i]['name']; ?></a>
-                                                </td>
-                                                <td>
-                                                    $<?php echo $results[$i]['final_price']; ?></td>
-                                            </tr>
-                                        <?php } ?>
-                                        <!-- <tr>
-                                                <td><a href="#">Blue utility pinafore denimdress</a></td>
-                                                <td>$76,00</td>
-                                            </tr> -->
-                                        <tr class="summary-subtotal">
-                                            <td>Subtotal:</td>
-                                            <td>
-                                                $<?php echo $_SESSION['supertotal']; ?></td>
-                                        </tr><!-- End .summary-subtotal -->
-                                        <tr>
-                                            <td>Shipping:</td>
-                                            <td>Free shipping</td>
-                                        </tr>
-                                        <tr class="summary-total">
-                                            <td>Total:</td>
-                                            <td>
-                                                $<?php echo $_SESSION['supertotal']; ?></td>
-                                        </tr><!-- End .summary-total -->
-                                        </tbody>
-                                    </table><!-- End .table table-summary -->
-
-                                    <div class="accordion-summary"
-                                         id="accordion-payment">
-                                        <div class="card">
-                                            <!-- <div class="card-header" id="heading-2">
-                                                    <h2 class="card-title">
-                                                        <a class="collapsed" role="button" data-toggle="collapse"
-                                                            href="#collapse-2" aria-expanded="false"
-                                                            aria-controls="collapse-2">
-                                                            Check payments
-                                                        </a>
-                                                    </h2>
-                                                </div> -->
-                                            <div id="collapse-2"
-                                                 class="collapse"
-                                                 aria-labelledby="heading-2"
-                                                 data-parent="#accordion-payment">
-                                                <div class="card-body">
-                                                    Ipsum dolor sit amet,
-                                                    consectetuer adipiscing
-                                                    elit. Donec odio.
-                                                    Quisque volutpat mattis
-                                                    eros. Nullam malesuada erat
-                                                    ut turpis.
-                                                </div><!-- End .card-body -->
-                                            </div><!-- End .collapse -->
-                                        </div><!-- End .card -->
-
-                                        <div class="card">
-                                            <div class="card-header"
-                                                 id="heading-3">
-                                                <h2 class="card-title">
-                                                    <a class="collapsed"
-                                                       role="button"
-                                                       data-toggle="collapse"
-                                                       href="#collapse-3"
-                                                       aria-expanded="false"
-                                                       aria-controls="collapse-3">
-                                                        Cash on delivery
-                                                    </a>
-                                                </h2>
-                                            </div><!-- End .card-header -->
-                                            <div id="collapse-3"
-                                                 class="collapse"
-                                                 aria-labelledby="heading-3"
-                                                 data-parent="#accordion-payment">
-                                                <div class="card-body">Quisque
-                                                    volutpat mattis eros. Lorem
-                                                    ipsum
-                                                    dolor sit amet, consectetuer
-                                                    adipiscing elit. Donec odio.
-                                                    Quisque volutpat mattis
-                                                    eros.
-                                                </div><!-- End .card-body -->
-                                            </div><!-- End .collapse -->
-                                        </div><!-- End .card -->
-                                    </div>
-
-                                    <button id="place-order" type="submit"
-                                            name="checkout-form"
-                                            class="btn btn-outline-primary-2 btn-order btn-block">
-                                        <span class="btn-text">Place Order</span>
-                                        <span class="btn-hover-text">Proceed to Checkout</span>
-                                    </button>
-                                </div><!-- End .summary -->
-                            <?php } else { ?>
-                                <h2>Your cart is empty</h2>
-                                <a href="./category-list.php"
-                                   class="btn btn-outline-primary-2"><span>GO SHOP</span><i
-                                            class="icon-long-arrow-right"></i></a> <?php } ?>
-                            </aside><!-- End .col-lg-3 -->
-                            </div><!-- End .row -->
-                        <?php } else { ?>
-                            <div> you are not not logged in</div>
-                        <?php } ?>
-                    </form>
                 </div><!-- End .container -->
             </div><!-- End .checkout -->
         </div><!-- End .page-content -->
@@ -323,73 +62,16 @@ if (isset($_POST['checkout-form'])) {
                    id="mobile-search" placeholder="Search in..."
                    required>
             <button class="btn btn-primary" type="submit"><i
-                        class="icon-search"></i></button>
+                    class="icon-search"></i></button>
         </form>
 
         <nav class="mobile-nav">
             <ul class="mobile-menu">
                 <li class="active">
                     <a href="index.html">Home</a>
-
-                    <ul>
-                        <li><a href="index-1.html">01 - furniture store</a></li>
-                        <li><a href="index-2.html">02 - furniture store</a></li>
-                        <li><a href="index-3.html">03 - electronic store</a>
-                        </li>
-                        <li><a href="../index.php">04 - electronic store</a>
-                        </li>
-                        <li><a href="index-5.html">05 - fashion store</a></li>
-                        <li><a href="index-6.html">06 - fashion store</a></li>
-                        <li><a href="index-7.html">07 - fashion store</a></li>
-                        <li><a href="index-8.html">08 - fashion store</a></li>
-                        <li><a href="index-9.html">09 - fashion store</a></li>
-                        <li><a href="index-10.html">10 - shoes store</a></li>
-                        <li><a href="index-11.html">11 - furniture simple
-                                store</a></li>
-                        <li><a href="index-12.html">12 - fashion simple
-                                store</a></li>
-                        <li><a href="index-13.html">13 - market</a></li>
-                        <li><a href="index-14.html">14 - market fullwidth</a>
-                        </li>
-                        <li><a href="index-15.html">15 - lookbook 1</a></li>
-                        <li><a href="index-16.html">16 - lookbook 2</a></li>
-                        <li><a href="index-17.html">17 - fashion store</a></li>
-                        <li><a href="index-18.html">18 - fashion store (with
-                                sidebar)</a></li>
-                        <li><a href="index-19.html">19 - games store</a></li>
-                        <li><a href="index-20.html">20 - book store</a></li>
-                        <li><a href="index-21.html">21 - sport store</a></li>
-                        <li><a href="index-22.html">22 - tools store</a></li>
-                        <li><a href="index-23.html">23 - fashion left navigation
-                                store</a></li>
-                        <li><a href="index-24.html">24 - extreme sport store</a>
-                        </li>
-                    </ul>
                 </li>
                 <li>
                     <a href="category.html">Shop</a>
-                    <ul>
-                        <li><a href="category-list.html">Shop List</a></li>
-                        <li><a href="category-2cols.html">Shop Grid 2
-                                Columns</a></li>
-                        <li><a href="category.html">Shop Grid 3 Columns</a></li>
-                        <li><a href="category-4cols.html">Shop Grid 4
-                                Columns</a></li>
-                        <li><a href="category-boxed.html"><span>Shop Boxed No Sidebar<span
-                                            class="tip tip-hot">Hot</span></span></a>
-                        </li>
-                        <li><a href="category-fullwidth.html">Shop Fullwidth No
-                                Sidebar</a></li>
-                        <li><a href="product-category-boxed.html">Product
-                                Category Boxed</a></li>
-                        <li><a href="product-category-fullwidth.html"><span>Product Category Fullwidth<span
-                                            class="tip tip-new">New</span></span></a>
-                        </li>
-                        <li><a href="cart.html">Cart</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
-                        <li><a href="wishlist.html">Wishlist</a></li>
-                        <li><a href="#">Lookbook</a></li>
-                    </ul>
                 </li>
                 <li>
                     <a href="product.html" class="sf-with-ul">Product</a>
@@ -398,7 +80,7 @@ if (isset($_POST['checkout-form'])) {
                         <li><a href="product-centered.html">Centered</a></li>
                         <li>
                             <a href="product-extended.html"><span>Extended Info<span
-                                            class="tip tip-new">New</span></span></a>
+                                        class="tip tip-new">New</span></span></a>
                         </li>
                         <li><a href="product-gallery.html">Gallery</a></li>
                         <li><a href="product-sticky.html">Sticky Info</a></li>
@@ -428,7 +110,7 @@ if (isset($_POST['checkout-form'])) {
                                 <li><a href="contact-2.html">Contact 02</a></li>
                             </ul>
                         </li>
-                        <li><a href="login.php">Login</a></li>
+                        <li><a href="../login.php">Login</a></li>
                         <li><a href="faq.html">FAQs</a></li>
                         <li><a href="404.html">Error 404</a></li>
                         <li><a href="coming-soon.html">Coming Soon</a></li>
@@ -520,13 +202,13 @@ if (isset($_POST['checkout-form'])) {
 
         <div class="social-icons">
             <a href="#" class="social-icon" target="_blank" title="Facebook"><i
-                        class="icon-facebook-f"></i></a>
+                    class="icon-facebook-f"></i></a>
             <a href="#" class="social-icon" target="_blank" title="Twitter"><i
-                        class="icon-twitter"></i></a>
+                    class="icon-twitter"></i></a>
             <a href="#" class="social-icon" target="_blank" title="Instagram"><i
-                        class="icon-instagram"></i></a>
+                    class="icon-instagram"></i></a>
             <a href="#" class="social-icon" target="_blank" title="Youtube"><i
-                        class="icon-youtube"></i></a>
+                    class="icon-youtube"></i></a>
         </div><!-- End .social-icons -->
     </div><!-- End .mobile-menu-wrapper -->
 </div><!-- End .mobile-menu-container -->

@@ -66,8 +66,8 @@ if (isset($_GET['filter'])) {
 $errors = array();
 
 //handle search query
-if (isset($_POST['search'])) {
-    $search = $_POST['search'];
+if (isset($_GET['search'])) {
+    $search = $_GET['search'];
     $sql = "SELECT * FROM products WHERE name LIKE '%$search%'";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
@@ -76,7 +76,7 @@ if (isset($_POST['search'])) {
 ?>
 
 
-<?php include('../components/Navbar.php'); ?>
+<?php include('../components/NavBar.php'); ?>
 <div class="page-wrapper">
     <main class="main">
         <div class="page-header text-center" style="background-image: url('../assets/images/page-header-bg.jpg')">

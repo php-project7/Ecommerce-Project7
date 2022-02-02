@@ -62,6 +62,9 @@ if (isset($_GET['logout'])) {
     <link rel="stylesheet" href="../assets/css/skins/skin-demo-4.css" />
     <link rel="stylesheet" href="../assets/css/demos/demo-4.css" />
 
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
 
 <body>
@@ -158,7 +161,7 @@ if (isset($_GET['logout'])) {
                     <div class="header-search">
                         <!-- <a class="search-toggle" role="button" title="Search"><i class="icon-search"></i></a> -->
 
-                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
                             <input type="text" name="search" class="form-control" placeholder="Search"
                                 style="border: 1px solid #dedede;">
                             <button hidden type="submit" class="search-btn"><i class="icon-search"></i></button>
