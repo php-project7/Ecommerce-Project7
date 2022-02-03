@@ -13,6 +13,7 @@ $create_category_errors = array();
 if (!empty($_POST)) {
     $category_name = $_POST['category_name'];
     $category_description = $_POST['category_description'];
+    $category_img =$_POST['category_img'];
 
     if (empty($category_name)) {
         $create_category_errors['$category_name'] = "Category Name is required";
@@ -20,6 +21,9 @@ if (!empty($_POST)) {
     if (empty($category_description)) {
         $create_category_errors['$category_description']
             = "Category Description is required";
+    }
+    if (empty($category_img)) {
+        $create_category_errors['$category_img'] = "Category Image is required";
     }
 
 //    handle if product id already exists
@@ -84,6 +88,17 @@ if (!empty($_POST)) {
                                class="form-control">
                     </div>
                 </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <label for="category_img"
+                                       class=" form-control-label">Category
+                                    Image </label>
+                            </div>
+                            <input type="text" id="category_img"
+                                   name="category_img"
+                                   placeholder="Add Category Image"
+                                   class="form-control">
+                        </div>
                 <div class="form-actions form-group">
                     <button type="submit" class="btn btn-success btn-sm">
                         Submit

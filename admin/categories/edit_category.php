@@ -17,7 +17,7 @@ if (isset($_GET['id'])){
         $category_id = isset($_POST['category_id']) ? $_POST['category_id'] : NULL;
         $category_name = isset($_POST['category_name']) ? $_POST['category_name'] : NULL;
         $category_description = isset($_POST['category_description']) ? $_POST['category_description'] : NULL;
-
+        $category_img = isset($_POST['category_img']) ? $_POST['category_img'] : NULL;
         if (empty($category_name)) {
             $edit_category_errors['$category_name'] = "Category Name is required";
         }
@@ -40,11 +40,12 @@ if (isset($_GET['id'])){
         if (empty($edit_category_errors)) {
 
             // update product using pdo prepared statement
-            $sql = "UPDATE categories SET name = :category_name, description = :category_description WHERE id = :category_id";
+            $sql = "UPDATE categories SET name = :category_name, description = :category_description, img= :category_img WHERE id = :category_id";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':category_name', $category_name);
             $stmt->bindParam(':category_description', $category_description);
             $stmt->bindParam(':category_id', $category_id);
+            $stmt->bindParam(':category_img', $category_img);
             $stmt->execute();
 
             $msg = "Category updated successfully";
@@ -111,6 +112,17 @@ else {
                                 </div>
                                 <input type="text" id="product_desc" name="category_description" placeholder="Enter Category description" value="<?=$category['description']?>" class="form-control">
                             </div>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <label for="category_img"
+                                       class=" form-control-label">Category
+                                    Image </label>
+                            </div>
+                            <input type="text" id="category_img"
+                                   name="category_img"
+                                   placeholder="Add Category Image"
+                                   class="form-control">
                         </div>
                         <div class="form-actions form-group">
                             <button type="submit" class="btn btn-success btn-sm">Update</button>
