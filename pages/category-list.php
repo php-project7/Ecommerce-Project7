@@ -154,11 +154,24 @@ if (isset($_GET['search'])) {
                                                 </div><!-- End .ratings -->
                                                 <span class="ratings-text">( <?= count($review_review) ?> Reviews
                                                     )</span>
+
                                             </div><!-- End .rating-container -->
+                                            <span>
+                                                <?php
+                                                //get how many in stock of this product
+                                                $sql = "SELECT * FROM products WHERE id = :product_id";
+                                                $stmt = $pdo->prepare($sql);
+                                                $stmt->execute(['product_id' => $product['id']]);
+                                                $product = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                $in_stock = $product['stock'];
+                                                ?>
+                                                <span class=" badge badge-success">
+                                        <?php echo $in_stock?> in stock
+                                            </span>
 
 
 
-                                            <form method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
+                                            <form class="mt-2" method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
                                                 <div class="product-details-action">
                                                     <?php //handle to check if number of product stock is 0
                                                             if ($product['stock'] == 0) { ?>
