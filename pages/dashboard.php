@@ -266,13 +266,13 @@ if (isset($_POST['submit_save'])) {
                                         <input type="email" class="form-control" value="<?= $user_email ?>"
                                                name="user_email" placeholderrequired>
 
-                                        <label>Current password (leave blank to leave unchanged)</label>
+                                        <label>Current password</label>
                                         <input type="password" class="form-control" name="user_password">
 
                                         <label>New password (leave blank to leave unchanged)</label>
                                         <input type="password" class="form-control" name="new_password">
 
-                                        <label>Confirm new password</label>
+                                        <label>Confirm new password (leave blank to leave unchanged)</label>
                                         <input type="password" class="form-control mb-2" name="confirm_password">
 
                                         <button type="submit" class="btn btn-outline-primary-2" name="submit_save">
