@@ -63,7 +63,21 @@ $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                         }
                                     }
                                     ?>
+                                    <p class="card-text">
+                                        <?php
+                                        //get how many in stock of this product
+                                        $sql = "SELECT * FROM products WHERE id = :product_id";
+                                        $stmt = $pdo->prepare($sql);
+                                        $stmt->execute(['product_id' => $product['id']]);
+                                        $product = $stmt->fetch(PDO::FETCH_ASSOC);
+                                        $in_stock = $product['stock'];
+                                        ?>
+                                        <span class=" badge badge-success">
+                                        <?php echo $in_stock?> in stock
+                                    </span>
+                                    </p>
                                 </div>
+
                             </div>
                         </div>
                     <?php }?>

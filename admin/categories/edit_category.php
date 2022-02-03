@@ -2,7 +2,7 @@
 include('../../admin/config/server.php');
 
 
-if (($_SESSION['Role']) != 1) {
+if (($_SESSION['Role']) != 1 ) {
     $_SESSION['msg'] = "You must log in first";
     echo "<script>alert('You must log in first');</script>";
 
@@ -25,6 +25,17 @@ if (isset($_GET['id'])){
             $edit_category_errors['$category_description'] = "Category Description is required";
         }
 
+        //if category name is already in the database
+        $sql = "SELECT * FROM categories WHERE name = '$category_name'";
+        //pdo
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        if (count($result) > 0) {
+            $edit_category_errors['$category_name'] = "Category Name already exists";
+        }
+
+
         // if no errors
         if (empty($edit_category_errors)) {
 
@@ -42,7 +53,7 @@ if (isset($_GET['id'])){
             header('location: ../categories/');
         }
         else {
-            $msg = "Error updating product";
+            $msg = "Error updating category";
         }
     }
     $sql = "SELECT * FROM categories WHERE id = :category_id";
@@ -52,7 +63,7 @@ if (isset($_GET['id'])){
     $category = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (empty($category)) {
-        $msg = "Product not found";
+        $msg = "category not found";
     }
 
     // get categories from database
@@ -73,7 +84,7 @@ else {
         <div class="col-lg-9">
             <div class="card">
                 <div class="card-header">
-                    Update Product #<?=$category['id']?>
+                    Update Category #<?=$category['id']?>
                 </div>
                 <div class="card-body card-block">
                     <form action="edit_category.php?id=<?=$category['id']?>" method= "post" class="">
@@ -84,14 +95,11 @@ else {
                         ?>
                         <div class="form-group">
                             <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-sort-numeric-asc"></i>
-                                </div>
-                                <input class="ml-2" type="text" name="category_id" placeholder="26" value="<?=$category['id']?>" readonly>
+                                <input hidden class="ml-2" type="text" name="category_id" placeholder="26" value="<?=$category['id']?>" readonly>
                             </div>
                             <div class="input-group">
                                 <div class="input-group-addon">
-                                    <i class="fa fa-user"></i>
+                                    <label class="form-control-label">Category Name</label>
                                 </div>
                                 <input type="text" id="product_name" name="category_name" value="<?=$category['name']?>" placeholder="Enter Category name" class="form-control">
                             </div>
@@ -99,7 +107,7 @@ else {
                         <div class="form-group">
                             <div class="input-group">
                                 <div class="input-group-addon">
-                                    <i class="fa fa-asterisk"></i>
+                                    <label class="form-control-label">Category Description</label>
                                 </div>
                                 <input type="text" id="product_desc" name="category_description" placeholder="Enter Category description" value="<?=$category['description']?>" class="form-control">
                             </div>

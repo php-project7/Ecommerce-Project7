@@ -158,8 +158,10 @@ if (isset($_GET['logout'])) {
                                             <td><?=$user['email']?></td>
                                             <td class="text-right"><?php if ($user['role'] == 1): ?>
                                                     <span class="badge badge-success">Admin</span>
+                                                <?php elseif ($user['role'] == 2) : ?>
+                                                    <span class="badge badge-danger">Super Admin</span>
                                                 <?php else: ?>
-                                                    <span class="badge badge-danger">User</span>
+                                                    <span class="badge badge-primary">User</span>
                                                 <?php endif; ?>
                                             </td>
                                             <td class="actions">

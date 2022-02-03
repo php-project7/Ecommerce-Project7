@@ -1,7 +1,7 @@
 <?php
 require('../config/connection.php');
 
-if (($_SESSION['Role']) != 1) {
+if (($_SESSION['Role']) != 1 || $_SESSION['Role'] != 2) {
     $_SESSION['msg'] = "You must log in first";
     echo "<script>alert('You must log in first');</script>";
 

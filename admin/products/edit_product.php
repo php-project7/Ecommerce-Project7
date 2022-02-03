@@ -44,6 +44,7 @@ if (isset($_GET['id'])){
             $edit_products_errors['category_id'] = "Category ID is required";
         }
 
+
         // if no errors
         if (empty($edit_products_errors)) {
 
