@@ -66,8 +66,8 @@ try {
         $superTotal = 0;
     }
 } catch (PDOException $e) {
-    // echo "error" . $e->getMessage();
-    echo "You are not logged in";
+    echo "error" . $e->getMessage();
+    // echo "You are not logged in";
 }
 
 function mahdiReload()
